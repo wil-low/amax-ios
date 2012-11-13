@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
+		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
+		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
+		84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC771647BB3E007188B1 /* InfoPlist.strings */; };
+		84B1AC7B1647BB3E007188B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC7A1647BB3E007188B1 /* main.m */; };
+		84B1AC7F1647BB3E007188B1 /* AmaxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */; };
+		84B1AC821647BB3E007188B1 /* AmaxMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC811647BB3E007188B1 /* AmaxMasterViewController.m */; };
+		84B1AC851647BB3E007188B1 /* AmaxDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC841647BB3E007188B1 /* AmaxDetailViewController.m */; };
+		84B1AC881647BB3E007188B1 /* AmaxMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC861647BB3E007188B1 /* AmaxMasterViewController.xib */; };
+		84B1AC8B1647BB3E007188B1 /* AmaxDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC891647BB3E007188B1 /* AmaxDetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84B1AC721647BB3E007188B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		84B1AC761647BB3E007188B1 /* Astromaximum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Astromaximum-Info.plist"; sourceTree = "<group>"; };
+		84B1AC781647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84B1AC7A1647BB3E007188B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84B1AC7C1647BB3E007188B1 /* Astromaximum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Prefix.pch"; sourceTree = "<group>"; };
+		84B1AC7D1647BB3E007188B1 /* AmaxAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxAppDelegate.h; sourceTree = "<group>"; };
+		84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxAppDelegate.m; sourceTree = "<group>"; };
+		84B1AC801647BB3E007188B1 /* AmaxMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxMasterViewController.h; sourceTree = "<group>"; };
+		84B1AC811647BB3E007188B1 /* AmaxMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxMasterViewController.m; sourceTree = "<group>"; };
+		84B1AC831647BB3E007188B1 /* AmaxDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxDetailViewController.h; sourceTree = "<group>"; };
+		84B1AC841647BB3E007188B1 /* AmaxDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxDetailViewController.m; sourceTree = "<group>"; };
+		84B1AC871647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxMasterViewController.xib; sourceTree = "<group>"; };
+		84B1AC8A1647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxDetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84B1AC671647BB3E007188B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */,
+				84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */,
+				84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84B1AC5F1647BB3E007188B1 = {
+			isa = PBXGroup;
+			children = (
+				84B1AC741647BB3E007188B1 /* Astromaximum */,
+				84B1AC6D1647BB3E007188B1 /* Frameworks */,
+				84B1AC6B1647BB3E007188B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84B1AC6B1647BB3E007188B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84B1AC6A1647BB3E007188B1 /* Astromaximum.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84B1AC6D1647BB3E007188B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84B1AC6E1647BB3E007188B1 /* UIKit.framework */,
+				84B1AC701647BB3E007188B1 /* Foundation.framework */,
+				84B1AC721647BB3E007188B1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84B1AC741647BB3E007188B1 /* Astromaximum */ = {
+			isa = PBXGroup;
+			children = (
+				84B1AC7D1647BB3E007188B1 /* AmaxAppDelegate.h */,
+				84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */,
+				84B1AC801647BB3E007188B1 /* AmaxMasterViewController.h */,
+				84B1AC811647BB3E007188B1 /* AmaxMasterViewController.m */,
+				84B1AC831647BB3E007188B1 /* AmaxDetailViewController.h */,
+				84B1AC841647BB3E007188B1 /* AmaxDetailViewController.m */,
+				84B1AC861647BB3E007188B1 /* AmaxMasterViewController.xib */,
+				84B1AC891647BB3E007188B1 /* AmaxDetailViewController.xib */,
+				84B1AC751647BB3E007188B1 /* Supporting Files */,
+			);
+			path = Astromaximum;
+			sourceTree = "<group>";
+		};
+		84B1AC751647BB3E007188B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84B1AC761647BB3E007188B1 /* Astromaximum-Info.plist */,
+				84B1AC771647BB3E007188B1 /* InfoPlist.strings */,
+				84B1AC7A1647BB3E007188B1 /* main.m */,
+				84B1AC7C1647BB3E007188B1 /* Astromaximum-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84B1AC691647BB3E007188B1 /* Astromaximum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84B1AC8E1647BB3E007188B1 /* Build configuration list for PBXNativeTarget "Astromaximum" */;
+			buildPhases = (
+				84B1AC661647BB3E007188B1 /* Sources */,
+				84B1AC671647BB3E007188B1 /* Frameworks */,
+				84B1AC681647BB3E007188B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Astromaximum;
+			productName = Astromaximum;
+			productReference = 84B1AC6A1647BB3E007188B1 /* Astromaximum.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84B1AC611647BB3E007188B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 84B1AC641647BB3E007188B1 /* Build configuration list for PBXProject "Astromaximum" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 84B1AC5F1647BB3E007188B1;
+			productRefGroup = 84B1AC6B1647BB3E007188B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84B1AC691647BB3E007188B1 /* Astromaximum */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84B1AC681647BB3E007188B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */,
+				84B1AC881647BB3E007188B1 /* AmaxMasterViewController.xib in Resources */,
+				84B1AC8B1647BB3E007188B1 /* AmaxDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84B1AC661647BB3E007188B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84B1AC7B1647BB3E007188B1 /* main.m in Sources */,
+				84B1AC7F1647BB3E007188B1 /* AmaxAppDelegate.m in Sources */,
+				84B1AC821647BB3E007188B1 /* AmaxMasterViewController.m in Sources */,
+				84B1AC851647BB3E007188B1 /* AmaxDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		84B1AC771647BB3E007188B1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84B1AC781647BB3E007188B1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		84B1AC861647BB3E007188B1 /* AmaxMasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84B1AC871647BB3E007188B1 /* en */,
+			);
+			name = AmaxMasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		84B1AC891647BB3E007188B1 /* AmaxDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84B1AC8A1647BB3E007188B1 /* en */,
+			);
+			name = AmaxDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84B1AC8C1647BB3E007188B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		84B1AC8D1647BB3E007188B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84B1AC8F1647BB3E007188B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
+				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		84B1AC901647BB3E007188B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
+				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84B1AC641647BB3E007188B1 /* Build configuration list for PBXProject "Astromaximum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B1AC8C1647BB3E007188B1 /* Debug */,
+				84B1AC8D1647BB3E007188B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84B1AC8E1647BB3E007188B1 /* Build configuration list for PBXNativeTarget "Astromaximum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84B1AC8F1647BB3E007188B1 /* Debug */,
+				84B1AC901647BB3E007188B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84B1AC611647BB3E007188B1 /* Project object */;
+}
