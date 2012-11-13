@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Главная", @"Master");
+        self.title = NSLocalizedString(@"Summary", @"Summary");
     }
     return self;
 }
@@ -138,7 +138,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.detailViewController) {
-        self.detailViewController = [[AmaxDetailViewController alloc] initWithNibName:@"AmaxDetailViewController1" bundle:nil];
+        self.detailViewController = [[AmaxDetailViewController alloc] initWithNibName:@"AmaxDetailViewController" bundle:nil];
     }
     [self.navigationController pushViewController:self.detailViewController animated:YES];
 }
