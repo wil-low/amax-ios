@@ -7,6 +7,7 @@
 //
 
 #import "AmaxDataProvider.h"
+#import "AmaxPrefs.h"
 
 @implementation AmaxDataProvider
 
@@ -25,9 +26,28 @@
     return (AmaxDataProvider *)sharedInstance;
 }
 
-- (NSString *)getDocumentsDirectory
++ (NSString *)getDocumentsDirectory
 {  
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
-    return [paths objectAtIndex:0];  
+    return [paths objectAtIndex:0];
 }
+
+- (void) loadLocationById:(NSString *)locationId
+{
+    
+}
+
+- (void)saveCurrentState
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@"Kiev" forKey:AMAX_PREFS_KEY_LOCATION_ID];
+}
+
+- (void)restoreSavedState
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *locationId = [userDefaults stringForKey:AMAX_PREFS_KEY_LOCATION_ID];
+    [self loadLocationById:locationId];
+}
+
 @end

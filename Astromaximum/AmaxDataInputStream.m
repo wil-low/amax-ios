@@ -1,0 +1,84 @@
+//
+//  AmaxDataInputStream.m
+//  Astromaximum
+//
+//  Created by admin on 14.11.12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import "AmaxDataInputStream.h"
+
+@implementation AmaxDataInputStream
+
+- (AmaxDataInputStream *)initWithBytes:(void *)bytes length:(NSUInteger)length
+{
+    dataLength = length;
+    data = malloc(dataLength);
+    memcpy(data, bytes, dataLength);
+    return self;
+}
+
+- (AmaxDataInputStream *)initWithData:(NSData *)rawData
+{
+    dataLength = [rawData length];
+    data = malloc(dataLength);
+    memcpy(data, [rawData bytes], dataLength);
+    return self;
+}
+
+- (void) dealloc
+{
+    free(data);
+}
+
+- (void)reset
+{
+    position = 0;
+}
+
+- (void)skipBytes:(size_t)byteCount
+{
+    position += byteCount;
+}
+
+- (SInt16)readShort
+{
+    SInt16 res = data[position++];
+    res <<= 8;
+    res += data[position++];
+    return res;
+}
+
+- (unsigned char)readUnsignedByte
+{
+    return data[position++];
+}
+
+- (UInt16)readUnsignedShort
+{
+    UInt32 n0 = data[position++];
+    UInt32 n1 = data[position++];
+    return (n0 << 8) + n1;
+    
+}
+
+- (Size)availableBytes
+{
+    return dataLength - position;
+}
+
+- (void)readToBuffer:(void *)buffer length:(Size)byteCount
+{
+    memcpy(buffer, &data[position], byteCount);
+}
+
+- (NSString *)readUTF
+{
+    UInt16 stringLength = [self readUnsignedShort];
+    char *buffer = malloc(stringLength + 1);
+    [self readToBuffer:buffer length:stringLength];
+    buffer[stringLength] = 0;
+    return [[NSString alloc]initWithCString:buffer encoding:NSUTF8StringEncoding];
+}
+
+@end

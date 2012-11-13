@@ -16,7 +16,10 @@
 }
 
 + (AmaxDataProvider *)sharedInstance;
-- (NSString *)getDocumentsDirectory;
++ (NSString *)getDocumentsDirectory;
+
+- (void)saveCurrentState;
+- (void)restoreSavedState;
 
 @property (strong, nonatomic) NSArray * eventCache;
 

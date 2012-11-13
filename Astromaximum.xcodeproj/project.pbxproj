@@ -12,6 +12,8 @@
 		84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FA61652B39D001CAC91 /* AmaxDataProvider.m */; };
 		84945FAC1652BD72001CAC91 /* SummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FAB1652BD72001CAC91 /* SummaryItem.m */; };
 		84945FAF1652C457001CAC91 /* AmaxCommonDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FAE1652C457001CAC91 /* AmaxCommonDataFile.m */; };
+		84945FB21652EFA2001CAC91 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FB11652EFA2001CAC91 /* AmaxPrefs.m */; };
+		84945FB91652FA81001CAC91 /* AmaxDataInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FB81652FA81001CAC91 /* AmaxDataInputStream.m */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -33,6 +35,10 @@
 		84945FAB1652BD72001CAC91 /* SummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryItem.m; sourceTree = "<group>"; };
 		84945FAD1652C457001CAC91 /* AmaxCommonDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxCommonDataFile.h; sourceTree = "<group>"; };
 		84945FAE1652C457001CAC91 /* AmaxCommonDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxCommonDataFile.m; sourceTree = "<group>"; };
+		84945FB01652EFA2001CAC91 /* AmaxPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxPrefs.h; sourceTree = "<group>"; };
+		84945FB11652EFA2001CAC91 /* AmaxPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxPrefs.m; sourceTree = "<group>"; };
+		84945FB71652FA81001CAC91 /* AmaxDataInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxDataInputStream.h; sourceTree = "<group>"; };
+		84945FB81652FA81001CAC91 /* AmaxDataInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxDataInputStream.m; sourceTree = "<group>"; };
 		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,6 +80,10 @@
 				84945FAB1652BD72001CAC91 /* SummaryItem.m */,
 				84945FAD1652C457001CAC91 /* AmaxCommonDataFile.h */,
 				84945FAE1652C457001CAC91 /* AmaxCommonDataFile.m */,
+				84945FB01652EFA2001CAC91 /* AmaxPrefs.h */,
+				84945FB11652EFA2001CAC91 /* AmaxPrefs.m */,
+				84945FB71652FA81001CAC91 /* AmaxDataInputStream.h */,
+				84945FB81652FA81001CAC91 /* AmaxDataInputStream.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -207,6 +217,8 @@
 				84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */,
 				84945FAC1652BD72001CAC91 /* SummaryItem.m in Sources */,
 				84945FAF1652C457001CAC91 /* AmaxCommonDataFile.m in Sources */,
+				84945FB21652EFA2001CAC91 /* AmaxPrefs.m in Sources */,
+				84945FB91652FA81001CAC91 /* AmaxDataInputStream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
