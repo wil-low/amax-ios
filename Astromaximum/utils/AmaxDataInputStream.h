@@ -26,6 +26,8 @@
 - (SInt16)readShort;
 - (unsigned char)readUnsignedByte;
 - (UInt16)readUnsignedShort;
+- (int)readInt;
+
 - (void)readToBuffer:(void *)buffer length:(Size)byteCount;
 - (NSString *)readUTF;
 @end

@@ -34,7 +34,10 @@
 
 - (void) loadLocationById:(NSString *)locationId
 {
-    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:locationId ofType:@"dat"];
+    if (filePath == nil) {
+        
+    }
 }
 
 - (void)saveCurrentState

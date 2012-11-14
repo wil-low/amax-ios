@@ -14,6 +14,9 @@
 		84945FA21652B2E5001CAC91 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA01652B2E5001CAC91 /* common.dat */; };
 		84945FA31652B2E5001CAC91 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA11652B2E5001CAC91 /* locations.dat */; };
 		84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FA61652B39D001CAC91 /* AmaxDataProvider.m */; };
+		8498DA8116543D6400BB4063 /* AmaxLocationBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8498DA8016543D6400BB4063 /* AmaxLocationBundle.m */; };
+		8498DA871654467500BB4063 /* AmaxLocationDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8498DA861654467500BB4063 /* AmaxLocationDataFile.m */; };
+		8498DA911654574900BB4063 /* AmaxTimezoneTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8498DA901654574900BB4063 /* AmaxTimezoneTransition.m */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -39,6 +42,12 @@
 		84945FA11652B2E5001CAC91 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
 		84945FA51652B39D001CAC91 /* AmaxDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxDataProvider.h; path = utils/AmaxDataProvider.h; sourceTree = "<group>"; };
 		84945FA61652B39D001CAC91 /* AmaxDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxDataProvider.m; path = utils/AmaxDataProvider.m; sourceTree = "<group>"; };
+		8498DA7F16543D6400BB4063 /* AmaxLocationBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxLocationBundle.h; path = utils/AmaxLocationBundle.h; sourceTree = "<group>"; };
+		8498DA8016543D6400BB4063 /* AmaxLocationBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxLocationBundle.m; path = utils/AmaxLocationBundle.m; sourceTree = "<group>"; };
+		8498DA851654467500BB4063 /* AmaxLocationDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxLocationDataFile.h; path = utils/AmaxLocationDataFile.h; sourceTree = "<group>"; };
+		8498DA861654467500BB4063 /* AmaxLocationDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxLocationDataFile.m; path = utils/AmaxLocationDataFile.m; sourceTree = "<group>"; };
+		8498DA8C1654500300BB4063 /* AmaxTimezoneTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxTimezoneTransition.h; path = utils/AmaxTimezoneTransition.h; sourceTree = "<group>"; };
+		8498DA901654574900BB4063 /* AmaxTimezoneTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxTimezoneTransition.m; path = utils/AmaxTimezoneTransition.m; sourceTree = "<group>"; };
 		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,16 +83,22 @@
 		84945FA81652B3A6001CAC91 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				845A2B3216543C360076BFA3 /* AmaxPrefs.h */,
-				845A2B3316543C360076BFA3 /* AmaxPrefs.m */,
-				845A2B3416543C360076BFA3 /* SummaryItem.h */,
-				845A2B3516543C360076BFA3 /* SummaryItem.m */,
 				845A2B2C16543C2B0076BFA3 /* AmaxCommonDataFile.h */,
 				845A2B2D16543C2B0076BFA3 /* AmaxCommonDataFile.m */,
 				845A2B2E16543C2B0076BFA3 /* AmaxDataInputStream.h */,
 				845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */,
 				84945FA51652B39D001CAC91 /* AmaxDataProvider.h */,
 				84945FA61652B39D001CAC91 /* AmaxDataProvider.m */,
+				8498DA7F16543D6400BB4063 /* AmaxLocationBundle.h */,
+				8498DA8016543D6400BB4063 /* AmaxLocationBundle.m */,
+				8498DA851654467500BB4063 /* AmaxLocationDataFile.h */,
+				8498DA861654467500BB4063 /* AmaxLocationDataFile.m */,
+				845A2B3216543C360076BFA3 /* AmaxPrefs.h */,
+				845A2B3316543C360076BFA3 /* AmaxPrefs.m */,
+				8498DA8C1654500300BB4063 /* AmaxTimezoneTransition.h */,
+				8498DA901654574900BB4063 /* AmaxTimezoneTransition.m */,
+				845A2B3416543C360076BFA3 /* SummaryItem.h */,
+				845A2B3516543C360076BFA3 /* SummaryItem.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -219,6 +234,9 @@
 				845A2B3116543C2B0076BFA3 /* AmaxDataInputStream.m in Sources */,
 				845A2B3616543C360076BFA3 /* AmaxPrefs.m in Sources */,
 				845A2B3716543C360076BFA3 /* SummaryItem.m in Sources */,
+				8498DA8116543D6400BB4063 /* AmaxLocationBundle.m in Sources */,
+				8498DA871654467500BB4063 /* AmaxLocationDataFile.m in Sources */,
+				8498DA911654574900BB4063 /* AmaxTimezoneTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

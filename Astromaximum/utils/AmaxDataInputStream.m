@@ -62,6 +62,18 @@
     
 }
 
+- (int)readInt
+{
+    int res = data[position++];
+    res <<= 8;
+    res += data[position++];
+    res <<= 8;
+    res += data[position++];
+    res <<= 8;
+    res += data[position++];
+    return res;
+}
+
 - (Size)availableBytes
 {
     return dataLength - position;
