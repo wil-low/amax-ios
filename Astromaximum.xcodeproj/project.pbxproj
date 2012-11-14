@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845A2B3016543C2B0076BFA3 /* AmaxCommonDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B2D16543C2B0076BFA3 /* AmaxCommonDataFile.m */; };
+		845A2B3116543C2B0076BFA3 /* AmaxDataInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */; };
+		845A2B3616543C360076BFA3 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B3316543C360076BFA3 /* AmaxPrefs.m */; };
+		845A2B3716543C360076BFA3 /* SummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B3516543C360076BFA3 /* SummaryItem.m */; };
 		84945FA21652B2E5001CAC91 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA01652B2E5001CAC91 /* common.dat */; };
 		84945FA31652B2E5001CAC91 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA11652B2E5001CAC91 /* locations.dat */; };
 		84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FA61652B39D001CAC91 /* AmaxDataProvider.m */; };
-		84945FAC1652BD72001CAC91 /* SummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FAB1652BD72001CAC91 /* SummaryItem.m */; };
-		84945FAF1652C457001CAC91 /* AmaxCommonDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FAE1652C457001CAC91 /* AmaxCommonDataFile.m */; };
-		84945FB21652EFA2001CAC91 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FB11652EFA2001CAC91 /* AmaxPrefs.m */; };
-		84945FB91652FA81001CAC91 /* AmaxDataInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FB81652FA81001CAC91 /* AmaxDataInputStream.m */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -27,18 +27,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		845A2B2C16543C2B0076BFA3 /* AmaxCommonDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxCommonDataFile.h; path = utils/AmaxCommonDataFile.h; sourceTree = "<group>"; };
+		845A2B2D16543C2B0076BFA3 /* AmaxCommonDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxCommonDataFile.m; path = utils/AmaxCommonDataFile.m; sourceTree = "<group>"; };
+		845A2B2E16543C2B0076BFA3 /* AmaxDataInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxDataInputStream.h; path = utils/AmaxDataInputStream.h; sourceTree = "<group>"; };
+		845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxDataInputStream.m; path = utils/AmaxDataInputStream.m; sourceTree = "<group>"; };
+		845A2B3216543C360076BFA3 /* AmaxPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxPrefs.h; path = utils/AmaxPrefs.h; sourceTree = "<group>"; };
+		845A2B3316543C360076BFA3 /* AmaxPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxPrefs.m; path = utils/AmaxPrefs.m; sourceTree = "<group>"; };
+		845A2B3416543C360076BFA3 /* SummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SummaryItem.h; path = utils/SummaryItem.h; sourceTree = "<group>"; };
+		845A2B3516543C360076BFA3 /* SummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SummaryItem.m; path = utils/SummaryItem.m; sourceTree = "<group>"; };
 		84945FA01652B2E5001CAC91 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
 		84945FA11652B2E5001CAC91 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
 		84945FA51652B39D001CAC91 /* AmaxDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxDataProvider.h; path = utils/AmaxDataProvider.h; sourceTree = "<group>"; };
 		84945FA61652B39D001CAC91 /* AmaxDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxDataProvider.m; path = utils/AmaxDataProvider.m; sourceTree = "<group>"; };
-		84945FAA1652BD71001CAC91 /* SummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryItem.h; sourceTree = "<group>"; };
-		84945FAB1652BD72001CAC91 /* SummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryItem.m; sourceTree = "<group>"; };
-		84945FAD1652C457001CAC91 /* AmaxCommonDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxCommonDataFile.h; sourceTree = "<group>"; };
-		84945FAE1652C457001CAC91 /* AmaxCommonDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxCommonDataFile.m; sourceTree = "<group>"; };
-		84945FB01652EFA2001CAC91 /* AmaxPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxPrefs.h; sourceTree = "<group>"; };
-		84945FB11652EFA2001CAC91 /* AmaxPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxPrefs.m; sourceTree = "<group>"; };
-		84945FB71652FA81001CAC91 /* AmaxDataInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxDataInputStream.h; sourceTree = "<group>"; };
-		84945FB81652FA81001CAC91 /* AmaxDataInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxDataInputStream.m; sourceTree = "<group>"; };
 		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,16 +74,16 @@
 		84945FA81652B3A6001CAC91 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				845A2B3216543C360076BFA3 /* AmaxPrefs.h */,
+				845A2B3316543C360076BFA3 /* AmaxPrefs.m */,
+				845A2B3416543C360076BFA3 /* SummaryItem.h */,
+				845A2B3516543C360076BFA3 /* SummaryItem.m */,
+				845A2B2C16543C2B0076BFA3 /* AmaxCommonDataFile.h */,
+				845A2B2D16543C2B0076BFA3 /* AmaxCommonDataFile.m */,
+				845A2B2E16543C2B0076BFA3 /* AmaxDataInputStream.h */,
+				845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */,
 				84945FA51652B39D001CAC91 /* AmaxDataProvider.h */,
 				84945FA61652B39D001CAC91 /* AmaxDataProvider.m */,
-				84945FAA1652BD71001CAC91 /* SummaryItem.h */,
-				84945FAB1652BD72001CAC91 /* SummaryItem.m */,
-				84945FAD1652C457001CAC91 /* AmaxCommonDataFile.h */,
-				84945FAE1652C457001CAC91 /* AmaxCommonDataFile.m */,
-				84945FB01652EFA2001CAC91 /* AmaxPrefs.h */,
-				84945FB11652EFA2001CAC91 /* AmaxPrefs.m */,
-				84945FB71652FA81001CAC91 /* AmaxDataInputStream.h */,
-				84945FB81652FA81001CAC91 /* AmaxDataInputStream.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -120,12 +120,12 @@
 			children = (
 				84B1AC7D1647BB3E007188B1 /* AmaxAppDelegate.h */,
 				84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */,
-				84B1AC801647BB3E007188B1 /* AmaxMasterViewController.h */,
-				84B1AC811647BB3E007188B1 /* AmaxMasterViewController.m */,
 				84B1AC831647BB3E007188B1 /* AmaxDetailViewController.h */,
 				84B1AC841647BB3E007188B1 /* AmaxDetailViewController.m */,
-				84B1AC861647BB3E007188B1 /* AmaxMasterViewController.xib */,
 				84B1AC891647BB3E007188B1 /* AmaxDetailViewController.xib */,
+				84B1AC801647BB3E007188B1 /* AmaxMasterViewController.h */,
+				84B1AC811647BB3E007188B1 /* AmaxMasterViewController.m */,
+				84B1AC861647BB3E007188B1 /* AmaxMasterViewController.xib */,
 				84B1AC751647BB3E007188B1 /* Supporting Files */,
 				84945FA81652B3A6001CAC91 /* Utils */,
 			);
@@ -135,12 +135,12 @@
 		84B1AC751647BB3E007188B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84945FA01652B2E5001CAC91 /* common.dat */,
-				84945FA11652B2E5001CAC91 /* locations.dat */,
 				84B1AC761647BB3E007188B1 /* Astromaximum-Info.plist */,
-				84B1AC771647BB3E007188B1 /* InfoPlist.strings */,
-				84B1AC7A1647BB3E007188B1 /* main.m */,
 				84B1AC7C1647BB3E007188B1 /* Astromaximum-Prefix.pch */,
+				84945FA01652B2E5001CAC91 /* common.dat */,
+				84B1AC771647BB3E007188B1 /* InfoPlist.strings */,
+				84945FA11652B2E5001CAC91 /* locations.dat */,
+				84B1AC7A1647BB3E007188B1 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,10 +215,10 @@
 				84B1AC821647BB3E007188B1 /* AmaxMasterViewController.m in Sources */,
 				84B1AC851647BB3E007188B1 /* AmaxDetailViewController.m in Sources */,
 				84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */,
-				84945FAC1652BD72001CAC91 /* SummaryItem.m in Sources */,
-				84945FAF1652C457001CAC91 /* AmaxCommonDataFile.m in Sources */,
-				84945FB21652EFA2001CAC91 /* AmaxPrefs.m in Sources */,
-				84945FB91652FA81001CAC91 /* AmaxDataInputStream.m in Sources */,
+				845A2B3016543C2B0076BFA3 /* AmaxCommonDataFile.m in Sources */,
+				845A2B3116543C2B0076BFA3 /* AmaxDataInputStream.m in Sources */,
+				845A2B3616543C360076BFA3 /* AmaxPrefs.m in Sources */,
+				845A2B3716543C360076BFA3 /* SummaryItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
