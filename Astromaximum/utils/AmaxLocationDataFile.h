@@ -12,21 +12,21 @@
 
 @interface AmaxLocationDataFile : NSObject
 {
-	int startYear;
-	int startMonth;
-	int startDay;
-	int dayCount;
-	int cityId;
-	int coords[3];
-	NSString *city;
-	NSString *state;
-	NSString *country;
-	NSString *timezone;
+    int coords[3];
 	NSString *customData;
 	NSMutableArray *transitions;
 	AmaxDataInputStream *data;
 }
+@property (readonly) int mStartYear;
+@property (readonly) int mStartMonth;
+@property (readonly) int mStartDay;
+@property (readonly) int mDayCount;
+@property (readonly) int mCityId;
+@property (readonly, strong, nonatomic) NSString *mCity;
+@property (readonly, strong, nonatomic) NSString *mState;
+@property (readonly, strong, nonatomic) NSString *mCountry;
+@property (readonly, strong, nonatomic) NSString *mTimezone;
 
-- (id)initWithFilePath:(NSString *)filePath;
+- (id)initWithBytes:(void *)bytes length:(NSUInteger)length;
 
 @end

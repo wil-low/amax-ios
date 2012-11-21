@@ -15,15 +15,14 @@
 
 {
     AmaxCommonDataFile * commonDataFile;
+    NSString * documentsDirectory;
     AmaxEvent * mEvents[100];
 }
 
 + (AmaxDataProvider *)sharedInstance;
-+ (NSString *)getDocumentsDirectory;
 
 - (void)saveCurrentState;
 - (void)restoreSavedState;
-- (int) readSubDataFromStream:(AmaxDataInputStream *)stream type:(AmaxEventType)evtype planet:(AmaxPlanet)planet isCommon:(BOOL)isCommon dayStart:(long)dayStart dayEnd:(long)dayEnd;
 
 @property (strong, nonatomic) NSArray * eventCache;
 @property long mStartJD;

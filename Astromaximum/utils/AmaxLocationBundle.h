@@ -11,10 +11,11 @@
 
 @interface AmaxLocationBundle : NSObject
 {
-    int recordCount;
     int* recordLengths;
     AmaxDataInputStream *locStream;
 }
+@property int mRecordCount;
+
 
 - (id)initWithFilePath:(NSString *)filePath;
 - (void) dealloc;

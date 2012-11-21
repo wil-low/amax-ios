@@ -11,28 +11,37 @@
 
 @implementation AmaxLocationDataFile
 
-- (id)initWithFilePath:(NSString *)filePath
+@synthesize mStartYear = _mStartYear;
+@synthesize mStartMonth = _mStartMonth;
+@synthesize mStartDay = _mStartDay;
+@synthesize mDayCount = _mDayCount;
+@synthesize mCityId = _mCityId;
+@synthesize mCity = _mCity;
+@synthesize mState = _mState;
+@synthesize mCountry = _mCountry;
+@synthesize mTimezone = _mTimezone;
+
+- (id)initWithBytes:(void *)bytes length:(NSUInteger)length
 {
-    NSData *fullData = [NSData dataWithContentsOfFile:filePath];
-    AmaxDataInputStream *dis = [[AmaxDataInputStream alloc]initWithData:fullData];
+    AmaxDataInputStream *dis = [[AmaxDataInputStream alloc]initWithBytes:bytes length:length];
     [dis skipBytes:4]; // signature
     char version = [dis readUnsignedByte];
     if (version == 2) {
-        startYear = [dis readShort];
-        startMonth = [dis readUnsignedByte];
-        startDay = [dis readUnsignedByte];
-        dayCount = [dis readShort];
-        cityId = [dis readInt]; // city id
+        _mStartYear = [dis readShort];
+        _mStartMonth = [dis readUnsignedByte];
+        _mStartDay = [dis readUnsignedByte];
+        _mDayCount = [dis readShort];
+        _mCityId = [dis readInt]; // city id
         coords[0] = [dis readShort]; // latitude
         coords[1] = [dis readShort]; // longitude
         coords[2] = [dis readShort]; // altitude
-        city = [dis readUTF]; // city
-        state = [dis readUTF]; // state
-        country = [dis readUTF]; // country
-        timezone = [dis readUTF]; // timezone
+        _mCity = [dis readUTF]; // city
+        _mState = [dis readUTF]; // state
+        _mCountry = [dis readUTF]; // country
+        _mTimezone = [dis readUTF]; // timezone
         customData = [dis readUTF]; // custom data
         int transitionCount = [dis readUnsignedByte];
-        transitions = [NSArray array];
+        transitions = [NSMutableArray array];
         for (int i = 0; i < transitionCount; ++i) {
             NSDate *time = [NSDate dateWithTimeIntervalSince1970:[dis readInt]]; // start_date
             NSTimeInterval offset = [dis readShort] * 60; // gmt_ofs_min

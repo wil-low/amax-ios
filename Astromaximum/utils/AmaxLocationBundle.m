@@ -10,14 +10,16 @@
 
 @implementation AmaxLocationBundle
 
+@synthesize mRecordCount = _mRecordCount;
+
 - (id)initWithFilePath:(NSString *)filePath
 {
     NSData *fullData = [NSData dataWithContentsOfFile:filePath];
     AmaxDataInputStream *is = [[AmaxDataInputStream alloc]initWithData:fullData];
     [is readShort]; // skip year
-    recordCount = [is readUnsignedShort];
-    recordLengths = malloc(recordCount * sizeof(recordLengths[0]));
-    for (int i = 0; i < recordCount; ++i)
+    _mRecordCount = [is readUnsignedShort];
+    recordLengths = malloc(_mRecordCount * sizeof(recordLengths[0]));
+    for (int i = 0; i < _mRecordCount; ++i)
         recordLengths[i] = [is readUnsignedShort];
     Size bufferLength = [is availableBytes];
     char *buffer = malloc(bufferLength);

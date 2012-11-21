@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         }
         @catch (NSException *exception) {
             NSLog(@"Exception - %@", exception);
-            NSLog(@"%@", [exception callStackSymbols]);
+            //NSLog(@"%@", [exception callStackSymbols]);
             exit(EXIT_FAILURE);
         }
         return retVal;

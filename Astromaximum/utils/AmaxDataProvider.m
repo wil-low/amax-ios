@@ -7,6 +7,8 @@
 //
 
 #import "AmaxDataProvider.h"
+#import "AmaxLocationBundle.h"
+#import "AmaxLocationDataFile.h"
 #import "AmaxPrefs.h"
 #import "AmaxEvent.h"
 
@@ -15,6 +17,12 @@
 @synthesize eventCache = _eventCache;
 @synthesize mStartJD = _mStartJD;
 @synthesize mFinalJD = _mFinalJD;
+
++ (NSString *)getDocumentsDirectory
+{  
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
+    return [paths objectAtIndex:0];
+}
 
 + (AmaxDataProvider *)sharedInstance
 {
@@ -25,19 +33,19 @@
         [sharedInstance setEventCache:[NSArray array]];
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"common" ofType:@"dat"];
         sharedInstance->commonDataFile = [[AmaxCommonDataFile alloc] initWithFilePath:filePath];
+        sharedInstance->documentsDirectory = [AmaxDataProvider getDocumentsDirectory];
     });
     return (AmaxDataProvider *)sharedInstance;
 }
 
-+ (NSString *)getDocumentsDirectory
-{  
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
-    return [paths objectAtIndex:0];
+- (NSString *)locationFileById:(NSString* )locationId
+{
+    return [NSString stringWithFormat:@"%@/%@.dat", documentsDirectory, locationId];
 }
 
 - (void) loadLocationById:(NSString *)locationId
 {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:locationId ofType:@"dat"];
+    NSString *filePath = [self locationFileById:locationId];
     if (filePath == nil) {
         
     }
@@ -46,13 +54,40 @@
 - (void)saveCurrentState
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:@"Kiev" forKey:AMAX_PREFS_KEY_LOCATION_ID];
+    //[userDefaults setObject:@"Kiev" forKey:AMAX_PREFS_KEY_LOCATION_ID];
+}
+
+- (NSString *)unbundleLocationAsset
+{
+    NSString *lastLocationId = nil;
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"dat"];
+    AmaxLocationBundle *locBundle = [[AmaxLocationBundle alloc] initWithFilePath:filePath];
+    int index = 0;
+    char buffer[16000];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    for (int i = 0; i < [locBundle mRecordCount]; ++i) {
+        Size bufferSize = [locBundle extractLocationByIndex:index intoBuffer:buffer];
+        AmaxLocationDataFile *datafile = [[AmaxLocationDataFile alloc]initWithBytes:buffer length:bufferSize];
+        lastLocationId = [[NSString alloc]initWithFormat:@"%08X", datafile.mCityId];
+        NSLog(@"%d: %@ %@", index, lastLocationId, datafile.mCity);
+        NSString *locFile = [self locationFileById:lastLocationId];
+        NSData *outputData = [NSData dataWithBytes:buffer length:bufferSize];
+        NSError *error;
+        if ([outputData writeToFile:locFile options:0 error:&error] == NO) {
+            NSLog(@"%@", error);
+            [userDefaults setObject:datafile.mCity forKey:lastLocationId];
+        }
+        ++index;
+    }
+    return lastLocationId;
 }
 
 - (void)restoreSavedState
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *locationId = [userDefaults stringForKey:AMAX_PREFS_KEY_LOCATION_ID];
+    if (locationId == nil) 
+        locationId = [self unbundleLocationAsset];
     [self loadLocationById:locationId];
 }
 
