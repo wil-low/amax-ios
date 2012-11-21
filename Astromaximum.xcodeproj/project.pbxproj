@@ -27,6 +27,7 @@
 		84B1AC851647BB3E007188B1 /* AmaxDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC841647BB3E007188B1 /* AmaxDetailViewController.m */; };
 		84B1AC881647BB3E007188B1 /* AmaxMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC861647BB3E007188B1 /* AmaxMasterViewController.xib */; };
 		84B1AC8B1647BB3E007188B1 /* AmaxDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC891647BB3E007188B1 /* AmaxDetailViewController.xib */; };
+		84CAB598165CCB6B00F0006E /* AmaxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CAB597165CCB6A00F0006E /* AmaxEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,9 @@
 		84B1AC841647BB3E007188B1 /* AmaxDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxDetailViewController.m; sourceTree = "<group>"; };
 		84B1AC871647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxMasterViewController.xib; sourceTree = "<group>"; };
 		84B1AC8A1647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxDetailViewController.xib; sourceTree = "<group>"; };
+		84CAB594165CC61300F0006E /* AmaxTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxTypes.h; path = utils/AmaxTypes.h; sourceTree = "<group>"; };
+		84CAB596165CCB6A00F0006E /* AmaxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxEvent.h; path = utils/AmaxEvent.h; sourceTree = "<group>"; };
+		84CAB597165CCB6A00F0006E /* AmaxEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxEvent.m; path = utils/AmaxEvent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */,
 				84945FA51652B39D001CAC91 /* AmaxDataProvider.h */,
 				84945FA61652B39D001CAC91 /* AmaxDataProvider.m */,
+				84CAB596165CCB6A00F0006E /* AmaxEvent.h */,
+				84CAB597165CCB6A00F0006E /* AmaxEvent.m */,
 				8498DA7F16543D6400BB4063 /* AmaxLocationBundle.h */,
 				8498DA8016543D6400BB4063 /* AmaxLocationBundle.m */,
 				8498DA851654467500BB4063 /* AmaxLocationDataFile.h */,
@@ -97,6 +103,7 @@
 				845A2B3316543C360076BFA3 /* AmaxPrefs.m */,
 				8498DA8C1654500300BB4063 /* AmaxTimezoneTransition.h */,
 				8498DA901654574900BB4063 /* AmaxTimezoneTransition.m */,
+				84CAB594165CC61300F0006E /* AmaxTypes.h */,
 				845A2B3416543C360076BFA3 /* SummaryItem.h */,
 				845A2B3516543C360076BFA3 /* SummaryItem.m */,
 			);
@@ -187,6 +194,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "S&W Axis";
 			};
 			buildConfigurationList = 84B1AC641647BB3E007188B1 /* Build configuration list for PBXProject "Astromaximum" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -237,6 +245,7 @@
 				8498DA8116543D6400BB4063 /* AmaxLocationBundle.m in Sources */,
 				8498DA871654467500BB4063 /* AmaxLocationDataFile.m in Sources */,
 				8498DA911654574900BB4063 /* AmaxTimezoneTransition.m in Sources */,
+				84CAB598165CCB6B00F0006E /* AmaxEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +330,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -333,6 +343,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

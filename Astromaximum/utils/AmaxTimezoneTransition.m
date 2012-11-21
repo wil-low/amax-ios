@@ -3,7 +3,7 @@
 //  Astromaximum
 //
 //  Created by admin on 15.11.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
 #import "AmaxTimezoneTransition.h"

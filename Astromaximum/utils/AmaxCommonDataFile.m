@@ -3,7 +3,7 @@
 //  Astromaximum
 //
 //  Created by admin on 13.11.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
 #import "AmaxCommonDataFile.h"
@@ -16,7 +16,7 @@
 @synthesize startDay = _startDay;
 @synthesize dayCount = _dayCount;
 
-- (id)initWithFilePath:(NSString *)filePath;
+- (id)initWithFilePath:(NSString *)filePath
 {
     NSData *fullData = [NSData dataWithContentsOfFile:filePath];
     AmaxDataInputStream *is = [[AmaxDataInputStream alloc]initWithData:fullData];
@@ -42,4 +42,5 @@
 {
     free(customData);
 }
+
 @end

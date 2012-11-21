@@ -3,7 +3,7 @@
 //  Astromaximum
 //
 //  Created by admin on 14.11.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
 #import "AmaxDataInputStream.h"
@@ -50,6 +50,11 @@
 }
 
 - (unsigned char)readUnsignedByte
+{
+    return data[position++];
+}
+
+- (char)readByte
 {
     return data[position++];
 }
