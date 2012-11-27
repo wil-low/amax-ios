@@ -17,7 +17,7 @@
 
 @implementation AmaxDataProvider
 
-@synthesize eventCache = _eventCache;
+@synthesize mEventCache = _mEventCache;
 @synthesize mStartJD = _mStartJD;
 @synthesize mFinalJD = _mFinalJD;
 
@@ -33,11 +33,10 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[AmaxDataProvider alloc] init];
-        [sharedInstance setEventCache:[NSArray array]];
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"common" ofType:@"dat"];
         sharedInstance->mCommonDataFile = [[AmaxCommonDataFile alloc] initWithFilePath:filePath];
         sharedInstance->documentsDirectory = [AmaxDataProvider getDocumentsDirectory];
-        sharedInstance->mEventCache = [[NSMutableArray alloc] init];
+        sharedInstance->_mEventCache = [[NSMutableArray alloc] init];
     });
     return (AmaxDataProvider *)sharedInstance;
 }
@@ -552,7 +551,7 @@ private ArrayList<Event> getAspectsOnPeriod(int planet, long startTime,
     for(int i = 0; i < [events count]; ++i)
         NSLog(@"%@", [events objectAtIndex:i]);
     AmaxSummaryItem *si = [[AmaxSummaryItem alloc]initWithKey:key events:events];
-    [mEventCache addObject:si];
+    [_mEventCache addObject:si];
     return si;
 }
 
@@ -562,7 +561,7 @@ private ArrayList<Event> getAspectsOnPeriod(int planet, long startTime,
     mStartTime = [date timeIntervalSince1970];
     mEndTime = mStartTime + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC;
     [AmaxEvent setTimeRangeFrom:mStartTime to:mEndTime];
-    [mEventCache removeAllObjects];
+    [_mEventCache removeAllObjects];
     
 }
 

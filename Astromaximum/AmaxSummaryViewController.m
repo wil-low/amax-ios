@@ -6,11 +6,12 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-#import "AmaxMasterViewController.h"
-#import "AmaxDetailViewController.h"
+#import "AmaxSummaryViewController.h"
+#import "AmaxEventListViewController.h"
 #import "AmaxDataProvider.h"
+#import "AmaxSummaryItem.h"
 
-@implementation AmaxMasterViewController
+@implementation AmaxSummaryViewController
 
 @synthesize detailViewController = _detailViewController;
 
@@ -85,7 +86,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return [[mDataProvider mEventCache] count];
 }
 
 // Customize the appearance of table view cells.
@@ -100,7 +101,8 @@
     }
 
     // Configure the cell.
-    cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
+    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
+    cell.textLabel.text = [[[si mEvents]objectAtIndex:0]description];
     return cell;
 }
 
@@ -145,8 +147,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.detailViewController) {
-        self.detailViewController = [[AmaxDetailViewController alloc] initWithNibName:@"AmaxDetailViewController" bundle:nil];
+        self.detailViewController = [[AmaxEventListViewController alloc] initWithNibName:@"AmaxDetailViewController" bundle:nil];
     }
+    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
+    [self.detailViewController setDetailItem:si];
     [self.navigationController pushViewController:self.detailViewController animated:YES];
 }
 

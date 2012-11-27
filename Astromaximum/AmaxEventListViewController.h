@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AmaxSummaryItem;
 
-@interface AmaxDetailViewController : UIViewController
+@interface AmaxEventListViewController : UIViewController
+{
+    
+}
 
-@property (strong, nonatomic) id detailItem;
-
+@property (strong, nonatomic) AmaxSummaryItem *detailItem;
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

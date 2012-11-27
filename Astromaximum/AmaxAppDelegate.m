@@ -8,7 +8,7 @@
 
 #import "AmaxAppDelegate.h"
 
-#import "AmaxMasterViewController.h"
+#import "AmaxSummaryViewController.h"
 
 @implementation AmaxAppDelegate
 
@@ -22,7 +22,7 @@
     
     dataProvider = [AmaxDataProvider sharedInstance];
     [dataProvider restoreSavedState];    
-    AmaxMasterViewController *masterViewController = [[AmaxMasterViewController alloc] initWithNibName:@"AmaxMasterViewController" bundle:nil];
+    AmaxSummaryViewController *masterViewController = [[AmaxSummaryViewController alloc] initWithNibName:@"AmaxMasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];

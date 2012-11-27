@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class AmaxDetailViewController, AmaxDataProvider;
+@class AmaxEventListViewController, AmaxDataProvider;
 
-@interface AmaxMasterViewController : UITableViewController
+@interface AmaxSummaryViewController : UITableViewController
 {
     AmaxDataProvider *mDataProvider;
     NSString *mTitleDate;
@@ -18,6 +18,6 @@
 
 - (void) updateTitle;
 
-@property (strong, nonatomic) AmaxDetailViewController *detailViewController;
+@property (strong, nonatomic) AmaxEventListViewController *detailViewController;
 
 @end

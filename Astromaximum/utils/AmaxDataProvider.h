@@ -18,7 +18,6 @@
     AmaxLocationDataFile * mLocationDataFile;
     NSString * documentsDirectory;
     AmaxEvent * mEvents[100];
-    NSMutableArray *mEventCache;
     NSCalendar *mCalendar;
     NSDateComponents *mCurrentDateComponents;
     long mStartTime, mEndTime;
@@ -40,7 +39,7 @@
 - (NSMutableArray *)getEventsOnPeriodForEvent:(AmaxEventType)evtype planet:(AmaxPlanet)planet special:(BOOL)special from:(long)dayStart to:(long)dayEnd value:(int)value;
 - (int)getEventsForType:(AmaxEventType)evtype planet:(AmaxPlanet)planet from:(long)dayStart to:(long)dayEnd;
 
-@property (strong, nonatomic) NSArray * eventCache;
+@property (strong, nonatomic, readonly) NSMutableArray * mEventCache;
 @property long mStartJD;
 @property long mFinalJD;
 @end

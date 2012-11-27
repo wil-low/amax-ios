@@ -19,9 +19,12 @@ static NSDateFormatter *mDateFormatter;
 static long mPeriod0;
 static long mPeriod1;
 
+static NSString *DEFAULT_DATE_FORMAT = @"%04d-%02d-%02d %02d:%02d";
+
 + (void)initialize
 {
     mDateFormatter = [[NSDateFormatter alloc]init];
+    [mDateFormatter setDateFormat:@"YYYY-MM-dd HH:mm"];
 }
 
 - (AmaxEvent *) initWithDate:(long)date planet:(AmaxPlanet)planet
@@ -49,9 +52,9 @@ static long mPeriod1;
 - (NSString *)description
 {
     NSString *result = [NSString stringWithFormat:@"%s %@ - %@ p %d/%d dgr %d",
-                        EVENT_TYPE_STR[_mEvtype],
-                        [AmaxEvent long2String:mDate[0] format:nil h24:true],
-                        [AmaxEvent long2String:mDate[1] format:nil h24:true],
+                        "",//EVENT_TYPE_STR[_mEvtype],
+                        [AmaxEvent long2String:mDate[0] format:DEFAULT_DATE_FORMAT h24:true],
+                        [AmaxEvent long2String:mDate[1] format:DEFAULT_DATE_FORMAT h24:true],
                         _mPlanet0, _mPlanet1,
                         _mDegree];
 /*    
@@ -65,14 +68,19 @@ static long mPeriod1;
 
 + (NSString *)long2String:(long)date0 format:(NSString *)dateFormat h24:(BOOL)h24
 {
+    static const unsigned unitFlags =  NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSWeekdayCalendarUnit;
+
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:date0];
-    return [date description];//[mDateFormatter stringFromDate:date];
-    /*
+    NSDateComponents *comps = [mCalendar components:unitFlags fromDate:date];
     NSMutableString *result = [[NSMutableString alloc]init];
     if (dateFormat != nil) {
-        [result appendString:<#(NSString *)#> s.append(DateFormat.format(dateFormat, mCalendar));
-        s.append(" ");
+        [result appendString:[NSString stringWithFormat:dateFormat,
+                              [comps year], [comps month], [comps day],
+                              [comps hour], [comps minute]]];
+        return result;        
     }
+    return nil;
+    /*
     int hh = 0, mm = 0;
     hh = mCalendar.get(Calendar.HOUR_OF_DAY);
     mm = mCalendar.get(Calendar.MINUTE);

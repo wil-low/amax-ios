@@ -14,6 +14,6 @@
 }
 - (id)initWithKey:(AmaxEventType)key events:(NSMutableArray *)events;
 
-@property (strong, nonatomic) NSMutableArray * events;
-@property AmaxEventType key;
+@property (strong, nonatomic) NSMutableArray * mEvents;
+@property AmaxEventType mKey;
 @end

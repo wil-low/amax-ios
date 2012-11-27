@@ -6,20 +6,22 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-#import "AmaxDetailViewController.h"
+#import "AmaxEventListViewController.h"
+#import "AmaxEvent.h"
+#import "AmaxSummaryItem.h"
 
-@interface AmaxDetailViewController ()
+@interface AmaxEventListViewController ()
 - (void)configureView;
 @end
 
-@implementation AmaxDetailViewController
+@implementation AmaxEventListViewController
 
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setDetailItem:(AmaxSummaryItem *)newDetailItem
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
@@ -34,7 +36,9 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        AmaxEvent *e = [[_detailItem mEvents]objectAtIndex:0];
+        self.detailDescriptionLabel.text = [e description];
+        self.title = [NSString stringWithUTF8String:EVENT_TYPE_STR[[e mEvtype]]];
     }
 }
 

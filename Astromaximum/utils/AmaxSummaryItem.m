@@ -10,13 +10,13 @@
 
 
 @implementation AmaxSummaryItem
-@synthesize events = _events;
-@synthesize key = _key;
+@synthesize mEvents = _mEvents;
+@synthesize mKey = _mKey;
 
 - (id)initWithKey:(AmaxEventType)key events:(NSMutableArray *)events
 {
-    _key = key;
-    _events = events;
+    _mKey = key;
+    _mEvents = events;
     return self;
 }
 
