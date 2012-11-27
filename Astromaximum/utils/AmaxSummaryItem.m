@@ -6,10 +6,18 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-#import "SummaryItem.h"
+#import "AmaxSummaryItem.h"
 
 
-@implementation SummaryItem
+@implementation AmaxSummaryItem
 @synthesize events = _events;
 @synthesize key = _key;
+
+- (id)initWithKey:(AmaxEventType)key events:(NSMutableArray *)events
+{
+    _key = key;
+    _events = events;
+    return self;
+}
+
 @end

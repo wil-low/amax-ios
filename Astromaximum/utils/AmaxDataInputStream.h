@@ -15,8 +15,8 @@
     unsigned char *data;
 }
 
-- (AmaxDataInputStream *)initWithBytes:(void *)bytes length:(NSUInteger)length;
-- (AmaxDataInputStream *)initWithData:(NSData *)data;
+- (AmaxDataInputStream *)initWithBytes:(const void *)bytes length:(NSUInteger)length;
+- (AmaxDataInputStream *)initWithData:(const NSData *)data;
 - (void) dealloc;
 
 - (void)reset;

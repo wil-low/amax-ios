@@ -7,8 +7,8 @@
 //
 
 #import "AmaxMasterViewController.h"
-
 #import "AmaxDetailViewController.h"
+#import "AmaxDataProvider.h"
 
 @implementation AmaxMasterViewController
 
@@ -34,7 +34,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload
@@ -47,6 +46,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    mDataProvider = [AmaxDataProvider sharedInstance];
+    [mDataProvider prepareCalculation];
+    [mDataProvider calculateAll];
+    /*
+     SummaryAdapter adapter = new SummaryAdapter(this, mDataProvider.mEventCache,
+     mDataProvider.getCustomTime(), mDataProvider.getCurrentTime());
+     mEventList.setAdapter(adapter);*/
+    [self updateTitle];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -141,6 +148,15 @@
         self.detailViewController = [[AmaxDetailViewController alloc] initWithNibName:@"AmaxDetailViewController" bundle:nil];
     }
     [self.navigationController pushViewController:self.detailViewController animated:YES];
+}
+
+- (void) updateTitle
+{
+    mTitleDate = [mDataProvider currentDateString];
+    [self setTitle: [NSString stringWithFormat:@"%@: %@ %@",
+                     [mDataProvider locationName], 
+                     mTitleDate, 
+                     [mDataProvider getHighlightTimeString]]];
 }
 
 @end

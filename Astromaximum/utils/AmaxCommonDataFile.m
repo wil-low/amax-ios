@@ -15,6 +15,7 @@
 @synthesize startMonth = _startMonth;
 @synthesize startDay = _startDay;
 @synthesize dayCount = _dayCount;
+@synthesize mData = _mData;
 
 - (id)initWithFilePath:(NSString *)filePath
 {
@@ -33,7 +34,7 @@
     Size bufferLength = [is availableBytes];
     void *buffer = malloc(bufferLength);
     [is readToBuffer:buffer length:bufferLength];
-    data = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
+    _mData = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
     free(buffer);
     return self;
 }

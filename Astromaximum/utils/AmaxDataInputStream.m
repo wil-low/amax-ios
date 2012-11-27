@@ -10,7 +10,7 @@
 
 @implementation AmaxDataInputStream
 
-- (AmaxDataInputStream *)initWithBytes:(void *)bytes length:(NSUInteger)length
+- (AmaxDataInputStream *)initWithBytes:(const void *)bytes length:(NSUInteger)length
 {
     dataLength = length;
     data = malloc(dataLength);
@@ -18,7 +18,7 @@
     return self;
 }
 
-- (AmaxDataInputStream *)initWithData:(NSData *)rawData
+- (AmaxDataInputStream *)initWithData:(const NSData *)rawData
 {
     dataLength = [rawData length];
     data = malloc(dataLength);
@@ -87,6 +87,7 @@
 - (void)readToBuffer:(void *)buffer length:(Size)byteCount
 {
     memcpy(buffer, &data[position], byteCount);
+    position += byteCount;
 }
 
 - (NSString *)readUTF

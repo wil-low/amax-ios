@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
     
     dataProvider = [AmaxDataProvider sharedInstance];
-    
+    [dataProvider restoreSavedState];    
     AmaxMasterViewController *masterViewController = [[AmaxMasterViewController alloc] initWithNibName:@"AmaxMasterViewController" bundle:nil];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
     self.window.rootViewController = self.navigationController;

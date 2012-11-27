@@ -7,22 +7,38 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AmaxCommonDataFile.h"
 #import "AmaxTypes.h"
-#import "AmaxEvent.h"
+
+@class AmaxCommonDataFile, AmaxLocationDataFile, AmaxEvent, AmaxDataInputStream;
 
 @interface AmaxDataProvider : NSObject
 
 {
-    AmaxCommonDataFile * commonDataFile;
+    AmaxCommonDataFile * mCommonDataFile;
+    AmaxLocationDataFile * mLocationDataFile;
     NSString * documentsDirectory;
     AmaxEvent * mEvents[100];
+    NSMutableArray *mEventCache;
+    NSCalendar *mCalendar;
+    NSDateComponents *mCurrentDateComponents;
+    long mStartTime, mEndTime;
+    long mStartJD, mFinalJD;
 }
 
 + (AmaxDataProvider *)sharedInstance;
 
 - (void)saveCurrentState;
 - (void)restoreSavedState;
+- (void)setTodayDate;
+- (NSString *)currentDateString;
+- (void)prepareCalculation;
+- (void)calculateAll;
+- (NSString *)locationName;
+- (NSString *)getHighlightTimeString;
+
+- (int)readSubDataFromStream:(AmaxDataInputStream *)stream type:(AmaxEventType)evtype planet:(AmaxPlanet)planet isCommon:(BOOL)isCommon dayStart:(long)dayStart dayEnd:(long)dayEnd;
+- (NSMutableArray *)getEventsOnPeriodForEvent:(AmaxEventType)evtype planet:(AmaxPlanet)planet special:(BOOL)special from:(long)dayStart to:(long)dayEnd value:(int)value;
+- (int)getEventsForType:(AmaxEventType)evtype planet:(AmaxPlanet)planet from:(long)dayStart to:(long)dayEnd;
 
 @property (strong, nonatomic) NSArray * eventCache;
 @property long mStartJD;

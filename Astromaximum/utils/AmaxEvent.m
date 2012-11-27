@@ -14,6 +14,16 @@
 @synthesize mEvtype = _mEvtype;
 @synthesize mDegree = _mDegree;
 
+static NSCalendar* mCalendar;
+static NSDateFormatter *mDateFormatter;
+static long mPeriod0;
+static long mPeriod1;
+
++ (void)initialize
+{
+    mDateFormatter = [[NSDateFormatter alloc]init];
+}
+
 - (AmaxEvent *) initWithDate:(long)date planet:(AmaxPlanet)planet
 {
     _mEvtype = 0;
@@ -24,9 +34,83 @@
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    AmaxEvent* copy = [[[self class] allocWithZone:zone] init];
+    copy.mEvtype = self.mEvtype;  
+    copy.mDegree = self.mDegree;  
+    copy.mPlanet0 = self.mPlanet0;  
+    copy.mPlanet1 = self.mPlanet1;
+    [copy setDateAt:0 value:[self dateAt:0]];
+    [copy setDateAt:1 value:[self dateAt:1]];
+    return copy;
+}
+
+- (NSString *)description
+{
+    NSString *result = [NSString stringWithFormat:@"%s %@ - %@ p %d/%d dgr %d",
+                        EVENT_TYPE_STR[_mEvtype],
+                        [AmaxEvent long2String:mDate[0] format:nil h24:true],
+                        [AmaxEvent long2String:mDate[1] format:nil h24:true],
+                        _mPlanet0, _mPlanet1,
+                        _mDegree];
+/*    
+    NSString *result = [NSString stringWithFormat:@"%s %d - %d p %d/%d dgr %d",
+                        EVENT_TYPE_STR[_mEvtype],
+                        mDate[0], mDate[1],
+                        _mPlanet0, _mPlanet1,
+                        _mDegree];*/
+    return result;
+}
+
++ (NSString *)long2String:(long)date0 format:(NSString *)dateFormat h24:(BOOL)h24
+{
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:date0];
+    return [date description];//[mDateFormatter stringFromDate:date];
+    /*
+    NSMutableString *result = [[NSMutableString alloc]init];
+    if (dateFormat != nil) {
+        [result appendString:<#(NSString *)#> s.append(DateFormat.format(dateFormat, mCalendar));
+        s.append(" ");
+    }
+    int hh = 0, mm = 0;
+    hh = mCalendar.get(Calendar.HOUR_OF_DAY);
+    mm = mCalendar.get(Calendar.MINUTE);
+    
+    if (h24 && hh + mm == 0) {
+        hh = 24;
+    }
+    s.append(to2String(hh)).append(":").append(to2String(mm));
+    //int ss = mCalendar.get(Calendar.SECOND);
+    //s.append(":").append(to2String(ss));
+    
+    // if(!hoursOnly)
+    // s.append("/");
+    
+    // s+=to2String(date0[index])+":"+to2String(date0[index]);
+    return s.toString();*/
+}
+
++ (void)setTimeRangeFrom:(long)date0 to:(long)date1
+{
+    mPeriod0 = date0;
+    mPeriod1 = date1;
+}
+
++ (void)setTimeZone:(NSString *)timezone
+{
+    mCalendar = [NSCalendar currentCalendar];
+    [mCalendar setTimeZone:[NSTimeZone timeZoneWithName:timezone]];
+}
+
 - (void) setDateAt:(int)index value:(long)date
 {
     mDate[index] = date;
+}
+
+- (long) dateAt:(int)index
+{
+    return mDate[index];
 }
 
 - (BOOL) isInPeriodFrom:(long)start to:(long)end special:(BOOL)special;

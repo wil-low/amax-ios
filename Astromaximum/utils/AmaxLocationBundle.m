@@ -7,6 +7,7 @@
 //
 
 #import "AmaxLocationBundle.h"
+#import "AmaxDataInputStream.h"
 
 @implementation AmaxLocationBundle
 

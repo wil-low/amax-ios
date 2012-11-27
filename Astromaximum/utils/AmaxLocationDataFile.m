@@ -7,6 +7,7 @@
 //
 
 #import "AmaxLocationDataFile.h"
+#import "AmaxDataInputStream.h"
 #import "AmaxTimezoneTransition.h"
 
 @implementation AmaxLocationDataFile
@@ -20,8 +21,9 @@
 @synthesize mState = _mState;
 @synthesize mCountry = _mCountry;
 @synthesize mTimezone = _mTimezone;
+@synthesize mData = _mData;
 
-- (id)initWithBytes:(void *)bytes length:(NSUInteger)length
+- (id)initWithBytes:(const void *)bytes length:(NSUInteger)length
 {
     AmaxDataInputStream *dis = [[AmaxDataInputStream alloc]initWithBytes:bytes length:length];
     [dis skipBytes:4]; // signature
@@ -52,7 +54,7 @@
         Size bufferLength = [dis availableBytes];
         char *buffer = malloc(bufferLength);
         [dis readToBuffer:buffer length:bufferLength];
-        data = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
+        _mData = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
     }
     else {
         NSLog(@"Unknown version %d", version);

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AmaxDataInputStream.h"
+@class AmaxDataInputStream;
 
 @interface AmaxLocationBundle : NSObject
 {

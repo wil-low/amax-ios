@@ -10,7 +10,7 @@
 		845A2B3016543C2B0076BFA3 /* AmaxCommonDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B2D16543C2B0076BFA3 /* AmaxCommonDataFile.m */; };
 		845A2B3116543C2B0076BFA3 /* AmaxDataInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */; };
 		845A2B3616543C360076BFA3 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B3316543C360076BFA3 /* AmaxPrefs.m */; };
-		845A2B3716543C360076BFA3 /* SummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B3516543C360076BFA3 /* SummaryItem.m */; };
+		845A2B3716543C360076BFA3 /* AmaxSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B3516543C360076BFA3 /* AmaxSummaryItem.m */; };
 		84945FA21652B2E5001CAC91 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA01652B2E5001CAC91 /* common.dat */; };
 		84945FA31652B2E5001CAC91 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA11652B2E5001CAC91 /* locations.dat */; };
 		84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FA61652B39D001CAC91 /* AmaxDataProvider.m */; };
@@ -37,8 +37,8 @@
 		845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxDataInputStream.m; path = utils/AmaxDataInputStream.m; sourceTree = "<group>"; };
 		845A2B3216543C360076BFA3 /* AmaxPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxPrefs.h; path = utils/AmaxPrefs.h; sourceTree = "<group>"; };
 		845A2B3316543C360076BFA3 /* AmaxPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxPrefs.m; path = utils/AmaxPrefs.m; sourceTree = "<group>"; };
-		845A2B3416543C360076BFA3 /* SummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SummaryItem.h; path = utils/SummaryItem.h; sourceTree = "<group>"; };
-		845A2B3516543C360076BFA3 /* SummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SummaryItem.m; path = utils/SummaryItem.m; sourceTree = "<group>"; };
+		845A2B3416543C360076BFA3 /* AmaxSummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; name = AmaxSummaryItem.h; path = utils/AmaxSummaryItem.h; sourceTree = "<group>"; };
+		845A2B3516543C360076BFA3 /* AmaxSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxSummaryItem.m; path = utils/AmaxSummaryItem.m; sourceTree = "<group>"; };
 		84945FA01652B2E5001CAC91 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
 		84945FA11652B2E5001CAC91 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
 		84945FA51652B39D001CAC91 /* AmaxDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxDataProvider.h; path = utils/AmaxDataProvider.h; sourceTree = "<group>"; };
@@ -104,8 +104,8 @@
 				8498DA8C1654500300BB4063 /* AmaxTimezoneTransition.h */,
 				8498DA901654574900BB4063 /* AmaxTimezoneTransition.m */,
 				84CAB594165CC61300F0006E /* AmaxTypes.h */,
-				845A2B3416543C360076BFA3 /* SummaryItem.h */,
-				845A2B3516543C360076BFA3 /* SummaryItem.m */,
+				845A2B3416543C360076BFA3 /* AmaxSummaryItem.h */,
+				845A2B3516543C360076BFA3 /* AmaxSummaryItem.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -177,6 +177,7 @@
 				84B1AC661647BB3E007188B1 /* Sources */,
 				84B1AC671647BB3E007188B1 /* Frameworks */,
 				84B1AC681647BB3E007188B1 /* Resources */,
+				84825A701663E71500524DB2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -228,6 +229,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		84825A701663E71500524DB2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84B1AC661647BB3E007188B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -241,7 +258,7 @@
 				845A2B3016543C2B0076BFA3 /* AmaxCommonDataFile.m in Sources */,
 				845A2B3116543C2B0076BFA3 /* AmaxDataInputStream.m in Sources */,
 				845A2B3616543C360076BFA3 /* AmaxPrefs.m in Sources */,
-				845A2B3716543C360076BFA3 /* SummaryItem.m in Sources */,
+				845A2B3716543C360076BFA3 /* AmaxSummaryItem.m in Sources */,
 				8498DA8116543D6400BB4063 /* AmaxLocationBundle.m in Sources */,
 				8498DA871654467500BB4063 /* AmaxLocationDataFile.m in Sources */,
 				8498DA911654574900BB4063 /* AmaxTimezoneTransition.m in Sources */,

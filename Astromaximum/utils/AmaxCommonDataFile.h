@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AmaxDataInputStream.h"
+@class AmaxDataInputStream;
 
 @interface AmaxCommonDataFile : NSObject
 {
-    AmaxDataInputStream *data;
     void *customData;
 }
 @property int startYear;
 @property int startMonth;
 @property int startDay;
 @property int dayCount;
+@property (readonly, strong, nonatomic) AmaxDataInputStream *mData;
 
 - (id)initWithFilePath:(NSString *)filePath;
 - (void) dealloc;

@@ -7,15 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AmaxDataInputStream.h"
-#import "AmaxTimezoneTransition.h"
+@class AmaxDataInputStream;
 
 @interface AmaxLocationDataFile : NSObject
 {
     int coords[3];
 	NSString *customData;
 	NSMutableArray *transitions;
-	AmaxDataInputStream *data;
 }
 @property (readonly) int mStartYear;
 @property (readonly) int mStartMonth;
@@ -26,7 +24,8 @@
 @property (readonly, strong, nonatomic) NSString *mState;
 @property (readonly, strong, nonatomic) NSString *mCountry;
 @property (readonly, strong, nonatomic) NSString *mTimezone;
+@property (readonly, strong, nonatomic) AmaxDataInputStream *mData;
 
-- (id)initWithBytes:(void *)bytes length:(NSUInteger)length;
+- (id)initWithBytes:(const void *)bytes length:(NSUInteger)length;
 
 @end
