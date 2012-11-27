@@ -35,10 +35,6 @@
 - (NSString *)locationName;
 - (NSString *)getHighlightTimeString;
 
-- (int)readSubDataFromStream:(AmaxDataInputStream *)stream type:(AmaxEventType)evtype planet:(AmaxPlanet)planet isCommon:(BOOL)isCommon dayStart:(long)dayStart dayEnd:(long)dayEnd;
-- (NSMutableArray *)getEventsOnPeriodForEvent:(AmaxEventType)evtype planet:(AmaxPlanet)planet special:(BOOL)special from:(long)dayStart to:(long)dayEnd value:(int)value;
-- (int)getEventsForType:(AmaxEventType)evtype planet:(AmaxPlanet)planet from:(long)dayStart to:(long)dayEnd;
-
 @property (strong, nonatomic, readonly) NSMutableArray * mEventCache;
 @property long mStartJD;
 @property long mFinalJD;

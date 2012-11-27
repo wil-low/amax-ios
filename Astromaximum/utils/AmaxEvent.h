@@ -31,6 +31,7 @@
 - (void) setDateAt:(int)index value:(long)date;
 - (long) dateAt:(int)index;
 - (BOOL) isInPeriodFrom:(long)dayStart to:(long)dayEnd special:(BOOL)special;
+- (BOOL)isDateAtIndex:(int)index between:(long)start and:(long)end;
 
 int dateBetween(long date0, long start, long end);
 

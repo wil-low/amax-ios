@@ -15,11 +15,38 @@
 #import "AmaxEvent.h"
 #import "AmaxSummaryItem.h"
 
+@interface AmaxDataProvider ()
+
+- (int)readSubDataFromStream:(AmaxDataInputStream *)stream type:(AmaxEventType)evtype planet:(AmaxPlanet)planet isCommon:(BOOL)isCommon dayStart:(long)dayStart dayEnd:(long)dayEnd;
+
+- (NSMutableArray *)getEventsOnPeriodForEvent:(AmaxEventType)evtype planet:(AmaxPlanet)planet special:(BOOL)special from:(long)dayStart to:(long)dayEnd value:(int)value;
+
+- (int)getEventsForType:(AmaxEventType)evtype planet:(AmaxPlanet)planet from:(long)dayStart to:(long)dayEnd;
+
+@end
+
 @implementation AmaxDataProvider
 
 @synthesize mEventCache = _mEventCache;
 @synthesize mStartJD = _mStartJD;
 @synthesize mFinalJD = _mFinalJD;
+
+static const AmaxEventType START_PAGE_ITEM_SEQ[] = {
+    EV_MOON_SIGN,
+    EV_MOON_MOVE,
+    EV_PLANET_HOUR,
+    EV_TITHI,
+    EV_SUN_DEGREE,
+    EV_ASP_EXACT,
+    EV_RETROGRADE,
+    EV_VOC,
+    EV_VIA_COMBUSTA,
+};
+
+static const int WEEK_START_HOUR[] = { 0, 3, 6, 2, 5, 1, 4 };
+static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
+    SE_SUN, SE_VENUS, SE_MERCURY, SE_MOON, SE_SATURN, SE_JUPITER, SE_MARS
+};
 
 + (NSString *)getDocumentsDirectory
 {  
@@ -296,67 +323,87 @@
     return [self getEventsOnPeriodForEvent:EV_TITHI planet:SE_MOON special:false from:mStartTime to:mEndTime value:0];
 }
 
-- (NSMutableArray *)calculatePlanetaryHours
+- (void)getPlanetaryHoursInto:(NSMutableArray *)result currentSunRise:(AmaxEvent *)currentSunRise nextSunRise:(AmaxEvent *) nextSunRise
 {
-    /*
-    ArrayList<Event> sunRises = getEventsOnPeriod(Event.EV_RISE,
-                                                  Event.SE_SUN, true, mStartTime - MSECINDAY, mEndTime
-                                                  + MSECINDAY, 0);
-    ArrayList<Event> sunSets = getEventsOnPeriod(Event.EV_SET,
-                                                 Event.SE_SUN, true, mStartTime - MSECINDAY, mEndTime
-                                                 + MSECINDAY, 0);
-    for (int i = 0; i < sunRises.size(); ++i)
-        sunRises.get(i).mDate[1] = sunSets.get(i).mDate[0];
-    ArrayList<Event> result = new ArrayList<Event>();
-    getPlanetaryHours(result, sunRises.get(0), sunRises.get(1));
-    getPlanetaryHours(result, sunRises.get(1), sunRises.get(2));
-    return result;*/
-    return nil;
-}
-/*
-private void getPlanetaryHours(ArrayList<Event> result,
-                               Event currentSunRise, Event nextSunRise) {
-    int startHour = WEEK_START_HOUR[mCalendar.get(Calendar.DAY_OF_WEEK) - 1];
-    final long dayHour = (currentSunRise.mDate[1] - currentSunRise.mDate[0]) / 12;
-    final long nightHour = (nextSunRise.mDate[0] - currentSunRise.mDate[1]) / 12;
-    long st = currentSunRise.mDate[0];
+    int startHour = WEEK_START_HOUR[[mCurrentDateComponents weekday] - 1];
+    long dayHour = ([currentSunRise dateAt:1] - [currentSunRise dateAt:0]) / 12;
+    long nightHour = ([nextSunRise dateAt:0] - [currentSunRise dateAt:1]) / 12;
+    long st = [currentSunRise dateAt:0];
     for (int i = 0; i < 24; ++i) {
-        Event ev = new Event(st - (st % Event.ROUNDING_MSEC), PLANET_HOUR_SEQUENCE[startHour % 7]);
-        ev.mEvtype = Event.EV_PLANET_HOUR;
+        AmaxEvent *ev = [[AmaxEvent alloc]initWithDate:(st - (st % AmaxROUNDING_SEC)) planet:PLANET_HOUR_SEQUENCE[startHour % 7]];
+        ev.mEvtype = EV_PLANET_HOUR;
         st += i < 12 ? dayHour : nightHour;
-        ev.mDate[1] = st - Event.ROUNDING_MSEC; // exclude last minute
-        ev.mDate[1] -= (ev.mDate[1] % Event.ROUNDING_MSEC);
-        if (ev.isInPeriod(mStartTime, mEndTime, false))
-            result.add(ev);
+        long date1 = st - AmaxROUNDING_SEC; // exclude last minute
+        date1 -= (date1 % AmaxROUNDING_SEC);
+        [ev setDateAt:1 value:date1];
+        if ([ev isInPeriodFrom:mStartTime to:mEndTime special:false])
+            [result addObject:ev];
         ++startHour;
     }
 }
-*/
-- (NSMutableArray *)calculateAspects
+
+- (NSMutableArray *)calculatePlanetaryHours
 {
-    /*
-    return [self getAspectsOnPeriodForPlanet:-1 from:mStartTime to:mEndTime];
-     */
-    return nil;
+    NSMutableArray *sunRises = [self getEventsOnPeriodForEvent:EV_RISE planet:SE_SUN special:true from:(mStartTime - AmaxSECONDS_IN_DAY) to:(mEndTime + AmaxSECONDS_IN_DAY) value:0];
+    for (AmaxEvent *e in sunRises)
+        [e setDateAt:1 value:[e dateAt:0]];
+    NSMutableArray *result = [NSMutableArray array];
+    [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:0] nextSunRise:[sunRises objectAtIndex:1]];
+    [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:1] nextSunRise:[sunRises objectAtIndex:2]];
+    return result;
+}
+
+- (NSMutableArray *)getAspectsOnPeriodForPlanet:(AmaxPlanet)planet from:(long)startTime to:(long)endTime
+{
+    NSMutableArray *result = [NSMutableArray array];
+    BOOL flag = false;
+    int cnt = [self getEventsForType:EV_ASP_EXACT planet:(planet == SE_MOON ? SE_MOON : -1)
+                                from:startTime to:endTime];
+    for (int i = 0; i < cnt; i++) {
+        AmaxEvent *ev = mEvents[i];
+        if (planet == -1 || ev.mPlanet0 == planet || ev.mPlanet1 == planet) {
+            if ([ev isDateAtIndex:0 between:startTime and:endTime]) {
+                flag = true;
+                [result addObject:ev];
+            }
+        } else if (flag) {
+            break;
+        }
+    }
+    return result;
+}
+
+void mergeEvents(NSMutableArray *dest, NSMutableArray *add, BOOL isSort)
+{
+    for (AmaxEvent *ev in add) {
+        if (isSort) {
+            int idx = 0;
+            long dat = [ev dateAt:0];
+            int sz = [dest count];
+            while (idx < sz && dat > [[dest objectAtIndex:idx]dateAt:0]) {
+                ++idx;
+            }
+            [dest insertObject:ev atIndex:idx];
+        } else {
+            [dest addObject:ev];
+        }
+    }
 }
 
 - (NSMutableArray *)calculateMoonMove
 {
-    /*
-    ArrayList<Event> asp = getEventsOnPeriod(Event.EV_SIGN_ENTER,
-                                             Event.SE_MOON, true, mStartTime - MSECINDAY * 2, mEndTime
-                                             + MSECINDAY * 4, 0);
-    ArrayList<Event> moonMoveVec = getAspectsOnPeriod(Event.SE_MOON,
-                                                      mStartTime - MSECINDAY * 2, mEndTime + MSECINDAY * 2);
+    NSMutableArray *asp = [self getEventsOnPeriodForEvent:EV_SIGN_ENTER planet:SE_MOON special:true from:(mStartTime - AmaxSECONDS_IN_DAY * 2) to:(mEndTime + AmaxSECONDS_IN_DAY * 4) value:0];
+    NSMutableArray *moonMoveVec = [self getAspectsOnPeriodForPlanet:SE_MOON
+                                        from:(mStartTime - AmaxSECONDS_IN_DAY * 2) to:(mEndTime + AmaxSECONDS_IN_DAY * 2)];
     
     mergeEvents(moonMoveVec, asp, true);
-    asp.clear();
+    [asp removeAllObjects];
     mergeEvents(asp, moonMoveVec, false);
     int id1 = -1;
     int id2 = -1;
     int counter = 0;
-    for (Event ev : asp) {
-        final long dat = ev.mDate[0];
+    for (AmaxEvent *ev in asp) {
+        long dat = [ev dateAt:0];
         if (dat < mStartTime) {
             id1 = counter;
         }
@@ -365,34 +412,33 @@ private void getPlanetaryHours(ArrayList<Event> result,
         }
         ++counter;
     }
-    moonMoveVec.clear();
+    [moonMoveVec removeAllObjects];
     for (int i = id1; i <= id2; i++)
-        moonMoveVec.add(asp.get(i));
+        [moonMoveVec addObject:[asp objectAtIndex:i]];
     
-    int sz = moonMoveVec.size() - 1;
+    int sz = [moonMoveVec count] - 1;
     int idx = 1;
     for (int i = 0; i < sz; i++) {
-        Event evprev = moonMoveVec.get(idx - 1);
-        long dd = (evprev.mEvtype == Event.EV_SIGN_ENTER) ? evprev.mDate[0]
-        : evprev.mDate[1];
-        Event ev = new Event(dd, -1);
-        ev.mEvtype = Event.EV_MOON_MOVE;
-        ev.mDate[1] = moonMoveVec.get(idx).mDate[0] - Event.ROUNDING_MSEC;
+        AmaxEvent *evprev = [moonMoveVec objectAtIndex:(idx - 1)];
+        long dd = [evprev dateAt:(evprev.mEvtype == EV_SIGN_ENTER ? 0 : 1)];
+        AmaxEvent *ev = [[AmaxEvent alloc]initWithDate:dd planet:-1];
+        ev.mEvtype = EV_MOON_MOVE;
+        [ev setDateAt:1 value:([[moonMoveVec objectAtIndex:idx] dateAt:0] - AmaxROUNDING_SEC)];
         ev.mPlanet0 = evprev.mPlanet1;
-        ev.mPlanet1 = moonMoveVec.get(idx).mPlanet1;
-        moonMoveVec.add(idx, ev);
+        ev.mPlanet1 = [[moonMoveVec objectAtIndex:idx] mPlanet1];
+        [moonMoveVec insertObject:ev atIndex:idx];
         idx += 2;
     }
-    sz = moonMoveVec.size();
+    sz = [moonMoveVec count];
     for (int i = 0; i < sz; ++i) {
-        Event e = moonMoveVec.get(i);
-        if (e.mEvtype == Event.EV_MOON_MOVE) {
+        AmaxEvent *e = [moonMoveVec objectAtIndex:i];
+        if (e.mEvtype == EV_MOON_MOVE) {
             int j = i - 1;
             while (j >= 0) {
-                Event prev = moonMoveVec.get(j);
-                if (prev.mEvtype != Event.EV_MOON_MOVE) {
-                    byte planet = prev.mPlanet1;
-                    if (planet <= Event.SE_SATURN) {
+                AmaxEvent *prev = [moonMoveVec objectAtIndex:j];
+                if (prev.mEvtype != EV_MOON_MOVE) {
+                    AmaxPlanet planet = prev.mPlanet1;
+                    if (planet <= SE_SATURN) {
                         e.mPlanet0 = planet;
                         break;
                     }
@@ -401,54 +447,31 @@ private void getPlanetaryHours(ArrayList<Event> result,
             }
             j = i + 1;
             while (j < sz) {
-                Event next = moonMoveVec.get(j);
-                if (next.mEvtype != Event.EV_MOON_MOVE) {
-                    byte planet = next.mPlanet1;
-                    if (planet <= Event.SE_SATURN) {
+                AmaxEvent *next = [moonMoveVec objectAtIndex:j];
+                if (next.mEvtype != EV_MOON_MOVE) {
+                    AmaxPlanet planet = next.mPlanet1;
+                    if (planet <= SE_SATURN) {
                         e.mPlanet1 = planet;
                         break;
                     }
                 }
                 ++j;
             }
-        } else if (e.mEvtype == Event.EV_ASP_EXACT)
-            e.mEvtype = Event.EV_ASP_EXACT_MOON;
+        } else if (e.mEvtype == EV_ASP_EXACT)
+            e.mEvtype = EV_ASP_EXACT_MOON;
     }
     return moonMoveVec;
-     */
-    return nil;
 }
-/*
-private static void mergeEvents(ArrayList<Event> dest,
-                                ArrayList<Event> add, boolean isSort) {
-    for (Event ev : add) {
-        if (isSort) {
-            int idx = 0;
-            final long dat = ev.mDate[0];
-            final int sz = dest.size();
-            while (idx < sz && dat > dest.get(idx).mDate[0]) {
-                ++idx;
-            }
-            dest.add(idx, ev);
-        } else {
-            dest.add(ev);
-        }
-    }
-}
-*/
+
 - (NSMutableArray *)calculateRetrogrades
 {
-/*
-    ArrayList<Event> result = new ArrayList<Event>();
-    for (int planet = Event.SE_MERCURY; planet <= Event.SE_PLUTO; ++planet) {
-        ArrayList<Event> v = getEventsOnPeriod(Event.EV_RETROGRADE, planet,
-                                               false, mStartTime, mEndTime, 0);
-        if (!v.isEmpty())
-            result.addAll(v);
+    NSMutableArray *result = [NSMutableArray array];
+    for (AmaxPlanet planet = SE_MERCURY; planet <= SE_PLUTO; ++planet) {
+        NSMutableArray *v = [self getEventsOnPeriodForEvent:EV_RETROGRADE planet:planet special:false from:mStartTime to:mEndTime value:0];
+        if ([v count])
+            [result addObjectsFromArray:v];
     }
     return result;
- */
-    return nil;
 }
 
 - (NSMutableArray *)getRiseSetForPlanet:(AmaxPlanet)planet from:(long)startTime to:(long)endTime
@@ -492,28 +515,12 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
     return null;
 }
 */
-/*
-private ArrayList<Event> getAspectsOnPeriod(int planet, long startTime,
-                                            long endTime) {
-    ArrayList<Event> result = new ArrayList<Event>();
-    boolean flag = false;
-    int cnt = getEvents(Event.EV_ASP_EXACT,
-                        planet == Event.SE_MOON ? Event.SE_MOON : -1, startTime,
-                        endTime);
-    for (int i = 0; i < cnt; i++) {
-        final Event ev = mEvents[i];
-        if (planet == -1 || ev.mPlanet0 == planet || ev.mPlanet1 == planet) {
-            if (ev.isDateBetween(0, startTime, endTime)) {
-                flag = true;
-                result.add(ev);
-            }
-        } else if (flag) {
-            break;
-        }
-    }
-    return result;
+
+- (NSMutableArray *)calculateAspects
+{
+    return [self getAspectsOnPeriodForPlanet:-1 from:mStartTime to:mEndTime];
 }
-*/
+
 - (AmaxSummaryItem *)calculateForKey:(AmaxEventType)key
 {
     NSMutableArray *events = nil;
@@ -548,8 +555,9 @@ private ArrayList<Event> getAspectsOnPeriod(int planet, long startTime,
 		default:
 			return nil;
     }
+    /*
     for(int i = 0; i < [events count]; ++i)
-        NSLog(@"%@", [events objectAtIndex:i]);
+        NSLog(@"%@", [events objectAtIndex:i]);*/
     AmaxSummaryItem *si = [[AmaxSummaryItem alloc]initWithKey:key events:events];
     [_mEventCache addObject:si];
     return si;
@@ -567,18 +575,14 @@ private ArrayList<Event> getAspectsOnPeriod(int planet, long startTime,
 
 - (void)calculateAll
 {
-    /*
-    for (StartPageItem item : mStartPageLayout) {
-        if (item.mIsEnabled)
-            calculate(START_PAGE_ITEM_SEQ[item.mIndex]);
+    for (int i = 0; i < sizeof(START_PAGE_ITEM_SEQ) / sizeof(START_PAGE_ITEM_SEQ[0]); ++i) {
+        [self calculateForKey:START_PAGE_ITEM_SEQ[i]];
     }
-    */
-    [self calculateForKey:EV_SUN_DEGREE];
 }
 
 - (NSString *)locationName
 {
-    return @"NY";
+    return [mLocationDataFile mCity];
 }
 
 - (NSString *)getHighlightTimeString

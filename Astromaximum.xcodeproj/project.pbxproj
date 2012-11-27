@@ -59,9 +59,9 @@
 		84B1AC7C1647BB3E007188B1 /* Astromaximum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Prefix.pch"; sourceTree = "<group>"; };
 		84B1AC7D1647BB3E007188B1 /* AmaxAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxAppDelegate.h; sourceTree = "<group>"; };
 		84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxAppDelegate.m; sourceTree = "<group>"; };
-		84B1AC801647BB3E007188B1 /* AmaxSummaryViewController.h */ = {isa = PBXFileReference; path = AmaxSummaryViewController.h; sourceTree = "<group>"; };
+		84B1AC801647BB3E007188B1 /* AmaxSummaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxSummaryViewController.h; sourceTree = "<group>"; };
 		84B1AC811647BB3E007188B1 /* AmaxSummaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxSummaryViewController.m; sourceTree = "<group>"; };
-		84B1AC831647BB3E007188B1 /* AmaxEventListViewController.h */ = {isa = PBXFileReference; path = AmaxEventListViewController.h; sourceTree = "<group>"; };
+		84B1AC831647BB3E007188B1 /* AmaxEventListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxEventListViewController.h; sourceTree = "<group>"; };
 		84B1AC841647BB3E007188B1 /* AmaxEventListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxEventListViewController.m; sourceTree = "<group>"; };
 		84B1AC871647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
 		84B1AC8A1647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxEventListViewController.xib; sourceTree = "<group>"; };

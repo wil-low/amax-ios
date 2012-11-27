@@ -19,7 +19,7 @@ static NSDateFormatter *mDateFormatter;
 static long mPeriod0;
 static long mPeriod1;
 
-static NSString *DEFAULT_DATE_FORMAT = @"%04d-%02d-%02d %02d:%02d";
+static NSString *DEFAULT_DATE_FORMAT = @"%02d-%02d %02d:%02d";
 
 + (void)initialize
 {
@@ -49,6 +49,12 @@ static NSString *DEFAULT_DATE_FORMAT = @"%04d-%02d-%02d %02d:%02d";
     return copy;
 }
 
+- (BOOL)isDateAtIndex:(int)index between:(long)start and:(long)end
+{
+    long dat = mDate[index];
+    return start <= dat && dat < end;
+}
+
 - (NSString *)description
 {
     NSString *result = [NSString stringWithFormat:@"%s %@ - %@ p %d/%d dgr %d",
@@ -57,12 +63,6 @@ static NSString *DEFAULT_DATE_FORMAT = @"%04d-%02d-%02d %02d:%02d";
                         [AmaxEvent long2String:mDate[1] format:DEFAULT_DATE_FORMAT h24:true],
                         _mPlanet0, _mPlanet1,
                         _mDegree];
-/*    
-    NSString *result = [NSString stringWithFormat:@"%s %d - %d p %d/%d dgr %d",
-                        EVENT_TYPE_STR[_mEvtype],
-                        mDate[0], mDate[1],
-                        _mPlanet0, _mPlanet1,
-                        _mDegree];*/
     return result;
 }
 
@@ -75,7 +75,7 @@ static NSString *DEFAULT_DATE_FORMAT = @"%04d-%02d-%02d %02d:%02d";
     NSMutableString *result = [[NSMutableString alloc]init];
     if (dateFormat != nil) {
         [result appendString:[NSString stringWithFormat:dateFormat,
-                              [comps year], [comps month], [comps day],
+                              [comps month], [comps day],
                               [comps hour], [comps minute]]];
         return result;        
     }

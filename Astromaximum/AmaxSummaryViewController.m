@@ -10,6 +10,7 @@
 #import "AmaxEventListViewController.h"
 #import "AmaxDataProvider.h"
 #import "AmaxSummaryItem.h"
+#import "AmaxEvent.h"
 
 @implementation AmaxSummaryViewController
 
@@ -50,10 +51,6 @@
     mDataProvider = [AmaxDataProvider sharedInstance];
     [mDataProvider prepareCalculation];
     [mDataProvider calculateAll];
-    /*
-     SummaryAdapter adapter = new SummaryAdapter(this, mDataProvider.mEventCache,
-     mDataProvider.getCustomTime(), mDataProvider.getCurrentTime());
-     mEventList.setAdapter(adapter);*/
     [self updateTitle];
 }
 
@@ -102,7 +99,10 @@
 
     // Configure the cell.
     AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
-    cell.textLabel.text = [[[si mEvents]objectAtIndex:0]description];
+    if ([[si mEvents]count] > 0)
+        cell.textLabel.text = [[[si mEvents]objectAtIndex:0] description];
+    else
+        cell.textLabel.text = [NSString stringWithUTF8String:EVENT_TYPE_STR[[si mKey]]];
     return cell;
 }
 
