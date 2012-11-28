@@ -11,6 +11,10 @@
 		845A2B3116543C2B0076BFA3 /* AmaxDataInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */; };
 		845A2B3616543C360076BFA3 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B3316543C360076BFA3 /* AmaxPrefs.m */; };
 		845A2B3716543C360076BFA3 /* AmaxSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B3516543C360076BFA3 /* AmaxSummaryItem.m */; };
+		8483FDDF16659FA3000C9143 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDB16659FA3000C9143 /* next.png */; };
+		8483FDE016659FA3000C9143 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDC16659FA3000C9143 /* next@2x.png */; };
+		8483FDE116659FA3000C9143 /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDD16659FA3000C9143 /* previous.png */; };
+		8483FDE216659FA3000C9143 /* previous@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDE16659FA3000C9143 /* previous@2x.png */; };
 		84945FA21652B2E5001CAC91 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA01652B2E5001CAC91 /* common.dat */; };
 		84945FA31652B2E5001CAC91 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA11652B2E5001CAC91 /* locations.dat */; };
 		84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FA61652B39D001CAC91 /* AmaxDataProvider.m */; };
@@ -39,6 +43,10 @@
 		845A2B3316543C360076BFA3 /* AmaxPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxPrefs.m; path = utils/AmaxPrefs.m; sourceTree = "<group>"; };
 		845A2B3416543C360076BFA3 /* AmaxSummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxSummaryItem.h; path = utils/AmaxSummaryItem.h; sourceTree = "<group>"; };
 		845A2B3516543C360076BFA3 /* AmaxSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxSummaryItem.m; path = utils/AmaxSummaryItem.m; sourceTree = "<group>"; };
+		8483FDDB16659FA3000C9143 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = next.png; path = Resources/next.png; sourceTree = "<group>"; };
+		8483FDDC16659FA3000C9143 /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "next@2x.png"; path = "Resources/next@2x.png"; sourceTree = "<group>"; };
+		8483FDDD16659FA3000C9143 /* previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = previous.png; path = Resources/previous.png; sourceTree = "<group>"; };
+		8483FDDE16659FA3000C9143 /* previous@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "previous@2x.png"; path = "Resources/previous@2x.png"; sourceTree = "<group>"; };
 		84945FA01652B2E5001CAC91 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
 		84945FA11652B2E5001CAC91 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
 		84945FA51652B39D001CAC91 /* AmaxDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxDataProvider.h; path = utils/AmaxDataProvider.h; sourceTree = "<group>"; };
@@ -84,6 +92,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8483FDDA166594AD000C9143 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8483FDDB16659FA3000C9143 /* next.png */,
+				8483FDDC16659FA3000C9143 /* next@2x.png */,
+				8483FDDD16659FA3000C9143 /* previous.png */,
+				8483FDDE16659FA3000C9143 /* previous@2x.png */,
+				84B1AC861647BB3E007188B1 /* AmaxSummaryViewController.xib */,
+				84B1AC891647BB3E007188B1 /* AmaxEventListViewController.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		84945FA81652B3A6001CAC91 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,14 +161,13 @@
 		84B1AC741647BB3E007188B1 /* Astromaximum */ = {
 			isa = PBXGroup;
 			children = (
+				8483FDDA166594AD000C9143 /* Resources */,
 				84B1AC7D1647BB3E007188B1 /* AmaxAppDelegate.h */,
 				84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */,
 				84B1AC831647BB3E007188B1 /* AmaxEventListViewController.h */,
 				84B1AC841647BB3E007188B1 /* AmaxEventListViewController.m */,
-				84B1AC891647BB3E007188B1 /* AmaxEventListViewController.xib */,
 				84B1AC801647BB3E007188B1 /* AmaxSummaryViewController.h */,
 				84B1AC811647BB3E007188B1 /* AmaxSummaryViewController.m */,
-				84B1AC861647BB3E007188B1 /* AmaxSummaryViewController.xib */,
 				84B1AC751647BB3E007188B1 /* Supporting Files */,
 				84945FA81652B3A6001CAC91 /* Utils */,
 			);
@@ -224,6 +244,10 @@
 				84B1AC8B1647BB3E007188B1 /* AmaxEventListViewController.xib in Resources */,
 				84945FA21652B2E5001CAC91 /* common.dat in Resources */,
 				84945FA31652B2E5001CAC91 /* locations.dat in Resources */,
+				8483FDDF16659FA3000C9143 /* next.png in Resources */,
+				8483FDE016659FA3000C9143 /* next@2x.png in Resources */,
+				8483FDE116659FA3000C9143 /* previous.png in Resources */,
+				8483FDE216659FA3000C9143 /* previous@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

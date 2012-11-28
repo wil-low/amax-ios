@@ -34,6 +34,7 @@
 - (void)calculateAll;
 - (NSString *)locationName;
 - (NSString *)getHighlightTimeString;
+- (void)changeDate:(int)deltaDays;
 
 @property (strong, nonatomic, readonly) NSMutableArray * mEventCache;
 @property long mStartJD;

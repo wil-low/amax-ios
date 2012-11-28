@@ -22,8 +22,8 @@
     
     dataProvider = [AmaxDataProvider sharedInstance];
     [dataProvider restoreSavedState];    
-    AmaxSummaryViewController *masterViewController = [[AmaxSummaryViewController alloc] initWithNibName:@"AmaxMasterViewController" bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+    AmaxSummaryViewController *summaryViewController = [[AmaxSummaryViewController alloc] initWithNibName:@"AmaxSummaryViewController" bundle:nil];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:summaryViewController];
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     return YES;

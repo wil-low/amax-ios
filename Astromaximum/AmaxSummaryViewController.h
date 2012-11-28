@@ -10,14 +10,24 @@
 
 @class AmaxEventListViewController, AmaxDataProvider;
 
-@interface AmaxSummaryViewController : UITableViewController
+@interface AmaxSummaryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     AmaxDataProvider *mDataProvider;
     NSString *mTitleDate;
+
+	// Outlets
+	IBOutlet UITableView *_mTableView;
+	IBOutlet UIToolbar *_mToolbar;
 }
 
-- (void) updateTitle;
+@property (nonatomic, readonly) UITableView* mTableView;
+@property (nonatomic, readonly) UIToolbar* mToolbar;
 
-@property (strong, nonatomic) AmaxEventListViewController *detailViewController;
+- (void)updateDisplay;
+
+@property (strong, nonatomic) AmaxEventListViewController *eventListViewController;
+
+- (IBAction)goToPreviousDate:(id)sender;
+- (IBAction)goToNextDate:(id)sender;
 
 @end

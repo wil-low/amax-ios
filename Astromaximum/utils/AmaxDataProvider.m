@@ -261,7 +261,8 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 
 - (NSString *)currentDateString
 {
-    return @"Nov 12";
+    return [NSString stringWithFormat:@"%02d.%02d",
+            mCurrentDateComponents.month, mCurrentDateComponents.day];
 }
 
 - (NSMutableArray *)getEventsOnPeriodForEvent:(AmaxEventType)evtype planet:(AmaxPlanet)planet special:(BOOL)special from:(long)dayStart to:(long)dayEnd value:(int)value
@@ -555,9 +556,6 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
 		default:
 			return nil;
     }
-    /*
-    for(int i = 0; i < [events count]; ++i)
-        NSLog(@"%@", [events objectAtIndex:i]);*/
     AmaxSummaryItem *si = [[AmaxSummaryItem alloc]initWithKey:key events:events];
     [_mEventCache addObject:si];
     return si;
@@ -590,5 +588,13 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
     return @"88:88";
 }
 
+- (void)changeDate:(int)deltaDays
+{
+    [_mEventCache removeAllObjects];
+    mStartTime += AmaxSECONDS_IN_DAY * deltaDays + AmaxSECONDS_IN_DAY / 2;
+    NSDate *newDate = [NSDate dateWithTimeIntervalSince1970:mStartTime];
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    mCurrentDateComponents = [mCalendar components:unitFlags fromDate:newDate];
+}
 
 @end
