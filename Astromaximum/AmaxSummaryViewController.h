@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class AmaxEventListViewController, AmaxDataProvider;
+@class AmaxEventListViewController, AmaxDataProvider, AmaxSettingsController, AmaxDateSelectController;
 
 @interface AmaxSummaryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
@@ -26,8 +26,13 @@
 - (void)updateDisplay;
 
 @property (strong, nonatomic) AmaxEventListViewController *eventListViewController;
+@property (strong, nonatomic) AmaxSettingsController *settingsController;
+@property (strong, nonatomic) AmaxDateSelectController *dateSelectController;
 
 - (IBAction)goToPreviousDate:(id)sender;
 - (IBAction)goToNextDate:(id)sender;
+- (IBAction)showSettings:(id)sender;
+- (IBAction)goToToday:(id)sender;
+- (IBAction)selectDate:(id)sender;
 
 @end

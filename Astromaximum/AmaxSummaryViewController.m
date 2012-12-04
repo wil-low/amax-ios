@@ -8,6 +8,9 @@
 
 #import "AmaxSummaryViewController.h"
 #import "AmaxEventListViewController.h"
+#import "AmaxEventDetailViewController.h"
+#import "AmaxSettingsController.h"
+#import "AmaxDateSelectController.h"
 #import "AmaxDataProvider.h"
 #import "AmaxSummaryItem.h"
 #import "AmaxEvent.h"
@@ -16,7 +19,9 @@
 
 @synthesize mToolbar = _mToolbar;
 @synthesize mTableView = _mTableView;
-@synthesize eventListViewController = _detailViewController;
+@synthesize eventListViewController = _eventListViewController;
+@synthesize settingsController = _settingsController;
+@synthesize dateSelectController = _dateSelectController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -158,5 +163,25 @@
 {
     [mDataProvider changeDate:1];    
     [self updateDisplay];
+}
+
+- (IBAction)showSettings:(id)sender {
+    if (!self.settingsController) {
+        self.settingsController = [[AmaxSettingsController alloc] initWithNibName:@"AmaxSettingsController" bundle:nil];
+    }
+    [self.navigationController pushViewController:self.settingsController animated:YES];
+}
+
+- (IBAction)goToToday:(id)sender {
+    [mDataProvider setTodayDate];
+    [self updateDisplay];
+}
+
+- (IBAction)selectDate:(id)sender {
+    if (!self.dateSelectController) {
+        self.dateSelectController = [[AmaxDateSelectController alloc] initWithNibName:@"AmaxDateSelectController" bundle:nil];
+    }
+    self.dateSelectController.datePicker.date = mDataProvider.currentDate;
+    [self.navigationController pushViewController:self.dateSelectController animated:YES];
 }
 @end

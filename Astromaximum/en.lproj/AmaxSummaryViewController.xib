@@ -123,6 +123,26 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<array class="NSMutableArray" key="IBUIItems">
+							<object class="IBUIBarButtonItem" id="707201783">
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<float key="IBUIWidth">22</float>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUIToolbar" ref="549584428"/>
+								<int key="IBUISystemItemIdentifier">12</int>
+							</object>
+							<object class="IBUIBarButtonItem" id="204813455">
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">today.png</string>
+								</object>
+								<double key="IBUIImageInsets.top">1</double>
+								<double key="IBUIImageInsets.bottom">-1</double>
+								<double key="IBUIImageInsets.left">0.0</double>
+								<double key="IBUIImageInsets.right">0.0</double>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<float key="IBUIWidth">44</float>
+								<reference key="IBUIToolbar" ref="549584428"/>
+							</object>
 							<object class="IBUIBarButtonItem" id="35560858">
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
@@ -143,6 +163,28 @@ AAgACAAIAAEAAQABAAE</bytes>
 								</object>
 								<double key="IBUIImageInsets.top">2</double>
 								<double key="IBUIImageInsets.bottom">-2</double>
+								<double key="IBUIImageInsets.left">0.0</double>
+								<double key="IBUIImageInsets.right">0.0</double>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<float key="IBUIWidth">44</float>
+								<reference key="IBUIToolbar" ref="549584428"/>
+							</object>
+							<object class="IBUIBarButtonItem" id="476633162">
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">calendar.png</string>
+								</object>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<float key="IBUIWidth">44</float>
+								<reference key="IBUIToolbar" ref="549584428"/>
+							</object>
+							<object class="IBUIBarButtonItem" id="196443173">
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">options.png</string>
+								</object>
+								<double key="IBUIImageInsets.top">1</double>
+								<double key="IBUIImageInsets.bottom">-1</double>
 								<double key="IBUIImageInsets.left">0.0</double>
 								<double key="IBUIImageInsets.right">0.0</double>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -223,6 +265,30 @@ AAgACAAIAAEAAQABAAE</bytes>
 					</object>
 					<int key="connectionID">30</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">goToToday:</string>
+						<reference key="source" ref="204813455"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">37</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">selectDate:</string>
+						<reference key="source" ref="476633162"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">38</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">showSettings:</string>
+						<reference key="source" ref="196443173"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">36</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -247,8 +313,8 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<int key="objectID">13</int>
 						<reference key="object" ref="16941705"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="549584428"/>
 							<reference ref="218267337"/>
+							<reference ref="549584428"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -263,6 +329,10 @@ AAgACAAIAAEAAQABAAE</bytes>
 						<array class="NSMutableArray" key="children">
 							<reference ref="35560858"/>
 							<reference ref="283824966"/>
+							<reference ref="707201783"/>
+							<reference ref="204813455"/>
+							<reference ref="476633162"/>
+							<reference ref="196443173"/>
 						</array>
 						<reference key="parent" ref="16941705"/>
 					</object>
@@ -274,6 +344,26 @@ AAgACAAIAAEAAQABAAE</bytes>
 					<object class="IBObjectRecord">
 						<int key="objectID">28</int>
 						<reference key="object" ref="283824966"/>
+						<reference key="parent" ref="549584428"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">32</int>
+						<reference key="object" ref="707201783"/>
+						<reference key="parent" ref="549584428"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">33</int>
+						<reference key="object" ref="204813455"/>
+						<reference key="parent" ref="549584428"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">34</int>
+						<reference key="object" ref="476633162"/>
+						<reference key="parent" ref="549584428"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">35</int>
+						<reference key="object" ref="196443173"/>
 						<reference key="parent" ref="549584428"/>
 					</object>
 				</array>
@@ -288,12 +378,16 @@ AAgACAAIAAEAAQABAAE</bytes>
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="28.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="33.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">31</int>
+			<int key="maxID">38</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
@@ -301,8 +395,11 @@ AAgACAAIAAEAAQABAAE</bytes>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="calendar.png">{24, 24}</string>
 			<string key="next.png">{25, 25}</string>
+			<string key="options.png">{24, 24}</string>
 			<string key="previous.png">{25, 25}</string>
+			<string key="today.png">{24, 24}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>

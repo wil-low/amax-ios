@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842C0654166D154F0080F505 /* AmaxLocationListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C0652166D154F0080F505 /* AmaxLocationListController.m */; };
+		842C0655166D154F0080F505 /* AmaxLocationListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C0653166D154F0080F505 /* AmaxLocationListController.xib */; };
+		842C0658166D6DAF0080F505 /* today.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C0657166D6DAF0080F505 /* today.png */; };
+		842C065A166D6DB90080F505 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C0659166D6DB90080F505 /* calendar.png */; };
+		842C065C166D6DBF0080F505 /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C065B166D6DBF0080F505 /* calendar@2x.png */; };
+		842C065E166D6DC70080F505 /* today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C065D166D6DC70080F505 /* today@2x.png */; };
+		842C0666166D70320080F505 /* AmaxDateSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842C0664166D70320080F505 /* AmaxDateSelectController.m */; };
+		842C0667166D70320080F505 /* AmaxDateSelectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 842C0665166D70320080F505 /* AmaxDateSelectController.xib */; };
 		845A2B3016543C2B0076BFA3 /* AmaxCommonDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B2D16543C2B0076BFA3 /* AmaxCommonDataFile.m */; };
 		845A2B3116543C2B0076BFA3 /* AmaxDataInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B2F16543C2B0076BFA3 /* AmaxDataInputStream.m */; };
 		845A2B3616543C360076BFA3 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A2B3316543C360076BFA3 /* AmaxPrefs.m */; };
@@ -17,6 +25,12 @@
 		8483FDE216659FA3000C9143 /* previous@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDE16659FA3000C9143 /* previous@2x.png */; };
 		8486D88716665CA60071E11F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486D88516665CA60071E11F /* icon.png */; };
 		8486D88816665CA60071E11F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486D88616665CA60071E11F /* icon@2x.png */; };
+		8486D88D166660810071E11F /* AmaxEventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486D88B166660810071E11F /* AmaxEventListViewController.m */; };
+		8486D88E166660810071E11F /* AmaxEventListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8486D88C166660810071E11F /* AmaxEventListViewController.xib */; };
+		848C0891166CDB1300AA5D32 /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 848C088F166CDB1300AA5D32 /* options.png */; };
+		848C0892166CDB1300AA5D32 /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 848C0890166CDB1300AA5D32 /* options@2x.png */; };
+		848C0896166CDC0600AA5D32 /* AmaxSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848C0894166CDC0600AA5D32 /* AmaxSettingsController.m */; };
+		848C0897166CDC0600AA5D32 /* AmaxSettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848C0895166CDC0600AA5D32 /* AmaxSettingsController.xib */; };
 		84945FA21652B2E5001CAC91 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA01652B2E5001CAC91 /* common.dat */; };
 		84945FA31652B2E5001CAC91 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA11652B2E5001CAC91 /* locations.dat */; };
 		84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84945FA61652B39D001CAC91 /* AmaxDataProvider.m */; };
@@ -30,13 +44,23 @@
 		84B1AC7B1647BB3E007188B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC7A1647BB3E007188B1 /* main.m */; };
 		84B1AC7F1647BB3E007188B1 /* AmaxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */; };
 		84B1AC821647BB3E007188B1 /* AmaxSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC811647BB3E007188B1 /* AmaxSummaryViewController.m */; };
-		84B1AC851647BB3E007188B1 /* AmaxEventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC841647BB3E007188B1 /* AmaxEventListViewController.m */; };
+		84B1AC851647BB3E007188B1 /* AmaxEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B1AC841647BB3E007188B1 /* AmaxEventDetailViewController.m */; };
 		84B1AC881647BB3E007188B1 /* AmaxSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC861647BB3E007188B1 /* AmaxSummaryViewController.xib */; };
-		84B1AC8B1647BB3E007188B1 /* AmaxEventListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC891647BB3E007188B1 /* AmaxEventListViewController.xib */; };
+		84B1AC8B1647BB3E007188B1 /* AmaxEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC891647BB3E007188B1 /* AmaxEventDetailViewController.xib */; };
 		84CAB598165CCB6B00F0006E /* AmaxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CAB597165CCB6A00F0006E /* AmaxEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842C0651166D154F0080F505 /* AmaxLocationListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxLocationListController.h; sourceTree = "<group>"; };
+		842C0652166D154F0080F505 /* AmaxLocationListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxLocationListController.m; sourceTree = "<group>"; };
+		842C0653166D154F0080F505 /* AmaxLocationListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmaxLocationListController.xib; sourceTree = "<group>"; };
+		842C0657166D6DAF0080F505 /* today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = today.png; path = Resources/today.png; sourceTree = "<group>"; };
+		842C0659166D6DB90080F505 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = Resources/calendar.png; sourceTree = "<group>"; };
+		842C065B166D6DBF0080F505 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "Resources/calendar@2x.png"; sourceTree = "<group>"; };
+		842C065D166D6DC70080F505 /* today@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "today@2x.png"; path = "Resources/today@2x.png"; sourceTree = "<group>"; };
+		842C0663166D70310080F505 /* AmaxDateSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxDateSelectController.h; sourceTree = "<group>"; };
+		842C0664166D70320080F505 /* AmaxDateSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxDateSelectController.m; sourceTree = "<group>"; };
+		842C0665166D70320080F505 /* AmaxDateSelectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmaxDateSelectController.xib; sourceTree = "<group>"; };
 		845A2B2C16543C2B0076BFA3 /* AmaxCommonDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxCommonDataFile.h; path = utils/AmaxCommonDataFile.h; sourceTree = "<group>"; };
 		845A2B2D16543C2B0076BFA3 /* AmaxCommonDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxCommonDataFile.m; path = utils/AmaxCommonDataFile.m; sourceTree = "<group>"; };
 		845A2B2E16543C2B0076BFA3 /* AmaxDataInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxDataInputStream.h; path = utils/AmaxDataInputStream.h; sourceTree = "<group>"; };
@@ -51,6 +75,14 @@
 		8483FDDE16659FA3000C9143 /* previous@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "previous@2x.png"; path = "Resources/previous@2x.png"; sourceTree = "<group>"; };
 		8486D88516665CA60071E11F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
 		8486D88616665CA60071E11F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "Resources/icon@2x.png"; sourceTree = "<group>"; };
+		8486D88A166660810071E11F /* AmaxEventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxEventListViewController.h; sourceTree = "<group>"; };
+		8486D88B166660810071E11F /* AmaxEventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxEventListViewController.m; sourceTree = "<group>"; };
+		8486D88C166660810071E11F /* AmaxEventListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmaxEventListViewController.xib; sourceTree = "<group>"; };
+		848C088F166CDB1300AA5D32 /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = options.png; path = Resources/options.png; sourceTree = "<group>"; };
+		848C0890166CDB1300AA5D32 /* options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "options@2x.png"; path = "Resources/options@2x.png"; sourceTree = "<group>"; };
+		848C0893166CDC0600AA5D32 /* AmaxSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxSettingsController.h; sourceTree = "<group>"; };
+		848C0894166CDC0600AA5D32 /* AmaxSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxSettingsController.m; sourceTree = "<group>"; };
+		848C0895166CDC0600AA5D32 /* AmaxSettingsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmaxSettingsController.xib; sourceTree = "<group>"; };
 		84945FA01652B2E5001CAC91 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
 		84945FA11652B2E5001CAC91 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
 		84945FA51652B39D001CAC91 /* AmaxDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxDataProvider.h; path = utils/AmaxDataProvider.h; sourceTree = "<group>"; };
@@ -73,10 +105,10 @@
 		84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxAppDelegate.m; sourceTree = "<group>"; };
 		84B1AC801647BB3E007188B1 /* AmaxSummaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxSummaryViewController.h; sourceTree = "<group>"; };
 		84B1AC811647BB3E007188B1 /* AmaxSummaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxSummaryViewController.m; sourceTree = "<group>"; };
-		84B1AC831647BB3E007188B1 /* AmaxEventListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxEventListViewController.h; sourceTree = "<group>"; };
-		84B1AC841647BB3E007188B1 /* AmaxEventListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxEventListViewController.m; sourceTree = "<group>"; };
+		84B1AC831647BB3E007188B1 /* AmaxEventDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxEventDetailViewController.h; sourceTree = "<group>"; };
+		84B1AC841647BB3E007188B1 /* AmaxEventDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmaxEventDetailViewController.m; sourceTree = "<group>"; };
 		84B1AC871647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
-		84B1AC8A1647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxEventListViewController.xib; sourceTree = "<group>"; };
+		84B1AC8A1647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxEventDetailViewController.xib; sourceTree = "<group>"; };
 		84CAB594165CC61300F0006E /* AmaxTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxTypes.h; path = utils/AmaxTypes.h; sourceTree = "<group>"; };
 		84CAB596165CCB6A00F0006E /* AmaxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxEvent.h; path = utils/AmaxEvent.h; sourceTree = "<group>"; };
 		84CAB597165CCB6A00F0006E /* AmaxEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxEvent.m; path = utils/AmaxEvent.m; sourceTree = "<group>"; };
@@ -99,6 +131,12 @@
 		8483FDDA166594AD000C9143 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				842C065D166D6DC70080F505 /* today@2x.png */,
+				842C065B166D6DBF0080F505 /* calendar@2x.png */,
+				842C0659166D6DB90080F505 /* calendar.png */,
+				842C0657166D6DAF0080F505 /* today.png */,
+				848C088F166CDB1300AA5D32 /* options.png */,
+				848C0890166CDB1300AA5D32 /* options@2x.png */,
 				8486D88516665CA60071E11F /* icon.png */,
 				8486D88616665CA60071E11F /* icon@2x.png */,
 				8483FDDB16659FA3000C9143 /* next.png */,
@@ -106,7 +144,11 @@
 				8483FDDD16659FA3000C9143 /* previous.png */,
 				8483FDDE16659FA3000C9143 /* previous@2x.png */,
 				84B1AC861647BB3E007188B1 /* AmaxSummaryViewController.xib */,
-				84B1AC891647BB3E007188B1 /* AmaxEventListViewController.xib */,
+				8486D88C166660810071E11F /* AmaxEventListViewController.xib */,
+				84B1AC891647BB3E007188B1 /* AmaxEventDetailViewController.xib */,
+				848C0895166CDC0600AA5D32 /* AmaxSettingsController.xib */,
+				842C0653166D154F0080F505 /* AmaxLocationListController.xib */,
+				842C0665166D70320080F505 /* AmaxDateSelectController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -170,10 +212,18 @@
 				8483FDDA166594AD000C9143 /* Resources */,
 				84B1AC7D1647BB3E007188B1 /* AmaxAppDelegate.h */,
 				84B1AC7E1647BB3E007188B1 /* AmaxAppDelegate.m */,
-				84B1AC831647BB3E007188B1 /* AmaxEventListViewController.h */,
-				84B1AC841647BB3E007188B1 /* AmaxEventListViewController.m */,
 				84B1AC801647BB3E007188B1 /* AmaxSummaryViewController.h */,
 				84B1AC811647BB3E007188B1 /* AmaxSummaryViewController.m */,
+				8486D88A166660810071E11F /* AmaxEventListViewController.h */,
+				8486D88B166660810071E11F /* AmaxEventListViewController.m */,
+				84B1AC841647BB3E007188B1 /* AmaxEventDetailViewController.m */,
+				84B1AC831647BB3E007188B1 /* AmaxEventDetailViewController.h */,
+				848C0893166CDC0600AA5D32 /* AmaxSettingsController.h */,
+				848C0894166CDC0600AA5D32 /* AmaxSettingsController.m */,
+				842C0651166D154F0080F505 /* AmaxLocationListController.h */,
+				842C0652166D154F0080F505 /* AmaxLocationListController.m */,
+				842C0663166D70310080F505 /* AmaxDateSelectController.h */,
+				842C0664166D70320080F505 /* AmaxDateSelectController.m */,
 				84B1AC751647BB3E007188B1 /* Supporting Files */,
 				84945FA81652B3A6001CAC91 /* Utils */,
 			);
@@ -229,6 +279,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
+				fr,
 			);
 			mainGroup = 84B1AC5F1647BB3E007188B1;
 			productRefGroup = 84B1AC6B1647BB3E007188B1 /* Products */;
@@ -247,7 +299,7 @@
 			files = (
 				84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */,
 				84B1AC881647BB3E007188B1 /* AmaxSummaryViewController.xib in Resources */,
-				84B1AC8B1647BB3E007188B1 /* AmaxEventListViewController.xib in Resources */,
+				84B1AC8B1647BB3E007188B1 /* AmaxEventDetailViewController.xib in Resources */,
 				84945FA21652B2E5001CAC91 /* common.dat in Resources */,
 				84945FA31652B2E5001CAC91 /* locations.dat in Resources */,
 				8483FDDF16659FA3000C9143 /* next.png in Resources */,
@@ -256,6 +308,16 @@
 				8483FDE216659FA3000C9143 /* previous@2x.png in Resources */,
 				8486D88716665CA60071E11F /* icon.png in Resources */,
 				8486D88816665CA60071E11F /* icon@2x.png in Resources */,
+				8486D88E166660810071E11F /* AmaxEventListViewController.xib in Resources */,
+				848C0891166CDB1300AA5D32 /* options.png in Resources */,
+				848C0892166CDB1300AA5D32 /* options@2x.png in Resources */,
+				848C0897166CDC0600AA5D32 /* AmaxSettingsController.xib in Resources */,
+				842C0655166D154F0080F505 /* AmaxLocationListController.xib in Resources */,
+				842C0658166D6DAF0080F505 /* today.png in Resources */,
+				842C065A166D6DB90080F505 /* calendar.png in Resources */,
+				842C065C166D6DBF0080F505 /* calendar@2x.png in Resources */,
+				842C065E166D6DC70080F505 /* today@2x.png in Resources */,
+				842C0667166D70320080F505 /* AmaxDateSelectController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +347,7 @@
 				84B1AC7B1647BB3E007188B1 /* main.m in Sources */,
 				84B1AC7F1647BB3E007188B1 /* AmaxAppDelegate.m in Sources */,
 				84B1AC821647BB3E007188B1 /* AmaxSummaryViewController.m in Sources */,
-				84B1AC851647BB3E007188B1 /* AmaxEventListViewController.m in Sources */,
+				84B1AC851647BB3E007188B1 /* AmaxEventDetailViewController.m in Sources */,
 				84945FA71652B39D001CAC91 /* AmaxDataProvider.m in Sources */,
 				845A2B3016543C2B0076BFA3 /* AmaxCommonDataFile.m in Sources */,
 				845A2B3116543C2B0076BFA3 /* AmaxDataInputStream.m in Sources */,
@@ -295,6 +357,10 @@
 				8498DA871654467500BB4063 /* AmaxLocationDataFile.m in Sources */,
 				8498DA911654574900BB4063 /* AmaxTimezoneTransition.m in Sources */,
 				84CAB598165CCB6B00F0006E /* AmaxEvent.m in Sources */,
+				8486D88D166660810071E11F /* AmaxEventListViewController.m in Sources */,
+				848C0896166CDC0600AA5D32 /* AmaxSettingsController.m in Sources */,
+				842C0654166D154F0080F505 /* AmaxLocationListController.m in Sources */,
+				842C0666166D70320080F505 /* AmaxDateSelectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,12 +383,12 @@
 			name = AmaxSummaryViewController.xib;
 			sourceTree = "<group>";
 		};
-		84B1AC891647BB3E007188B1 /* AmaxEventListViewController.xib */ = {
+		84B1AC891647BB3E007188B1 /* AmaxEventDetailViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				84B1AC8A1647BB3E007188B1 /* en */,
 			);
-			name = AmaxEventListViewController.xib;
+			name = AmaxEventDetailViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

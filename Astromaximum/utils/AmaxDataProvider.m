@@ -140,11 +140,16 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
         [self setTodayDate];
 }
 
-- (void)setTodayDate
+- (void)setDateFrom:(NSDate *)date
 {
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
-    NSDate *date = [NSDate date];
     mCurrentDateComponents = [mCalendar components:unitFlags fromDate:date]; 
+}
+
+- (void)setTodayDate
+{
+    NSDate *date = [NSDate date];
+    [self setDateFrom:date];
 }
 
 - (int)readSubDataFromStream:(AmaxDataInputStream *)stream type:(AmaxEventType)evtype planet:(AmaxPlanet)planet isCommon:(BOOL)isCommon dayStart:(long)dayStart dayEnd:(long)dayEnd
@@ -595,6 +600,11 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
     NSDate *newDate = [NSDate dateWithTimeIntervalSince1970:mStartTime];
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
     mCurrentDateComponents = [mCalendar components:unitFlags fromDate:newDate];
+}
+
+- (NSDate *)currentDate
+{
+    return [mCalendar dateFromComponents:mCurrentDateComponents];
 }
 
 @end

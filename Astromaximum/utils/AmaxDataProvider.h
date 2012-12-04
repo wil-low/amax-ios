@@ -28,8 +28,10 @@
 
 - (void)saveCurrentState;
 - (void)restoreSavedState;
+- (void)setDateFrom:(NSDate *)date;
 - (void)setTodayDate;
 - (NSString *)currentDateString;
+- (NSDate *)currentDate;
 - (void)prepareCalculation;
 - (void)calculateAll;
 - (NSString *)locationName;
