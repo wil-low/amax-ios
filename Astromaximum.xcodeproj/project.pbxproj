@@ -48,6 +48,12 @@
 		84B1AC881647BB3E007188B1 /* AmaxSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC861647BB3E007188B1 /* AmaxSummaryViewController.xib */; };
 		84B1AC8B1647BB3E007188B1 /* AmaxEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC891647BB3E007188B1 /* AmaxEventDetailViewController.xib */; };
 		84CAB598165CCB6B00F0006E /* AmaxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CAB597165CCB6A00F0006E /* AmaxEvent.m */; };
+		84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */; };
+		84D5B4BB166EA50800F30D70 /* MoonSignCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D5B4BA166EA50800F30D70 /* MoonSignCell.xib */; };
+		84D5B4BE166EA5B400F30D70 /* AmaxAstroLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B4BD166EA5B400F30D70 /* AmaxAstroLabel.m */; };
+		84D5B4C1166EAE2900F30D70 /* AmaxTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B4C0166EAE2900F30D70 /* AmaxTableCell.m */; };
+		84D5B4C5166EB83F00F30D70 /* AmaxMoonSignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B4C4166EB83F00F30D70 /* AmaxMoonSignCell.m */; };
+		84D5B4C7166EBE7600F30D70 /* MoonMoveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D5B4C6166EBE7600F30D70 /* MoonMoveCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +118,15 @@
 		84CAB594165CC61300F0006E /* AmaxTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxTypes.h; path = utils/AmaxTypes.h; sourceTree = "<group>"; };
 		84CAB596165CCB6A00F0006E /* AmaxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxEvent.h; path = utils/AmaxEvent.h; sourceTree = "<group>"; };
 		84CAB597165CCB6A00F0006E /* AmaxEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxEvent.m; path = utils/AmaxEvent.m; sourceTree = "<group>"; };
+		84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Astronom.ttf; path = Resources/Astronom.ttf; sourceTree = "<group>"; };
+		84D5B4BA166EA50800F30D70 /* MoonSignCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoonSignCell.xib; sourceTree = "<group>"; };
+		84D5B4BC166EA5B400F30D70 /* AmaxAstroLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxAstroLabel.h; sourceTree = "<group>"; };
+		84D5B4BD166EA5B400F30D70 /* AmaxAstroLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAstroLabel.m; sourceTree = "<group>"; };
+		84D5B4BF166EAE2900F30D70 /* AmaxTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxTableCell.h; path = utils/cells/AmaxTableCell.h; sourceTree = "<group>"; };
+		84D5B4C0166EAE2900F30D70 /* AmaxTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxTableCell.m; path = utils/cells/AmaxTableCell.m; sourceTree = "<group>"; };
+		84D5B4C3166EB83F00F30D70 /* AmaxMoonSignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxMoonSignCell.h; path = utils/cells/AmaxMoonSignCell.h; sourceTree = "<group>"; };
+		84D5B4C4166EB83F00F30D70 /* AmaxMoonSignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxMoonSignCell.m; path = utils/cells/AmaxMoonSignCell.m; sourceTree = "<group>"; };
+		84D5B4C6166EBE7600F30D70 /* MoonMoveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoonMoveCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +146,8 @@
 		8483FDDA166594AD000C9143 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */,
+				84D5B4B9166EA50800F30D70 /* TableCells */,
 				842C065D166D6DC70080F505 /* today@2x.png */,
 				842C065B166D6DBF0080F505 /* calendar@2x.png */,
 				842C0659166D6DB90080F505 /* calendar.png */,
@@ -156,6 +173,7 @@
 		84945FA81652B3A6001CAC91 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				84D5B4C2166EAE3B00F30D70 /* cells */,
 				845A2B2C16543C2B0076BFA3 /* AmaxCommonDataFile.h */,
 				845A2B2D16543C2B0076BFA3 /* AmaxCommonDataFile.m */,
 				845A2B2E16543C2B0076BFA3 /* AmaxDataInputStream.h */,
@@ -175,6 +193,8 @@
 				84CAB594165CC61300F0006E /* AmaxTypes.h */,
 				845A2B3416543C360076BFA3 /* AmaxSummaryItem.h */,
 				845A2B3516543C360076BFA3 /* AmaxSummaryItem.m */,
+				84D5B4BC166EA5B400F30D70 /* AmaxAstroLabel.h */,
+				84D5B4BD166EA5B400F30D70 /* AmaxAstroLabel.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -241,6 +261,27 @@
 				84B1AC7A1647BB3E007188B1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84D5B4B9166EA50800F30D70 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				84D5B4C6166EBE7600F30D70 /* MoonMoveCell.xib */,
+				84D5B4BA166EA50800F30D70 /* MoonSignCell.xib */,
+			);
+			name = TableCells;
+			path = Resources/TableCells;
+			sourceTree = "<group>";
+		};
+		84D5B4C2166EAE3B00F30D70 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				84D5B4BF166EAE2900F30D70 /* AmaxTableCell.h */,
+				84D5B4C0166EAE2900F30D70 /* AmaxTableCell.m */,
+				84D5B4C3166EB83F00F30D70 /* AmaxMoonSignCell.h */,
+				84D5B4C4166EB83F00F30D70 /* AmaxMoonSignCell.m */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +359,9 @@
 				842C065C166D6DBF0080F505 /* calendar@2x.png in Resources */,
 				842C065E166D6DC70080F505 /* today@2x.png in Resources */,
 				842C0667166D70320080F505 /* AmaxDateSelectController.xib in Resources */,
+				84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */,
+				84D5B4BB166EA50800F30D70 /* MoonSignCell.xib in Resources */,
+				84D5B4C7166EBE7600F30D70 /* MoonMoveCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +405,9 @@
 				848C0896166CDC0600AA5D32 /* AmaxSettingsController.m in Sources */,
 				842C0654166D154F0080F505 /* AmaxLocationListController.m in Sources */,
 				842C0666166D70320080F505 /* AmaxDateSelectController.m in Sources */,
+				84D5B4BE166EA5B400F30D70 /* AmaxAstroLabel.m in Sources */,
+				84D5B4C1166EAE2900F30D70 /* AmaxTableCell.m in Sources */,
+				84D5B4C5166EB83F00F30D70 /* AmaxMoonSignCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

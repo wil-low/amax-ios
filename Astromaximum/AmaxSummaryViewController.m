@@ -14,6 +14,7 @@
 #import "AmaxDataProvider.h"
 #import "AmaxSummaryItem.h"
 #import "AmaxEvent.h"
+#import "AmaxTableCell.h"
 
 @implementation AmaxSummaryViewController
 
@@ -22,6 +23,7 @@
 @synthesize eventListViewController = _eventListViewController;
 @synthesize settingsController = _settingsController;
 @synthesize dateSelectController = _dateSelectController;
+@synthesize tvCell = _tvCell;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,19 +96,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
+
+    AmaxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        [[NSBundle mainBundle] loadNibNamed:@"MoonSignCell" owner:self options:nil];
+        cell = _tvCell;
+        self.tvCell = nil;
+    }
+    UILabel *label;
+    label = (UILabel *)[cell viewWithTag:1];
+    label.text = [NSString stringWithFormat:@"%d", indexPath.row];
+/*    
+    label = (UILabel *)[cell viewWithTag:2];
+    label.text = [NSString stringWithFormat:@"%d", NUMBER_OF_ROWS - indexPath.row];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    }*/
 
     // Configure the cell.
     AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
-    if ([[si mEvents]count] > 0)
-        cell.textLabel.text = [[[si mEvents]objectAtIndex:0] description];
-    else
-        cell.textLabel.text = [NSString stringWithUTF8String:EVENT_TYPE_STR[[si mKey]]];
+    [cell configure:si];
     return cell;
 }
 

@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class AmaxEventListViewController, AmaxDataProvider, AmaxSettingsController, AmaxDateSelectController;
+@class AmaxEventListViewController, AmaxDataProvider, AmaxSettingsController, AmaxDateSelectController, AmaxTableCell;
 
 @interface AmaxSummaryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     AmaxDataProvider *mDataProvider;
     NSString *mTitleDate;
-
+    
 	// Outlets
 	IBOutlet UITableView *_mTableView;
 	IBOutlet UIToolbar *_mToolbar;
@@ -22,6 +22,7 @@
 
 @property (nonatomic, readonly) UITableView* mTableView;
 @property (nonatomic, readonly) UIToolbar* mToolbar;
+@property (nonatomic, assign) IBOutlet AmaxTableCell *tvCell;
 
 - (void)updateDisplay;
 
