@@ -23,7 +23,7 @@
 @synthesize mTimezone = _mTimezone;
 @synthesize mData = _mData;
 
-- (id)initWithBytes:(const void *)bytes length:(NSUInteger)length
+- (id)initWithBytes:(const void *)bytes length:(NSUInteger)length headerOnly:(BOOL)headerOnly
 {
     AmaxDataInputStream *dis = [[AmaxDataInputStream alloc]initWithBytes:bytes length:length];
     [dis skipBytes:4]; // signature
@@ -41,20 +41,22 @@
         _mState = [dis readUTF]; // state
         _mCountry = [dis readUTF]; // country
         _mTimezone = [dis readUTF]; // timezone
-        customData = [dis readUTF]; // custom data
-        int transitionCount = [dis readUnsignedByte];
-        transitions = [NSMutableArray array];
-        for (int i = 0; i < transitionCount; ++i) {
-            NSDate *time = [NSDate dateWithTimeIntervalSince1970:[dis readInt]]; // start_date
-            NSTimeInterval offset = [dis readShort] * 60; // gmt_ofs_min
-            NSString* name = [dis readUTF]; // name
-            AmaxTimezoneTransition *transition = [[AmaxTimezoneTransition alloc]initWithTime:time offset:offset name:name];
-            [transitions addObject:transition]; 
+        if (headerOnly == NO) {
+            customData = [dis readUTF]; // custom data
+            int transitionCount = [dis readUnsignedByte];
+            transitions = [NSMutableArray array];
+            for (int i = 0; i < transitionCount; ++i) {
+                NSDate *time = [NSDate dateWithTimeIntervalSince1970:[dis readInt]]; // start_date
+                NSTimeInterval offset = [dis readShort] * 60; // gmt_ofs_min
+                NSString* name = [dis readUTF]; // name
+                AmaxTimezoneTransition *transition = [[AmaxTimezoneTransition alloc]initWithTime:time offset:offset name:name];
+                [transitions addObject:transition]; 
+            }
+            Size bufferLength = [dis availableBytes];
+            char *buffer = malloc(bufferLength);
+            [dis readToBuffer:buffer length:bufferLength];
+            _mData = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
         }
-        Size bufferLength = [dis availableBytes];
-        char *buffer = malloc(bufferLength);
-        [dis readToBuffer:buffer length:bufferLength];
-        _mData = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
     }
     else {
         NSLog(@"Unknown version %d", version);

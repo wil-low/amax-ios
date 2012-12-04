@@ -12,7 +12,7 @@ NSString * const AMAX_PREFS_KEY_LOCATION_ID = @"location_id";
 NSString * const AMAX_PREFS_KEY_LOCATION_LIST = @"location_list";
 NSString * const AMAX_PREFS_KEY_CURRENT_DATE = @"current_date";
 
-NSDictionary* getSortedLocations()
+NSDictionary* getLocations()
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSDictionary* result = [userDefaults dictionaryForKey:AMAX_PREFS_KEY_LOCATION_LIST];

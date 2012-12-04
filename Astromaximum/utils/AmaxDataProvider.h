@@ -39,6 +39,7 @@
 - (void)changeDate:(int)deltaDays;
 
 @property (strong, nonatomic, readonly) NSMutableArray * mEventCache;
+@property (strong, nonatomic) NSString *mLocationId;
 @property long mStartJD;
 @property long mFinalJD;
 @end

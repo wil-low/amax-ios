@@ -30,6 +30,7 @@
 @synthesize mEventCache = _mEventCache;
 @synthesize mStartJD = _mStartJD;
 @synthesize mFinalJD = _mFinalJD;
+@synthesize mLocationId = _mLocationId;
 
 static const AmaxEventType START_PAGE_ITEM_SEQ[] = {
     EV_MOON_SIGN,
@@ -77,14 +78,15 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 {
     NSString *filePath = [self locationFileById:locationId];
     if (filePath == nil) {
-        NSDictionary *sortedLocations = getSortedLocations();
+        NSDictionary *sortedLocations = getLocations();
         filePath = [self locationFileById:locationId]; //TODO: use first key
     }
     NSData *fullData = [NSData dataWithContentsOfFile:filePath];
 
-    mLocationDataFile = [[AmaxLocationDataFile alloc]initWithBytes:[fullData bytes] length:[fullData length]];
+    mLocationDataFile = [[AmaxLocationDataFile alloc]initWithBytes:[fullData bytes] length:[fullData length] headerOnly:NO];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:locationId forKey:AMAX_PREFS_KEY_LOCATION_ID];
+    _mLocationId = locationId;
     mCalendar = [NSCalendar currentCalendar];
     [mCalendar setTimeZone:[NSTimeZone timeZoneWithName:mLocationDataFile.mTimezone]];
     NSDateComponents *comp = [NSDateComponents alloc];
@@ -111,19 +113,25 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     int index = 0;
     char buffer[16000];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *locationDictionary = [NSMutableDictionary dictionary];
     for (int i = 0; i < [locBundle mRecordCount]; ++i) {
         Size bufferSize = [locBundle extractLocationByIndex:index intoBuffer:buffer];
-        AmaxLocationDataFile *datafile = [[AmaxLocationDataFile alloc]initWithBytes:buffer length:bufferSize];
+        AmaxLocationDataFile *datafile = [[AmaxLocationDataFile alloc]initWithBytes:buffer length:bufferSize headerOnly:YES];
         lastLocationId = [[NSString alloc]initWithFormat:@"%08X", datafile.mCityId];
         NSLog(@"%d: %@ %@", index, lastLocationId, datafile.mCity);
         NSString *locFile = [self locationFileById:lastLocationId];
         NSData *outputData = [NSData dataWithBytes:buffer length:bufferSize];
         NSError *error;
-        if ([outputData writeToFile:locFile options:0 error:&error] == NO) {
+        if ([outputData writeToFile:locFile options:0 error:&error] == NO)
             NSLog(@"%@", error);
-            [userDefaults setObject:datafile.mCity forKey:lastLocationId];
-        }
+        else
+            [locationDictionary setValue:datafile.mCity forKey:lastLocationId];
         ++index;
+    }
+    [userDefaults setObject:locationDictionary forKey:AMAX_PREFS_KEY_LOCATION_LIST];
+    NSLog(@"unbundled");
+    for (id key in locationDictionary) {
+        NSLog(@"Location %@ : %@", key, [locationDictionary objectForKey:key]);
     }
     return lastLocationId;
 }

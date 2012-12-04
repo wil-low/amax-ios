@@ -26,6 +26,6 @@
 @property (readonly, strong, nonatomic) NSString *mTimezone;
 @property (readonly, strong, nonatomic) AmaxDataInputStream *mData;
 
-- (id)initWithBytes:(const void *)bytes length:(NSUInteger)length;
+- (id)initWithBytes:(const void *)bytes length:(NSUInteger)length headerOnly:(BOOL)headerOnly;
 
 @end

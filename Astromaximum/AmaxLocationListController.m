@@ -7,6 +7,8 @@
 //
 
 #import "AmaxLocationListController.h"
+#import "AmaxDataProvider.h"
+#import "AmaxPrefs.h"
 
 @implementation AmaxLocationListController
 @synthesize tableView;
@@ -16,7 +18,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Current location", @"Current location");
-        self->mCurrentLocationIndex = 0;
+        self->mDataProvider = [AmaxDataProvider sharedInstance];
     }
     return self;
 }
@@ -34,14 +36,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    mLocations = getLocations();
+    for (id key in mLocations) {
+        NSLog(@"Location %@ : %@", key, [mLocations objectForKey:key]);
+    }
+    mSortedLocationKeys = [mLocations keysSortedByValueUsingSelector:@selector(compare:)];
 }
 
 - (void)viewDidUnload
 {
     [self setTableView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    NSLog(@"viewDidUnload");
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    mDataProvider.mLocationId = [mSortedLocationKeys objectAtIndex:mCurrentLocationIndex];    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -52,23 +63,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return mSortedLocationKeys.count;
 }
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView1 cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView1 dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        if (indexPath.row == mCurrentLocationIndex)
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     
-    cell.textLabel.text = @"Kiev";
-    cell.detailTextLabel.text = @"coordinates";
+    cell.textLabel.text = [mLocations objectForKey:[mSortedLocationKeys objectAtIndex:indexPath.row]];
+    
+    NSString *key = [mSortedLocationKeys objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = key;
+
+    if ([mDataProvider.mLocationId isEqualToString:key]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        mCurrentLocationIndex = indexPath.row;
+    }
     return cell;
 }
 
