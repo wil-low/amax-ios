@@ -107,11 +107,11 @@ NSString *xibNames[] = {
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    NSString *cellIdentifier = xibNames[indexPath.row];
 
-    AmaxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    AmaxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        [[NSBundle mainBundle] loadNibNamed:xibNames[indexPath.row] owner:self options:nil];
+        [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
         cell = _tvCell;
         self.tvCell = nil;
     }
@@ -153,6 +153,7 @@ NSString *xibNames[] = {
     }
     AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
     [self.eventListViewController setDetailItem:si];
+    [self.eventListViewController setCellNibName:xibNames[indexPath.row]];
     [self.navigationController pushViewController:self.eventListViewController animated:YES];
 }
 

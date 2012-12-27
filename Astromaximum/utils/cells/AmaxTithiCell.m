@@ -13,6 +13,15 @@
 - (void)configure:(AmaxSummaryItem *)si
 {
     [super configure:si];
+    AmaxEvent* e = si.activeEvent;
+    if (e != nil) {
+        [timeLabel setText:[e normalizedRangeString]];
+        [eventLabel setText:[NSString stringWithFormat:@"%@ %d",
+                             NSLocalizedString(@"Tithi", @"Tithi"),
+                             [e getDegree]]];
+		[self setColorOf:eventLabel byEventMode:e];
+    }
+    [self updateInfoButtonWith:si];
 }
 
 @end

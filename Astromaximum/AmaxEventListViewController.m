@@ -9,11 +9,14 @@
 #import "AmaxEventListViewController.h"
 #import "AmaxSummaryItem.h"
 #import "AmaxEvent.h"
+#import "AmaxTableCell.h"
 
 @implementation AmaxEventListViewController
 
 @synthesize mTableView = _mTableView;
 @synthesize detailItem = _detailItem;
+@synthesize tvCell = _tvCell;
+@synthesize cellNibName = _cellNibName;
 
 - (void)setDetailItem:(AmaxSummaryItem *)newDetailItem
 {
@@ -51,17 +54,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    AmaxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:_cellNibName];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        [[NSBundle mainBundle] loadNibNamed:_cellNibName owner:self options:nil];
+        cell = _tvCell;
+        self.tvCell = nil;
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    
     // Configure the cell.
-    AmaxEvent *e = [[_detailItem mEvents]objectAtIndex:[indexPath row]];
-    cell.textLabel.text = [e description];
+    AmaxEvent *event = [_detailItem.mEvents objectAtIndex:indexPath.row];
+    AmaxSummaryItem *si = [[AmaxSummaryItem alloc]initWithKey:_detailItem.mKey events:[NSMutableArray arrayWithObject:event]];
+    [cell configure:si];
     return cell;
 }
 
@@ -100,6 +103,12 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_mTableView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
