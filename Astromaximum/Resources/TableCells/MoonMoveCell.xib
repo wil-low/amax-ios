@@ -74,7 +74,7 @@
 							<object class="IBUILabel" id="243036175">
 								<reference key="NSNextResponder" ref="618142942"/>
 								<int key="NSvFlags">289</int>
-								<string key="NSFrame">{{161, 0}, {119, 43}}</string>
+								<string key="NSFrame">{{148, 0}, {119, 43}}</string>
 								<reference key="NSSuperview" ref="618142942"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -99,7 +99,7 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrameSize">{300, 43}</string>
+						<string key="NSFrameSize">{287, 43}</string>
 						<reference key="NSSuperview" ref="738566844"/>
 						<reference key="NSNextKeyView" ref="363555273"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -117,7 +117,7 @@
 				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="618142942"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-				<int key="IBUIAccessoryType">1</int>
+				<int key="IBUIAccessoryType">2</int>
 				<reference key="IBUIContentView" ref="618142942"/>
 				<string key="IBUIReuseIdentifier">MoonSignCell</string>
 			</object>

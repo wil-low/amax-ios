@@ -146,7 +146,7 @@ NSString *xibNames[] = {
                      [mDataProvider getHighlightTimeString]];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.eventListViewController) {
         self.eventListViewController = [[AmaxEventListViewController alloc] initWithNibName:@"AmaxEventListViewController" bundle:nil];
@@ -155,6 +155,11 @@ NSString *xibNames[] = {
     [self.eventListViewController setDetailItem:si];
     [self.eventListViewController setCellNibName:xibNames[indexPath.row]];
     [self.navigationController pushViewController:self.eventListViewController animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 - (void)updateDisplay

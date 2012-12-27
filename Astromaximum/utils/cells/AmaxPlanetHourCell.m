@@ -10,6 +10,12 @@
 
 @implementation AmaxPlanetHourCell
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    hourLabel = (UILabel *)[self viewWithTag:3];
+    [hourLabel setText:NSLocalizedString(@"Hour", @"Planet hour event caption")];
+}
+
 - (void)configure:(AmaxSummaryItem *)si
 {
     [super configure:si];

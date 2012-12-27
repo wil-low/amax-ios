@@ -78,7 +78,7 @@ const int CELL_HIGHIGHT_TIME = 1;
     }
     
     if ([indexPath row] == CELL_LOCATION_NAME) {
-        cell.textLabel.text = @"Current city";
+        cell.textLabel.text = NSLocalizedString(@"Current location", @"Current location");
         cell.detailTextLabel.text = @"Kiev";
     }
     else if ([indexPath row] == CELL_HIGHIGHT_TIME) {

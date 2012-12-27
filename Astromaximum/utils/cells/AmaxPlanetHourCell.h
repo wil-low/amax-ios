@@ -9,5 +9,7 @@
 #import "AmaxTableCell.h"
 
 @interface AmaxPlanetHourCell : AmaxTableCell
-
+{
+    UILabel* hourLabel;
+}
 @end

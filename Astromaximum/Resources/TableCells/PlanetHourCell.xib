@@ -44,11 +44,11 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{20, 0}, {46, 43}}</string>
 								<reference key="NSSuperview" ref="618142942"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="561210003"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">3</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Hour</string>
@@ -72,9 +72,8 @@
 							<object class="IBUILabel" id="243036175">
 								<reference key="NSNextResponder" ref="618142942"/>
 								<int key="NSvFlags">289</int>
-								<string key="NSFrame">{{161, 0}, {119, 43}}</string>
+								<string key="NSFrame">{{148, 0}, {119, 43}}</string>
 								<reference key="NSSuperview" ref="618142942"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -96,7 +95,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{63, 12}, {30, 31}}</string>
 								<reference key="NSSuperview" ref="618142942"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="243036175"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -122,9 +120,8 @@
 								</object>
 							</object>
 						</array>
-						<string key="NSFrameSize">{300, 43}</string>
+						<string key="NSFrameSize">{287, 43}</string>
 						<reference key="NSSuperview" ref="738566844"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="363555273"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -139,10 +136,9 @@
 				</array>
 				<string key="NSFrameSize">{320, 44}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="618142942"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-				<int key="IBUIAccessoryType">1</int>
+				<int key="IBUIAccessoryType">2</int>
 				<reference key="IBUIContentView" ref="618142942"/>
 				<string key="IBUIReuseIdentifier">MoonSignCell</string>
 			</object>
@@ -222,90 +218,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">6</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">AmaxAstroLabel</string>
-					<string key="superclassName">UILabel</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/AmaxAstroLabel.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">AmaxPlanetHourCell</string>
-					<string key="superclassName">AmaxTableCell</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/AmaxPlanetHourCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">AmaxSummaryViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="goToNextDate:">id</string>
-						<string key="goToPreviousDate:">id</string>
-						<string key="goToToday:">id</string>
-						<string key="selectDate:">id</string>
-						<string key="showSettings:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="goToNextDate:">
-							<string key="name">goToNextDate:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="goToPreviousDate:">
-							<string key="name">goToPreviousDate:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="goToToday:">
-							<string key="name">goToToday:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectDate:">
-							<string key="name">selectDate:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showSettings:">
-							<string key="name">showSettings:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="_mTableView">UITableView</string>
-						<string key="_mToolbar">UIToolbar</string>
-						<string key="tvCell">AmaxTableCell</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="_mTableView">
-							<string key="name">_mTableView</string>
-							<string key="candidateClassName">UITableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="_mToolbar">
-							<string key="name">_mToolbar</string>
-							<string key="candidateClassName">UIToolbar</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="tvCell">
-							<string key="name">tvCell</string>
-							<string key="candidateClassName">AmaxTableCell</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/AmaxSummaryViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">AmaxTableCell</string>
-					<string key="superclassName">UITableViewCell</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/AmaxTableCell.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
