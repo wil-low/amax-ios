@@ -10,10 +10,7 @@
 
 @interface AmaxLocationListController : UIViewController
 {
-    int mCurrentLocationIndex;
     AmaxDataProvider *mDataProvider;
-    NSDictionary *mLocations;
-    NSArray *mSortedLocationKeys;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 

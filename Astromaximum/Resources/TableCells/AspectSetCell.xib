@@ -51,7 +51,7 @@
 								<int key="IBUITag">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">MoonMove</string>
+								<string key="IBUIText">AspectSet</string>
 								<object class="NSColor" key="IBUITextColor" id="633832548">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>

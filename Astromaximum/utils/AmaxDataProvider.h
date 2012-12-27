@@ -42,4 +42,8 @@
 @property (strong, nonatomic) NSString *mLocationId;
 @property long mStartJD;
 @property long mFinalJD;
+@property int mCurrentLocationIndex;
+@property (strong, nonatomic) NSDictionary *mLocations;
+@property (strong, nonatomic) NSArray *mSortedLocationKeys;
+
 @end

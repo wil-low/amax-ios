@@ -31,6 +31,9 @@
 @synthesize mStartJD = _mStartJD;
 @synthesize mFinalJD = _mFinalJD;
 @synthesize mLocationId = _mLocationId;
+@synthesize mCurrentLocationIndex = _mCurrentLocationIndex;
+@synthesize mLocations = _mLocations;
+@synthesize mSortedLocationKeys = _mSortedLocationKeys;
 
 static const AmaxEventType START_PAGE_ITEM_SEQ[] = {
     EV_MOON_SIGN,
@@ -139,6 +142,12 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 - (void)restoreSavedState
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    _mLocations = getLocations();
+    for (id key in _mLocations) {
+        NSLog(@"Location %@ : %@", key, [_mLocations objectForKey:key]);
+    }
+    _mSortedLocationKeys = [_mLocations keysSortedByValueUsingSelector:@selector(compare:)];
+
     NSString *locationId = [userDefaults stringForKey:AMAX_PREFS_KEY_LOCATION_ID];
     if (locationId == nil) 
         locationId = [self unbundleLocationAsset];

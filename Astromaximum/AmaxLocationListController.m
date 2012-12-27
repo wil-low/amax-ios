@@ -36,11 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    mLocations = getLocations();
-    for (id key in mLocations) {
-        NSLog(@"Location %@ : %@", key, [mLocations objectForKey:key]);
-    }
-    mSortedLocationKeys = [mLocations keysSortedByValueUsingSelector:@selector(compare:)];
 }
 
 - (void)viewDidUnload
@@ -52,7 +47,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    mDataProvider.mLocationId = [mSortedLocationKeys objectAtIndex:mCurrentLocationIndex];    
+    mDataProvider.mLocationId = [mDataProvider.mSortedLocationKeys objectAtIndex:mDataProvider.mCurrentLocationIndex];    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -63,7 +58,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return mSortedLocationKeys.count;
+    return mDataProvider.mSortedLocationKeys.count;
 }
 
 // Customize the appearance of table view cells.
@@ -76,14 +71,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [mLocations objectForKey:[mSortedLocationKeys objectAtIndex:indexPath.row]];
+    cell.textLabel.text = [mDataProvider.mLocations objectForKey:[mDataProvider.mSortedLocationKeys objectAtIndex:indexPath.row]];
     
-    NSString *key = [mSortedLocationKeys objectAtIndex:indexPath.row];
+    NSString *key = [mDataProvider.mSortedLocationKeys objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = key;
 
     if ([mDataProvider.mLocationId isEqualToString:key]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        mCurrentLocationIndex = indexPath.row;
+        mDataProvider.mCurrentLocationIndex = indexPath.row;
     }
     return cell;
 }
@@ -92,15 +87,15 @@
 {
     [tableView1 deselectRowAtIndexPath:indexPath animated:NO];
     
-    if (mCurrentLocationIndex == indexPath.row)
+    if (mDataProvider.mCurrentLocationIndex == indexPath.row)
         return;
     
-    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:mCurrentLocationIndex inSection:0];
+    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:mDataProvider.mCurrentLocationIndex inSection:0];
     
     UITableViewCell *newCell = [tableView1 cellForRowAtIndexPath:indexPath];
     if (newCell.accessoryType == UITableViewCellAccessoryNone) {
         newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        mCurrentLocationIndex = indexPath.row;
+        mDataProvider.mCurrentLocationIndex = indexPath.row;
     }
     
     UITableViewCell *oldCell = [tableView1 cellForRowAtIndexPath:oldIndexPath];

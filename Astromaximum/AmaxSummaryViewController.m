@@ -16,6 +16,18 @@
 #import "AmaxEvent.h"
 #import "AmaxTableCell.h"
 
+NSString *xibNames[] = {
+    @"MoonSignCell",
+    @"MoonMoveCell",
+    @"PlanetHourCell",
+    @"TithiCell",
+    @"SunDegreeCell",
+    @"AspectSetCell",
+    @"RetrogradeSetCell",
+    @"VocCell",
+    @"ViaCombustaCell"
+};
+
 @implementation AmaxSummaryViewController
 
 @synthesize mToolbar = _mToolbar;
@@ -99,26 +111,13 @@
 
     AmaxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        [[NSBundle mainBundle] loadNibNamed:@"MoonSignCell" owner:self options:nil];
+        [[NSBundle mainBundle] loadNibNamed:xibNames[indexPath.row] owner:self options:nil];
         cell = _tvCell;
         self.tvCell = nil;
     }
-    UILabel *label;
-    label = (UILabel *)[cell viewWithTag:1];
-    label.text = [NSString stringWithFormat:@"%d", indexPath.row];
-/*    
-    label = (UILabel *)[cell viewWithTag:2];
-    label.text = [NSString stringWithFormat:@"%d", NUMBER_OF_ROWS - indexPath.row];
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }*/
-
     // Configure the cell.
-    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
-    [cell configure:si];
+    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:indexPath.row];
+    //[cell configure:si];
     return cell;
 }
 
