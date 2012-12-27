@@ -9,5 +9,9 @@
 #import "AmaxTableCell.h"
 
 @interface AmaxSunDegreeCell : AmaxTableCell
+{
+    UILabel *degreeLabel;
+    UILabel *zodiacLabel;
+}
 
 @end

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "AmaxTypes.h"
+#import "AmaxEvent.h"
 
 @interface AmaxSummaryItem : NSObject
 {
 }
 - (id)initWithKey:(AmaxEventType)key events:(NSMutableArray *)events;
+- (AmaxEvent *)activeEvent;
 
 @property (strong, nonatomic) NSMutableArray * mEvents;
 @property AmaxEventType mKey;

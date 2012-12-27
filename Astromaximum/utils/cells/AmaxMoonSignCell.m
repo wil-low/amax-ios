@@ -13,6 +13,15 @@
 - (void)configure:(AmaxSummaryItem *)si
 {
     [super configure:si];
+    AmaxEvent* e = si.activeEvent;
+    if (e != nil) {
+        [timeLabel setText:[e normalizedRangeString]];
+        [eventLabel setText:[NSString stringWithFormat:@"%c %c",
+                             getSymbol(TYPE_PLANET, e.mPlanet0),
+                             getSymbol(TYPE_ZODIAC, [e getDegree])]];
+		[self setColorOf:eventLabel byEventMode:e];
+    }
+    [self updateInfoButtonWith:si];
 }
 
 @end

@@ -33,10 +33,22 @@
 
 - (void)configure:(AmaxSummaryItem *)si
 {
+    [timeLabel setText:nil];
+    [eventLabel setText:nil];
+
     if ([[si mEvents]count] > 0)
-        timeLabel.text = [[[si mEvents]objectAtIndex:0] description];
+        timeLabel.text = [NSString stringWithUTF8String:EVENT_TYPE_STR[[si mKey]]];//[[[si mEvents]objectAtIndex:0] description];
     else
-        eventLabel.text = [NSString stringWithUTF8String:EVENT_TYPE_STR[[si mKey]]];
+        eventLabel.text = [NSString stringWithFormat:@"%c %c" ];
 }
 
+- (void)updateInfoButtonWith:(AmaxSummaryItem *)si
+{
+    
+}
+
+- (void)setColorOf:(UILabel *)label byEventMode:(AmaxEvent *)e
+{
+
+}
 @end

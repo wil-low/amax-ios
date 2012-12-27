@@ -20,4 +20,11 @@
     return self;
 }
 
+- (AmaxEvent *)activeEvent
+{
+    if ([_mEvents count] > 0)
+        return [_mEvents objectAtIndex:0];
+    return nil;
+}
+
 @end

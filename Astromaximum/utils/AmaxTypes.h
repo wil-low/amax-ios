@@ -147,4 +147,13 @@ static const char* EVENT_TYPE_STR[] = {
     "EV_LAST", // 57; // last - do not use
 };
 
+typedef enum {
+    TYPE_PLANET = 0,
+    TYPE_ASPECT = 1,
+    TYPE_ZODIAC = 2,
+    TYPE_RETROGRADE = 3,
+} SymbolType;
+
+char getSymbol(SymbolType type, int id);
+
 #endif

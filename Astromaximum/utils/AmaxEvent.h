@@ -26,6 +26,8 @@
 
 - (id)copyWithZone:(NSZone *)zone;
 - (NSString *)description;
+- (NSString *)normalizedRangeString;
+- (int)getDegree;
 
 - (AmaxEvent *) initWithDate:(long)date planet:(AmaxPlanet)planet;
 - (void) setDateAt:(int)index value:(long)date;

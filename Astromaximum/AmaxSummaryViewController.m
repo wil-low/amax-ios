@@ -117,7 +117,7 @@ NSString *xibNames[] = {
     }
     // Configure the cell.
     AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:indexPath.row];
-    //[cell configure:si];
+    [cell configure:si];
     return cell;
 }
 

@@ -21,6 +21,8 @@ static long mPeriod1;
 
 static NSString *DEFAULT_DATE_FORMAT = @"%02d-%02d %02d:%02d";
 
+#define USE_EXACT_RANGE 1
+
 + (void)initialize
 {
     mDateFormatter = [[NSDateFormatter alloc]init];
@@ -66,6 +68,44 @@ static NSString *DEFAULT_DATE_FORMAT = @"%02d-%02d %02d:%02d";
     return result;
 }
 
+- (NSString *)normalizedRangeString
+{
+    long date0 = mDate[0], date1 = mDate[1];
+    if (USE_EXACT_RANGE) {
+        if (date0 < mPeriod0)
+            date0 = mPeriod0;
+        /*
+         if (date0 > mPeriod1)
+         date0 = mPeriod1;
+         
+         if (date1 < mPeriod0)
+         date1 = mPeriod0;
+         */
+        if (date1 > mPeriod1)
+            date1 = mPeriod1;
+        
+        return [NSString stringWithFormat:@"%@ - %@", [AmaxEvent long2String:date0 format:nil h24:false], [AmaxEvent long2String:date1 format:nil h24:true]];
+    }
+    return nil;
+/*    
+    bool isTillRequired = date0 < mPeriod0;
+    bool isSinceRequired = date1 > mPeriod1;
+    
+    if (isTillRequired && isSinceRequired)
+        return mContext.getString(R.string.norm_range_whole_day);
+    
+    if (isTillRequired)
+        return mContext.getString(R.string.norm_range_arrow) + " "
+        + Event.long2String(date1, null, true);
+    
+    if (isSinceRequired)
+        return Event.long2String(date0, null, false) + " "
+        + mContext.getString(R.string.norm_range_arrow);
+    
+    return Event.long2String(date0, null, false) + " - "
+    + Event.long2String(date1, null, true);*/
+}
+
 + (NSString *)long2String:(long)date0 format:(NSString *)dateFormat h24:(BOOL)h24
 {
     static const unsigned unitFlags =  NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSWeekdayCalendarUnit;
@@ -79,24 +119,15 @@ static NSString *DEFAULT_DATE_FORMAT = @"%02d-%02d %02d:%02d";
                               [comps hour], [comps minute]]];
         return result;        
     }
-    return nil;
-    /*
-    int hh = 0, mm = 0;
-    hh = mCalendar.get(Calendar.HOUR_OF_DAY);
-    mm = mCalendar.get(Calendar.MINUTE);
+    
+    int hh = [comps hour];
+    int mm = [comps minute];
     
     if (h24 && hh + mm == 0) {
         hh = 24;
     }
-    s.append(to2String(hh)).append(":").append(to2String(mm));
-    //int ss = mCalendar.get(Calendar.SECOND);
-    //s.append(":").append(to2String(ss));
-    
-    // if(!hoursOnly)
-    // s.append("/");
-    
-    // s+=to2String(date0[index])+":"+to2String(date0[index]);
-    return s.toString();*/
+    [result appendString:[NSString stringWithFormat:@"%02d:%02d", hh, mm]];
+    return result;
 }
 
 + (void)setTimeRangeFrom:(long)date0 to:(long)date1
@@ -119,6 +150,11 @@ static NSString *DEFAULT_DATE_FORMAT = @"%02d-%02d %02d:%02d";
 - (long) dateAt:(int)index
 {
     return mDate[index];
+}
+
+- (int)getDegree
+{
+    return _mDegree & 0x3ff;
 }
 
 - (BOOL) isInPeriodFrom:(long)start to:(long)end special:(BOOL)special;

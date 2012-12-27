@@ -10,11 +10,14 @@
 
 #import "AmaxSummaryItem.h"
 
+
 @interface AmaxTableCell : UITableViewCell
 {
     UILabel *eventLabel;
     UILabel *timeLabel;
 }
 - (void)configure:(AmaxSummaryItem *)si;
+- (void)updateInfoButtonWith:(AmaxSummaryItem *)si;
+- (void)setColorOf:(UILabel *)label byEventMode:(AmaxEvent *)e;
 
 @end
