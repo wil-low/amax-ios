@@ -1,0 +1,18 @@
+/* 
+  PlanetsGenitive.strings
+  Astromaximum
+
+  Created by admin on 28.12.12.
+  Copyright (c) 2012 S&W Axis. All rights reserved.
+*/
+
+"0" = "Солнца";
+"1" = "Луны";
+"2" = "Меркурия";
+"3" = "Венеры";
+"4" = "Марса";
+"5" = "Юпитера";
+"6" = "Сатурна";
+"7" = "Урана";
+"8" = "Нептуна";
+"9" = "Плутона";

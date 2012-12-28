@@ -1,0 +1,14 @@
+/* 
+  Aspects.strings
+  Astromaximum
+
+  Created by admin on 28.12.12.
+  Copyright (c) 2012 S&W Axis. All rights reserved.
+*/
+
+"0" = "Соединение";
+"180" = "Оппозиция";
+"120" = "Тригон";
+"90" = "Квадратура";
+"60" = "Секстиль";
+"45" = "Полуквадрат";

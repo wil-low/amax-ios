@@ -1,0 +1,14 @@
+/* 
+  Aspects.strings
+  Astromaximum
+
+  Created by admin on 28.12.12.
+  Copyright (c) 2012 S&W Axis. All rights reserved.
+*/
+
+"0" = "Conjunction";
+"180" = "Opposition";
+"120" = "Trine";
+"90" = "Square";
+"60" = "Sextile";
+"45" = "Semi-square";

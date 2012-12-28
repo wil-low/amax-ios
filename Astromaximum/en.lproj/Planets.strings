@@ -1,0 +1,18 @@
+/* 
+  Planets.strings
+  Astromaximum
+
+  Created by admin on 28.12.12.
+  Copyright (c) 2012 S&W Axis. All rights reserved.
+*/
+
+"0" = "Sun";
+"1" = "Moon";
+"2" = "Mercury";
+"3" = "Venus";
+"4" = "Mars";
+"5" = "Jupiter";
+"6" = "Saturn";
+"7" = "Uranus";
+"8" = "Neptun";
+"9" = "Pluto";
