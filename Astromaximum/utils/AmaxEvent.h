@@ -12,7 +12,6 @@
 @interface AmaxEvent : NSObject <NSCopying>
 {
     long mDate[2];
-    NSDateFormatter *mDateFormatter;
 }
 @property AmaxPlanet mPlanet0;
 @property AmaxPlanet mPlanet1;
@@ -21,8 +20,9 @@
 
 + (void)initialize;
 + (void)setTimeZone:(NSString *)timezone;
-+ (NSString *)long2String:(long)date0 format:(NSString *)dateFormat h24:(BOOL)h24;
++ (NSString *)long2String:(long)date0 format:(NSDateFormatter *)dateFormatter h24:(BOOL)h24;
 + (void)setTimeRangeFrom:(long)date0 to:(long)date1;
++ (NSDateFormatter *)monthAbbrDayDateFormatter;
 
 - (id)copyWithZone:(NSZone *)zone;
 - (NSString *)description;

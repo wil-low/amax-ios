@@ -15,20 +15,24 @@
 @synthesize mDegree = _mDegree;
 
 static NSCalendar* mCalendar;
-static NSDateFormatter *mDateFormatter;
 static long mPeriod0;
 static long mPeriod1;
 
 static NSString *DEFAULT_DATE_FORMAT = @"%02d-%02d %02d:%02d";
+static NSDateFormatter *mMonthAbbrDayDateFormatter;
 
 #define USE_EXACT_RANGE 1
 
 + (void)initialize
 {
-    mDateFormatter = [[NSDateFormatter alloc]init];
-    [mDateFormatter setDateFormat:@"YYYY-MM-dd HH:mm"];
+    mMonthAbbrDayDateFormatter = [[NSDateFormatter alloc]init];
+    [mMonthAbbrDayDateFormatter setDateFormat:NSLocalizedString(@"month_abbr_day_date_format",  nil)];
 }
 
++ (NSDateFormatter *)monthAbbrDayDateFormatter
+{
+    return mMonthAbbrDayDateFormatter;
+}
 - (AmaxEvent *) initWithDate:(long)date planet:(AmaxPlanet)planet
 {
     _mEvtype = 0;
@@ -106,18 +110,18 @@ static NSString *DEFAULT_DATE_FORMAT = @"%02d-%02d %02d:%02d";
     + Event.long2String(date1, null, true);*/
 }
 
-+ (NSString *)long2String:(long)date0 format:(NSString *)dateFormat h24:(BOOL)h24
++ (NSString *)long2String:(long)date0 format:(NSDateFormatter *)dateFormatter h24:(BOOL)h24
 {
     static const unsigned unitFlags =  NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSWeekdayCalendarUnit;
 
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:date0];
     NSDateComponents *comps = [mCalendar components:unitFlags fromDate:date];
     NSMutableString *result = [[NSMutableString alloc]init];
-    if (dateFormat != nil) {
-        [result appendString:[NSString stringWithFormat:dateFormat,
-                              [comps month], [comps day],
-                              [comps hour], [comps minute]]];
-        return result;        
+    
+    if (dateFormatter != nil) {
+        dateFormatter.calendar = mCalendar;
+        [result appendString:[dateFormatter stringFromDate:date]];
+        [result appendString:@" "];
     }
     
     int hh = [comps hour];

@@ -14,6 +14,9 @@
 {
     
 }
+- (NSString *)makeTitleFromEvent:(AmaxEvent *)ev;
+- (NSString *)makeDateRangeFromEvent:(AmaxEvent *)ev;
+
 @property (strong, nonatomic) NSString *interpreterText;
 @property (strong, nonatomic) AmaxEvent *interpreterEvent;
 
