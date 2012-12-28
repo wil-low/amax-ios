@@ -7,11 +7,14 @@
 //
 
 #import "AmaxInterpreterController.h"
+#import "AmaxEvent.h"
 
 @implementation AmaxInterpreterController
+
 @synthesize dateRangeView;
-@synthesize interpreterTextView;
 @synthesize interpreterText = _interpreterText;
+@synthesize interpreterEvent = _interpreterEvent;
+@synthesize interpreterTextView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +45,7 @@
 {
     [self setDateRangeView:nil];
     [self setInterpreterTextView:nil];
+    [self setInterpreterTextView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -50,7 +54,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    interpreterTextView.text = _interpreterText;
+    dateRangeView.text = [_interpreterEvent description];
+    [interpreterTextView loadHTMLString:_interpreterText baseURL:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

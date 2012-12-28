@@ -10,6 +10,7 @@
 #import "AmaxEvent.h"
 #import "AmaxDataProvider.h"
 #import "AmaxInterpreterController.h"
+#import "AmaxInterpretationProvider.h"
 
 @implementation AmaxBaseViewController
 
@@ -42,11 +43,16 @@
 
 - (void)showInterpreterForEvent:(AmaxEvent *)e
 {
-    if (!interpreterController) {
-        interpreterController = [[AmaxInterpreterController alloc] initWithNibName:@"AmaxInterpreterController" bundle:nil];
+    AmaxInterpretationProvider* iProvider = [AmaxInterpretationProvider sharedInstance];
+    NSString* text = [iProvider getTextForEvent:e];
+    if (text) {
+        if (!interpreterController) {
+            interpreterController = [[AmaxInterpreterController alloc] initWithNibName:@"AmaxInterpreterController" bundle:nil];
+        }
+        interpreterController.interpreterText = text;
+        interpreterController.interpreterEvent = e;
+        [self.navigationController pushViewController:interpreterController animated:YES];
     }
-    interpreterController.interpreterText = e.description;
-    [self.navigationController pushViewController:interpreterController animated:YES];
 }
 
 @end

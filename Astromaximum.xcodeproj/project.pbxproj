@@ -59,6 +59,7 @@
 		84D5B4C5166EB83F00F30D70 /* AmaxMoonSignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B4C4166EB83F00F30D70 /* AmaxMoonSignCell.m */; };
 		84D5B4C7166EBE7600F30D70 /* PlanetHourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D5B4C6166EBE7600F30D70 /* PlanetHourCell.xib */; };
 		84E39A08168DCF73005DC0C5 /* interpret.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84E39A0A168DCF73005DC0C5 /* interpret.dat */; };
+		84E39A0E168DD0A3005DC0C5 /* AmaxInterpretationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E39A0D168DD0A3005DC0C5 /* AmaxInterpretationProvider.m */; };
 		84EB53F1168CE4C00089D6F6 /* AmaxSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84EB53EF168CE4C00089D6F6 /* AmaxSummaryViewController.xib */; };
 		84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EB53F6168CE8010089D6F6 /* Localizable.strings */; };
 		84EB53FB168D12AC0089D6F6 /* AmaxInterpreterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB53F9168D12AA0089D6F6 /* AmaxInterpreterController.m */; };
@@ -155,6 +156,8 @@
 		84D5B4C6166EBE7600F30D70 /* PlanetHourCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanetHourCell.xib; sourceTree = "<group>"; };
 		84E39A09168DCF73005DC0C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/interpret.dat; sourceTree = "<group>"; };
 		84E39A0B168DCF95005DC0C5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/interpret.dat; sourceTree = "<group>"; };
+		84E39A0C168DD0A3005DC0C5 /* AmaxInterpretationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AmaxInterpretationProvider.h; path = utils/AmaxInterpretationProvider.h; sourceTree = "<group>"; };
+		84E39A0D168DD0A3005DC0C5 /* AmaxInterpretationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AmaxInterpretationProvider.m; path = utils/AmaxInterpretationProvider.m; sourceTree = "<group>"; };
 		84EB53EF168CE4C00089D6F6 /* AmaxSummaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmaxSummaryViewController.xib; sourceTree = "<group>"; };
 		84EB53F5168CE8010089D6F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84EB53F7168CE8470089D6F6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				845A2B3516543C360076BFA3 /* AmaxSummaryItem.m */,
 				84D5B4BC166EA5B400F30D70 /* AmaxAstroLabel.h */,
 				84D5B4BD166EA5B400F30D70 /* AmaxAstroLabel.m */,
+				84E39A0C168DD0A3005DC0C5 /* AmaxInterpretationProvider.h */,
+				84E39A0D168DD0A3005DC0C5 /* AmaxInterpretationProvider.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 				84CE9BEC168C897200FC629F /* AmaxTypes.c in Sources */,
 				84EB53FB168D12AC0089D6F6 /* AmaxInterpreterController.m in Sources */,
 				84EB53FF168D14640089D6F6 /* AmaxBaseViewController.m in Sources */,
+				84E39A0E168DD0A3005DC0C5 /* AmaxInterpretationProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

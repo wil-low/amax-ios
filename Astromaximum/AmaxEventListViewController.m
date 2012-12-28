@@ -87,6 +87,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    AmaxEvent *e = [_detailItem.mEvents objectAtIndex:indexPath.row];
+    if (e != nil)
+        [self showInterpreterForEvent:e];
 }
 
 #pragma mark - View lifecycle

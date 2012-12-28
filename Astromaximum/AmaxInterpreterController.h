@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class AmaxEvent;
+
 @interface AmaxInterpreterController : UIViewController
 {
     
 }
 @property (strong, nonatomic) NSString *interpreterText;
+@property (strong, nonatomic) AmaxEvent *interpreterEvent;
 
+@property (strong, nonatomic) IBOutlet UIWebView *interpreterTextView;
 @property (strong, nonatomic) IBOutlet UILabel *dateRangeView;
-@property (strong, nonatomic) IBOutlet UITextView *interpreterTextView;
 @end
