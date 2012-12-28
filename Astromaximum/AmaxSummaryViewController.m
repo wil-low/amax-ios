@@ -8,7 +8,6 @@
 
 #import "AmaxSummaryViewController.h"
 #import "AmaxEventListViewController.h"
-#import "AmaxEventDetailViewController.h"
 #import "AmaxSettingsController.h"
 #import "AmaxDateSelectController.h"
 #import "AmaxDataProvider.h"
@@ -146,6 +145,15 @@ NSString *xibNames[] = {
                      [mDataProvider getHighlightTimeString]];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
+    AmaxEvent* e = [si activeEvent];
+    if (e != nil)
+        [self showInterpreterForEvent:e];
+}
+
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     if (!self.eventListViewController) {
@@ -157,29 +165,12 @@ NSString *xibNames[] = {
     [self.navigationController pushViewController:self.eventListViewController animated:YES];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
 - (void)updateDisplay
 {
     mDataProvider = [AmaxDataProvider sharedInstance];
     [mDataProvider prepareCalculation];
     [mDataProvider calculateAll];
     [_mTableView reloadData];
-}
-
-- (IBAction)goToPreviousDate:(id)sender 
-{
-    [mDataProvider changeDate:-1];
-    [self updateDisplay];
-}
-
-- (IBAction)goToNextDate:(id)sender
-{
-    [mDataProvider changeDate:1];    
-    [self updateDisplay];
 }
 
 - (IBAction)showSettings:(id)sender {

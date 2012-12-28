@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AmaxBaseViewController.h"
 
 @class AmaxSummaryItem, AmaxTableCell;
 
-@interface AmaxEventListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface AmaxEventListViewController : AmaxBaseViewController
 {
     
 }

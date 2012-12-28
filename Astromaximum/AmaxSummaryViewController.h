@@ -6,13 +6,12 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "AmaxBaseViewController.h"
 
-@class AmaxEventListViewController, AmaxDataProvider, AmaxSettingsController, AmaxDateSelectController, AmaxTableCell;
+@class AmaxEventListViewController, AmaxSettingsController, AmaxDateSelectController, AmaxTableCell;
 
-@interface AmaxSummaryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface AmaxSummaryViewController : AmaxBaseViewController
 {
-    AmaxDataProvider *mDataProvider;
     NSString *mTitleDate;
     
 	// Outlets
@@ -30,8 +29,8 @@
 @property (strong, nonatomic) AmaxSettingsController *settingsController;
 @property (strong, nonatomic) AmaxDateSelectController *dateSelectController;
 
-- (IBAction)goToPreviousDate:(id)sender;
-- (IBAction)goToNextDate:(id)sender;
+//- (IBAction)goToPreviousDate:(id)sender;
+//- (IBAction)goToNextDate:(id)sender;
 - (IBAction)showSettings:(id)sender;
 - (IBAction)goToToday:(id)sender;
 - (IBAction)selectDate:(id)sender;
