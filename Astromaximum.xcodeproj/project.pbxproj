@@ -26,6 +26,21 @@
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
 		84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC771647BB3E007188B1 /* InfoPlist.strings */; };
 		84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */; };
+		84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */; };
+		84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */; };
+		84DFC23716A59E00003D8B01 /* AmaxInterpreterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22D16A59E00003D8B01 /* AmaxInterpreterController.xib */; };
+		84DFC23816A59E00003D8B01 /* AmaxLocationListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22F16A59E00003D8B01 /* AmaxLocationListController.xib */; };
+		84DFC23916A59E00003D8B01 /* AmaxSettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC23116A59E00003D8B01 /* AmaxSettingsController.xib */; };
+		84DFC23A16A59E00003D8B01 /* AmaxSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC23316A59E00003D8B01 /* AmaxSummaryViewController.xib */; };
+		84DFC24E16A5A380003D8B01 /* AspectSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC23C16A5A380003D8B01 /* AspectSetCell.xib */; };
+		84DFC24F16A5A380003D8B01 /* MoonMoveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC23E16A5A380003D8B01 /* MoonMoveCell.xib */; };
+		84DFC25016A5A380003D8B01 /* MoonSignCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24016A5A380003D8B01 /* MoonSignCell.xib */; };
+		84DFC25116A5A380003D8B01 /* PlanetHourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24216A5A380003D8B01 /* PlanetHourCell.xib */; };
+		84DFC25216A5A380003D8B01 /* RetrogradeSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24416A5A380003D8B01 /* RetrogradeSetCell.xib */; };
+		84DFC25316A5A380003D8B01 /* SunDegreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24616A5A380003D8B01 /* SunDegreeCell.xib */; };
+		84DFC25416A5A380003D8B01 /* TithiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24816A5A380003D8B01 /* TithiCell.xib */; };
+		84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24A16A5A380003D8B01 /* ViaCombustaCell.xib */; };
+		84DFC25616A5A380003D8B01 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24C16A5A380003D8B01 /* VocCell.xib */; };
 		84E39A08168DCF73005DC0C5 /* interpret.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84E39A0A168DCF73005DC0C5 /* interpret.dat */; };
 		84E98AE7168E0F2A006AAA55 /* Planets.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AE9168E0F2A006AAA55 /* Planets.strings */; };
 		84E98AED168E0F64006AAA55 /* ConstellGenitive.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AEF168E0F64006AAA55 /* ConstellGenitive.strings */; };
@@ -87,6 +102,21 @@
 		84B1AC781647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84B1AC7C1647BB3E007188B1 /* Astromaximum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Prefix.pch"; sourceTree = "<group>"; };
 		84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Astronom.ttf; path = Resources/Astronom.ttf; sourceTree = "<group>"; };
+		84DFC22A16A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxDateSelectController.xib; sourceTree = "<group>"; };
+		84DFC22C16A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxEventListViewController.xib; sourceTree = "<group>"; };
+		84DFC22E16A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxInterpreterController.xib; sourceTree = "<group>"; };
+		84DFC23016A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxLocationListController.xib; sourceTree = "<group>"; };
+		84DFC23216A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxSettingsController.xib; sourceTree = "<group>"; };
+		84DFC23416A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
+		84DFC23D16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AspectSetCell.xib; sourceTree = "<group>"; };
+		84DFC23F16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MoonMoveCell.xib; sourceTree = "<group>"; };
+		84DFC24116A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MoonSignCell.xib; sourceTree = "<group>"; };
+		84DFC24316A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PlanetHourCell.xib; sourceTree = "<group>"; };
+		84DFC24516A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RetrogradeSetCell.xib; sourceTree = "<group>"; };
+		84DFC24716A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SunDegreeCell.xib; sourceTree = "<group>"; };
+		84DFC24916A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TithiCell.xib; sourceTree = "<group>"; };
+		84DFC24B16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViaCombustaCell.xib; sourceTree = "<group>"; };
+		84DFC24D16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/VocCell.xib; sourceTree = "<group>"; };
 		84E39A09168DCF73005DC0C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/interpret.dat; sourceTree = "<group>"; };
 		84E39A0B168DCF95005DC0C5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/interpret.dat; sourceTree = "<group>"; };
 		84E98AE8168E0F2A006AAA55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Planets.strings; sourceTree = "<group>"; };
@@ -177,6 +207,7 @@
 		8483FDDA166594AD000C9143 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84DFC22716A59DDE003D8B01 /* Xib */,
 				84CE9BE7168C846D00FC629F /* Icons */,
 				84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */,
 			);
@@ -251,6 +282,36 @@
 				8483FDDE16659FA3000C9143 /* previous@2x.png */,
 			);
 			name = Icons;
+			sourceTree = "<group>";
+		};
+		84DFC22716A59DDE003D8B01 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				84DFC23B16A5A362003D8B01 /* Cells */,
+				84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */,
+				84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */,
+				84DFC22D16A59E00003D8B01 /* AmaxInterpreterController.xib */,
+				84DFC22F16A59E00003D8B01 /* AmaxLocationListController.xib */,
+				84DFC23116A59E00003D8B01 /* AmaxSettingsController.xib */,
+				84DFC23316A59E00003D8B01 /* AmaxSummaryViewController.xib */,
+			);
+			name = Xib;
+			sourceTree = "<group>";
+		};
+		84DFC23B16A5A362003D8B01 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				84DFC23C16A5A380003D8B01 /* AspectSetCell.xib */,
+				84DFC23E16A5A380003D8B01 /* MoonMoveCell.xib */,
+				84DFC24016A5A380003D8B01 /* MoonSignCell.xib */,
+				84DFC24216A5A380003D8B01 /* PlanetHourCell.xib */,
+				84DFC24416A5A380003D8B01 /* RetrogradeSetCell.xib */,
+				84DFC24616A5A380003D8B01 /* SunDegreeCell.xib */,
+				84DFC24816A5A380003D8B01 /* TithiCell.xib */,
+				84DFC24A16A5A380003D8B01 /* ViaCombustaCell.xib */,
+				84DFC24C16A5A380003D8B01 /* VocCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		84E98B23168E62E7006AAA55 /* Localization */ = {
@@ -434,6 +495,21 @@
 				84E98AF3168E0F88006AAA55 /* ConstellLocative.strings in Resources */,
 				84E98AF9168E0FAB006AAA55 /* PlanetsGenitive.strings in Resources */,
 				84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */,
+				84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */,
+				84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */,
+				84DFC23716A59E00003D8B01 /* AmaxInterpreterController.xib in Resources */,
+				84DFC23816A59E00003D8B01 /* AmaxLocationListController.xib in Resources */,
+				84DFC23916A59E00003D8B01 /* AmaxSettingsController.xib in Resources */,
+				84DFC23A16A59E00003D8B01 /* AmaxSummaryViewController.xib in Resources */,
+				84DFC24E16A5A380003D8B01 /* AspectSetCell.xib in Resources */,
+				84DFC24F16A5A380003D8B01 /* MoonMoveCell.xib in Resources */,
+				84DFC25016A5A380003D8B01 /* MoonSignCell.xib in Resources */,
+				84DFC25116A5A380003D8B01 /* PlanetHourCell.xib in Resources */,
+				84DFC25216A5A380003D8B01 /* RetrogradeSetCell.xib in Resources */,
+				84DFC25316A5A380003D8B01 /* SunDegreeCell.xib in Resources */,
+				84DFC25416A5A380003D8B01 /* TithiCell.xib in Resources */,
+				84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */,
+				84DFC25616A5A380003D8B01 /* VocCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +577,126 @@
 				84B1AC781647BB3E007188B1 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC22A16A59E00003D8B01 /* en */,
+			);
+			name = AmaxDateSelectController.xib;
+			sourceTree = "<group>";
+		};
+		84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC22C16A59E00003D8B01 /* en */,
+			);
+			name = AmaxEventListViewController.xib;
+			sourceTree = "<group>";
+		};
+		84DFC22D16A59E00003D8B01 /* AmaxInterpreterController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC22E16A59E00003D8B01 /* en */,
+			);
+			name = AmaxInterpreterController.xib;
+			sourceTree = "<group>";
+		};
+		84DFC22F16A59E00003D8B01 /* AmaxLocationListController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC23016A59E00003D8B01 /* en */,
+			);
+			name = AmaxLocationListController.xib;
+			sourceTree = "<group>";
+		};
+		84DFC23116A59E00003D8B01 /* AmaxSettingsController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC23216A59E00003D8B01 /* en */,
+			);
+			name = AmaxSettingsController.xib;
+			sourceTree = "<group>";
+		};
+		84DFC23316A59E00003D8B01 /* AmaxSummaryViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC23416A59E00003D8B01 /* en */,
+			);
+			name = AmaxSummaryViewController.xib;
+			sourceTree = "<group>";
+		};
+		84DFC23C16A5A380003D8B01 /* AspectSetCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC23D16A5A380003D8B01 /* en */,
+			);
+			name = AspectSetCell.xib;
+			sourceTree = "<group>";
+		};
+		84DFC23E16A5A380003D8B01 /* MoonMoveCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC23F16A5A380003D8B01 /* en */,
+			);
+			name = MoonMoveCell.xib;
+			sourceTree = "<group>";
+		};
+		84DFC24016A5A380003D8B01 /* MoonSignCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC24116A5A380003D8B01 /* en */,
+			);
+			name = MoonSignCell.xib;
+			sourceTree = "<group>";
+		};
+		84DFC24216A5A380003D8B01 /* PlanetHourCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC24316A5A380003D8B01 /* en */,
+			);
+			name = PlanetHourCell.xib;
+			sourceTree = "<group>";
+		};
+		84DFC24416A5A380003D8B01 /* RetrogradeSetCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC24516A5A380003D8B01 /* en */,
+			);
+			name = RetrogradeSetCell.xib;
+			sourceTree = "<group>";
+		};
+		84DFC24616A5A380003D8B01 /* SunDegreeCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC24716A5A380003D8B01 /* en */,
+			);
+			name = SunDegreeCell.xib;
+			sourceTree = "<group>";
+		};
+		84DFC24816A5A380003D8B01 /* TithiCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC24916A5A380003D8B01 /* en */,
+			);
+			name = TithiCell.xib;
+			sourceTree = "<group>";
+		};
+		84DFC24A16A5A380003D8B01 /* ViaCombustaCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC24B16A5A380003D8B01 /* en */,
+			);
+			name = ViaCombustaCell.xib;
+			sourceTree = "<group>";
+		};
+		84DFC24C16A5A380003D8B01 /* VocCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DFC24D16A5A380003D8B01 /* en */,
+			);
+			name = VocCell.xib;
 			sourceTree = "<group>";
 		};
 		84E39A0A168DCF73005DC0C5 /* interpret.dat */ = {

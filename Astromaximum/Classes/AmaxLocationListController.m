@@ -47,7 +47,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    mDataProvider.mLocationId = [mDataProvider.mSortedLocationKeys objectAtIndex:mDataProvider.mCurrentLocationIndex];    
+    [mDataProvider loadLocationById:[mDataProvider.mSortedLocationKeys objectAtIndex:mDataProvider.mCurrentLocationIndex]];    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

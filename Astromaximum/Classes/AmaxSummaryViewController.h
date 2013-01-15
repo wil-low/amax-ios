@@ -19,8 +19,6 @@
 	IBOutlet UIToolbar *_mToolbar;
 }
 
-@property (nonatomic, readonly) UITableView* mTableView;
-@property (nonatomic, readonly) UIToolbar* mToolbar;
 @property (nonatomic, assign) IBOutlet AmaxTableCell *tvCell;
 
 - (void)updateDisplay;

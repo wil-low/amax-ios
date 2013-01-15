@@ -8,6 +8,7 @@
 
 #import "AmaxSettingsController.h"
 #import "AmaxLocationListController.h"
+#import "AmaxDataProvider.h"
 
 @implementation AmaxSettingsController
 
@@ -22,6 +23,7 @@ const int CELL_HIGHIGHT_TIME = 1;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Settings", @"Settings");
+        self->mDataProvider = [AmaxDataProvider sharedInstance];
     }
     return self;
 }
@@ -47,6 +49,12 @@ const int CELL_HIGHIGHT_TIME = 1;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [_mTableView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -79,7 +87,7 @@ const int CELL_HIGHIGHT_TIME = 1;
     
     if ([indexPath row] == CELL_LOCATION_NAME) {
         cell.textLabel.text = NSLocalizedString(@"Current location", @"Current location");
-        cell.detailTextLabel.text = @"Kiev";
+        cell.detailTextLabel.text = [mDataProvider locationName];
     }
     else if ([indexPath row] == CELL_HIGHIGHT_TIME) {
         cell.textLabel.text = @"88:88";

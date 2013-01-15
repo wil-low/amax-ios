@@ -37,6 +37,7 @@
 - (NSString *)locationName;
 - (NSString *)getHighlightTimeString;
 - (void)changeDate:(int)deltaDays;
+- (void)loadLocationById:(NSString *)locationId;
 
 @property (strong, nonatomic, readonly) NSMutableArray * mEventCache;
 @property (strong, nonatomic) NSString *mLocationId;

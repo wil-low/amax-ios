@@ -77,7 +77,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     return [NSString stringWithFormat:@"%@/%@.dat", documentsDirectory, locationId];
 }
 
-- (void) loadLocationById:(NSString *)locationId
+- (void)loadLocationById:(NSString *)locationId
 {
     NSString *filePath = [self locationFileById:locationId];
     if (filePath == nil) {
@@ -100,6 +100,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     mStartJD = [date timeIntervalSince1970];
     mFinalJD = mStartJD + mLocationDataFile.mDayCount * AmaxSECONDS_IN_DAY;
     [AmaxEvent setTimeZone:mLocationDataFile.mTimezone];
+    NSLog(@"loadLocationById: %@ %@", _mLocationId, [self locationName]);
 }
 
 - (void)saveCurrentState

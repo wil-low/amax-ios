@@ -29,8 +29,6 @@ NSString *xibNames[] = {
 
 @implementation AmaxSummaryViewController
 
-@synthesize mToolbar = _mToolbar;
-@synthesize mTableView = _mTableView;
 @synthesize eventListViewController = _eventListViewController;
 @synthesize settingsController = _settingsController;
 @synthesize dateSelectController = _dateSelectController;
@@ -41,6 +39,7 @@ NSString *xibNames[] = {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = NSLocalizedString(@"Summary", @"Summary");
+        self->mDataProvider = [AmaxDataProvider sharedInstance];
     }
     return self;
 }
@@ -167,7 +166,6 @@ NSString *xibNames[] = {
 
 - (void)updateDisplay
 {
-    mDataProvider = [AmaxDataProvider sharedInstance];
     [mDataProvider prepareCalculation];
     [mDataProvider calculateAll];
     [_mTableView reloadData];

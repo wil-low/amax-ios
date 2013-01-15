@@ -19,11 +19,6 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    for (NSString *familyName in [UIFont familyNames]) {
-        for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
-            NSLog(@"%@", fontName);
-        }
-    }    
     dataProvider = [AmaxDataProvider sharedInstance];
     [dataProvider restoreSavedState];    
     AmaxSummaryViewController *summaryViewController = [[AmaxSummaryViewController alloc] initWithNibName:@"AmaxSummaryViewController" bundle:nil];
