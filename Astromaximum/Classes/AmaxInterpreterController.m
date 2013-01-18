@@ -118,7 +118,7 @@
 		case EV_TITHI: {/*
 			return getStr(R.string.si_key_tithi) + " "
             + Integer.toString(ev.getDegree());*/
-            NSString* result = NSLocalizedString(@"si_key_moon_move", nil);
+            NSString* result = NSLocalizedString(@"si_key_tithi", nil);
  			return [NSString stringWithFormat:@"%@ %d", result, [ev getDegree]]; }
            
 		case EV_RETROGRADE: {/*
