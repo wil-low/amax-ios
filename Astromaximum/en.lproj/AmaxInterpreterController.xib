@@ -39,17 +39,17 @@
 					<object class="IBUILabel" id="294231264">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrameSize">{320, 23}</string>
+						<string key="NSFrame">{{0, 31}, {320, 23}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="448683251"/>
+						<reference key="NSNextKeyView" ref="188166659"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Event Description</string>
-						<object class="NSColor" key="IBUITextColor" id="136210593">
+						<object class="NSColor" key="IBUITextColor" id="748834865">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwIDAAA</bytes>
 						</object>
@@ -57,20 +57,20 @@
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUITextAlignment">1</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="569165483">
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="388764121">
 							<int key="type">1</int>
 							<double key="pointSize">20</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="1045690588">
+						<object class="NSFont" key="IBUIFont" id="105269240">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">20</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
-					<object class="IBUILabel" id="448683251">
+					<object class="IBUILabel" id="188166659">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 31}, {320, 23}}</string>
+						<string key="NSFrameSize">{320, 23}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="761596225"/>
@@ -80,13 +80,13 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Date Range</string>
-						<reference key="IBUITextColor" ref="136210593"/>
+						<reference key="IBUITextColor" ref="748834865"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="569165483"/>
-						<reference key="IBUIFont" ref="1045690588"/>
+						<reference key="IBUIFontDescription" ref="388764121"/>
+						<reference key="IBUIFont" ref="105269240"/>
 					</object>
 					<object class="IBUIWebView" id="761596225">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -149,7 +149,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dateRangeView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="448683251"/>
+						<reference key="destination" ref="188166659"/>
 					</object>
 					<int key="connectionID">17</int>
 				</object>
@@ -166,9 +166,9 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="761596225"/>
+							<reference ref="188166659"/>
 							<reference ref="294231264"/>
-							<reference ref="448683251"/>
+							<reference ref="761596225"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -195,7 +195,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">16</int>
-						<reference key="object" ref="448683251"/>
+						<reference key="object" ref="188166659"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>

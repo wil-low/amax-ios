@@ -1,0 +1,17 @@
+/* 
+  EventList.strings
+  Astromaximum
+
+  Created by admin on 01.06.13.
+  Copyright (c) 2013 S&W Axis. All rights reserved.
+*/
+
+"0" = "Moon \"Void of Course\"";
+"5" = "\"Via Combusta\"";
+"53" = "Degree of Sun";
+"54" = "Sign of Moon";
+"14" = "Planetary Hour";
+"18" = "Moon Motion";
+"8" = "Tithi";
+"2" = "Aspect";
+"6" = "Retrograde Motion";

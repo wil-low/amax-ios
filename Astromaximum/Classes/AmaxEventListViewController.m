@@ -30,9 +30,7 @@
 
 - (void)configureView
 {
-    if (self.detailItem) {
-        self.title = [NSString stringWithUTF8String:EVENT_TYPE_STR[[_detailItem mKey]]];
-    }
+    self.navigationItem.title = NSLocalizedString(@"event_list_title", nil);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -82,7 +80,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Dummy";
+    NSString* textId = [NSString stringWithFormat:@"%d", _detailItem.mKey];
+    return NSLocalizedStringFromTable(textId, @"EventListTitle", nil);
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
