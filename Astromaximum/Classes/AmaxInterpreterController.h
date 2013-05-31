@@ -21,5 +21,6 @@
 @property (strong, nonatomic) AmaxEvent *interpreterEvent;
 
 @property (strong, nonatomic) IBOutlet UIWebView *interpreterTextView;
+@property (strong, nonatomic) IBOutlet UILabel *eventDescriptionView;
 @property (strong, nonatomic) IBOutlet UILabel *dateRangeView;
 @end

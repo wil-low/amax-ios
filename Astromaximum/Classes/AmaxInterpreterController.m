@@ -11,6 +11,7 @@
 
 @implementation AmaxInterpreterController
 
+@synthesize eventDescriptionView;
 @synthesize dateRangeView;
 @synthesize interpreterText = _interpreterText;
 @synthesize interpreterEvent = _interpreterEvent;
@@ -153,12 +154,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.title = NSLocalizedString(@"interp_title", nil);
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
-    [self setDateRangeView:nil];
+    [self setEventDescriptionView:nil];
     [self setInterpreterTextView:nil];
     [self setInterpreterTextView:nil];
     [super viewDidUnload];
@@ -169,7 +171,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationItem.title = [self makeTitleFromEvent:_interpreterEvent];
+    eventDescriptionView.text = [self makeTitleFromEvent:_interpreterEvent];
     dateRangeView.text = [self makeDateRangeFromEvent:_interpreterEvent];
     [interpreterTextView loadHTMLString:_interpreterText baseURL:nil];
 }
