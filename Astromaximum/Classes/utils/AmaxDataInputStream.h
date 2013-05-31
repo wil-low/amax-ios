@@ -22,6 +22,7 @@
 - (void)reset;
 - (void)skipBytes:(size_t)byteCount;
 - (Size)availableBytes;
+- (BOOL)reachedEOF;
 
 - (SInt16)readShort;
 - (unsigned char)readUnsignedByte;

@@ -197,6 +197,8 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
             [stream skipBytes:skipOff];
             [stream readUnsignedByte];
             rub = [stream readUnsignedByte];
+            if ([stream reachedEOF])
+                return 0;
         }
         skipOff = [stream readShort];
         flag = [stream readShort ];
@@ -205,6 +207,8 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
         } else {
             [stream skipBytes:skipOff - 6];
         }
+        if ([stream reachedEOF])
+            return 0;
     }
     const int count = [stream readShort];
     int fcumul_date_b = (flag & EF_CUMUL_DATE_B);
@@ -352,6 +356,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     int startHour = WEEK_START_HOUR[[mCurrentDateComponents weekday] - 1];
     long dayHour = ([currentSunRise dateAt:1] - [currentSunRise dateAt:0]) / 12;
     long nightHour = ([nextSunRise dateAt:0] - [currentSunRise dateAt:1]) / 12;
+    NSLog(@"getPlanetaryHoursInto: %ld, %ld", dayHour, nightHour);
     long st = [currentSunRise dateAt:0];
     for (int i = 0; i < 24; ++i) {
         AmaxEvent *ev = [[AmaxEvent alloc]initWithDate:(st - (st % AmaxROUNDING_SEC)) planet:PLANET_HOUR_SEQUENCE[startHour % 7]];
@@ -369,8 +374,10 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 - (NSMutableArray *)calculatePlanetaryHours
 {
     NSMutableArray *sunRises = [self getEventsOnPeriodForEvent:EV_RISE planet:SE_SUN special:true from:(mStartTime - AmaxSECONDS_IN_DAY) to:(mEndTime + AmaxSECONDS_IN_DAY) value:0];
-    for (AmaxEvent *e in sunRises)
+    for (AmaxEvent *e in sunRises) {
         [e setDateAt:1 value:[e dateAt:0]];
+        //NSLog(@"calculatePlanetaryHours: %@", [e dateAt:0]);
+    }
     NSMutableArray *result = [NSMutableArray array];
     [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:0] nextSunRise:[sunRises objectAtIndex:1]];
     [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:1] nextSunRise:[sunRises objectAtIndex:2]];

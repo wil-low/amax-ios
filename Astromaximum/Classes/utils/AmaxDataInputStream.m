@@ -41,6 +41,11 @@
     position += byteCount;
 }
 
+- (BOOL)reachedEOF
+{
+    return position >= dataLength;
+}
+
 - (SInt16)readShort
 {
     SInt16 res = data[position++];
