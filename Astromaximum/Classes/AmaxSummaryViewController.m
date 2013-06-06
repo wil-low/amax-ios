@@ -38,7 +38,6 @@ NSString *xibNames[] = {
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Summary", @"Summary");
         self->mDataProvider = [AmaxDataProvider sharedInstance];
     }
     return self;
@@ -55,6 +54,9 @@ NSString *xibNames[] = {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Summary", @"Summary") style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    
 }
 
 - (void)viewDidUnload
@@ -137,11 +139,9 @@ NSString *xibNames[] = {
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    mTitleDate = [mDataProvider currentDateString];
-    return [NSString stringWithFormat:@"%@: %@ %@",
-                     [mDataProvider locationName], 
-                     mTitleDate, 
-                     [mDataProvider getHighlightTimeString]];
+    return [NSString stringWithFormat:@"%@, %@",
+            [mDataProvider getHighlightTimeString],
+            [mDataProvider locationName]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -161,11 +161,13 @@ NSString *xibNames[] = {
     AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
     [self.eventListViewController setDetailItem:si];
     [self.eventListViewController setCellNibName:xibNames[indexPath.row]];
+
     [self.navigationController pushViewController:self.eventListViewController animated:YES];
 }
 
 - (void)updateDisplay
 {
+    self.title = [mDataProvider currentDateString];
     [mDataProvider prepareCalculation];
     [mDataProvider calculateAll];
     [_mTableView reloadData];

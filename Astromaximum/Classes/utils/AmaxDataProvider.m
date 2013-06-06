@@ -160,7 +160,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 
 - (void)setDateFrom:(NSDate *)date
 {
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
     mCurrentDateComponents = [mCalendar components:unitFlags fromDate:date]; 
 }
 
@@ -288,8 +288,10 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 
 - (NSString *)currentDateString
 {
-    return [NSString stringWithFormat:@"%02d.%02d",
-            mCurrentDateComponents.month, mCurrentDateComponents.day];
+    NSString *weekday = [NSString stringWithFormat:@"%d", mCurrentDateComponents.weekday];
+    weekday = NSLocalizedStringFromTable(weekday, @"WeekDays", nil);
+    return [NSString stringWithFormat:@"%@ %02d.%02d %04d",
+            weekday, mCurrentDateComponents.month, mCurrentDateComponents.day, mCurrentDateComponents.year];
 }
 
 - (NSMutableArray *)getEventsOnPeriodForEvent:(AmaxEventType)evtype planet:(AmaxPlanet)planet special:(BOOL)special from:(long)dayStart to:(long)dayEnd value:(int)value
@@ -623,7 +625,7 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
     [_mEventCache removeAllObjects];
     mStartTime += AmaxSECONDS_IN_DAY * deltaDays + AmaxSECONDS_IN_DAY / 2;
     NSDate *newDate = [NSDate dateWithTimeIntervalSince1970:mStartTime];
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
     mCurrentDateComponents = [mCalendar components:unitFlags fromDate:newDate];
 }
 
