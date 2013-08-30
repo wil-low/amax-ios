@@ -42,7 +42,6 @@
 		84DFC25316A5A380003D8B01 /* SunDegreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24616A5A380003D8B01 /* SunDegreeCell.xib */; };
 		84DFC25416A5A380003D8B01 /* TithiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24816A5A380003D8B01 /* TithiCell.xib */; };
 		84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24A16A5A380003D8B01 /* ViaCombustaCell.xib */; };
-		84DFC25616A5A380003D8B01 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC24C16A5A380003D8B01 /* VocCell.xib */; };
 		84E39A08168DCF73005DC0C5 /* interpret.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84E39A0A168DCF73005DC0C5 /* interpret.dat */; };
 		84E98AE7168E0F2A006AAA55 /* Planets.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AE9168E0F2A006AAA55 /* Planets.strings */; };
 		84E98AED168E0F64006AAA55 /* ConstellGenitive.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AEF168E0F64006AAA55 /* ConstellGenitive.strings */; };
@@ -122,7 +121,6 @@
 		84DFC24716A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SunDegreeCell.xib; sourceTree = "<group>"; };
 		84DFC24916A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TithiCell.xib; sourceTree = "<group>"; };
 		84DFC24B16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViaCombustaCell.xib; sourceTree = "<group>"; };
-		84DFC24D16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/VocCell.xib; sourceTree = "<group>"; };
 		84E39A09168DCF73005DC0C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/interpret.dat; sourceTree = "<group>"; };
 		84E39A0B168DCF95005DC0C5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/interpret.dat; sourceTree = "<group>"; };
 		84E98AE8168E0F2A006AAA55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Planets.strings; sourceTree = "<group>"; };
@@ -315,7 +313,6 @@
 				84DFC24616A5A380003D8B01 /* SunDegreeCell.xib */,
 				84DFC24816A5A380003D8B01 /* TithiCell.xib */,
 				84DFC24A16A5A380003D8B01 /* ViaCombustaCell.xib */,
-				84DFC24C16A5A380003D8B01 /* VocCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -517,7 +514,6 @@
 				84DFC25316A5A380003D8B01 /* SunDegreeCell.xib in Resources */,
 				84DFC25416A5A380003D8B01 /* TithiCell.xib in Resources */,
 				84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */,
-				84DFC25616A5A380003D8B01 /* VocCell.xib in Resources */,
 				84DF76D3175947DB00A3D7A9 /* EventListTitle.strings in Resources */,
 				84DF76D9175957BD00A3D7A9 /* WeekDays.strings in Resources */,
 			);
@@ -717,14 +713,6 @@
 				84DFC24B16A5A380003D8B01 /* en */,
 			);
 			name = ViaCombustaCell.xib;
-			sourceTree = "<group>";
-		};
-		84DFC24C16A5A380003D8B01 /* VocCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84DFC24D16A5A380003D8B01 /* en */,
-			);
-			name = VocCell.xib;
 			sourceTree = "<group>";
 		};
 		84E39A0A168DCF73005DC0C5 /* interpret.dat */ = {

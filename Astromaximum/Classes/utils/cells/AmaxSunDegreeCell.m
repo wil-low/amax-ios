@@ -19,7 +19,7 @@
 - (void)configure:(AmaxSummaryItem *)si
 {
     [super configure:si];
-    AmaxEvent* e = si.activeEvent;
+    AmaxEvent* e = [si mActiveEvent];
     if (e != nil) {
         [timeLabel setText:[e normalizedRangeString]];
         [eventLabel setText:[NSString stringWithFormat:@"%c",

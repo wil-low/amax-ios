@@ -11,12 +11,19 @@
 #import "AmaxDataProvider.h"
 
 @implementation AmaxSettingsController
+@synthesize pickerView;
 
 @synthesize locationListController = _locationListController;
+@synthesize tvCell = _tvCell;
 
 const int CELL_LOCATION_NAME = 0;
-const int CELL_HIGHIGHT_TIME = 1;
+const int CELL_IS_CUSTOM_TIME = 1;
+const int CELL_HIGHIGHT_TIME = 2;
 
+NSString *AmaxSettingsXibNames[] = {
+    @"LocationNameCell",
+    @"CustomTimeSwitchCell"
+};
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +53,7 @@ const int CELL_HIGHIGHT_TIME = 1;
 
 - (void)viewDidUnload
 {
+    [self setPickerView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -77,20 +85,25 @@ const int CELL_HIGHIGHT_TIME = 1;
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSString *cellIdentifier = AmaxSettingsXibNames[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    
-    if ([indexPath row] == CELL_LOCATION_NAME) {
-        cell.textLabel.text = NSLocalizedString(@"Current location", @"Current location");
-        cell.detailTextLabel.text = [mDataProvider locationName];
-    }
-    else if ([indexPath row] == CELL_HIGHIGHT_TIME) {
-        cell.textLabel.text = @"88:88";
+    switch ([indexPath row]) {
+        case CELL_LOCATION_NAME:
+            cell.textLabel.text = NSLocalizedString(@"Current location", @"Current location");
+            cell.detailTextLabel.text = [mDataProvider locationName];
+            break;
+        case CELL_IS_CUSTOM_TIME:
+            cell.textLabel.text = NSLocalizedString(@"Highlight time", @"Highlight time");
+            cell.detailTextLabel.text = @"88:88";
+            UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
+            cell.accessoryView = switchView;
+            [switchView setOn:NO animated:NO];
+            [switchView addTarget:self action:@selector(customTimeSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+            break;
     }
     return cell;
 }
@@ -103,5 +116,51 @@ const int CELL_HIGHIGHT_TIME = 1;
         }
         [self.navigationController pushViewController:self.locationListController animated:YES];
     }
+}
+
+- (IBAction)customTimeSwitchChanged:(id)sender
+{
+    UITableViewCell *targetCell = [self tableView:_mTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:CELL_HIGHIGHT_TIME inSection:0]];
+    NSLog(@"Switch changed to %@\n", [sender isOn] ? @"YES" : @"NO");
+//	self.pickerView.date = [self.dateFormatter dateFromString:targetCell.detailTextLabel.text];
+	
+	// check if our date picker is already on screen
+	if (self->pickerView.superview == nil)
+	{
+		[self.view.window addSubview: self->pickerView];
+		
+		// size up the picker view to our screen and compute the start/end frame origin for our slide up animation
+		//
+		// compute the start frame
+		CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
+		CGSize pickerSize = [self->pickerView sizeThatFits:CGSizeZero];
+		CGRect startRect = CGRectMake(0.0,
+									  screenRect.origin.y + screenRect.size.height,
+									  pickerSize.width, pickerSize.height);
+		self->pickerView.frame = startRect;
+		
+		// compute the end frame
+		CGRect pickerRect = CGRectMake(0.0,
+									   screenRect.origin.y + screenRect.size.height - pickerSize.height,
+									   pickerSize.width,
+									   pickerSize.height);
+		// start the slide up animation
+		[UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.3];
+		
+        // we need to perform some post operations after the animation is complete
+        [UIView setAnimationDelegate:self];
+		
+        self->pickerView.frame = pickerRect;
+		
+        // shrink the table vertical size to make room for the date picker
+        CGRect newFrame = _mTableView.frame;
+        newFrame.size.height -= self->pickerView.frame.size.height;
+        _mTableView.frame = newFrame;
+		[UIView commitAnimations];
+		
+		// add the "Done" button to the nav bar
+		self.navigationItem.rightBarButtonItem = self.doneButton;
+	}
 }
 @end

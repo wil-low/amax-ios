@@ -13,7 +13,6 @@
 @interface AmaxSummaryViewController : AmaxBaseViewController
 {
     NSString *mTitleDate;
-    
 	// Outlets
 	IBOutlet UITableView *_mTableView;
 	IBOutlet UIToolbar *_mToolbar;
@@ -22,6 +21,9 @@
 @property (nonatomic, assign) IBOutlet AmaxTableCell *tvCell;
 
 - (void)updateDisplay;
+
+@property long mCustomTime;
+@property long mCurrentTime;
 
 @property (strong, nonatomic) AmaxEventListViewController *eventListViewController;
 @property (strong, nonatomic) AmaxSettingsController *settingsController;

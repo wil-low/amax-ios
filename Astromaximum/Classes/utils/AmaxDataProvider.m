@@ -617,7 +617,7 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
 
 - (NSString *)getHighlightTimeString
 {
-    return @"88:88";
+    return @"12:00";
 }
 
 - (void)changeDate:(int)deltaDays

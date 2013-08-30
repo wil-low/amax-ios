@@ -15,5 +15,12 @@
     AmaxDataProvider* mDataProvider;
     IBOutlet UITableView *_mTableView;
 }
+
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
+
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *doneButton;
+@property (nonatomic, assign) IBOutlet UITableViewCell *tvCell;
 @property (strong, nonatomic) AmaxLocationListController *locationListController;
+
+- (IBAction)customTimeSwitchChanged:(id)sender;
 @end

@@ -33,6 +33,8 @@ NSString *xibNames[] = {
 @synthesize settingsController = _settingsController;
 @synthesize dateSelectController = _dateSelectController;
 @synthesize tvCell = _tvCell;
+@synthesize mCustomTime = _customTime;
+@synthesize mCurrentTime = _currentTime;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -117,6 +119,7 @@ NSString *xibNames[] = {
     }
     // Configure the cell.
     AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:indexPath.row];
+    [si calculateActiveEventWithCustomTime:_customTime currentTime:_currentTime];
     [cell configure:si];
     return cell;
 }
@@ -148,7 +151,7 @@ NSString *xibNames[] = {
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
-    AmaxEvent* e = [si activeEvent];
+    AmaxEvent* e = [si mActiveEvent];
     if (e != nil)
         [self showInterpreterForEvent:e];
 }

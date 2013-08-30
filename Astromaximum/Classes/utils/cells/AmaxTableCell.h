@@ -16,8 +16,9 @@
     UILabel *eventLabel;
     UILabel *timeLabel;
 }
+
 - (void)configure:(AmaxSummaryItem *)si;
 - (void)updateInfoButtonWith:(AmaxSummaryItem *)si;
 - (void)setColorOf:(UILabel *)label byEventMode:(AmaxEvent *)e;
-
+- (void)calculateActiveEventWithItem:(AmaxSummaryItem *)si customTime:(long)customTime currentTime:(long)currentTime;
 @end

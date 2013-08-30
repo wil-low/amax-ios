@@ -14,8 +14,11 @@
 {
 }
 - (id)initWithKey:(AmaxEventType)key events:(NSMutableArray *)events;
-- (AmaxEvent *)activeEvent;
+- (int)activeEventPositionWithCustomTime:(long)customTime currentTime:(long)currentTime;
+- (void)calculateActiveEventWithCustomTime:(long)customTime currentTime:(long)currentTime;
 
 @property (strong, nonatomic) NSMutableArray * mEvents;
+@property (strong, nonatomic) AmaxEvent* mActiveEvent;
 @property AmaxEventType mKey;
+@property int mEventMode;
 @end
