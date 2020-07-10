@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72606C9424B823FB009B0113 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9324B823FB009B0113 /* Default-568h@2x.png */; };
+		72606C9824B82D9C009B0113 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9724B82CBE009B0113 /* locations.dat */; };
+		72606C9924B82DA0009B0113 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9624B82CB4009B0113 /* common.dat */; };
+		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
 		842C0658166D6DAF0080F505 /* today.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C0657166D6DAF0080F505 /* today.png */; };
 		842C065A166D6DB90080F505 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C0659166D6DB90080F505 /* calendar.png */; };
 		842C065C166D6DBF0080F505 /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C065B166D6DBF0080F505 /* calendar@2x.png */; };
@@ -19,8 +23,6 @@
 		8486D88816665CA60071E11F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486D88616665CA60071E11F /* icon@2x.png */; };
 		848C0891166CDB1300AA5D32 /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 848C088F166CDB1300AA5D32 /* options.png */; };
 		848C0892166CDB1300AA5D32 /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 848C0890166CDB1300AA5D32 /* options@2x.png */; };
-		84945FA21652B2E5001CAC91 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA01652B2E5001CAC91 /* common.dat */; };
-		84945FA31652B2E5001CAC91 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 84945FA11652B2E5001CAC91 /* locations.dat */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -81,6 +83,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72606C9324B823FB009B0113 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		72606C9624B82CB4009B0113 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
+		72606C9724B82CBE009B0113 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
+		72A6011E24B83144002C1322 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/VocCell.xib; sourceTree = "<group>"; };
 		842C0657166D6DAF0080F505 /* today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = today.png; path = Resources/today.png; sourceTree = "<group>"; };
 		842C0659166D6DB90080F505 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = Resources/calendar.png; sourceTree = "<group>"; };
 		842C065B166D6DBF0080F505 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "Resources/calendar@2x.png"; sourceTree = "<group>"; };
@@ -93,8 +99,6 @@
 		8486D88616665CA60071E11F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "Resources/icon@2x.png"; sourceTree = "<group>"; };
 		848C088F166CDB1300AA5D32 /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = options.png; path = Resources/options.png; sourceTree = "<group>"; };
 		848C0890166CDB1300AA5D32 /* options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "options@2x.png"; path = "Resources/options@2x.png"; sourceTree = "<group>"; };
-		84945FA01652B2E5001CAC91 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
-		84945FA11652B2E5001CAC91 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
 		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -221,6 +225,7 @@
 		84B1AC5F1647BB3E007188B1 = {
 			isa = PBXGroup;
 			children = (
+				72606C9324B823FB009B0113 /* Default-568h@2x.png */,
 				84B1AC741647BB3E007188B1 /* Astromaximum */,
 				84B1AC6D1647BB3E007188B1 /* Frameworks */,
 				84B1AC6B1647BB3E007188B1 /* Products */,
@@ -260,11 +265,11 @@
 			children = (
 				84E98B23168E62E7006AAA55 /* Localization */,
 				84E98B0D168E52A2006AAA55 /* main.m */,
+				72606C9724B82CBE009B0113 /* locations.dat */,
+				72606C9624B82CB4009B0113 /* common.dat */,
 				84B1AC761647BB3E007188B1 /* Astromaximum-Info.plist */,
 				84B1AC7C1647BB3E007188B1 /* Astromaximum-Prefix.pch */,
-				84945FA01652B2E5001CAC91 /* common.dat */,
 				84B1AC771647BB3E007188B1 /* InfoPlist.strings */,
-				84945FA11652B2E5001CAC91 /* locations.dat */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				84DFC24616A5A380003D8B01 /* SunDegreeCell.xib */,
 				84DFC24816A5A380003D8B01 /* TithiCell.xib */,
 				84DFC24A16A5A380003D8B01 /* ViaCombustaCell.xib */,
+				72A6011D24B83144002C1322 /* VocCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -449,14 +455,20 @@
 		84B1AC611647BB3E007188B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "S&W Axis";
+				TargetAttributes = {
+					84B1AC691647BB3E007188B1 = {
+						DevelopmentTeam = 8MSTLPJ26R;
+					};
+				};
 			};
 			buildConfigurationList = 84B1AC641647BB3E007188B1 /* Build configuration list for PBXProject "Astromaximum" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				de,
 				fr,
@@ -478,8 +490,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */,
-				84945FA21652B2E5001CAC91 /* common.dat in Resources */,
-				84945FA31652B2E5001CAC91 /* locations.dat in Resources */,
 				8483FDDF16659FA3000C9143 /* next.png in Resources */,
 				8483FDE016659FA3000C9143 /* next@2x.png in Resources */,
 				8483FDE116659FA3000C9143 /* previous.png in Resources */,
@@ -490,6 +500,7 @@
 				848C0892166CDB1300AA5D32 /* options@2x.png in Resources */,
 				842C0658166D6DAF0080F505 /* today.png in Resources */,
 				842C065A166D6DB90080F505 /* calendar.png in Resources */,
+				72606C9424B823FB009B0113 /* Default-568h@2x.png in Resources */,
 				842C065C166D6DBF0080F505 /* calendar@2x.png in Resources */,
 				842C065E166D6DC70080F505 /* today@2x.png in Resources */,
 				84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */,
@@ -498,8 +509,10 @@
 				84E98AE7168E0F2A006AAA55 /* Planets.strings in Resources */,
 				84E98AED168E0F64006AAA55 /* ConstellGenitive.strings in Resources */,
 				84E98AF3168E0F88006AAA55 /* ConstellLocative.strings in Resources */,
+				72A6011F24B83144002C1322 /* VocCell.xib in Resources */,
 				84E98AF9168E0FAB006AAA55 /* PlanetsGenitive.strings in Resources */,
 				84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */,
+				72606C9824B82D9C009B0113 /* locations.dat in Resources */,
 				84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */,
 				84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */,
 				84DFC23716A59E00003D8B01 /* AmaxInterpreterController.xib in Resources */,
@@ -511,6 +524,7 @@
 				84DFC25016A5A380003D8B01 /* MoonSignCell.xib in Resources */,
 				84DFC25116A5A380003D8B01 /* PlanetHourCell.xib in Resources */,
 				84DFC25216A5A380003D8B01 /* RetrogradeSetCell.xib in Resources */,
+				72606C9924B82DA0009B0113 /* common.dat in Resources */,
 				84DFC25316A5A380003D8B01 /* SunDegreeCell.xib in Resources */,
 				84DFC25416A5A380003D8B01 /* TithiCell.xib in Resources */,
 				84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */,
@@ -577,6 +591,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		72A6011D24B83144002C1322 /* VocCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72A6011E24B83144002C1322 /* en */,
+			);
+			name = VocCell.xib;
+			sourceTree = "<group>";
+		};
 		84B1AC771647BB3E007188B1 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -785,12 +807,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -798,10 +840,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -810,16 +857,39 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -829,10 +899,13 @@
 		84B1AC8F1647BB3E007188B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8MSTLPJ26R;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MARKETING_VERSION = 2020.01;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sw-axis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -842,10 +915,13 @@
 		84B1AC901647BB3E007188B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 8MSTLPJ26R;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MARKETING_VERSION = 2020.01;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sw-axis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

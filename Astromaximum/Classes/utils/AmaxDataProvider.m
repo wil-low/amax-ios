@@ -92,7 +92,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     _mLocationId = locationId;
     mCalendar = [NSCalendar currentCalendar];
     [mCalendar setTimeZone:[NSTimeZone timeZoneWithName:mLocationDataFile.mTimezone]];
-    NSDateComponents *comp = [NSDateComponents alloc];
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
     [comp setYear:mLocationDataFile.mStartYear];
     [comp setMonth:mLocationDataFile.mStartMonth];
     [comp setDay:mLocationDataFile.mStartDay];
@@ -446,8 +446,10 @@ void mergeEvents(NSMutableArray *dest, NSMutableArray *add, BOOL isSort)
         ++counter;
     }
     [moonMoveVec removeAllObjects];
-    for (int i = id1; i <= id2; i++)
-        [moonMoveVec addObject:[asp objectAtIndex:i]];
+    if (id1 != -1 && id2 != -1) {
+        for (int i = id1; i <= id2; i++)
+            [moonMoveVec addObject:[asp objectAtIndex:i]];
+    }
     
     int sz = [moonMoveVec count] - 1;
     int idx = 1;

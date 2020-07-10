@@ -19,6 +19,7 @@
 @property (readonly) int mStartMonth;
 @property (readonly) int mStartDay;
 @property (readonly) int mDayCount;
+@property (readonly) int mMonthCount;
 @property (readonly) int mCityId;
 @property (readonly, strong, nonatomic) NSString *mCity;
 @property (readonly, strong, nonatomic) NSString *mState;
