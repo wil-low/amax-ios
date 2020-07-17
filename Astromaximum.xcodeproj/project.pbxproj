@@ -82,11 +82,36 @@
 		84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EB53F6168CE8010089D6F6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		72AA650824BAB24A00633E55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7272D41E24B845A60017A464;
+			remoteInfo = Astromaximum2;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		72606C9324B823FB009B0113 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		72606C9624B82CB4009B0113 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
 		72606C9724B82CBE009B0113 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
-		72A6011E24B83144002C1322 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/VocCell.xib; sourceTree = "<group>"; };
+		727CAEA424C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AspectSetCell.xib; sourceTree = "<group>"; };
+		727CAEA524C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoonMoveCell.xib; sourceTree = "<group>"; };
+		727CAEA624C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoonSignCell.xib; sourceTree = "<group>"; };
+		727CAEA724C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PlanetHourCell.xib; sourceTree = "<group>"; };
+		727CAEA824C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RetrogradeSetCell.xib; sourceTree = "<group>"; };
+		727CAEA924C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SunDegreeCell.xib; sourceTree = "<group>"; };
+		727CAEAA24C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TithiCell.xib; sourceTree = "<group>"; };
+		727CAEAB24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ViaCombustaCell.xib; sourceTree = "<group>"; };
+		727CAEAC24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VocCell.xib; sourceTree = "<group>"; };
+		727CAEAD24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxDateSelectController.xib; sourceTree = "<group>"; };
+		727CAEAE24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxEventListViewController.xib; sourceTree = "<group>"; };
+		727CAEAF24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxInterpreterController.xib; sourceTree = "<group>"; };
+		727CAEB024C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxLocationListController.xib; sourceTree = "<group>"; };
+		727CAEB124C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSettingsController.xib; sourceTree = "<group>"; };
+		727CAEB224C160A10008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
+		72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Astromaximum2.xcodeproj; path = ../Astromaximum2/Astromaximum2.xcodeproj; sourceTree = "<group>"; };
 		842C0657166D6DAF0080F505 /* today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = today.png; path = Resources/today.png; sourceTree = "<group>"; };
 		842C0659166D6DB90080F505 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = Resources/calendar.png; sourceTree = "<group>"; };
 		842C065B166D6DBF0080F505 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "Resources/calendar@2x.png"; sourceTree = "<group>"; };
@@ -111,20 +136,6 @@
 		84DF76D61759486E00A3D7A9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		84DF76DA175957BD00A3D7A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WeekDays.strings; sourceTree = "<group>"; };
 		84DF76DC175957C500A3D7A9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WeekDays.strings; sourceTree = "<group>"; };
-		84DFC22A16A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxDateSelectController.xib; sourceTree = "<group>"; };
-		84DFC22C16A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxEventListViewController.xib; sourceTree = "<group>"; };
-		84DFC22E16A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxInterpreterController.xib; sourceTree = "<group>"; };
-		84DFC23016A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxLocationListController.xib; sourceTree = "<group>"; };
-		84DFC23216A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxSettingsController.xib; sourceTree = "<group>"; };
-		84DFC23416A59E00003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
-		84DFC23D16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AspectSetCell.xib; sourceTree = "<group>"; };
-		84DFC23F16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MoonMoveCell.xib; sourceTree = "<group>"; };
-		84DFC24116A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MoonSignCell.xib; sourceTree = "<group>"; };
-		84DFC24316A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PlanetHourCell.xib; sourceTree = "<group>"; };
-		84DFC24516A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RetrogradeSetCell.xib; sourceTree = "<group>"; };
-		84DFC24716A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SunDegreeCell.xib; sourceTree = "<group>"; };
-		84DFC24916A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TithiCell.xib; sourceTree = "<group>"; };
-		84DFC24B16A5A380003D8B01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViaCombustaCell.xib; sourceTree = "<group>"; };
 		84E39A09168DCF73005DC0C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/interpret.dat; sourceTree = "<group>"; };
 		84E39A0B168DCF95005DC0C5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file; name = ru; path = ru.lproj/interpret.dat; sourceTree = "<group>"; };
 		84E98AE8168E0F2A006AAA55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Planets.strings; sourceTree = "<group>"; };
@@ -212,6 +223,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72AA650524BAB24A00633E55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72AA650924BAB24A00633E55 /* Astromaximum2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8483FDDA166594AD000C9143 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +244,7 @@
 		84B1AC5F1647BB3E007188B1 = {
 			isa = PBXGroup;
 			children = (
+				72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */,
 				72606C9324B823FB009B0113 /* Default-568h@2x.png */,
 				84B1AC741647BB3E007188B1 /* Astromaximum */,
 				84B1AC6D1647BB3E007188B1 /* Frameworks */,
@@ -465,24 +485,40 @@
 			};
 			buildConfigurationList = 84B1AC641647BB3E007188B1 /* Build configuration list for PBXProject "Astromaximum" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				de,
 				fr,
 				ru,
+				Base,
 			);
 			mainGroup = 84B1AC5F1647BB3E007188B1;
 			productRefGroup = 84B1AC6B1647BB3E007188B1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 72AA650524BAB24A00633E55 /* Products */;
+					ProjectRef = 72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				84B1AC691647BB3E007188B1 /* Astromaximum */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		72AA650924BAB24A00633E55 /* Astromaximum2.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Astromaximum2.app;
+			remoteRef = 72AA650824BAB24A00633E55 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		84B1AC681647BB3E007188B1 /* Resources */ = {
@@ -594,7 +630,7 @@
 		72A6011D24B83144002C1322 /* VocCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				72A6011E24B83144002C1322 /* en */,
+				727CAEAC24C160A00008A769 /* Base */,
 			);
 			name = VocCell.xib;
 			sourceTree = "<group>";
@@ -628,7 +664,7 @@
 		84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC22A16A59E00003D8B01 /* en */,
+				727CAEAD24C160A00008A769 /* Base */,
 			);
 			name = AmaxDateSelectController.xib;
 			sourceTree = "<group>";
@@ -636,7 +672,7 @@
 		84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC22C16A59E00003D8B01 /* en */,
+				727CAEAE24C160A00008A769 /* Base */,
 			);
 			name = AmaxEventListViewController.xib;
 			sourceTree = "<group>";
@@ -644,7 +680,7 @@
 		84DFC22D16A59E00003D8B01 /* AmaxInterpreterController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC22E16A59E00003D8B01 /* en */,
+				727CAEAF24C160A00008A769 /* Base */,
 			);
 			name = AmaxInterpreterController.xib;
 			sourceTree = "<group>";
@@ -652,7 +688,7 @@
 		84DFC22F16A59E00003D8B01 /* AmaxLocationListController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC23016A59E00003D8B01 /* en */,
+				727CAEB024C160A00008A769 /* Base */,
 			);
 			name = AmaxLocationListController.xib;
 			sourceTree = "<group>";
@@ -660,7 +696,7 @@
 		84DFC23116A59E00003D8B01 /* AmaxSettingsController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC23216A59E00003D8B01 /* en */,
+				727CAEB124C160A00008A769 /* Base */,
 			);
 			name = AmaxSettingsController.xib;
 			sourceTree = "<group>";
@@ -668,7 +704,7 @@
 		84DFC23316A59E00003D8B01 /* AmaxSummaryViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC23416A59E00003D8B01 /* en */,
+				727CAEB224C160A10008A769 /* Base */,
 			);
 			name = AmaxSummaryViewController.xib;
 			sourceTree = "<group>";
@@ -676,7 +712,7 @@
 		84DFC23C16A5A380003D8B01 /* AspectSetCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC23D16A5A380003D8B01 /* en */,
+				727CAEA424C1609F0008A769 /* Base */,
 			);
 			name = AspectSetCell.xib;
 			sourceTree = "<group>";
@@ -684,7 +720,7 @@
 		84DFC23E16A5A380003D8B01 /* MoonMoveCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC23F16A5A380003D8B01 /* en */,
+				727CAEA524C1609F0008A769 /* Base */,
 			);
 			name = MoonMoveCell.xib;
 			sourceTree = "<group>";
@@ -692,7 +728,7 @@
 		84DFC24016A5A380003D8B01 /* MoonSignCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC24116A5A380003D8B01 /* en */,
+				727CAEA624C1609F0008A769 /* Base */,
 			);
 			name = MoonSignCell.xib;
 			sourceTree = "<group>";
@@ -700,7 +736,7 @@
 		84DFC24216A5A380003D8B01 /* PlanetHourCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC24316A5A380003D8B01 /* en */,
+				727CAEA724C1609F0008A769 /* Base */,
 			);
 			name = PlanetHourCell.xib;
 			sourceTree = "<group>";
@@ -708,7 +744,7 @@
 		84DFC24416A5A380003D8B01 /* RetrogradeSetCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC24516A5A380003D8B01 /* en */,
+				727CAEA824C1609F0008A769 /* Base */,
 			);
 			name = RetrogradeSetCell.xib;
 			sourceTree = "<group>";
@@ -716,7 +752,7 @@
 		84DFC24616A5A380003D8B01 /* SunDegreeCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC24716A5A380003D8B01 /* en */,
+				727CAEA924C1609F0008A769 /* Base */,
 			);
 			name = SunDegreeCell.xib;
 			sourceTree = "<group>";
@@ -724,7 +760,7 @@
 		84DFC24816A5A380003D8B01 /* TithiCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC24916A5A380003D8B01 /* en */,
+				727CAEAA24C1609F0008A769 /* Base */,
 			);
 			name = TithiCell.xib;
 			sourceTree = "<group>";
@@ -732,7 +768,7 @@
 		84DFC24A16A5A380003D8B01 /* ViaCombustaCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84DFC24B16A5A380003D8B01 /* en */,
+				727CAEAB24C160A00008A769 /* Base */,
 			);
 			name = ViaCombustaCell.xib;
 			sourceTree = "<group>";
