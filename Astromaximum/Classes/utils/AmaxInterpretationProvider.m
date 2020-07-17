@@ -125,6 +125,8 @@ static NSMutableDictionary* ASPECT_GOODNESS = nil;
 					param0 = ev.mPlanet0;
 				param1 = ev.mPlanet1;
 			}
+        default:
+            break;
     }
     params[0] = planet;
     params[1] = param0;

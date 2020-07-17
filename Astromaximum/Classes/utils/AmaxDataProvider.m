@@ -160,7 +160,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 
 - (void)setDateFrom:(NSDate *)date
 {
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
     mCurrentDateComponents = [mCalendar components:unitFlags fromDate:date]; 
 }
 
@@ -288,10 +288,10 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 
 - (NSString *)currentDateString
 {
-    NSString *weekday = [NSString stringWithFormat:@"%d", mCurrentDateComponents.weekday];
+    NSString *weekday = [NSString stringWithFormat:@"%ld", (long)mCurrentDateComponents.weekday];
     weekday = NSLocalizedStringFromTable(weekday, @"WeekDays", nil);
-    return [NSString stringWithFormat:@"%@ %02d.%02d %04d",
-            weekday, mCurrentDateComponents.month, mCurrentDateComponents.day, mCurrentDateComponents.year];
+    return [NSString stringWithFormat:@"%@ %02ld.%02ld %04ld",
+            weekday, (long)mCurrentDateComponents.month, mCurrentDateComponents.day, mCurrentDateComponents.year];
 }
 
 - (NSMutableArray *)getEventsOnPeriodForEvent:(AmaxEventType)evtype planet:(AmaxPlanet)planet special:(BOOL)special from:(long)dayStart to:(long)dayEnd value:(int)value
@@ -406,7 +406,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     return result;
 }
 
-void mergeEvents(NSMutableArray *dest, NSMutableArray *add, BOOL isSort)
+static void mergeEvents(NSMutableArray *dest, NSMutableArray *add, BOOL isSort)
 {
     for (AmaxEvent *ev in add) {
         if (isSort) {
@@ -627,7 +627,7 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
     [_mEventCache removeAllObjects];
     mStartTime += AmaxSECONDS_IN_DAY * deltaDays + AmaxSECONDS_IN_DAY / 2;
     NSDate *newDate = [NSDate dateWithTimeIntervalSince1970:mStartTime];
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit;
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
     mCurrentDateComponents = [mCalendar components:unitFlags fromDate:newDate];
 }
 

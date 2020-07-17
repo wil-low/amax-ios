@@ -39,7 +39,7 @@
     if ([[si mEvents]count] > 0)
         timeLabel.text = [NSString stringWithUTF8String:EVENT_TYPE_STR[[si mKey]]];//[[[si mEvents]objectAtIndex:0] description];
     else
-        eventLabel.text = [NSString stringWithFormat:@"%c %c" ];
+        eventLabel.text = @"No events";//[NSString stringWithFormat:@"%c %c" ];
 }
 
 - (void)updateInfoButtonWith:(AmaxSummaryItem *)si

@@ -132,17 +132,20 @@
             
 			return [NSString stringWithFormat:NSLocalizedString(@"fmt_retrograde_motion", nil),
                     planet0]; }
+        default:
+            return ev.description;
    }
     return nil;
 }
 
 - (NSString *)makeDateRangeFromEvent:(AmaxEvent *)ev
 {
-    NSMutableString* result = [NSMutableString string];
     switch (ev.mEvtype) {
 		case EV_ASP_EXACT_MOON:
 		case EV_ASP_EXACT:
 			return [AmaxEvent long2String:[ev dateAt:0] format:[AmaxEvent monthAbbrDayDateFormatter] h24:NO];
+        default:
+            break;
     }
     return [NSString stringWithFormat:@"%@ - %@",
             [AmaxEvent long2String:[ev dateAt:0] format:[AmaxEvent monthAbbrDayDateFormatter] h24:NO],
@@ -158,28 +161,12 @@
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)viewDidUnload
-{
-    [self setEventDescriptionView:nil];
-    [self setInterpreterTextView:nil];
-    [self setInterpreterTextView:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     eventDescriptionView.text = [self makeTitleFromEvent:_interpreterEvent];
     dateRangeView.text = [self makeDateRangeFromEvent:_interpreterEvent];
     [interpreterTextView loadHTMLString:_interpreterText baseURL:nil];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 @end

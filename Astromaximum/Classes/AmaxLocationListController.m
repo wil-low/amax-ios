@@ -38,22 +38,9 @@
     [super viewDidLoad];
 }
 
-- (void)viewDidUnload
-{
-    [self setTableView:nil];
-    [super viewDidUnload];
-    NSLog(@"viewDidUnload");
-}
-
 - (void)viewDidDisappear:(BOOL)animated
 {
     [mDataProvider loadLocationById:[mDataProvider.mSortedLocationKeys objectAtIndex:mDataProvider.mCurrentLocationIndex]];    
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -10,4 +10,4 @@ extern NSString * const AMAX_PREFS_KEY_LOCATION_ID;
 extern NSString * const AMAX_PREFS_KEY_CURRENT_DATE;
 extern NSString * const AMAX_PREFS_KEY_LOCATION_LIST;
 
-NSDictionary* getLocations();
+NSDictionary* getLocations(void);

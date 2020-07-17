@@ -65,8 +65,8 @@ static NSDateFormatter *mMonthAbbrDayDateFormatter;
 {
     NSString *result = [NSString stringWithFormat:@"%s %@ - %@ p %d/%d dgr %d",
                         "",//EVENT_TYPE_STR[_mEvtype],
-                        [AmaxEvent long2String:mDate[0] format:DEFAULT_DATE_FORMAT h24:true],
-                        [AmaxEvent long2String:mDate[1] format:DEFAULT_DATE_FORMAT h24:true],
+                        [AmaxEvent long2String:mDate[0] format:mMonthAbbrDayDateFormatter h24:true],
+                        [AmaxEvent long2String:mDate[1] format:mMonthAbbrDayDateFormatter h24:true],
                         _mPlanet0, _mPlanet1,
                         _mDegree];
     return result;
@@ -112,7 +112,7 @@ static NSDateFormatter *mMonthAbbrDayDateFormatter;
 
 + (NSString *)long2String:(long)date0 format:(NSDateFormatter *)dateFormatter h24:(BOOL)h24
 {
-    static const unsigned unitFlags =  NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSWeekdayCalendarUnit;
+    static const unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
 
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:date0];
     NSDateComponents *comps = [mCalendar components:unitFlags fromDate:date];
