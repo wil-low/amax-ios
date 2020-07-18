@@ -112,7 +112,7 @@ static NSDateFormatter *mMonthAbbrDayDateFormatter;
 
 + (NSString *)long2String:(long)date0 format:(NSDateFormatter *)dateFormatter h24:(BOOL)h24
 {
-    static const unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
+    static const unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitWeekday;
 
     NSDate* date = [NSDate dateWithTimeIntervalSince1970:date0];
     NSDateComponents *comps = [mCalendar components:unitFlags fromDate:date];

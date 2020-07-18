@@ -19,14 +19,18 @@
 
 - (id)initWithFilePath:(NSString *)filePath
 {
+    const int isLegacy = false;
     NSData *fullData = [NSData dataWithContentsOfFile:filePath];
     AmaxDataInputStream *is = [[AmaxDataInputStream alloc]initWithData:fullData];
     _startYear = [is readShort];
-    _startMonth = [is readUnsignedByte];
+    _startMonth = [is readUnsignedByte] - 1;
     _startDay = [is readUnsignedByte];
     
     Size customDataLen = [is readUnsignedShort]; // customData length
-    _dayCount = [is readShort];
+    if (isLegacy)
+        _dayCount = [is readShort];
+    else
+        _monthCount = [is readUnsignedByte];
     if (customDataLen > 0) {
         customData = malloc(customDataLen);
         [is readToBuffer:customData length:customDataLen];

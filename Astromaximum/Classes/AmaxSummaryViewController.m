@@ -15,16 +15,17 @@
 #import "AmaxEvent.h"
 #import "AmaxTableCell.h"
 
+// sync with START_PAGE_ITEM_SEQ
 NSString *xibNames[] = {
-    @"MoonSignCell",
+    @"VocCell",
     @"MoonMoveCell",
     @"PlanetHourCell",
-    @"TithiCell",
-    @"SunDegreeCell",
-    @"AspectSetCell",
+    @"MoonSignCell",
     @"RetrogradeSetCell",
-    @"VocCell",
-    @"ViaCombustaCell"
+    @"AspectSetCell",
+    @"ViaCombustaCell",
+    @"SunDegreeCell",
+    @"TithiCell",
 };
 
 @implementation AmaxSummaryViewController

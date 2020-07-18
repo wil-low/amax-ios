@@ -17,6 +17,7 @@
 @property int startMonth;
 @property int startDay;
 @property int dayCount;
+@property int monthCount;
 @property (readonly, strong, nonatomic) AmaxDataInputStream *mData;
 
 - (id)initWithFilePath:(NSString *)filePath;

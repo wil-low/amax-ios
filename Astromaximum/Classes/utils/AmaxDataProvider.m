@@ -36,15 +36,15 @@
 @synthesize mSortedLocationKeys = _mSortedLocationKeys;
 
 static const AmaxEventType START_PAGE_ITEM_SEQ[] = {
-    EV_MOON_SIGN,
+    EV_VOC,
     EV_MOON_MOVE,
     EV_PLANET_HOUR,
-    EV_TITHI,
-    EV_SUN_DEGREE,
-    EV_ASP_EXACT,
+    EV_MOON_SIGN,
     EV_RETROGRADE,
-    EV_VOC,
+    EV_ASP_EXACT,
     EV_VIA_COMBUSTA,
+    EV_SUN_DEGREE,
+    EV_TITHI,
 };
 
 static const int WEEK_START_HOUR[] = { 0, 3, 6, 2, 5, 1, 4 };
@@ -381,8 +381,10 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
         //NSLog(@"calculatePlanetaryHours: %@", [e dateAt:0]);
     }
     NSMutableArray *result = [NSMutableArray array];
-    [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:0] nextSunRise:[sunRises objectAtIndex:1]];
-    [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:1] nextSunRise:[sunRises objectAtIndex:2]];
+    if ([sunRises count] == 3) {
+        [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:0] nextSunRise:[sunRises objectAtIndex:1]];
+        [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:1] nextSunRise:[sunRises objectAtIndex:2]];
+    }
     return result;
 }
 
