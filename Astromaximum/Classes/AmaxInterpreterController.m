@@ -167,6 +167,7 @@
     eventDescriptionView.text = [self makeTitleFromEvent:_interpreterEvent];
     dateRangeView.text = [self makeDateRangeFromEvent:_interpreterEvent];
     [interpreterTextView loadHTMLString:_interpreterText baseURL:nil];
+    //NSLog(@"%@", _interpreterText);
 }
 
 @end
