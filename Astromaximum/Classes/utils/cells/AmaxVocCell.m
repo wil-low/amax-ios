@@ -13,6 +13,11 @@
 - (void)configure:(AmaxSummaryItem *)si
 {
     [super configure:si];
+    AmaxEvent* e = [si mActiveEvent];
+    if (e != nil) {
+        [timeLabel setText:[e normalizedRangeString]];
+    }
+    [self updateInfoButtonWith:si];
 }
 
 @end
