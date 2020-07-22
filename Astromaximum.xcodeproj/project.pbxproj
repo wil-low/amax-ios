@@ -10,20 +10,9 @@
 		72606C9424B823FB009B0113 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9324B823FB009B0113 /* Default-568h@2x.png */; };
 		72606C9824B82D9C009B0113 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9724B82CBE009B0113 /* locations.dat */; };
 		72606C9924B82DA0009B0113 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9624B82CB4009B0113 /* common.dat */; };
+		72A4218824C8AE860096DF9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A4218724C8AE860096DF9C /* Images.xcassets */; };
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
-		842C0658166D6DAF0080F505 /* today.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C0657166D6DAF0080F505 /* today.png */; };
-		842C065A166D6DB90080F505 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C0659166D6DB90080F505 /* calendar.png */; };
-		842C065C166D6DBF0080F505 /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C065B166D6DBF0080F505 /* calendar@2x.png */; };
-		842C065E166D6DC70080F505 /* today@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C065D166D6DC70080F505 /* today@2x.png */; };
-		8483FDDF16659FA3000C9143 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDB16659FA3000C9143 /* next.png */; };
-		8483FDE016659FA3000C9143 /* next@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDC16659FA3000C9143 /* next@2x.png */; };
-		8483FDE116659FA3000C9143 /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDD16659FA3000C9143 /* previous.png */; };
-		8483FDE216659FA3000C9143 /* previous@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8483FDDE16659FA3000C9143 /* previous@2x.png */; };
-		8486D88716665CA60071E11F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486D88516665CA60071E11F /* icon.png */; };
-		8486D88816665CA60071E11F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8486D88616665CA60071E11F /* icon@2x.png */; };
-		848C0891166CDB1300AA5D32 /* options.png in Resources */ = {isa = PBXBuildFile; fileRef = 848C088F166CDB1300AA5D32 /* options.png */; };
-		848C0892166CDB1300AA5D32 /* options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 848C0890166CDB1300AA5D32 /* options@2x.png */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -111,21 +100,10 @@
 		727CAEB024C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxLocationListController.xib; sourceTree = "<group>"; };
 		727CAEB124C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSettingsController.xib; sourceTree = "<group>"; };
 		727CAEB224C160A10008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
+		72A4218724C8AE860096DF9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Astromaximum2.xcodeproj; path = ../Astromaximum2/Astromaximum2.xcodeproj; sourceTree = "<group>"; };
 		72B6C66424C8052C00E7BC98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		72B6C66624C8053D00E7BC98 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
-		842C0657166D6DAF0080F505 /* today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = today.png; path = Resources/today.png; sourceTree = "<group>"; };
-		842C0659166D6DB90080F505 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = Resources/calendar.png; sourceTree = "<group>"; };
-		842C065B166D6DBF0080F505 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "Resources/calendar@2x.png"; sourceTree = "<group>"; };
-		842C065D166D6DC70080F505 /* today@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "today@2x.png"; path = "Resources/today@2x.png"; sourceTree = "<group>"; };
-		8483FDDB16659FA3000C9143 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = next.png; path = Resources/next.png; sourceTree = "<group>"; };
-		8483FDDC16659FA3000C9143 /* next@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "next@2x.png"; path = "Resources/next@2x.png"; sourceTree = "<group>"; };
-		8483FDDD16659FA3000C9143 /* previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = previous.png; path = Resources/previous.png; sourceTree = "<group>"; };
-		8483FDDE16659FA3000C9143 /* previous@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "previous@2x.png"; path = "Resources/previous@2x.png"; sourceTree = "<group>"; };
-		8486D88516665CA60071E11F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Resources/icon.png; sourceTree = "<group>"; };
-		8486D88616665CA60071E11F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "Resources/icon@2x.png"; sourceTree = "<group>"; };
-		848C088F166CDB1300AA5D32 /* options.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = options.png; path = Resources/options.png; sourceTree = "<group>"; };
-		848C0890166CDB1300AA5D32 /* options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "options@2x.png"; path = "Resources/options@2x.png"; sourceTree = "<group>"; };
 		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -235,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				84DFC22716A59DDE003D8B01 /* Xib */,
-				84CE9BE7168C846D00FC629F /* Icons */,
 				84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */,
 			);
 			name = Resources;
@@ -275,6 +252,7 @@
 			children = (
 				84E98B25168E6331006AAA55 /* Classes */,
 				8483FDDA166594AD000C9143 /* Resources */,
+				72A4218724C8AE860096DF9C /* Images.xcassets */,
 				84B1AC751647BB3E007188B1 /* Supporting Files */,
 			);
 			path = Astromaximum;
@@ -292,25 +270,6 @@
 				84B1AC771647BB3E007188B1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		84CE9BE7168C846D00FC629F /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				842C065D166D6DC70080F505 /* today@2x.png */,
-				842C065B166D6DBF0080F505 /* calendar@2x.png */,
-				842C0659166D6DB90080F505 /* calendar.png */,
-				842C0657166D6DAF0080F505 /* today.png */,
-				848C088F166CDB1300AA5D32 /* options.png */,
-				848C0890166CDB1300AA5D32 /* options@2x.png */,
-				8486D88516665CA60071E11F /* icon.png */,
-				8486D88616665CA60071E11F /* icon@2x.png */,
-				8483FDDB16659FA3000C9143 /* next.png */,
-				8483FDDC16659FA3000C9143 /* next@2x.png */,
-				8483FDDD16659FA3000C9143 /* previous.png */,
-				8483FDDE16659FA3000C9143 /* previous@2x.png */,
-			);
-			name = Icons;
 			sourceTree = "<group>";
 		};
 		84DFC22716A59DDE003D8B01 /* Xib */ = {
@@ -526,19 +485,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */,
-				8483FDDF16659FA3000C9143 /* next.png in Resources */,
-				8483FDE016659FA3000C9143 /* next@2x.png in Resources */,
-				8483FDE116659FA3000C9143 /* previous.png in Resources */,
-				8483FDE216659FA3000C9143 /* previous@2x.png in Resources */,
-				8486D88716665CA60071E11F /* icon.png in Resources */,
-				8486D88816665CA60071E11F /* icon@2x.png in Resources */,
-				848C0891166CDB1300AA5D32 /* options.png in Resources */,
-				848C0892166CDB1300AA5D32 /* options@2x.png in Resources */,
-				842C0658166D6DAF0080F505 /* today.png in Resources */,
-				842C065A166D6DB90080F505 /* calendar.png in Resources */,
+				72A4218824C8AE860096DF9C /* Images.xcassets in Resources */,
 				72606C9424B823FB009B0113 /* Default-568h@2x.png in Resources */,
-				842C065C166D6DBF0080F505 /* calendar@2x.png in Resources */,
-				842C065E166D6DC70080F505 /* today@2x.png in Resources */,
 				84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */,
 				84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */,
 				84E39A08168DCF73005DC0C5 /* interpret.dat in Resources */,
@@ -935,6 +883,7 @@
 		84B1AC8F1647BB3E007188B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8MSTLPJ26R;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
@@ -951,6 +900,7 @@
 		84B1AC901647BB3E007188B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8MSTLPJ26R;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
