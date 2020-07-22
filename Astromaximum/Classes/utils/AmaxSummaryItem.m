@@ -85,8 +85,7 @@ enum {
 - (void)calculateActiveEventWithCustomTime:(long)customTime currentTime:(long)currentTime
 {
     int pos = [self activeEventPositionWithCustomTime:customTime currentTime:currentTime];
-//    _activeEvent = (pos == -1) ? nil : [_mEvents objectAtIndex:0];
-    _activeEvent = [_mEvents count] == 0 ? nil : [_mEvents objectAtIndex:0];
+    _activeEvent = (pos == -1) ? nil : [_mEvents objectAtIndex:pos];
 }
 
 @end

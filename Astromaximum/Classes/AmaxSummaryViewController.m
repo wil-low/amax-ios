@@ -161,6 +161,8 @@ NSString *xibNames[] = {
     self.title = [mDataProvider currentDateString];
     [mDataProvider prepareCalculation];
     [mDataProvider calculateAll];
+    self.mCurrentTime = [mDataProvider getCurrentTime];
+    self.mCustomTime = [mDataProvider getCustomTime];
     [_mTableView reloadData];
 }
 

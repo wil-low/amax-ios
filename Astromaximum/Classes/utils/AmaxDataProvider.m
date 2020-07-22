@@ -30,6 +30,11 @@
 @synthesize mEventCache = _mEventCache;
 @synthesize mStartJD = _mStartJD;
 @synthesize mFinalJD = _mFinalJD;
+@synthesize mCurrentHour = _mCurrentHour;
+@synthesize mCurrentMinute = _mCurrentMinute;
+@synthesize mCustomHour = _mCustomHour;
+@synthesize mCustomMinute = _mCustomMinute;
+@synthesize mUseCustomTime = _mUseCustomTime;
 @synthesize mLocationId = _mLocationId;
 @synthesize mCurrentLocationIndex = _mCurrentLocationIndex;
 @synthesize mLocations = _mLocations;
@@ -68,6 +73,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
         sharedInstance->mCommonDataFile = [[AmaxCommonDataFile alloc] initWithFilePath:filePath];
         sharedInstance->documentsDirectory = [AmaxDataProvider getDocumentsDirectory];
         sharedInstance->_mEventCache = [[NSMutableArray alloc] init];
+        sharedInstance->_mUseCustomTime = false;
     });
     return (AmaxDataProvider *)sharedInstance;
 }
@@ -621,7 +627,9 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
 
 - (NSString *)getHighlightTimeString
 {
-    return @"12:00";
+    if (_mUseCustomTime)
+        return [NSString stringWithFormat:@"%02ld:%02ld", _mCustomHour, _mCustomMinute];
+    return [NSString stringWithFormat:@"%02ld:%02ld", _mCurrentHour, _mCurrentMinute];
 }
 
 - (void)changeDate:(int)deltaDays
@@ -638,4 +646,45 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
     return [mCalendar dateFromComponents:mCurrentDateComponents];
 }
 
+- (long)getCustomTime
+{
+/*
+    unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
+    mCurrentDateComponents = [mCalendar components:unitFlags fromDate:date];
+
+    Calendar calendar = Calendar.getInstance(mCalendar.getTimeZone());
+    if (mUseCustomTime) {
+        calendar.set(mYear, mMonth, mDay, mCustomHour, mCustomMinute);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+    } else {
+        calendar.set(Calendar.YEAR, mYear);
+        calendar.set(Calendar.MONTH, mMonth);
+        calendar.set(Calendar.DAY_OF_MONTH, mDay);
+        mCurrentHour = calendar.get(Calendar.HOUR_OF_DAY);
+        mCurrentMinute = calendar.get(Calendar.MINUTE);
+    }
+    MyLog.d("getCustomTime",
+            (String) DateFormat.format("dd MMMM yyyy, kk:mm:ss", calendar));
+    return calendar.getTimeInMillis();
+ */
+    return 0;
+}
+
+- (long)getCurrentTime
+{
+    if (!_mUseCustomTime) {
+        NSDateComponents* comp = [mCurrentDateComponents copy];
+        NSDate *date = [NSDate date];
+        unsigned unitFlags = NSCalendarUnitHour | NSCalendarUnitMinute;
+        NSDateComponents* comp2 = [mCalendar components:unitFlags fromDate:date];
+        _mCurrentHour = comp2.hour;
+        _mCurrentMinute = comp2.minute;
+        [comp setHour:_mCurrentHour];
+        [comp setMinute:_mCurrentMinute];
+        date = [mCalendar dateFromComponents:comp];
+        return [date timeIntervalSince1970];
+    }
+    return 0;
+}
 @end

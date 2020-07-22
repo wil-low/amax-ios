@@ -38,11 +38,22 @@
 - (NSString *)getHighlightTimeString;
 - (void)changeDate:(int)deltaDays;
 - (void)loadLocationById:(NSString *)locationId;
+- (long)getCurrentTime;
+- (long)getCustomTime;
 
 @property (strong, nonatomic, readonly) NSMutableArray * mEventCache;
 @property (strong, nonatomic) NSString *mLocationId;
 @property long mStartJD;
 @property long mFinalJD;
+
+@property long mCurrentHour;
+@property long mCurrentMinute;
+
+@property long mCustomHour;
+@property long mCustomMinute;
+
+@property bool mUseCustomTime;
+
 @property int mCurrentLocationIndex;
 @property (strong, nonatomic) NSDictionary *mLocations;
 @property (strong, nonatomic) NSArray *mSortedLocationKeys;
