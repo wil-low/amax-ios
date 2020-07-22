@@ -62,6 +62,7 @@
     // Configure the cell.
     AmaxEvent *event = [_detailItem.mEvents objectAtIndex:indexPath.row];
     AmaxSummaryItem *si = [[AmaxSummaryItem alloc]initWithKey:_detailItem.mKey events:[NSMutableArray arrayWithObject:event]];
+    si.mActiveEvent = event;
     [cell configure:si];
     return cell;
 }

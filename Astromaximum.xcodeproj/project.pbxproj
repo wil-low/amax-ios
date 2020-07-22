@@ -11,6 +11,7 @@
 		72606C9824B82D9C009B0113 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9724B82CBE009B0113 /* locations.dat */; };
 		72606C9924B82DA0009B0113 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9624B82CB4009B0113 /* common.dat */; };
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
+		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
 		842C0658166D6DAF0080F505 /* today.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C0657166D6DAF0080F505 /* today.png */; };
 		842C065A166D6DB90080F505 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C0659166D6DB90080F505 /* calendar.png */; };
 		842C065C166D6DBF0080F505 /* calendar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 842C065B166D6DBF0080F505 /* calendar@2x.png */; };
@@ -28,7 +29,6 @@
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
 		84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC771647BB3E007188B1 /* InfoPlist.strings */; };
 		84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */; };
-		84DF76D3175947DB00A3D7A9 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84DF76D5175947DB00A3D7A9 /* EventListTitle.strings */; };
 		84DF76D9175957BD00A3D7A9 /* WeekDays.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84DF76DB175957BD00A3D7A9 /* WeekDays.strings */; };
 		84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */; };
 		84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */; };
@@ -112,6 +112,8 @@
 		727CAEB124C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSettingsController.xib; sourceTree = "<group>"; };
 		727CAEB224C160A10008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
 		72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Astromaximum2.xcodeproj; path = ../Astromaximum2/Astromaximum2.xcodeproj; sourceTree = "<group>"; };
+		72B6C66424C8052C00E7BC98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EventListTitle.strings; sourceTree = "<group>"; };
+		72B6C66624C8053D00E7BC98 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		842C0657166D6DAF0080F505 /* today.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = today.png; path = Resources/today.png; sourceTree = "<group>"; };
 		842C0659166D6DB90080F505 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = Resources/calendar.png; sourceTree = "<group>"; };
 		842C065B166D6DBF0080F505 /* calendar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar@2x.png"; path = "Resources/calendar@2x.png"; sourceTree = "<group>"; };
@@ -132,8 +134,6 @@
 		84B1AC781647BB3E007188B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84B1AC7C1647BB3E007188B1 /* Astromaximum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Prefix.pch"; sourceTree = "<group>"; };
 		84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Astronom.ttf; path = Resources/Astronom.ttf; sourceTree = "<group>"; };
-		84DF76D4175947DB00A3D7A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EventList.strings; sourceTree = "<group>"; };
-		84DF76D61759486E00A3D7A9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		84DF76DA175957BD00A3D7A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WeekDays.strings; sourceTree = "<group>"; };
 		84DF76DC175957C500A3D7A9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/WeekDays.strings; sourceTree = "<group>"; };
 		84E39A09168DCF73005DC0C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/interpret.dat; sourceTree = "<group>"; };
@@ -346,6 +346,7 @@
 		84E98B23168E62E7006AAA55 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				72B6C66324C8052C00E7BC98 /* EventListTitle.strings */,
 				84E39A0A168DCF73005DC0C5 /* interpret.dat */,
 				84EB53F6168CE8010089D6F6 /* Localizable.strings */,
 				84E98AE9168E0F2A006AAA55 /* Planets.strings */,
@@ -353,7 +354,6 @@
 				84E98AF5168E0F88006AAA55 /* ConstellLocative.strings */,
 				84E98AFB168E0FAB006AAA55 /* PlanetsGenitive.strings */,
 				84E98B01168E0FCA006AAA55 /* Aspects.strings */,
-				84DF76D5175947DB00A3D7A9 /* EventListTitle.strings */,
 				84DF76DB175957BD00A3D7A9 /* WeekDays.strings */,
 			);
 			name = Localization;
@@ -547,6 +547,7 @@
 				84E98AF3168E0F88006AAA55 /* ConstellLocative.strings in Resources */,
 				72A6011F24B83144002C1322 /* VocCell.xib in Resources */,
 				84E98AF9168E0FAB006AAA55 /* PlanetsGenitive.strings in Resources */,
+				72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */,
 				84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */,
 				72606C9824B82D9C009B0113 /* locations.dat in Resources */,
 				84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */,
@@ -564,7 +565,6 @@
 				84DFC25316A5A380003D8B01 /* SunDegreeCell.xib in Resources */,
 				84DFC25416A5A380003D8B01 /* TithiCell.xib in Resources */,
 				84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */,
-				84DF76D3175947DB00A3D7A9 /* EventListTitle.strings in Resources */,
 				84DF76D9175957BD00A3D7A9 /* WeekDays.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -635,21 +635,21 @@
 			name = VocCell.xib;
 			sourceTree = "<group>";
 		};
+		72B6C66324C8052C00E7BC98 /* EventListTitle.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72B6C66424C8052C00E7BC98 /* en */,
+				72B6C66624C8053D00E7BC98 /* ru */,
+			);
+			name = EventListTitle.strings;
+			sourceTree = "<group>";
+		};
 		84B1AC771647BB3E007188B1 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				84B1AC781647BB3E007188B1 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		84DF76D5175947DB00A3D7A9 /* EventListTitle.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84DF76D4175947DB00A3D7A9 /* en */,
-				84DF76D61759486E00A3D7A9 /* ru */,
-			);
-			name = EventListTitle.strings;
 			sourceTree = "<group>";
 		};
 		84DF76DB175957BD00A3D7A9 /* WeekDays.strings */ = {
