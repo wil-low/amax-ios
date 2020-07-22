@@ -112,7 +112,8 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 - (void)saveCurrentState
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:mCurrentDateComponents forKey:AMAX_PREFS_KEY_CURRENT_DATE];
+    NSDate *date = [mCalendar dateFromComponents:mCurrentDateComponents];
+    [userDefaults setObject:date forKey:AMAX_PREFS_KEY_CURRENT_DATE];
 }
 
 - (NSString *)unbundleLocationAsset
@@ -159,9 +160,11 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     if (locationId == nil) 
         locationId = [self unbundleLocationAsset];
     [self loadLocationById:locationId];
-    mCurrentDateComponents = [userDefaults objectForKey:AMAX_PREFS_KEY_CURRENT_DATE];
-    if (mCurrentDateComponents == nil)
+    NSDate* date = [userDefaults objectForKey:AMAX_PREFS_KEY_CURRENT_DATE];
+    if (date == nil)
         [self setTodayDate];
+    else
+        [self setDateFrom:date];
 }
 
 - (void)setDateFrom:(NSDate *)date
