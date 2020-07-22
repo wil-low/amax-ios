@@ -362,9 +362,9 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     return [self getEventsOnPeriodForEvent:EV_TITHI planet:SE_MOON special:false from:mStartTime to:mEndTime value:0];
 }
 
-- (void)getPlanetaryHoursInto:(NSMutableArray *)result currentSunRise:(AmaxEvent *)currentSunRise nextSunRise:(AmaxEvent *) nextSunRise
+- (void)getPlanetaryHoursInto:(NSMutableArray *)result currentSunRise:(AmaxEvent *)currentSunRise nextSunRise:(AmaxEvent *) nextSunRise dayOfWeek:(int) dayOfWeek
 {
-    int startHour = WEEK_START_HOUR[[mCurrentDateComponents weekday] - 1];
+    int startHour = WEEK_START_HOUR[dayOfWeek];
     long dayHour = ([currentSunRise dateAt:1] - [currentSunRise dateAt:0]) / 12;
     long nightHour = ([nextSunRise dateAt:0] - [currentSunRise dateAt:1]) / 12;
     NSLog(@"getPlanetaryHoursInto: %ld, %ld", dayHour, nightHour);
@@ -385,15 +385,20 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 - (NSMutableArray *)calculatePlanetaryHours
 {
     NSMutableArray *sunRises = [self getEventsOnPeriodForEvent:EV_RISE planet:SE_SUN special:true from:(mStartTime - AmaxSECONDS_IN_DAY) to:(mEndTime + AmaxSECONDS_IN_DAY) value:0];
-    for (AmaxEvent *e in sunRises) {
-        [e setDateAt:1 value:[e dateAt:0]];
-        //NSLog(@"calculatePlanetaryHours: %@", [e dateAt:0]);
-    }
+    NSMutableArray *sunSets = [self getEventsOnPeriodForEvent:EV_SET planet:SE_SUN special:true from:(mStartTime - AmaxSECONDS_IN_DAY) to:(mEndTime + AmaxSECONDS_IN_DAY) value:0];
     NSMutableArray *result = [NSMutableArray array];
-    if ([sunRises count] == 3) {
-        [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:0] nextSunRise:[sunRises objectAtIndex:1]];
-        [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:1] nextSunRise:[sunRises objectAtIndex:2]];
-    }
+    if ([sunRises count] < 3 || [sunRises count] != [sunSets count])
+        return result;
+    for (int i = 0; i < [sunRises count]; ++i)
+        [[sunRises objectAtIndex:i] setDateAt:1 value:[[sunSets objectAtIndex:i] dateAt:0]];
+    int dayOfWeek = [mCurrentDateComponents weekday] - 1;
+    if (dayOfWeek < 1)
+        dayOfWeek = 6;
+    else
+        --dayOfWeek;
+    [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:0] nextSunRise:[sunRises objectAtIndex:1] dayOfWeek:dayOfWeek];
+    dayOfWeek = (dayOfWeek + 1) % 7;
+    [self getPlanetaryHoursInto:result currentSunRise:[sunRises objectAtIndex:1] nextSunRise:[sunRises objectAtIndex:2] dayOfWeek:dayOfWeek];
     return result;
 }
 
