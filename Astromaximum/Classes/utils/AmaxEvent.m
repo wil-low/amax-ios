@@ -21,7 +21,7 @@ static long mPeriod1;
 static NSString *DEFAULT_DATE_FORMAT = @"%02d-%02d %02d:%02d";
 static NSDateFormatter *mMonthAbbrDayDateFormatter;
 
-#define USE_EXACT_RANGE 1
+const bool USE_EXACT_RANGE = false;
 
 + (void)initialize
 {
@@ -78,36 +78,25 @@ static NSDateFormatter *mMonthAbbrDayDateFormatter;
     if (USE_EXACT_RANGE) {
         if (date0 < mPeriod0)
             date0 = mPeriod0;
-        /*
-         if (date0 > mPeriod1)
-         date0 = mPeriod1;
-         
-         if (date1 < mPeriod0)
-         date1 = mPeriod0;
-         */
         if (date1 > mPeriod1)
             date1 = mPeriod1;
         
         return [NSString stringWithFormat:@"%@ - %@", [AmaxEvent long2String:date0 format:nil h24:false], [AmaxEvent long2String:date1 format:nil h24:true]];
     }
-    return nil;
-/*    
+    
     bool isTillRequired = date0 < mPeriod0;
     bool isSinceRequired = date1 > mPeriod1;
     
     if (isTillRequired && isSinceRequired)
-        return mContext.getString(R.string.norm_range_whole_day);
+        return NSLocalizedString(@"norm_range_whole_day", "");
     
     if (isTillRequired)
-        return mContext.getString(R.string.norm_range_arrow) + " "
-        + Event.long2String(date1, null, true);
+        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"norm_range_arrow", ""), [AmaxEvent long2String:date1 format:nil h24:true]];
     
     if (isSinceRequired)
-        return Event.long2String(date0, null, false) + " "
-        + mContext.getString(R.string.norm_range_arrow);
+        return [NSString stringWithFormat:@"%@ %@", [AmaxEvent long2String:date0 format:nil h24:false], NSLocalizedString(@"norm_range_arrow", "")];
     
-    return Event.long2String(date0, null, false) + " - "
-    + Event.long2String(date1, null, true);*/
+    return [NSString stringWithFormat:@"%@ - %@", [AmaxEvent long2String:date0 format:nil h24:false], [AmaxEvent long2String:date1 format:nil h24:true]];
 }
 
 + (NSString *)long2String:(long)date0 format:(NSDateFormatter *)dateFormatter h24:(BOOL)h24
