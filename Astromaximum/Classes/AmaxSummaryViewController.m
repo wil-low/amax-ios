@@ -99,14 +99,17 @@ NSString *xibNames[] = {
 {
     NSString *cellIdentifier = xibNames[indexPath.row];
 
+    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:indexPath.row];
+
     AmaxTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
         cell = _tvCell;
         self.tvCell = nil;
+        cell.accessoryType = [si.mEvents count] > 0 ? UITableViewCellAccessoryDetailDisclosureButton : UITableViewCellAccessoryNone;
     }
+
     // Configure the cell.
-    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:indexPath.row];
     [si calculateActiveEventWithCustomTime:_customTime currentTime:_currentTime];
     [cell configure:si];
     return cell;
