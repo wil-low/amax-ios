@@ -79,11 +79,11 @@ NSString *AmaxSettingsXibNames[] = {
     }
     switch ([indexPath row]) {
         case CELL_LOCATION_NAME:
-            cell.textLabel.text = NSLocalizedString(@"Current location", @"Current location");
+            cell.textLabel.text = NSLocalizedString(@"Current_location", @"Current location");
             cell.detailTextLabel.text = [mDataProvider locationName];
             break;
         case CELL_IS_CUSTOM_TIME:
-            cell.textLabel.text = NSLocalizedString(@"Highlight time", @"Highlight time");
+            cell.textLabel.text = NSLocalizedString(@"Highlight_time", @"Highlight time");
             cell.detailTextLabel.text = @"88:88";
             UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
             cell.accessoryView = switchView;

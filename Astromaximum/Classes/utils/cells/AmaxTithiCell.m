@@ -17,7 +17,7 @@
     if (e != nil) {
         [timeLabel setText:[e normalizedRangeString]];
         [eventLabel setText:[NSString stringWithFormat:@"%@ %d",
-                             NSLocalizedString(@"Tithi", @"Tithi"),
+                             NSLocalizedString(@"tithi", @"Tithi"),
                              [e getDegree]]];
 		[self setColorOf:eventLabel byEventMode:e];
     }
