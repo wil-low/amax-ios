@@ -7,7 +7,12 @@
 //
 
 #import "AmaxTableCell.h"
+#import "AmaxDataProvider.h"
 
 @interface AmaxMoonMoveCell : AmaxTableCell
+{
+    UILabel *transitionSignLabel;
+    AmaxDataProvider* mDataProvider;
+}
 
 @end

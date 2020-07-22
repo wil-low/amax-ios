@@ -695,4 +695,9 @@ private Event getEventOnPeriod(int evType, int planet, boolean special,
     }
     return 0;
 }
+
+- (bool)isInCurrentDay:(long)date
+{
+    return dateBetween(date, mStartTime, mEndTime) == 0;
+}
 @end

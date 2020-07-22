@@ -40,6 +40,7 @@
 - (void)loadLocationById:(NSString *)locationId;
 - (long)getCurrentTime;
 - (long)getCustomTime;
+- (bool)isInCurrentDay:(long)date;
 
 @property (strong, nonatomic, readonly) NSMutableArray * mEventCache;
 @property (strong, nonatomic) NSString *mLocationId;
