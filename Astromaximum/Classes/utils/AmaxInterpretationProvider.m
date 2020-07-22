@@ -71,7 +71,7 @@ static NSMutableDictionary* ASPECT_GOODNESS = nil;
             }
         }
         if (isEqual) {
-            return [mTexts readUTF];
+            return [NSString stringWithFormat:@"%@%@%@", @"<html><head><style type=\"text/css\">body{font-family: '-apple-system','HelveticaNeue';font-size:17;}</style></head><body>", [mTexts readUTF], @"</body></html"];
         }
         else {
             int len = [mTexts readUnsignedShort];
