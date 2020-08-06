@@ -7,15 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "AmaxSummaryItem.h"
-
+@class AmaxBaseViewController;
 
 @interface AmaxTableCell : UITableViewCell
 {
     UILabel *eventLabel;
     UILabel *timeLabel;
+    AmaxSummaryItem* summaryItem;
 }
+
+@property AmaxBaseViewController* controller;
 
 - (void)configure:(AmaxSummaryItem *)si;
 - (void)updateInfoButtonWith:(AmaxSummaryItem *)si;

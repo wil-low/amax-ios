@@ -106,7 +106,8 @@ NSString *xibNames[] = {
         [[NSBundle mainBundle] loadNibNamed:cellIdentifier owner:self options:nil];
         cell = _tvCell;
         self.tvCell = nil;
-        cell.accessoryType = [si.mEvents count] > 0 ? UITableViewCellAccessoryDetailDisclosureButton : UITableViewCellAccessoryNone;
+        cell.accessoryType = [si.mEvents count] > 0 && si.mKey != EV_ASP_EXACT ? UITableViewCellAccessoryDetailDisclosureButton : UITableViewCellAccessoryNone;
+        cell.controller = self;
     }
 
     // Configure the cell.
@@ -149,12 +150,17 @@ NSString *xibNames[] = {
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
+    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
+    [self showEventListFor:si xib:xibNames[indexPath.row]];
+}
+
+- (void)showEventListFor:(AmaxSummaryItem*)si xib:(NSString*)xibName
+{
     if (!self.eventListViewController) {
         self.eventListViewController = [[AmaxEventListViewController alloc] initWithNibName:@"AmaxEventListViewController" bundle:nil];
     }
-    AmaxSummaryItem *si = [[mDataProvider mEventCache]objectAtIndex:[indexPath row]];
     [self.eventListViewController setDetailItem:si];
-    [self.eventListViewController setCellNibName:xibNames[indexPath.row]];
+    [self.eventListViewController setCellNibName:xibName];
 
     [self.navigationController pushViewController:self.eventListViewController animated:YES];
 }

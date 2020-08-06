@@ -10,8 +10,12 @@
 		72606C9424B823FB009B0113 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9324B823FB009B0113 /* Default-568h@2x.png */; };
 		72606C9824B82D9C009B0113 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9724B82CBE009B0113 /* locations.dat */; };
 		72606C9924B82DA0009B0113 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9624B82CB4009B0113 /* common.dat */; };
+		729AFB1A24D0AF1B00EF0894 /* AmaxAspectSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */; };
+		729AFB2324D0C0C500EF0894 /* AspectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729AFB2124D0C0C500EF0894 /* AspectCell.xib */; };
 		72A4218824C8AE860096DF9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A4218724C8AE860096DF9C /* Images.xcassets */; };
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
+		72AA2A6224DBC2A300A5E00A /* AspectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AA2A6024DBC2A300A5E00A /* AspectCell.xib */; };
+		72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */; };
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
@@ -100,7 +104,13 @@
 		727CAEB024C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxLocationListController.xib; sourceTree = "<group>"; };
 		727CAEB124C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSettingsController.xib; sourceTree = "<group>"; };
 		727CAEB224C160A10008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
+		729AFB1824D0AF0400EF0894 /* AmaxAspectSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxAspectSetCell.h; sourceTree = "<group>"; };
+		729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAspectSetCell.m; sourceTree = "<group>"; };
+		729AFB2224D0C0C500EF0894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AspectCell.xib; sourceTree = "<group>"; };
 		72A4218724C8AE860096DF9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		72AA2A6124DBC2A300A5E00A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/AspectCell.xib; sourceTree = "<group>"; };
+		72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAspectCell.m; sourceTree = "<group>"; };
+		72AA2A6524DBC33200A5E00A /* AmaxAspectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxAspectCell.h; sourceTree = "<group>"; };
 		72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Astromaximum2.xcodeproj; path = ../Astromaximum2/Astromaximum2.xcodeproj; sourceTree = "<group>"; };
 		72B6C66424C8052C00E7BC98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		72B6C66624C8053D00E7BC98 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
@@ -221,6 +231,7 @@
 		84B1AC5F1647BB3E007188B1 = {
 			isa = PBXGroup;
 			children = (
+				72AA2A6024DBC2A300A5E00A /* AspectCell.xib */,
 				72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */,
 				72606C9324B823FB009B0113 /* Default-568h@2x.png */,
 				84B1AC741647BB3E007188B1 /* Astromaximum */,
@@ -289,6 +300,7 @@
 		84DFC23B16A5A362003D8B01 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				729AFB2124D0C0C500EF0894 /* AspectCell.xib */,
 				84DFC23C16A5A380003D8B01 /* AspectSetCell.xib */,
 				84DFC23E16A5A380003D8B01 /* MoonMoveCell.xib */,
 				84DFC24016A5A380003D8B01 /* MoonSignCell.xib */,
@@ -365,7 +377,11 @@
 		84E98B4F168E6331006AAA55 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				729AFB1824D0AF0400EF0894 /* AmaxAspectSetCell.h */,
+				729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */,
 				84E98B50168E6331006AAA55 /* AmaxMoonMoveCell.h */,
+				72AA2A6524DBC33200A5E00A /* AmaxAspectCell.h */,
+				72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */,
 				84E98B51168E6331006AAA55 /* AmaxMoonMoveCell.m */,
 				84E98B52168E6331006AAA55 /* AmaxMoonSignCell.h */,
 				84E98B53168E6331006AAA55 /* AmaxMoonSignCell.m */,
@@ -514,6 +530,8 @@
 				84DFC25416A5A380003D8B01 /* TithiCell.xib in Resources */,
 				84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */,
 				84DF76D9175957BD00A3D7A9 /* WeekDays.strings in Resources */,
+				729AFB2324D0C0C500EF0894 /* AspectCell.xib in Resources */,
+				72AA2A6224DBC2A300A5E00A /* AspectCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +583,9 @@
 				84E98B75168E6331006AAA55 /* AmaxMoonSignCell.m in Sources */,
 				84E98B76168E6331006AAA55 /* AmaxPlanetHourCell.m in Sources */,
 				84E98B77168E6331006AAA55 /* AmaxSunDegreeCell.m in Sources */,
+				729AFB1A24D0AF1B00EF0894 /* AmaxAspectSetCell.m in Sources */,
 				84E98B78168E6331006AAA55 /* AmaxTableCell.m in Sources */,
+				72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */,
 				84E98B79168E6331006AAA55 /* AmaxTithiCell.m in Sources */,
 				84E98B7A168E6331006AAA55 /* AmaxViaCombustaCell.m in Sources */,
 				84E98B7B168E6331006AAA55 /* AmaxVocCell.m in Sources */,
@@ -575,12 +595,28 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		729AFB2124D0C0C500EF0894 /* AspectCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				729AFB2224D0C0C500EF0894 /* Base */,
+			);
+			name = AspectCell.xib;
+			sourceTree = "<group>";
+		};
 		72A6011D24B83144002C1322 /* VocCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				727CAEAC24C160A00008A769 /* Base */,
 			);
 			name = VocCell.xib;
+			sourceTree = "<group>";
+		};
+		72AA2A6024DBC2A300A5E00A /* AspectCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72AA2A6124DBC2A300A5E00A /* Base */,
+			);
+			name = AspectCell.xib;
 			sourceTree = "<group>";
 		};
 		72B6C66324C8052C00E7BC98 /* EventListTitle.strings */ = {
@@ -888,7 +924,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2020.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sw-axis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -905,7 +941,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2020.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sw-axis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

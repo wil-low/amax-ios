@@ -7,6 +7,7 @@
 //
 
 #import "AmaxTableCell.h"
+#import "AmaxBaseViewController.h"
 
 @implementation AmaxTableCell
 
@@ -33,6 +34,8 @@
 
 - (void)configure:(AmaxSummaryItem *)si
 {
+    summaryItem = si;
+
     [timeLabel setText:nil];
 
     if ([[si mEvents]count] > 0) {

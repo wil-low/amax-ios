@@ -8,7 +8,7 @@
 
 #import "AmaxBaseViewController.h"
 
-@class AmaxEventListViewController, AmaxSettingsController, AmaxDateSelectController, AmaxTableCell;
+@class AmaxEventListViewController, AmaxSettingsController, AmaxDateSelectController, AmaxTableCell, AmaxSummaryItem;
 
 @interface AmaxSummaryViewController : AmaxBaseViewController
 {
@@ -34,5 +34,7 @@
 - (IBAction)showSettings:(id)sender;
 - (IBAction)goToToday:(id)sender;
 - (IBAction)selectDate:(id)sender;
+
+- (void)showEventListFor:(AmaxSummaryItem*)si xib:(NSString*)xibName;
 
 @end
