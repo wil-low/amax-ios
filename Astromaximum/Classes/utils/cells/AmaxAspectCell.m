@@ -24,7 +24,7 @@
                              getSymbol(TYPE_PLANET, e.mPlanet0),
                              getSymbol(TYPE_ASPECT, e.mDegree),
                              getSymbol(TYPE_PLANET, e.mPlanet1)]];
-        [timeLabel setText:[AmaxEvent long2String:[e dateAt:0] format:nil h24:true]];
+        [timeLabel setText:[AmaxEvent long2String:[e dateAt:0] format:nil h24:false]];
     }
     [self updateInfoButtonWith:si];
 }
