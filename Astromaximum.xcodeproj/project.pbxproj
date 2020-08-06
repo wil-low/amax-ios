@@ -16,8 +16,8 @@
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
 		72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */; };
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
-		72DB5BA024DC5ED200E20F7E /* AmaxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */; };
-		72DB5BA124DC5EE500E20F7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B0D168E52A2006AAA55 /* main.m */; };
+		72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6724DBC99600A5E00A /* AppDelegate.swift */; };
+		72DB5BA424DC685000E20F7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB5BA324DC685000E20F7E /* SceneDelegate.swift */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -114,6 +114,7 @@
 		72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Astromaximum2.xcodeproj; path = ../Astromaximum2/Astromaximum2.xcodeproj; sourceTree = "<group>"; };
 		72B6C66424C8052C00E7BC98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		72B6C66624C8053D00E7BC98 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
+		72DB5BA324DC685000E20F7E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -338,6 +339,7 @@
 				84E98B26168E6331006AAA55 /* AmaxAppDelegate.h */,
 				84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */,
 				72AA2A6724DBC99600A5E00A /* AppDelegate.swift */,
+				72DB5BA324DC685000E20F7E /* SceneDelegate.swift */,
 				84E98B28168E6331006AAA55 /* AmaxAstroLabel.h */,
 				84E98B29168E6331006AAA55 /* AmaxAstroLabel.m */,
 				72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */,
@@ -561,6 +563,7 @@
 			files = (
 				84E98B61168E6331006AAA55 /* AmaxAstroLabel.m in Sources */,
 				84E98B62168E6331006AAA55 /* AmaxBaseViewController.m in Sources */,
+				72DB5BA424DC685000E20F7E /* SceneDelegate.swift in Sources */,
 				84E98B63168E6331006AAA55 /* AmaxDateSelectController.m in Sources */,
 				84E98B64168E6331006AAA55 /* AmaxEventListViewController.m in Sources */,
 				84E98B65168E6331006AAA55 /* AmaxInterpreterController.m in Sources */,
@@ -572,9 +575,7 @@
 				84E98B6B168E6331006AAA55 /* AmaxDataProvider.m in Sources */,
 				84E98B6C168E6331006AAA55 /* AmaxEvent.m in Sources */,
 				84E98B6D168E6331006AAA55 /* AmaxInterpretationProvider.m in Sources */,
-				72DB5BA124DC5EE500E20F7E /* main.m in Sources */,
 				84E98B6E168E6331006AAA55 /* AmaxLocationBundle.m in Sources */,
-				72DB5BA024DC5ED200E20F7E /* AmaxAppDelegate.m in Sources */,
 				84E98B6F168E6331006AAA55 /* AmaxLocationDataFile.m in Sources */,
 				84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */,
 				84E98B71168E6331006AAA55 /* AmaxSummaryItem.m in Sources */,
@@ -582,6 +583,7 @@
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
 				84E98B74168E6331006AAA55 /* AmaxMoonMoveCell.m in Sources */,
 				84E98B75168E6331006AAA55 /* AmaxMoonSignCell.m in Sources */,
+				72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */,
 				84E98B76168E6331006AAA55 /* AmaxPlanetHourCell.m in Sources */,
 				84E98B77168E6331006AAA55 /* AmaxSunDegreeCell.m in Sources */,
 				729AFB1A24D0AF1B00EF0894 /* AmaxAspectSetCell.m in Sources */,

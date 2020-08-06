@@ -20,9 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if #available(iOS 13.0, *) {
-            // In iOS 13 setup is done in SceneDelegate
-        } else {
-            self.window?.makeKeyAndVisible()
+             // In iOS 13 setup is done in SceneDelegate
+        }
+        else {
+             window?.makeKeyAndVisible()
         }
         return true
     }
@@ -51,17 +52,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         dataProvider = AmaxDataProvider.sharedInstance()
         dataProvider!.restoreSavedState()
-
-        /*if #available(iOS 13.0, *) {
+        
+        if #available(iOS 13.0, *) {
             // In iOS 13 setup is done in SceneDelegate
-        } else {*/
-            let window = UIWindow(frame: UIScreen.main.bounds)
-            self.window = window
+        } else {
+            window = UIWindow(frame: UIScreen.main.bounds)
             let summaryViewController = AmaxSummaryViewController(nibName: "AmaxSummaryViewController", bundle: nil)
             navigationController = UINavigationController(rootViewController:summaryViewController)
-            window.rootViewController = navigationController
-            window.makeKeyAndVisible()
-        //}
+            window!.rootViewController = navigationController
+        }
         return true
     }
 
