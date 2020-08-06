@@ -16,6 +16,7 @@
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
 		72AA2A6224DBC2A300A5E00A /* AspectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AA2A6024DBC2A300A5E00A /* AspectCell.xib */; };
 		72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */; };
+		72AA2A6A24DBCCE400A5E00A /* AmaxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */; };
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
@@ -44,7 +45,6 @@
 		84E98AF9168E0FAB006AAA55 /* PlanetsGenitive.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AFB168E0FAB006AAA55 /* PlanetsGenitive.strings */; };
 		84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98B01168E0FCA006AAA55 /* Aspects.strings */; };
 		84E98B0E168E52A2006AAA55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B0D168E52A2006AAA55 /* main.m */; };
-		84E98B60168E6331006AAA55 /* AmaxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */; };
 		84E98B61168E6331006AAA55 /* AmaxAstroLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B29168E6331006AAA55 /* AmaxAstroLabel.m */; };
 		84E98B62168E6331006AAA55 /* AmaxBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B2B168E6331006AAA55 /* AmaxBaseViewController.m */; };
 		84E98B63168E6331006AAA55 /* AmaxDateSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B2D168E6331006AAA55 /* AmaxDateSelectController.m */; };
@@ -111,6 +111,8 @@
 		72AA2A6124DBC2A300A5E00A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/AspectCell.xib; sourceTree = "<group>"; };
 		72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAspectCell.m; sourceTree = "<group>"; };
 		72AA2A6524DBC33200A5E00A /* AmaxAspectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxAspectCell.h; sourceTree = "<group>"; };
+		72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Bridging-Header.h"; sourceTree = "<group>"; };
+		72AA2A6724DBC99600A5E00A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Astromaximum2.xcodeproj; path = ../Astromaximum2/Astromaximum2.xcodeproj; sourceTree = "<group>"; };
 		72B6C66424C8052C00E7BC98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		72B6C66624C8053D00E7BC98 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
@@ -338,8 +340,10 @@
 				84E98B38168E6331006AAA55 /* Utils */,
 				84E98B26168E6331006AAA55 /* AmaxAppDelegate.h */,
 				84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */,
+				72AA2A6724DBC99600A5E00A /* AppDelegate.swift */,
 				84E98B28168E6331006AAA55 /* AmaxAstroLabel.h */,
 				84E98B29168E6331006AAA55 /* AmaxAstroLabel.m */,
+				72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -455,6 +459,7 @@
 				TargetAttributes = {
 					84B1AC691647BB3E007188B1 = {
 						DevelopmentTeam = 8MSTLPJ26R;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -559,7 +564,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E98B0E168E52A2006AAA55 /* main.m in Sources */,
-				84E98B60168E6331006AAA55 /* AmaxAppDelegate.m in Sources */,
 				84E98B61168E6331006AAA55 /* AmaxAstroLabel.m in Sources */,
 				84E98B62168E6331006AAA55 /* AmaxBaseViewController.m in Sources */,
 				84E98B63168E6331006AAA55 /* AmaxDateSelectController.m in Sources */,
@@ -573,6 +577,7 @@
 				84E98B6B168E6331006AAA55 /* AmaxDataProvider.m in Sources */,
 				84E98B6C168E6331006AAA55 /* AmaxEvent.m in Sources */,
 				84E98B6D168E6331006AAA55 /* AmaxInterpretationProvider.m in Sources */,
+				72AA2A6A24DBCCE400A5E00A /* AmaxAppDelegate.m in Sources */,
 				84E98B6E168E6331006AAA55 /* AmaxLocationBundle.m in Sources */,
 				84E98B6F168E6331006AAA55 /* AmaxLocationDataFile.m in Sources */,
 				84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */,
@@ -920,14 +925,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8MSTLPJ26R;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2020.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sw-axis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Astromaximum/Classes/Astromaximum-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -937,14 +947,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8MSTLPJ26R;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2020.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sw-axis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Astromaximum/Classes/Astromaximum-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
