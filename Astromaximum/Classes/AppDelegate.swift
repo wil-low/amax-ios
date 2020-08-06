@@ -13,20 +13,17 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
     var dataProvider: AmaxDataProvider?
+    var navigationController: UINavigationController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        // Override point for customization after application launch.
-        dataProvider = AmaxDataProvider.sharedInstance()
-        dataProvider!.restoreSavedState()
-        var summaryViewController = AmaxSummaryViewController.init(nibName:"AmaxSummaryViewController", bundle:nil)
-        navigationController = UINavigationController.init(rootViewController:summaryViewController)
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
+        if #available(iOS 13.0, *) {
+            // In iOS 13 setup is done in SceneDelegate
+        } else {
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 
@@ -52,6 +49,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        dataProvider = AmaxDataProvider.sharedInstance()
+        dataProvider!.restoreSavedState()
+
+        /*if #available(iOS 13.0, *) {
+            // In iOS 13 setup is done in SceneDelegate
+        } else {*/
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            self.window = window
+            let summaryViewController = AmaxSummaryViewController(nibName: "AmaxSummaryViewController", bundle: nil)
+            navigationController = UINavigationController(rootViewController:summaryViewController)
+            window.rootViewController = navigationController
+            window.makeKeyAndVisible()
+        //}
         return true
     }
 

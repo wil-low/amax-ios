@@ -3,4 +3,5 @@
 //
 
 #import "AmaxDataProvider.h"
+#import "AmaxBaseViewController.h"
 #import "AmaxSummaryViewController.h"

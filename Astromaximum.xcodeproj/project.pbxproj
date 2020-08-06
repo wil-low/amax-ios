@@ -14,10 +14,10 @@
 		729AFB2324D0C0C500EF0894 /* AspectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729AFB2124D0C0C500EF0894 /* AspectCell.xib */; };
 		72A4218824C8AE860096DF9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A4218724C8AE860096DF9C /* Images.xcassets */; };
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
-		72AA2A6224DBC2A300A5E00A /* AspectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AA2A6024DBC2A300A5E00A /* AspectCell.xib */; };
 		72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */; };
-		72AA2A6A24DBCCE400A5E00A /* AmaxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */; };
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
+		72DB5BA024DC5ED200E20F7E /* AmaxAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */; };
+		72DB5BA124DC5EE500E20F7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B0D168E52A2006AAA55 /* main.m */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -44,7 +44,6 @@
 		84E98AF3168E0F88006AAA55 /* ConstellLocative.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AF5168E0F88006AAA55 /* ConstellLocative.strings */; };
 		84E98AF9168E0FAB006AAA55 /* PlanetsGenitive.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AFB168E0FAB006AAA55 /* PlanetsGenitive.strings */; };
 		84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98B01168E0FCA006AAA55 /* Aspects.strings */; };
-		84E98B0E168E52A2006AAA55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B0D168E52A2006AAA55 /* main.m */; };
 		84E98B61168E6331006AAA55 /* AmaxAstroLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B29168E6331006AAA55 /* AmaxAstroLabel.m */; };
 		84E98B62168E6331006AAA55 /* AmaxBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B2B168E6331006AAA55 /* AmaxBaseViewController.m */; };
 		84E98B63168E6331006AAA55 /* AmaxDateSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B2D168E6331006AAA55 /* AmaxDateSelectController.m */; };
@@ -108,7 +107,6 @@
 		729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAspectSetCell.m; sourceTree = "<group>"; };
 		729AFB2224D0C0C500EF0894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AspectCell.xib; sourceTree = "<group>"; };
 		72A4218724C8AE860096DF9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		72AA2A6124DBC2A300A5E00A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/AspectCell.xib; sourceTree = "<group>"; };
 		72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAspectCell.m; sourceTree = "<group>"; };
 		72AA2A6524DBC33200A5E00A /* AmaxAspectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxAspectCell.h; sourceTree = "<group>"; };
 		72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 		84B1AC5F1647BB3E007188B1 = {
 			isa = PBXGroup;
 			children = (
-				72AA2A6024DBC2A300A5E00A /* AspectCell.xib */,
 				72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */,
 				72606C9324B823FB009B0113 /* Default-568h@2x.png */,
 				84B1AC741647BB3E007188B1 /* Astromaximum */,
@@ -536,7 +533,6 @@
 				84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */,
 				84DF76D9175957BD00A3D7A9 /* WeekDays.strings in Resources */,
 				729AFB2324D0C0C500EF0894 /* AspectCell.xib in Resources */,
-				72AA2A6224DBC2A300A5E00A /* AspectCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +559,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E98B0E168E52A2006AAA55 /* main.m in Sources */,
 				84E98B61168E6331006AAA55 /* AmaxAstroLabel.m in Sources */,
 				84E98B62168E6331006AAA55 /* AmaxBaseViewController.m in Sources */,
 				84E98B63168E6331006AAA55 /* AmaxDateSelectController.m in Sources */,
@@ -577,8 +572,9 @@
 				84E98B6B168E6331006AAA55 /* AmaxDataProvider.m in Sources */,
 				84E98B6C168E6331006AAA55 /* AmaxEvent.m in Sources */,
 				84E98B6D168E6331006AAA55 /* AmaxInterpretationProvider.m in Sources */,
-				72AA2A6A24DBCCE400A5E00A /* AmaxAppDelegate.m in Sources */,
+				72DB5BA124DC5EE500E20F7E /* main.m in Sources */,
 				84E98B6E168E6331006AAA55 /* AmaxLocationBundle.m in Sources */,
+				72DB5BA024DC5ED200E20F7E /* AmaxAppDelegate.m in Sources */,
 				84E98B6F168E6331006AAA55 /* AmaxLocationDataFile.m in Sources */,
 				84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */,
 				84E98B71168E6331006AAA55 /* AmaxSummaryItem.m in Sources */,
@@ -614,14 +610,6 @@
 				727CAEAC24C160A00008A769 /* Base */,
 			);
 			name = VocCell.xib;
-			sourceTree = "<group>";
-		};
-		72AA2A6024DBC2A300A5E00A /* AspectCell.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				72AA2A6124DBC2A300A5E00A /* Base */,
-			);
-			name = AspectCell.xib;
 			sourceTree = "<group>";
 		};
 		72B6C66324C8052C00E7BC98 /* EventListTitle.strings */ = {
@@ -872,7 +860,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -914,7 +902,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
