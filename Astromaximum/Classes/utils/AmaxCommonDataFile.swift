@@ -8,35 +8,37 @@
 
 import Foundation
 
-struct AmaxCommonDataFile {
+@objcMembers class AmaxCommonDataFile : NSObject {
     var startYear:Int = 0
     var startMonth:Int = 0
     var startDay:Int = 0
     var dayCount:Int = 0
+    var monthCount:Int = 0
     var customData:Data?
     var data:AmaxDataInputStream?
 
     init(filePath: String) {
-        /*guard let fullData = (NSData(contentsOfFile: filePath) as Data?) else {
+        let isLegacy = false;
+        guard let fullData = (NSData(contentsOfFile: filePath) as Data?) else {
             print("AmaxCommonDataFile: failed to open \(filePath)")
             return;
         }
-        guard let ais = AmaxDataInputStream(data: fullData) else {
-                print("AmaxCommonDataFile creation failed")
-                return;
-        }
+        let ais = AmaxDataInputStream(data: fullData)
         startYear = Int(ais.readShort())
         startMonth = Int(ais.readUnsignedByte())
         startDay = Int(ais.readUnsignedByte())
 
         let customDataLen = Int(ais.readUnsignedShort()) // customData length
-        dayCount = Int(ais.readShort())
+        if isLegacy {
+            dayCount = Int(ais.readShort())
+        }
+        else {
+            monthCount = Int(ais.readUnsignedByte())
+        }
         if customDataLen > 0 {
-            customData = Data.init(count: customDataLen)
-            ais.read(toBuffer: customData, length: customDataLen)
+            customData = ais.read(length: customDataLen)
         }
         let bufferLength = ais.availableBytes()
-        var buffer = ais.read(length: bufferLength)
-        data = AmaxDataInputStream(bytes: &buffer, length: Int(bufferLength))*/
+        data = AmaxDataInputStream(data: ais.read(length: bufferLength))
     }
 }

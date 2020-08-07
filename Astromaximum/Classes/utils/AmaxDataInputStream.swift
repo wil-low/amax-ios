@@ -51,7 +51,7 @@ import Foundation
     }
 
     func readByte() -> Int8 {
-        let result = Int8(bitPattern:data[position])
+        let result = Int8(bitPattern: data[position])
         position += 1
         return result
     }
@@ -84,7 +84,7 @@ import Foundation
     }
 
     func read(length byteCount: Int) -> Data {
-        let range = position..<(position + byteCount)
+        let range = position ..< (position + byteCount)
         let buffer = data.subdata(in: range)
         position += byteCount
         return buffer
@@ -92,9 +92,9 @@ import Foundation
 
     func readUTF() -> String? {
         let stringLength = Int(readUnsignedShort())
-        let range = position..<(position + stringLength)
+        let range = position ..< (position + stringLength)
         let buffer = data.subdata(in: range)
-        let s = String.init(data:buffer, encoding: .utf8)
+        let s = String.init(data: buffer, encoding: .utf8)
         position += stringLength
         return s
     }

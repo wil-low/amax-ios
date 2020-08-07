@@ -13,9 +13,9 @@
 		729AFB1A24D0AF1B00EF0894 /* AmaxAspectSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */; };
 		729AFB2324D0C0C500EF0894 /* AspectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729AFB2124D0C0C500EF0894 /* AspectCell.xib */; };
 		729C4FDC24DDD23D0058E1EA /* AmaxDataInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C4FDB24DDD23D0058E1EA /* AmaxDataInputStream.swift */; };
+		729C4FDD24DDD38C0058E1EA /* AmaxCommonDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB5BA824DC702500E20F7E /* AmaxCommonDataFile.swift */; };
 		72A4218824C8AE860096DF9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A4218724C8AE860096DF9C /* Images.xcassets */; };
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
-		72A81E1524DD0CB900F2117C /* AmaxCommonDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B3A168E6331006AAA55 /* AmaxCommonDataFile.m */; };
 		72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */; };
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
 		72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6724DBC99600A5E00A /* AppDelegate.swift */; };
@@ -593,7 +593,7 @@
 				84E98B78168E6331006AAA55 /* AmaxTableCell.m in Sources */,
 				72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */,
 				84E98B79168E6331006AAA55 /* AmaxTithiCell.m in Sources */,
-				72A81E1524DD0CB900F2117C /* AmaxCommonDataFile.m in Sources */,
+				729C4FDD24DDD38C0058E1EA /* AmaxCommonDataFile.swift in Sources */,
 				84E98B7A168E6331006AAA55 /* AmaxViaCombustaCell.m in Sources */,
 				84E98B7B168E6331006AAA55 /* AmaxVocCell.m in Sources */,
 			);

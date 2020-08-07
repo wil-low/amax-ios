@@ -8,7 +8,6 @@
 
 #import "AmaxDataProvider.h"
 #import "Astromaximum-Swift.h"
-#import "AmaxCommonDataFile.h"
 #import "AmaxLocationBundle.h"
 #import "AmaxLocationDataFile.h"
 #import "AmaxPrefs.h"
@@ -334,7 +333,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 		case EV_ASCAPHETICS:
 			return [self readSubDataFromStream:mLocationDataFile.mData type:evtype planet:planet isCommon:false dayStart:dayStart dayEnd:dayEnd];
 		default:
-			return [self readSubDataFromStream:mCommonDataFile.mData type:evtype planet:planet isCommon:true dayStart:dayStart dayEnd:dayEnd];
+			return [self readSubDataFromStream:mCommonDataFile.data type:evtype planet:planet isCommon:true dayStart:dayStart dayEnd:dayEnd];
     }
 }
 
