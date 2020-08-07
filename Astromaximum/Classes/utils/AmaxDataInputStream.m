@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-#import "AmaxDataInputStream.h"
+#import "Astromaximum-Bridging-Header.h"
 
 @implementation AmaxDataInputStream
 

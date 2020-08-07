@@ -19,6 +19,6 @@
 
 - (id)initWithFilePath:(NSString *)filePath;
 - (void) dealloc;
-- (Size) extractLocationByIndex:(int)index intoBuffer:(void *)destBuffer;
+- (Size) extractLocationByIndex:(int)index intoData:(NSData *)data;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "AmaxDataProvider.h"
-#import "AmaxDataInputStream.h"
+#import "Astromaximum-Swift.h"
 #import "AmaxCommonDataFile.h"
 #import "AmaxLocationBundle.h"
 #import "AmaxLocationDataFile.h"
@@ -122,16 +122,17 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"dat"];
     AmaxLocationBundle *locBundle = [[AmaxLocationBundle alloc] initWithFilePath:filePath];
     int index = 0;
-    char buffer[16000];
+    NSMutableData* data = [[NSMutableData alloc] initWithLength:16000];
+                    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *locationDictionary = [NSMutableDictionary dictionary];
     for (int i = 0; i < [locBundle mRecordCount]; ++i) {
-        Size bufferSize = [locBundle extractLocationByIndex:index intoBuffer:buffer];
-        AmaxLocationDataFile *datafile = [[AmaxLocationDataFile alloc]initWithBytes:buffer length:bufferSize headerOnly:YES];
+        Size bufferSize = [locBundle extractLocationByIndex:index intoData:data];
+        AmaxLocationDataFile *datafile = [[AmaxLocationDataFile alloc]initWithBytes:[data mutableBytes] length:bufferSize headerOnly:YES];
         lastLocationId = [[NSString alloc]initWithFormat:@"%08X", datafile.mCityId];
         NSLog(@"%d: %@ %@", index, lastLocationId, datafile.mCity);
         NSString *locFile = [self locationFileById:lastLocationId];
-        NSData *outputData = [NSData dataWithBytes:buffer length:bufferSize];
+        NSData *outputData = [NSData dataWithBytes:[data mutableBytes] length:bufferSize];
         NSError *error;
         if ([outputData writeToFile:locFile options:0 error:&error] == NO)
             NSLog(@"%@", error);

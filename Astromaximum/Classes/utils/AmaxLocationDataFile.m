@@ -7,8 +7,8 @@
 //
 
 #import "AmaxLocationDataFile.h"
-#import "AmaxDataInputStream.h"
 #import "AmaxTimezoneTransition.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxLocationDataFile
 
@@ -62,9 +62,8 @@
             [transitions addObject:transition];
         }
         Size bufferLength = [dis availableBytes];
-        char *buffer = malloc(bufferLength);
-        [dis readToBuffer:buffer length:bufferLength];
-        _mData = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
+        NSMutableData* buffer = (NSMutableData*)[dis readWithLength:bufferLength];
+        _mData = [[AmaxDataInputStream alloc]initWithData:buffer];
     }
     return self;
 }

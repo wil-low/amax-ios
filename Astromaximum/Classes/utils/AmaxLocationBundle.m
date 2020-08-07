@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-#import "AmaxLocationBundle.h"
-#import "AmaxDataInputStream.h"
+#import "Astromaximum-Bridging-Header.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxLocationBundle
 
@@ -23,10 +23,8 @@
     for (int i = 0; i < _mRecordCount; ++i)
         recordLengths[i] = [is readUnsignedShort];
     Size bufferLength = [is availableBytes];
-    char *buffer = malloc(bufferLength);
-    [is readToBuffer:buffer length:bufferLength];
-    locStream = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
-    free(buffer);
+    NSData* locData = [is readWithLength:bufferLength];
+    locStream = [[AmaxDataInputStream alloc]initWithData:locData];
     return self;
 }
 
@@ -35,7 +33,7 @@
     free(recordLengths);
 }
 
-- (Size) extractLocationByIndex:(int)index intoBuffer:(void *)destBuffer
+- (Size) extractLocationByIndex:(int)index intoData:(NSData *)data
 {
     [locStream reset];
     Size offset = 0;
@@ -44,7 +42,7 @@
     }
     Size length = recordLengths[index];
     [locStream skipBytes:offset];
-    [locStream readToBuffer:destBuffer length:length];
+    data = [locStream readWithLength:length];
     return length;
 }
 

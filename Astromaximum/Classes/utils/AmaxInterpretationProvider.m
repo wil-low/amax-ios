@@ -7,8 +7,8 @@
 //
 
 #import "AmaxInterpretationProvider.h"
-#import "AmaxDataInputStream.h"
 #import "AmaxEvent.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxInterpretationProvider
 

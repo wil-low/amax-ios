@@ -7,7 +7,8 @@
 //
 
 #import "AmaxCommonDataFile.h"
-#import "AmaxDataInputStream.h"
+#import "Astromaximum-Bridging-Header.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxCommonDataFile
 
@@ -32,20 +33,12 @@
     else
         _monthCount = [is readUnsignedByte];
     if (customDataLen > 0) {
-        customData = malloc(customDataLen);
-        [is readToBuffer:customData length:customDataLen];
+        customData = (NSMutableData*)[is readWithLength:customDataLen];
     }
     Size bufferLength = [is availableBytes];
-    void *buffer = malloc(bufferLength);
-    [is readToBuffer:buffer length:bufferLength];
-    _mData = [[AmaxDataInputStream alloc]initWithBytes:buffer length:bufferLength];
-    free(buffer);
+    NSMutableData* buffer = (NSMutableData*)[is readWithLength:bufferLength];
+    _mData = [[AmaxDataInputStream alloc]initWithData:buffer];
     return self;
-}
-
-- (void) dealloc
-{
-    free(customData);
 }
 
 @end

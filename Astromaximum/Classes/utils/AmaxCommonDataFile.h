@@ -11,7 +11,7 @@
 
 @interface AmaxCommonDataFile : NSObject
 {
-    void *customData;
+    NSMutableData* customData;
 }
 @property int startYear;
 @property int startMonth;
@@ -21,6 +21,5 @@
 @property (readonly, strong, nonatomic) AmaxDataInputStream *mData;
 
 - (id)initWithFilePath:(NSString *)filePath;
-- (void) dealloc;
 
 @end
