@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */; };
+		7229137C24DFAEDE005B0698 /* AmaxTimezoneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */; };
+		7229137E24DFAF5C005B0698 /* AmaxEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229137D24DFAF5B005B0698 /* AmaxEvent.swift */; };
 		72606C9424B823FB009B0113 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9324B823FB009B0113 /* Default-568h@2x.png */; };
 		72606C9824B82D9C009B0113 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9724B82CBE009B0113 /* locations.dat */; };
 		72606C9924B82DA0009B0113 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9624B82CB4009B0113 /* common.dat */; };
@@ -56,12 +58,10 @@
 		84E98B67168E6331006AAA55 /* AmaxSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B35168E6331006AAA55 /* AmaxSettingsController.m */; };
 		84E98B68168E6331006AAA55 /* AmaxSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B37168E6331006AAA55 /* AmaxSummaryViewController.m */; };
 		84E98B6B168E6331006AAA55 /* AmaxDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B3E168E6331006AAA55 /* AmaxDataProvider.m */; };
-		84E98B6C168E6331006AAA55 /* AmaxEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B40168E6331006AAA55 /* AmaxEvent.m */; };
 		84E98B6D168E6331006AAA55 /* AmaxInterpretationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B42168E6331006AAA55 /* AmaxInterpretationProvider.m */; };
 		84E98B6F168E6331006AAA55 /* AmaxLocationDataFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B46168E6331006AAA55 /* AmaxLocationDataFile.m */; };
 		84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B48168E6331006AAA55 /* AmaxPrefs.m */; };
 		84E98B71168E6331006AAA55 /* AmaxSummaryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B4A168E6331006AAA55 /* AmaxSummaryItem.m */; };
-		84E98B72168E6331006AAA55 /* AmaxTimezoneTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B4C168E6331006AAA55 /* AmaxTimezoneTransition.m */; };
 		84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B4D168E6331006AAA55 /* AmaxTypes.c */; };
 		84E98B74168E6331006AAA55 /* AmaxMoonMoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B51168E6331006AAA55 /* AmaxMoonMoveCell.m */; };
 		84E98B75168E6331006AAA55 /* AmaxMoonSignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B53168E6331006AAA55 /* AmaxMoonSignCell.m */; };
@@ -86,6 +86,8 @@
 
 /* Begin PBXFileReference section */
 		7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxLocationBundle.swift; sourceTree = "<group>"; };
+		7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxTimezoneTransition.swift; sourceTree = "<group>"; };
+		7229137D24DFAF5B005B0698 /* AmaxEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxEvent.swift; sourceTree = "<group>"; };
 		72606C9324B823FB009B0113 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		72606C9624B82CB4009B0113 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
 		72606C9724B82CBE009B0113 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				84E98B3C168E6331006AAA55 /* AmaxDataInputStream.m */,
 				84E98B3D168E6331006AAA55 /* AmaxDataProvider.h */,
 				84E98B3E168E6331006AAA55 /* AmaxDataProvider.m */,
+				7229137D24DFAF5B005B0698 /* AmaxEvent.swift */,
 				84E98B3F168E6331006AAA55 /* AmaxEvent.h */,
 				84E98B40168E6331006AAA55 /* AmaxEvent.m */,
 				84E98B41168E6331006AAA55 /* AmaxInterpretationProvider.h */,
@@ -374,6 +377,7 @@
 				84E98B47168E6331006AAA55 /* AmaxPrefs.h */,
 				84E98B48168E6331006AAA55 /* AmaxPrefs.m */,
 				84E98B4A168E6331006AAA55 /* AmaxSummaryItem.m */,
+				7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */,
 				84E98B4B168E6331006AAA55 /* AmaxTimezoneTransition.h */,
 				84E98B4C168E6331006AAA55 /* AmaxTimezoneTransition.m */,
 				84E98B4D168E6331006AAA55 /* AmaxTypes.c */,
@@ -578,15 +582,15 @@
 				729C4FDC24DDD23D0058E1EA /* AmaxDataInputStream.swift in Sources */,
 				84E98B68168E6331006AAA55 /* AmaxSummaryViewController.m in Sources */,
 				84E98B6B168E6331006AAA55 /* AmaxDataProvider.m in Sources */,
-				84E98B6C168E6331006AAA55 /* AmaxEvent.m in Sources */,
 				84E98B6D168E6331006AAA55 /* AmaxInterpretationProvider.m in Sources */,
 				7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */,
 				84E98B6F168E6331006AAA55 /* AmaxLocationDataFile.m in Sources */,
 				84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */,
 				84E98B71168E6331006AAA55 /* AmaxSummaryItem.m in Sources */,
-				84E98B72168E6331006AAA55 /* AmaxTimezoneTransition.m in Sources */,
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
 				84E98B74168E6331006AAA55 /* AmaxMoonMoveCell.m in Sources */,
+				7229137E24DFAF5C005B0698 /* AmaxEvent.swift in Sources */,
+				7229137C24DFAEDE005B0698 /* AmaxTimezoneTransition.swift in Sources */,
 				84E98B75168E6331006AAA55 /* AmaxMoonSignCell.m in Sources */,
 				72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */,
 				84E98B76168E6331006AAA55 /* AmaxPlanetHourCell.m in Sources */,

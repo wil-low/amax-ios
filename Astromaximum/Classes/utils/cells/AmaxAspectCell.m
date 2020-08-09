@@ -7,6 +7,7 @@
 //
 
 #import "AmaxAspectCell.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxAspectCell
 

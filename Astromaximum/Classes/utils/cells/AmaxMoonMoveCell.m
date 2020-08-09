@@ -7,6 +7,7 @@
 //
 
 #import "AmaxMoonMoveCell.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxMoonMoveCell
 

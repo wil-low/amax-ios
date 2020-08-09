@@ -7,6 +7,7 @@
 //
 
 #import "AmaxViaCombustaCell.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxViaCombustaCell
 

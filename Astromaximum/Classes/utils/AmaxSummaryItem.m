@@ -7,7 +7,7 @@
 //
 
 #import "AmaxSummaryItem.h"
-
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxSummaryItem
 @synthesize mEvents = _mEvents;

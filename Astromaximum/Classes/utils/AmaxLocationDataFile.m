@@ -7,7 +7,6 @@
 //
 
 #import "AmaxLocationDataFile.h"
-#import "AmaxTimezoneTransition.h"
 #import "Astromaximum-Swift.h"
 
 @implementation AmaxLocationDataFile

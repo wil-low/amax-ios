@@ -7,6 +7,7 @@
 //
 
 #import "AmaxTithiCell.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxTithiCell
 

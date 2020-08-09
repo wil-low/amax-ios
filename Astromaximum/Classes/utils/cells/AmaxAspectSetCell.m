@@ -9,6 +9,7 @@
 #import "AmaxAspectSetCell.h"
 #import "AmaxSummaryItem.h"
 #import "AmaxSummaryViewController.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxAspectSetCell
 

@@ -155,5 +155,6 @@ typedef enum {
 } SymbolType;
 
 char getSymbol(SymbolType type, int id);
+int dateBetween(long date0, long start, long end);
 
 #endif

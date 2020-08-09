@@ -34,3 +34,25 @@ char getSymbol(SymbolType type, int id)
     }
     return result;
 }
+
+int dateBetween(long date0, long start, long end)
+{
+    if (date0 < start) {
+        return -1;
+    }
+    if (date0 > end) {
+        return 1;
+    }
+    return 0;
+}
+/*
+func dateBetween(_ date0: Int, _ start: Int, _ end: Int) -> Int {
+    if date0 < start {
+        return -1
+    }
+    if date0 > end {
+        return 1
+    }
+    return 0
+}
+*/

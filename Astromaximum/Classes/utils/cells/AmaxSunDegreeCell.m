@@ -7,6 +7,7 @@
 //
 
 #import "AmaxSunDegreeCell.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxSunDegreeCell
 

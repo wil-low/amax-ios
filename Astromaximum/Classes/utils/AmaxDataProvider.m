@@ -10,7 +10,6 @@
 #import "Astromaximum-Swift.h"
 #import "AmaxLocationDataFile.h"
 #import "AmaxPrefs.h"
-#import "AmaxEvent.h"
 #import "AmaxSummaryItem.h"
 
 @interface AmaxDataProvider ()
@@ -408,7 +407,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     for (int i = 0; i < cnt; i++) {
         AmaxEvent *ev = mEvents[i];
         if (planet == -1 || ev.mPlanet0 == planet || ev.mPlanet1 == planet) {
-            if ([ev isDateAtIndex:0 between:startTime and:endTime]) {
+            if ([ev isDateAt:0 between:startTime and:endTime]) {
                 flag = true;
                 [result addObject:ev];
             }

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AmaxTypes.h"
-#import "AmaxEvent.h"
+@class AmaxEvent;
 
 @interface AmaxSummaryItem : NSObject
 {

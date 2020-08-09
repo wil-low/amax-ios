@@ -7,6 +7,7 @@
 //
 
 #import "AmaxPlanetHourCell.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxPlanetHourCell
 

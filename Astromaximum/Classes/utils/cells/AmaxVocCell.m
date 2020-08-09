@@ -7,6 +7,7 @@
 //
 
 #import "AmaxVocCell.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxVocCell
 
