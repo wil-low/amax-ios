@@ -8,7 +8,6 @@
 
 #import "AmaxDataProvider.h"
 #import "Astromaximum-Swift.h"
-#import "AmaxLocationDataFile.h"
 #import "AmaxPrefs.h"
 #import "AmaxSummaryItem.h"
 
@@ -89,7 +88,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     }
     NSData *fullData = [NSData dataWithContentsOfFile:filePath];
 
-    mLocationDataFile = [[AmaxLocationDataFile alloc]initWithBytes:[fullData bytes] length:[fullData length] headerOnly:NO];
+    mLocationDataFile = [[AmaxLocationDataFile alloc]initWithData:fullData headerOnly:NO];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:locationId forKey:AMAX_PREFS_KEY_LOCATION_ID];
     _mLocationId = locationId;
@@ -124,7 +123,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
     NSMutableDictionary *locationDictionary = [NSMutableDictionary dictionary];
     for (int i = 0; i < [[locBundle recordLengths] count]; ++i) {
         NSData* data = [locBundle extractLocationBy:index];
-        AmaxLocationDataFile *datafile = [[AmaxLocationDataFile alloc]initWithBytes:[data bytes] length:[data length] headerOnly:YES];
+        AmaxLocationDataFile *datafile = [[AmaxLocationDataFile alloc]initWithData:data headerOnly:YES];
         lastLocationId = [[NSString alloc]initWithFormat:@"%08X", datafile.mCityId];
         NSLog(@"%d: %@ %@", index, lastLocationId, datafile.mCity);
         NSString *locFile = [self locationFileById:lastLocationId];

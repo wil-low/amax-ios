@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-#import "AmaxLocationDataFile.h"
 #import "Astromaximum-Swift.h"
 
 @implementation AmaxLocationDataFile
