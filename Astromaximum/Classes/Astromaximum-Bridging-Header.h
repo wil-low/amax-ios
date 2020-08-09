@@ -24,7 +24,7 @@
 //#import "utils/AmaxCommonDataFile.h"
 //#import "utils/AmaxEvent.h"
 //#import "utils/AmaxTypes.h"
-#import "utils/AmaxLocationBundle.h"
+//#import "utils/AmaxLocationBundle.h"
 //#import "utils/AmaxTimezoneTransition.h"
 #import "utils/AmaxLocationDataFile.h"
 #import "AmaxSummaryViewController.h"
