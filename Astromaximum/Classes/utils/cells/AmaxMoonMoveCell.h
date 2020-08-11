@@ -7,7 +7,8 @@
 //
 
 #import "AmaxTableCell.h"
-#import "AmaxDataProvider.h"
+
+@class AmaxDataProvider;
 
 @interface AmaxMoonMoveCell : AmaxTableCell
 {

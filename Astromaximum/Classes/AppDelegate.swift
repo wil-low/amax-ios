@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        dataProvider = AmaxDataProvider.sharedInstance()
+        dataProvider = AmaxDataProvider.sharedInstance
         dataProvider!.restoreSavedState()
         
         if #available(iOS 13.0, *) {

@@ -10,10 +10,9 @@
 #import "AmaxEventListViewController.h"
 #import "AmaxSettingsController.h"
 #import "AmaxDateSelectController.h"
-#import "AmaxDataProvider.h"
 #import "AmaxSummaryItem.h"
-#import "AmaxEvent.h"
 #import "AmaxTableCell.h"
+#import "Astromaximum-Swift.h"
 
 // sync with START_PAGE_ITEM_SEQ
 NSString *xibNames[] = {

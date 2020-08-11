@@ -38,7 +38,7 @@
                                      getSymbol(TYPE_ASPECT, e.mDegree),
                                      getSymbol(TYPE_PLANET, e.mPlanet1)
                                      ]];
-                [timeLabel setText:[AmaxEvent long2String:date0 format:[mDataProvider isInCurrentDay:date0] ? nil : [AmaxEvent monthAbbrDayDateFormatter] h24:true]];
+                [timeLabel setText:[AmaxEvent long2String:date0 format:[mDataProvider isInCurrentDayWithDate: date0] ? nil : [AmaxEvent monthAbbrDayDateFormatter] h24:true]];
                 [eventLabel setHidden:false];
                 [transitionSignLabel setHidden:true];
                 break;
@@ -46,7 +46,7 @@
                 [eventLabel setText:[NSString stringWithFormat:@"%c",
                                      getSymbol(TYPE_ZODIAC, e.mDegree)]];
                 [eventLabel setHidden:false];
-                [timeLabel setText:[AmaxEvent long2String:date0 format:[mDataProvider isInCurrentDay:date0] ? nil : [AmaxEvent monthAbbrDayDateFormatter] h24:true]];
+                [timeLabel setText:[AmaxEvent long2String:date0 format:[mDataProvider isInCurrentDayWithDate: date0] ? nil : [AmaxEvent monthAbbrDayDateFormatter] h24:true]];
                 [transitionSignLabel setHidden:true];
                 break;
             default:

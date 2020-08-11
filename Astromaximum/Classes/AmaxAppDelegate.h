@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AmaxDataProvider.h"
+
+@class AmaxDataProvider;
 
 @interface AmaxAppDelegate : UIResponder <UIApplicationDelegate>
 {

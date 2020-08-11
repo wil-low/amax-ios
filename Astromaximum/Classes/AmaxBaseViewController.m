@@ -7,8 +7,7 @@
 //
 
 #import "AmaxBaseViewController.h"
-#import "AmaxEvent.h"
-#import "AmaxDataProvider.h"
+#import "Astromaximum-Swift.h"
 #import "AmaxInterpreterController.h"
 #import "AmaxInterpretationProvider.h"
 
@@ -31,13 +30,13 @@
 
 - (IBAction)goToPreviousDate:(id)sender 
 {
-    [mDataProvider changeDate:-1];
+    [mDataProvider changeDateWithDeltaDays:-1];
     [self updateDisplay];
 }
 
 - (IBAction)goToNextDate:(id)sender
 {
-    [mDataProvider changeDate:1];    
+    [mDataProvider changeDateWithDeltaDays:1];    
     [self updateDisplay];
 }
 

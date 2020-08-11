@@ -16,7 +16,7 @@
 {
     AmaxCommonDataFile * mCommonDataFile;
     AmaxLocationDataFile * mLocationDataFile;
-    NSString * documentsDirectory;
+    NSURL * documentsDirectory;
     AmaxEvent * mEvents[100];
     NSCalendar *mCalendar;
     NSDateComponents *mCurrentDateComponents;

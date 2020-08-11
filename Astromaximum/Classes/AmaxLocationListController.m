@@ -7,7 +7,7 @@
 //
 
 #import "AmaxLocationListController.h"
-#import "AmaxDataProvider.h"
+#import "Astromaximum-Swift.h"
 #import "AmaxPrefs.h"
 
 @implementation AmaxLocationListController
@@ -40,7 +40,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [mDataProvider loadLocationById:[mDataProvider.mSortedLocationKeys objectAtIndex:mDataProvider.mCurrentLocationIndex]];    
+    [mDataProvider loadLocationByIdWithLocationId: [mDataProvider.mSortedLocationKeys objectAtIndex:mDataProvider.mCurrentLocationIndex]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

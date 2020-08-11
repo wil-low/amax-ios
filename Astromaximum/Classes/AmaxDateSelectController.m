@@ -7,7 +7,7 @@
 //
 
 #import "AmaxDateSelectController.h"
-#import "AmaxDataProvider.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxDateSelectController
 @synthesize datePicker;

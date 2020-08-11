@@ -41,6 +41,14 @@ import Foundation
         mMonthAbbrDayDateFormatter!.dateFormat = NSLocalizedString("month_abbr_day_date_format", comment: "")
     }
 
+    override init() {
+        mEvtype = EV_VOC
+        mPlanet0 = SE_UNDEFINED
+        mPlanet1 = SE_UNDEFINED
+        mDate = [0, 0]
+        mDegree = 127
+    }
+
     init(date: Int, planet: AmaxPlanet) {
         mEvtype = EV_VOC
         mPlanet0 = planet

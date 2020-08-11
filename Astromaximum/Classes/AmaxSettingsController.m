@@ -8,7 +8,7 @@
 
 #import "AmaxSettingsController.h"
 #import "AmaxLocationListController.h"
-#import "AmaxDataProvider.h"
+#import "Astromaximum-Swift.h"
 
 @implementation AmaxSettingsController
 @synthesize pickerView;

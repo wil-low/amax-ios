@@ -23,6 +23,7 @@ typedef enum {
 	SE_TRUE_NODE = 10,
 	SE_MEAN_APOG = 11,
 	SE_WHITE_MOON = 12,
+    SE_UNDEFINED = -1,
 } AmaxPlanet;
 
 typedef enum {

@@ -401,8 +401,7 @@ static const AmaxPlanet PLANET_HOUR_SEQUENCE[] = {
 {
     NSMutableArray *result = [NSMutableArray array];
     BOOL flag = false;
-    int cnt = [self getEventsForType:EV_ASP_EXACT planet:(planet == SE_MOON ? SE_MOON : -1)
-                                from:startTime to:endTime];
+    int cnt = [self getEventsForType:EV_ASP_EXACT planet:(planet == SE_MOON ? SE_MOON : SE_UNDEFINED) from:startTime to:endTime];
     for (int i = 0; i < cnt; i++) {
         AmaxEvent *ev = mEvents[i];
         if (planet == -1 || ev.mPlanet0 == planet || ev.mPlanet1 == planet) {
