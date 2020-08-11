@@ -63,7 +63,6 @@
         get { return _mUseCustomTime }
         set { _mUseCustomTime = newValue }
     }
-    var mCurrentLocationIndex = 0
     private var _mLocations = [String: String]()
     var mLocations: [String: String] {
         get { return _mLocations }

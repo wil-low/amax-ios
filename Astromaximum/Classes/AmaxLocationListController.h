@@ -11,8 +11,11 @@
 @interface AmaxLocationListController : UIViewController
 {
     AmaxDataProvider *mDataProvider;
+    long workingLocationIndex;
+    long selectedLocationIndex;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+- (IBAction)didSelectLocation:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

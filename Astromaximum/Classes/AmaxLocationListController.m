@@ -17,6 +17,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(didSelectLocation:)];
         self.title = NSLocalizedString(@"Current location", @"Current location");
         self->mDataProvider = [AmaxDataProvider sharedInstance];
     }
@@ -33,14 +34,27 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewDidAppear:animated];
+    workingLocationIndex = 0;
+    for (long i = 0; i < [mDataProvider.mSortedLocationKeys count]; ++i) {
+        if ([mDataProvider.mLocationId isEqualToString:[mDataProvider.mSortedLocationKeys objectAtIndex:i]]) {
+            workingLocationIndex = i;
+            break;
+        }
+    }
+    NSIndexPath* path = [NSIndexPath indexPathForRow:workingLocationIndex inSection:0];
+    [self tableView:self.tableView didSelectRowAtIndexPath:path];
+    [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionMiddle animated:true];
+    self.navigationItem.rightBarButtonItem.enabled = false;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [mDataProvider loadLocationByIdWithLocationId: [mDataProvider.mSortedLocationKeys objectAtIndex:mDataProvider.mCurrentLocationIndex]];
+    NSIndexPath* path = [NSIndexPath indexPathForRow:workingLocationIndex inSection:0];
+    [self tableView:self.tableView didSelectRowAtIndexPath:path];
+    selectedLocationIndex = -1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -63,10 +77,8 @@
     NSString *key = [mDataProvider.mSortedLocationKeys objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = key;
 
-    if ([mDataProvider.mLocationId isEqualToString:key]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        mDataProvider.mCurrentLocationIndex = indexPath.row;
-    }
+    cell.accessoryType = selectedLocationIndex == indexPath.row ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+
     return cell;
 }
 
@@ -74,20 +86,27 @@
 {
     [tableView1 deselectRowAtIndexPath:indexPath animated:NO];
     
-    if (mDataProvider.mCurrentLocationIndex == indexPath.row)
+    if (selectedLocationIndex == indexPath.row)
         return;
     
-    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:mDataProvider.mCurrentLocationIndex inSection:0];
-    
     UITableViewCell *newCell = [tableView1 cellForRowAtIndexPath:indexPath];
-    if (newCell.accessoryType == UITableViewCellAccessoryNone) {
-        newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        mDataProvider.mCurrentLocationIndex = indexPath.row;
-    }
+    newCell.accessoryType = UITableViewCellAccessoryCheckmark;
     
+    NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:selectedLocationIndex inSection:0];
     UITableViewCell *oldCell = [tableView1 cellForRowAtIndexPath:oldIndexPath];
-    if (oldCell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        oldCell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    oldCell.accessoryType = UITableViewCellAccessoryNone;
+
+    //NSLog(@"didSelect new %d, old %d, selected %d, working %d", [indexPath indexAtPosition:1], [oldIndexPath indexAtPosition:1], selectedLocationIndex, workingLocationIndex);
+    
+    selectedLocationIndex = indexPath.row;
+    self.navigationItem.rightBarButtonItem.enabled = selectedLocationIndex != workingLocationIndex;
 }
+
+- (IBAction)didSelectLocation:(id)sender
+{
+    workingLocationIndex = selectedLocationIndex;
+    [mDataProvider loadLocationByIdWithLocationId: [mDataProvider.mSortedLocationKeys objectAtIndex:workingLocationIndex]];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

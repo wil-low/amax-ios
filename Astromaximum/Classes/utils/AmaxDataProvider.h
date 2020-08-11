@@ -55,7 +55,6 @@
 
 @property bool mUseCustomTime;
 
-@property int mCurrentLocationIndex;
 @property (strong, nonatomic) NSDictionary *mLocations;
 @property (strong, nonatomic) NSArray *mSortedLocationKeys;
 

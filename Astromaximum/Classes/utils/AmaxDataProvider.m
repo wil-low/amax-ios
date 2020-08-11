@@ -32,7 +32,6 @@
 @synthesize mCustomMinute = _mCustomMinute;
 @synthesize mUseCustomTime = _mUseCustomTime;
 @synthesize mLocationId = _mLocationId;
-@synthesize mCurrentLocationIndex = _mCurrentLocationIndex;
 @synthesize mLocations = _mLocations;
 @synthesize mSortedLocationKeys = _mSortedLocationKeys;
 
