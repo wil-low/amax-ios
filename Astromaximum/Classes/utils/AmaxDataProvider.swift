@@ -342,8 +342,8 @@
     }
 
     func currentDateString() -> String! {
-        var weekday = String("\(mCurrentDateComponents.weekday)")
-        weekday = NSLocalizedString(weekday, tableName: "WeekDays", bundle: Bundle.main, comment: "")
+        var weekday = "\(mCurrentDateComponents.weekday!)"
+        weekday = NSLocalizedString(weekday, tableName: "WeekDays", comment: "")
         return String(format:"%@ %02ld.%02ld %04ld",
                       weekday, mCurrentDateComponents.month!, mCurrentDateComponents.day!, mCurrentDateComponents.year!)
     }

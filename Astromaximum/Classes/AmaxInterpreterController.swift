@@ -55,7 +55,7 @@
                         mContext.getResources().getStringArray(
                                                                R.array.constell_genitive)[ev.getDegree() / 30]);*/
 
-                let planet = NSLocalizedString("\(ev.mPlanet0)", tableName: "Planets", comment: "")
+                let planet = NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "Planets", comment: "")
 
                 let constell = NSLocalizedString("\(ev.getDegree() / 30)", tableName: "ConstellGenitive", comment: "")
 
@@ -70,9 +70,9 @@
                                                                R.array.planets)[ev.mPlanet0],
                         mContext.getResources().getStringArray(
                                                                R.array.constell_locative)[ev.getDegree()]);*/
-                let planet = NSLocalizedString("\(ev.mPlanet0)", tableName: "Planets", comment: "")
+                let planet = NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "Planets", comment: "")
 
-                let constell = NSLocalizedString("(\(ev.getDegree())", tableName: "ConstellLocative", comment: "")
+                let constell = NSLocalizedString("\(ev.getDegree())", tableName: "ConstellLocative", comment: "")
 
                 return String(format:NSLocalizedString("fmt_planet_in_sign", comment: ""),
                         planet,
@@ -83,7 +83,7 @@
                                      getStr(R.string.fmt_hour_of_planet),
                                      mContext.getResources().getStringArray(
                                                                             R.array.planets_genitive)[ev.mPlanet0]);*/
-                let planet = NSLocalizedString("\(ev.mPlanet0)", tableName: "PlanetsGenitive", comment: "")
+                let planet = NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "PlanetsGenitive", comment: "")
 
                 return String(format:NSLocalizedString("fmt_hour_of_planet", comment: ""),
                         planet) 
@@ -102,9 +102,9 @@
                                                                R.array.planets)[ev.mPlanet0],
                         mContext.getResources().getStringArray(
                                                                R.array.planets)[ev.mPlanet1]);*/
-                let planet0 = NSLocalizedString("\(ev.mPlanet0)", tableName: "Planets", comment: "")
+                let planet0 = NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "Planets", comment: "")
 
-                let planet1 = NSLocalizedString("\(ev.mPlanet1)", tableName: "Planets", comment: "")
+                let planet1 = NSLocalizedString("\(Int(ev.mPlanet1.rawValue))", tableName: "Planets", comment: "")
 
                 let aspect = NSLocalizedString("\(ev.getDegree())", tableName: "Aspects", comment: "")
 
@@ -124,7 +124,7 @@
                 .format(getStr(R.string.fmt_retrograde_motion),
                         mContext.getResources().getStringArray(
                                                                R.array.planets_genitive)[ev.mPlanet0]);*/
-                let planet0:String! = NSLocalizedString("\(ev.mPlanet0)", tableName: "Planets", comment: "")
+                let planet0:String! = NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "Planets", comment: "")
 
     			return String(format:NSLocalizedString("fmt_retrograde_motion", comment: ""),
                         planet0) 
