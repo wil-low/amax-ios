@@ -17,7 +17,7 @@
 //#import "utils/cells/AmaxAspectSetCell.h"
 //#import "utils/cells/AmaxPlanetHourCell.h"
 //#import "utils/AmaxDataProvider.h"
-#import "utils/AmaxInterpretationProvider.h"
+//#import "utils/AmaxInterpretationProvider.h"
 //#import "utils/AmaxDataInputStream.h"
 #import "utils/AmaxPrefs.h"
 #import "utils/AmaxSummaryItem.h"

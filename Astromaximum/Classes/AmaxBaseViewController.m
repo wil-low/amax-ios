@@ -9,7 +9,6 @@
 #import "AmaxBaseViewController.h"
 #import "Astromaximum-Swift.h"
 #import "AmaxInterpreterController.h"
-#import "AmaxInterpretationProvider.h"
 
 @implementation AmaxBaseViewController
 

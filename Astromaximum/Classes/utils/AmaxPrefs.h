@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 extern NSString * const AMAX_PREFS_KEY_LOCATION_ID;
 extern NSString * const AMAX_PREFS_KEY_CURRENT_DATE;
 extern NSString * const AMAX_PREFS_KEY_LOCATION_LIST;
