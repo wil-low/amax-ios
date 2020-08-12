@@ -9,7 +9,6 @@
 #import "AmaxSummaryViewController.h"
 #import "AmaxEventListViewController.h"
 #import "AmaxSettingsController.h"
-#import "AmaxDateSelectController.h"
 #import "AmaxSummaryItem.h"
 #import "AmaxTableCell.h"
 #import "Astromaximum-Swift.h"
