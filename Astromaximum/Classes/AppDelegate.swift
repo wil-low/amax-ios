@@ -57,6 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // In iOS 13 setup is done in SceneDelegate
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)
+ 
+            _ = AmaxInterpretationProvider.sharedInstance
+            AmaxBaseViewController.interpreterController = AmaxInterpreterController(nibName: "AmaxInterpreterController", bundle: nil);
+
             let summaryViewController = AmaxSummaryViewController(nibName: "AmaxSummaryViewController", bundle: nil)
             navigationController = UINavigationController(rootViewController:summaryViewController)
             window!.rootViewController = navigationController

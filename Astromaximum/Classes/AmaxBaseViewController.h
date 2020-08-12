@@ -14,8 +14,12 @@
 @interface AmaxBaseViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     AmaxDataProvider *mDataProvider;
-    AmaxInterpreterController *interpreterController;
 }
+
+@property (class) AmaxInterpreterController* interpreterController;
+
++ (AmaxInterpreterController*) interpreterController;
++ (void) setInterpreterController:(AmaxInterpreterController*)value;
 
 - (void)showInterpreterForEvent:(AmaxEvent *)e;
 

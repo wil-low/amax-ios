@@ -11,6 +11,18 @@
 
 @implementation AmaxBaseViewController
 
+static AmaxInterpreterController* _interpreterController = nil;
+
++ (AmaxInterpreterController*) interpreterController
+{
+    return _interpreterController;
+}
+
++ (void) setInterpreterController:(AmaxInterpreterController*)value
+{
+    _interpreterController = value;
+}
+
 - (void)updateDisplay
 {
     
@@ -43,12 +55,9 @@
     AmaxInterpretationProvider* iProvider = [AmaxInterpretationProvider sharedInstance];
     NSString* text = [iProvider getTextForEvent:e];
     if (text) {
-        if (!interpreterController) {
-            interpreterController = [[AmaxInterpreterController alloc] initWithNibName:@"AmaxInterpreterController" bundle:nil];
-        }
-        interpreterController.interpreterText = text;
-        interpreterController.interpreterEvent = e;
-        [self.navigationController pushViewController:interpreterController animated:YES];
+        _interpreterController.interpreterText = text;
+        _interpreterController.interpreterEvent = e;
+        [self.navigationController pushViewController:_interpreterController animated:YES];
     }
 }
 
