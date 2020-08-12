@@ -6,12 +6,9 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxInterpretationProvider.h"
-//#import "Astromaximum-Swift.h"
-
 @objcMembers class AmaxInterpretationProvider : NSObject {
 
-    private var mTexts:AmaxDataInputStream!
+    private var mTexts: AmaxDataInputStream!
 
     let ASPECT_GOODNESS = [
         0: 0,
@@ -70,7 +67,7 @@
                 }
              }
             if isEqual {
-                return String(format:"%@%@%@", "<html><head><style type=\"text/css\">body{font-family: '-apple-system','HelveticaNeue';font-size:17;}</style></head><body>", mTexts.readUTF()!, "</body></html")
+                return String(format: "%@%@%@", "<html><head><style type=\"text/css\">body{font-family: '-apple-system','HelveticaNeue';font-size:17;}</style></head><body>", mTexts.readUTF()!, "</body></html")
             }
             else {
                 let len = mTexts.readUnsignedShort()
@@ -116,7 +113,8 @@
     			if ev.mPlanet1 == SE_UNDEFINED {
     				param0 = 255
                     param1 = Int(SE_MOON.rawValue)
-    			} else {
+    			}
+                else {
                     if ev.mPlanet0 == SE_UNDEFINED {
                         param0 = Int(SE_MOON.rawValue)
                     }
