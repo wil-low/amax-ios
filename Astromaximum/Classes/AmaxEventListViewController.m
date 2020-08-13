@@ -7,7 +7,6 @@
 //
 
 #import "AmaxEventListViewController.h"
-#import "AmaxTableCell.h"
 #import "Astromaximum-Swift.h"
 
 @implementation AmaxEventListViewController

@@ -19,13 +19,21 @@
 		726BC97624E59E6500690CE2 /* AmaxSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC97524E59E6500690CE2 /* AmaxSettingsController.swift */; };
 		726BC97824E5AF0500690CE2 /* AmaxSummaryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC97724E5AF0400690CE2 /* AmaxSummaryItem.swift */; };
 		726BC97A24E5B88700690CE2 /* AmaxAstroLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC97924E5B88700690CE2 /* AmaxAstroLabel.swift */; };
-		729AFB1A24D0AF1B00EF0894 /* AmaxAspectSetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */; };
+		726BC98824E5BFF200690CE2 /* AmaxSunDegreeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC97E24E5BFF000690CE2 /* AmaxSunDegreeCell.swift */; };
+		726BC98924E5BFF200690CE2 /* AmaxTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC97F24E5BFF000690CE2 /* AmaxTableCell.swift */; };
+		726BC98A24E5BFF200690CE2 /* AmaxViaCombustaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC98024E5BFF000690CE2 /* AmaxViaCombustaCell.swift */; };
+		726BC98B24E5BFF200690CE2 /* AmaxAspectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC98124E5BFF100690CE2 /* AmaxAspectCell.swift */; };
+		726BC98C24E5BFF200690CE2 /* AmaxVocCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC98224E5BFF100690CE2 /* AmaxVocCell.swift */; };
+		726BC98D24E5BFF200690CE2 /* AmaxAspectSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC98324E5BFF100690CE2 /* AmaxAspectSetCell.swift */; };
+		726BC98E24E5BFF200690CE2 /* AmaxMoonMoveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC98424E5BFF100690CE2 /* AmaxMoonMoveCell.swift */; };
+		726BC98F24E5BFF200690CE2 /* AmaxPlanetHourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC98524E5BFF100690CE2 /* AmaxPlanetHourCell.swift */; };
+		726BC99024E5BFF200690CE2 /* AmaxTithiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC98624E5BFF200690CE2 /* AmaxTithiCell.swift */; };
+		726BC99124E5BFF200690CE2 /* AmaxMoonSignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726BC98724E5BFF200690CE2 /* AmaxMoonSignCell.swift */; };
 		729AFB2324D0C0C500EF0894 /* AspectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729AFB2124D0C0C500EF0894 /* AspectCell.xib */; };
 		729C4FDC24DDD23D0058E1EA /* AmaxDataInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C4FDB24DDD23D0058E1EA /* AmaxDataInputStream.swift */; };
 		729C4FDD24DDD38C0058E1EA /* AmaxCommonDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB5BA824DC702500E20F7E /* AmaxCommonDataFile.swift */; };
 		72A4218824C8AE860096DF9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A4218724C8AE860096DF9C /* Images.xcassets */; };
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
-		72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */; };
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
 		72CAA1C924E4336E00A5E948 /* AmaxInterpretationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAA1C824E4336E00A5E948 /* AmaxInterpretationProvider.swift */; };
 		72CAA1CB24E4423C00A5E948 /* AmaxDateSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */; };
@@ -63,14 +71,6 @@
 		84E98B68168E6331006AAA55 /* AmaxSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B37168E6331006AAA55 /* AmaxSummaryViewController.m */; };
 		84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B48168E6331006AAA55 /* AmaxPrefs.m */; };
 		84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B4D168E6331006AAA55 /* AmaxTypes.c */; };
-		84E98B74168E6331006AAA55 /* AmaxMoonMoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B51168E6331006AAA55 /* AmaxMoonMoveCell.m */; };
-		84E98B75168E6331006AAA55 /* AmaxMoonSignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B53168E6331006AAA55 /* AmaxMoonSignCell.m */; };
-		84E98B76168E6331006AAA55 /* AmaxPlanetHourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B55168E6331006AAA55 /* AmaxPlanetHourCell.m */; };
-		84E98B77168E6331006AAA55 /* AmaxSunDegreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B57168E6331006AAA55 /* AmaxSunDegreeCell.m */; };
-		84E98B78168E6331006AAA55 /* AmaxTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B59168E6331006AAA55 /* AmaxTableCell.m */; };
-		84E98B79168E6331006AAA55 /* AmaxTithiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B5B168E6331006AAA55 /* AmaxTithiCell.m */; };
-		84E98B7A168E6331006AAA55 /* AmaxViaCombustaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B5D168E6331006AAA55 /* AmaxViaCombustaCell.m */; };
-		84E98B7B168E6331006AAA55 /* AmaxVocCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B5F168E6331006AAA55 /* AmaxVocCell.m */; };
 		84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EB53F6168CE8010089D6F6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +99,16 @@
 		726BC97924E5B88700690CE2 /* AmaxAstroLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxAstroLabel.swift; sourceTree = "<group>"; };
 		726BC97B24E5BE4B00690CE2 /* AmaxAstroLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAstroLabel.m; sourceTree = "<group>"; };
 		726BC97D24E5BE5300690CE2 /* AmaxAstroLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxAstroLabel.h; sourceTree = "<group>"; };
+		726BC97E24E5BFF000690CE2 /* AmaxSunDegreeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxSunDegreeCell.swift; sourceTree = "<group>"; };
+		726BC97F24E5BFF000690CE2 /* AmaxTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxTableCell.swift; sourceTree = "<group>"; };
+		726BC98024E5BFF000690CE2 /* AmaxViaCombustaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxViaCombustaCell.swift; sourceTree = "<group>"; };
+		726BC98124E5BFF100690CE2 /* AmaxAspectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxAspectCell.swift; sourceTree = "<group>"; };
+		726BC98224E5BFF100690CE2 /* AmaxVocCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxVocCell.swift; sourceTree = "<group>"; };
+		726BC98324E5BFF100690CE2 /* AmaxAspectSetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxAspectSetCell.swift; sourceTree = "<group>"; };
+		726BC98424E5BFF100690CE2 /* AmaxMoonMoveCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxMoonMoveCell.swift; sourceTree = "<group>"; };
+		726BC98524E5BFF100690CE2 /* AmaxPlanetHourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxPlanetHourCell.swift; sourceTree = "<group>"; };
+		726BC98624E5BFF200690CE2 /* AmaxTithiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxTithiCell.swift; sourceTree = "<group>"; };
+		726BC98724E5BFF200690CE2 /* AmaxMoonSignCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxMoonSignCell.swift; sourceTree = "<group>"; };
 		727CAEA424C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AspectSetCell.xib; sourceTree = "<group>"; };
 		727CAEA524C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoonMoveCell.xib; sourceTree = "<group>"; };
 		727CAEA624C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MoonSignCell.xib; sourceTree = "<group>"; };
@@ -404,6 +414,16 @@
 		84E98B4F168E6331006AAA55 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				726BC98124E5BFF100690CE2 /* AmaxAspectCell.swift */,
+				726BC98324E5BFF100690CE2 /* AmaxAspectSetCell.swift */,
+				726BC98424E5BFF100690CE2 /* AmaxMoonMoveCell.swift */,
+				726BC98724E5BFF200690CE2 /* AmaxMoonSignCell.swift */,
+				726BC98524E5BFF100690CE2 /* AmaxPlanetHourCell.swift */,
+				726BC97E24E5BFF000690CE2 /* AmaxSunDegreeCell.swift */,
+				726BC97F24E5BFF000690CE2 /* AmaxTableCell.swift */,
+				726BC98624E5BFF200690CE2 /* AmaxTithiCell.swift */,
+				726BC98024E5BFF000690CE2 /* AmaxViaCombustaCell.swift */,
+				726BC98224E5BFF100690CE2 /* AmaxVocCell.swift */,
 				729AFB1824D0AF0400EF0894 /* AmaxAspectSetCell.h */,
 				729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */,
 				84E98B50168E6331006AAA55 /* AmaxMoonMoveCell.h */,
@@ -590,6 +610,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E98B62168E6331006AAA55 /* AmaxBaseViewController.m in Sources */,
+				726BC98924E5BFF200690CE2 /* AmaxTableCell.swift in Sources */,
 				72CAA1CB24E4423C00A5E948 /* AmaxDateSelectController.swift in Sources */,
 				72DB5BA424DC685000E20F7E /* SceneDelegate.swift in Sources */,
 				84E98B64168E6331006AAA55 /* AmaxEventListViewController.m in Sources */,
@@ -597,28 +618,27 @@
 				84E98B68168E6331006AAA55 /* AmaxSummaryViewController.m in Sources */,
 				72CAA1C924E4336E00A5E948 /* AmaxInterpretationProvider.swift in Sources */,
 				7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */,
+				726BC98F24E5BFF200690CE2 /* AmaxPlanetHourCell.swift in Sources */,
 				84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */,
 				7229138024DFCDDF005B0698 /* AmaxLocationDataFile.swift in Sources */,
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
-				84E98B74168E6331006AAA55 /* AmaxMoonMoveCell.m in Sources */,
 				7229137E24DFAF5C005B0698 /* AmaxEvent.swift in Sources */,
+				726BC98E24E5BFF200690CE2 /* AmaxMoonMoveCell.swift in Sources */,
 				7229137C24DFAEDE005B0698 /* AmaxTimezoneTransition.swift in Sources */,
-				84E98B75168E6331006AAA55 /* AmaxMoonSignCell.m in Sources */,
 				72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */,
 				726BC97624E59E6500690CE2 /* AmaxSettingsController.swift in Sources */,
-				84E98B76168E6331006AAA55 /* AmaxPlanetHourCell.m in Sources */,
 				726BC97824E5AF0500690CE2 /* AmaxSummaryItem.swift in Sources */,
-				84E98B77168E6331006AAA55 /* AmaxSunDegreeCell.m in Sources */,
+				726BC99124E5BFF200690CE2 /* AmaxMoonSignCell.swift in Sources */,
 				726BC97424E5815200690CE2 /* AmaxLocationListController.swift in Sources */,
-				729AFB1A24D0AF1B00EF0894 /* AmaxAspectSetCell.m in Sources */,
-				84E98B78168E6331006AAA55 /* AmaxTableCell.m in Sources */,
+				726BC98D24E5BFF200690CE2 /* AmaxAspectSetCell.swift in Sources */,
 				72CAA1CD24E4496A00A5E948 /* AmaxInterpreterController.swift in Sources */,
-				72AA2A6424DBC32300A5E00A /* AmaxAspectCell.m in Sources */,
-				84E98B79168E6331006AAA55 /* AmaxTithiCell.m in Sources */,
+				726BC98C24E5BFF200690CE2 /* AmaxVocCell.swift in Sources */,
+				726BC99024E5BFF200690CE2 /* AmaxTithiCell.swift in Sources */,
+				726BC98A24E5BFF200690CE2 /* AmaxViaCombustaCell.swift in Sources */,
+				726BC98B24E5BFF200690CE2 /* AmaxAspectCell.swift in Sources */,
 				729C4FDD24DDD38C0058E1EA /* AmaxCommonDataFile.swift in Sources */,
+				726BC98824E5BFF200690CE2 /* AmaxSunDegreeCell.swift in Sources */,
 				7229138224DFF422005B0698 /* AmaxDataProvider.swift in Sources */,
-				84E98B7A168E6331006AAA55 /* AmaxViaCombustaCell.m in Sources */,
-				84E98B7B168E6331006AAA55 /* AmaxVocCell.m in Sources */,
 				726BC97A24E5B88700690CE2 /* AmaxAstroLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

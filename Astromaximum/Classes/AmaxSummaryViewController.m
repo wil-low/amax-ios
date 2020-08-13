@@ -8,7 +8,6 @@
 
 #import "AmaxSummaryViewController.h"
 #import "AmaxEventListViewController.h"
-#import "AmaxTableCell.h"
 #import "Astromaximum-Swift.h"
 
 // sync with START_PAGE_ITEM_SEQ
