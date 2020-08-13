@@ -8,6 +8,7 @@
 
 #import "AmaxTableCell.h"
 #import "AmaxBaseViewController.h"
+#import "AmaxSummaryItem.h"
 
 @implementation AmaxTableCell
 

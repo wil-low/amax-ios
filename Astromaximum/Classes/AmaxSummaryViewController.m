@@ -8,7 +8,6 @@
 
 #import "AmaxSummaryViewController.h"
 #import "AmaxEventListViewController.h"
-#import "AmaxSummaryItem.h"
 #import "AmaxTableCell.h"
 #import "Astromaximum-Swift.h"
 

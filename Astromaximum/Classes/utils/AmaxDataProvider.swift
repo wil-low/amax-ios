@@ -645,8 +645,8 @@
     		default:
     			return nil
         }
-        let si = AmaxSummaryItem(key:key, events: NSMutableArray(array: events))
-        _mEventCache.append(si!)
+        let si = AmaxSummaryItem(key:key, events: events)
+        _mEventCache.append(si)
         return si
     }
 

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AmaxSummaryItem.h"
-@class AmaxBaseViewController;
+
+@class AmaxBaseViewController, AmaxSummaryItem, AmaxEvent;
 
 @interface AmaxTableCell : UITableViewCell
 {
