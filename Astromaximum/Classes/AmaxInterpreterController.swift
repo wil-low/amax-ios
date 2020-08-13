@@ -21,9 +21,9 @@
         get { return _interpreterEvent! }
         set { _interpreterEvent = newValue }
     }
-    var interpreterTextView: UIWebView!
-    var eventDescriptionView: UILabel!
-    var dateRangeView: UILabel!
+    @IBOutlet weak var interpreterTextView: UIWebView!
+    @IBOutlet weak var eventDescriptionView: UILabel!
+    @IBOutlet weak var dateRangeView: UILabel!
 
     override init(nibName: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName:nibName, bundle:nibBundleOrNil)

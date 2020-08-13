@@ -7,7 +7,6 @@
 //
 
 #import "AmaxSettingsController.h"
-#import "AmaxLocationListController.h"
 #import "Astromaximum-Swift.h"
 
 @implementation AmaxSettingsController
