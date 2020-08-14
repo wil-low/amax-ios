@@ -162,8 +162,6 @@
 		84E98B00168E0FCA006AAA55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Aspects.strings; sourceTree = "<group>"; };
 		84E98B02168E0FCF006AAA55 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Aspects.strings; sourceTree = "<group>"; };
 		84E98B0D168E52A2006AAA55 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84E98B47168E6331006AAA55 /* AmaxPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxPrefs.h; sourceTree = "<group>"; };
-		84E98B48168E6331006AAA55 /* AmaxPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxPrefs.m; sourceTree = "<group>"; };
 		84E98B4D168E6331006AAA55 /* AmaxTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AmaxTypes.c; sourceTree = "<group>"; };
 		84E98B4E168E6331006AAA55 /* AmaxTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxTypes.h; sourceTree = "<group>"; };
 		84EB53F5168CE8010089D6F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -327,8 +325,6 @@
 				7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */,
 				7229137F24DFCDDF005B0698 /* AmaxLocationDataFile.swift */,
 				72ACB3BB24E68E75007C2813 /* AmaxPrefs.swift */,
-				84E98B47168E6331006AAA55 /* AmaxPrefs.h */,
-				84E98B48168E6331006AAA55 /* AmaxPrefs.m */,
 				726BC97724E5AF0400690CE2 /* AmaxSummaryItem.swift */,
 				7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */,
 				84E98B4D168E6331006AAA55 /* AmaxTypes.c */,
