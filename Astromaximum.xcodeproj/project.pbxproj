@@ -97,8 +97,6 @@
 		726BC97524E59E6500690CE2 /* AmaxSettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxSettingsController.swift; sourceTree = "<group>"; };
 		726BC97724E5AF0400690CE2 /* AmaxSummaryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxSummaryItem.swift; sourceTree = "<group>"; };
 		726BC97924E5B88700690CE2 /* AmaxAstroLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxAstroLabel.swift; sourceTree = "<group>"; };
-		726BC97B24E5BE4B00690CE2 /* AmaxAstroLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAstroLabel.m; sourceTree = "<group>"; };
-		726BC97D24E5BE5300690CE2 /* AmaxAstroLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AmaxAstroLabel.h; sourceTree = "<group>"; };
 		726BC97E24E5BFF000690CE2 /* AmaxSunDegreeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxSunDegreeCell.swift; sourceTree = "<group>"; };
 		726BC97F24E5BFF000690CE2 /* AmaxTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxTableCell.swift; sourceTree = "<group>"; };
 		726BC98024E5BFF000690CE2 /* AmaxViaCombustaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxViaCombustaCell.swift; sourceTree = "<group>"; };
@@ -124,13 +122,9 @@
 		727CAEB024C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxLocationListController.xib; sourceTree = "<group>"; };
 		727CAEB124C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSettingsController.xib; sourceTree = "<group>"; };
 		727CAEB224C160A10008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
-		729AFB1824D0AF0400EF0894 /* AmaxAspectSetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxAspectSetCell.h; sourceTree = "<group>"; };
-		729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAspectSetCell.m; sourceTree = "<group>"; };
 		729AFB2224D0C0C500EF0894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AspectCell.xib; sourceTree = "<group>"; };
 		729C4FDB24DDD23D0058E1EA /* AmaxDataInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxDataInputStream.swift; sourceTree = "<group>"; };
 		72A4218724C8AE860096DF9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAspectCell.m; sourceTree = "<group>"; };
-		72AA2A6524DBC33200A5E00A /* AmaxAspectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxAspectCell.h; sourceTree = "<group>"; };
 		72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Bridging-Header.h"; sourceTree = "<group>"; };
 		72AA2A6724DBC99600A5E00A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Astromaximum2.xcodeproj; path = ../Astromaximum2/Astromaximum2.xcodeproj; sourceTree = "<group>"; };
@@ -167,60 +161,10 @@
 		84E98B00168E0FCA006AAA55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Aspects.strings; sourceTree = "<group>"; };
 		84E98B02168E0FCF006AAA55 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Aspects.strings; sourceTree = "<group>"; };
 		84E98B0D168E52A2006AAA55 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84E98B26168E6331006AAA55 /* AmaxAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxAppDelegate.h; sourceTree = "<group>"; };
-		84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxAppDelegate.m; sourceTree = "<group>"; };
-		84E98B2A168E6331006AAA55 /* AmaxBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxBaseViewController.h; sourceTree = "<group>"; };
-		84E98B2B168E6331006AAA55 /* AmaxBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxBaseViewController.m; sourceTree = "<group>"; };
-		84E98B2C168E6331006AAA55 /* AmaxDateSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxDateSelectController.h; sourceTree = "<group>"; };
-		84E98B2D168E6331006AAA55 /* AmaxDateSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxDateSelectController.m; sourceTree = "<group>"; };
-		84E98B2E168E6331006AAA55 /* AmaxEventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxEventListViewController.h; sourceTree = "<group>"; };
-		84E98B2F168E6331006AAA55 /* AmaxEventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxEventListViewController.m; sourceTree = "<group>"; };
-		84E98B30168E6331006AAA55 /* AmaxInterpreterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxInterpreterController.h; sourceTree = "<group>"; };
-		84E98B31168E6331006AAA55 /* AmaxInterpreterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxInterpreterController.m; sourceTree = "<group>"; };
-		84E98B32168E6331006AAA55 /* AmaxLocationListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxLocationListController.h; sourceTree = "<group>"; };
-		84E98B33168E6331006AAA55 /* AmaxLocationListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxLocationListController.m; sourceTree = "<group>"; };
-		84E98B34168E6331006AAA55 /* AmaxSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxSettingsController.h; sourceTree = "<group>"; };
-		84E98B35168E6331006AAA55 /* AmaxSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxSettingsController.m; sourceTree = "<group>"; };
-		84E98B36168E6331006AAA55 /* AmaxSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxSummaryViewController.h; sourceTree = "<group>"; };
-		84E98B37168E6331006AAA55 /* AmaxSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxSummaryViewController.m; sourceTree = "<group>"; };
-		84E98B39168E6331006AAA55 /* AmaxCommonDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxCommonDataFile.h; sourceTree = "<group>"; };
-		84E98B3A168E6331006AAA55 /* AmaxCommonDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxCommonDataFile.m; sourceTree = "<group>"; };
-		84E98B3B168E6331006AAA55 /* AmaxDataInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxDataInputStream.h; sourceTree = "<group>"; };
-		84E98B3C168E6331006AAA55 /* AmaxDataInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxDataInputStream.m; sourceTree = "<group>"; };
-		84E98B3D168E6331006AAA55 /* AmaxDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxDataProvider.h; sourceTree = "<group>"; };
-		84E98B3E168E6331006AAA55 /* AmaxDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxDataProvider.m; sourceTree = "<group>"; };
-		84E98B3F168E6331006AAA55 /* AmaxEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxEvent.h; sourceTree = "<group>"; };
-		84E98B40168E6331006AAA55 /* AmaxEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxEvent.m; sourceTree = "<group>"; };
-		84E98B41168E6331006AAA55 /* AmaxInterpretationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxInterpretationProvider.h; sourceTree = "<group>"; };
-		84E98B42168E6331006AAA55 /* AmaxInterpretationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxInterpretationProvider.m; sourceTree = "<group>"; };
-		84E98B43168E6331006AAA55 /* AmaxLocationBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxLocationBundle.h; sourceTree = "<group>"; };
-		84E98B44168E6331006AAA55 /* AmaxLocationBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxLocationBundle.m; sourceTree = "<group>"; };
-		84E98B45168E6331006AAA55 /* AmaxLocationDataFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxLocationDataFile.h; sourceTree = "<group>"; };
-		84E98B46168E6331006AAA55 /* AmaxLocationDataFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxLocationDataFile.m; sourceTree = "<group>"; };
 		84E98B47168E6331006AAA55 /* AmaxPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxPrefs.h; sourceTree = "<group>"; };
 		84E98B48168E6331006AAA55 /* AmaxPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxPrefs.m; sourceTree = "<group>"; };
-		84E98B49168E6331006AAA55 /* AmaxSummaryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxSummaryItem.h; sourceTree = "<group>"; };
-		84E98B4A168E6331006AAA55 /* AmaxSummaryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxSummaryItem.m; sourceTree = "<group>"; };
-		84E98B4B168E6331006AAA55 /* AmaxTimezoneTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxTimezoneTransition.h; sourceTree = "<group>"; };
-		84E98B4C168E6331006AAA55 /* AmaxTimezoneTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxTimezoneTransition.m; sourceTree = "<group>"; };
 		84E98B4D168E6331006AAA55 /* AmaxTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AmaxTypes.c; sourceTree = "<group>"; };
 		84E98B4E168E6331006AAA55 /* AmaxTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxTypes.h; sourceTree = "<group>"; };
-		84E98B50168E6331006AAA55 /* AmaxMoonMoveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxMoonMoveCell.h; sourceTree = "<group>"; };
-		84E98B51168E6331006AAA55 /* AmaxMoonMoveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxMoonMoveCell.m; sourceTree = "<group>"; };
-		84E98B52168E6331006AAA55 /* AmaxMoonSignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxMoonSignCell.h; sourceTree = "<group>"; };
-		84E98B53168E6331006AAA55 /* AmaxMoonSignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxMoonSignCell.m; sourceTree = "<group>"; };
-		84E98B54168E6331006AAA55 /* AmaxPlanetHourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxPlanetHourCell.h; sourceTree = "<group>"; };
-		84E98B55168E6331006AAA55 /* AmaxPlanetHourCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxPlanetHourCell.m; sourceTree = "<group>"; };
-		84E98B56168E6331006AAA55 /* AmaxSunDegreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxSunDegreeCell.h; sourceTree = "<group>"; };
-		84E98B57168E6331006AAA55 /* AmaxSunDegreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxSunDegreeCell.m; sourceTree = "<group>"; };
-		84E98B58168E6331006AAA55 /* AmaxTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxTableCell.h; sourceTree = "<group>"; };
-		84E98B59168E6331006AAA55 /* AmaxTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxTableCell.m; sourceTree = "<group>"; };
-		84E98B5A168E6331006AAA55 /* AmaxTithiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxTithiCell.h; sourceTree = "<group>"; };
-		84E98B5B168E6331006AAA55 /* AmaxTithiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxTithiCell.m; sourceTree = "<group>"; };
-		84E98B5C168E6331006AAA55 /* AmaxViaCombustaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxViaCombustaCell.h; sourceTree = "<group>"; };
-		84E98B5D168E6331006AAA55 /* AmaxViaCombustaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxViaCombustaCell.m; sourceTree = "<group>"; };
-		84E98B5E168E6331006AAA55 /* AmaxVocCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxVocCell.h; sourceTree = "<group>"; };
-		84E98B5F168E6331006AAA55 /* AmaxVocCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmaxVocCell.m; sourceTree = "<group>"; };
 		84EB53F5168CE8010089D6F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84EB53F7168CE8470089D6F6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -363,13 +307,9 @@
 				84E98B4F168E6331006AAA55 /* Cells */,
 				84E98B7C168E63B6006AAA55 /* Controllers */,
 				84E98B38168E6331006AAA55 /* Utils */,
-				84E98B26168E6331006AAA55 /* AmaxAppDelegate.h */,
-				84E98B27168E6331006AAA55 /* AmaxAppDelegate.m */,
 				72AA2A6724DBC99600A5E00A /* AppDelegate.swift */,
 				72DB5BA324DC685000E20F7E /* SceneDelegate.swift */,
 				726BC97924E5B88700690CE2 /* AmaxAstroLabel.swift */,
-				726BC97D24E5BE5300690CE2 /* AmaxAstroLabel.h */,
-				726BC97B24E5BE4B00690CE2 /* AmaxAstroLabel.m */,
 				72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */,
 			);
 			path = Classes;
@@ -379,34 +319,16 @@
 			isa = PBXGroup;
 			children = (
 				72DB5BA824DC702500E20F7E /* AmaxCommonDataFile.swift */,
-				84E98B39168E6331006AAA55 /* AmaxCommonDataFile.h */,
-				84E98B3A168E6331006AAA55 /* AmaxCommonDataFile.m */,
 				729C4FDB24DDD23D0058E1EA /* AmaxDataInputStream.swift */,
-				84E98B3B168E6331006AAA55 /* AmaxDataInputStream.h */,
-				84E98B3C168E6331006AAA55 /* AmaxDataInputStream.m */,
 				7229138124DFF422005B0698 /* AmaxDataProvider.swift */,
-				84E98B3D168E6331006AAA55 /* AmaxDataProvider.h */,
-				84E98B3E168E6331006AAA55 /* AmaxDataProvider.m */,
 				7229137D24DFAF5B005B0698 /* AmaxEvent.swift */,
-				84E98B3F168E6331006AAA55 /* AmaxEvent.h */,
-				84E98B40168E6331006AAA55 /* AmaxEvent.m */,
 				72CAA1C824E4336E00A5E948 /* AmaxInterpretationProvider.swift */,
-				84E98B41168E6331006AAA55 /* AmaxInterpretationProvider.h */,
-				84E98B42168E6331006AAA55 /* AmaxInterpretationProvider.m */,
 				7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */,
-				84E98B43168E6331006AAA55 /* AmaxLocationBundle.h */,
-				84E98B44168E6331006AAA55 /* AmaxLocationBundle.m */,
 				7229137F24DFCDDF005B0698 /* AmaxLocationDataFile.swift */,
-				84E98B45168E6331006AAA55 /* AmaxLocationDataFile.h */,
-				84E98B46168E6331006AAA55 /* AmaxLocationDataFile.m */,
 				84E98B47168E6331006AAA55 /* AmaxPrefs.h */,
 				84E98B48168E6331006AAA55 /* AmaxPrefs.m */,
 				726BC97724E5AF0400690CE2 /* AmaxSummaryItem.swift */,
-				84E98B49168E6331006AAA55 /* AmaxSummaryItem.h */,
-				84E98B4A168E6331006AAA55 /* AmaxSummaryItem.m */,
 				7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */,
-				84E98B4B168E6331006AAA55 /* AmaxTimezoneTransition.h */,
-				84E98B4C168E6331006AAA55 /* AmaxTimezoneTransition.m */,
 				84E98B4D168E6331006AAA55 /* AmaxTypes.c */,
 				84E98B4E168E6331006AAA55 /* AmaxTypes.h */,
 			);
@@ -427,26 +349,6 @@
 				726BC98624E5BFF200690CE2 /* AmaxTithiCell.swift */,
 				726BC98024E5BFF000690CE2 /* AmaxViaCombustaCell.swift */,
 				726BC98224E5BFF100690CE2 /* AmaxVocCell.swift */,
-				729AFB1824D0AF0400EF0894 /* AmaxAspectSetCell.h */,
-				729AFB1924D0AF1B00EF0894 /* AmaxAspectSetCell.m */,
-				84E98B50168E6331006AAA55 /* AmaxMoonMoveCell.h */,
-				72AA2A6524DBC33200A5E00A /* AmaxAspectCell.h */,
-				72AA2A6324DBC32300A5E00A /* AmaxAspectCell.m */,
-				84E98B51168E6331006AAA55 /* AmaxMoonMoveCell.m */,
-				84E98B52168E6331006AAA55 /* AmaxMoonSignCell.h */,
-				84E98B53168E6331006AAA55 /* AmaxMoonSignCell.m */,
-				84E98B54168E6331006AAA55 /* AmaxPlanetHourCell.h */,
-				84E98B55168E6331006AAA55 /* AmaxPlanetHourCell.m */,
-				84E98B56168E6331006AAA55 /* AmaxSunDegreeCell.h */,
-				84E98B57168E6331006AAA55 /* AmaxSunDegreeCell.m */,
-				84E98B58168E6331006AAA55 /* AmaxTableCell.h */,
-				84E98B59168E6331006AAA55 /* AmaxTableCell.m */,
-				84E98B5A168E6331006AAA55 /* AmaxTithiCell.h */,
-				84E98B5B168E6331006AAA55 /* AmaxTithiCell.m */,
-				84E98B5C168E6331006AAA55 /* AmaxViaCombustaCell.h */,
-				84E98B5D168E6331006AAA55 /* AmaxViaCombustaCell.m */,
-				84E98B5E168E6331006AAA55 /* AmaxVocCell.h */,
-				84E98B5F168E6331006AAA55 /* AmaxVocCell.m */,
 			);
 			name = Cells;
 			path = utils/cells;
@@ -456,26 +358,12 @@
 			isa = PBXGroup;
 			children = (
 				72ACB3B024E63716007C2813 /* AmaxBaseViewController.swift */,
-				84E98B2A168E6331006AAA55 /* AmaxBaseViewController.h */,
-				84E98B2B168E6331006AAA55 /* AmaxBaseViewController.m */,
 				72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */,
-				84E98B2C168E6331006AAA55 /* AmaxDateSelectController.h */,
-				84E98B2D168E6331006AAA55 /* AmaxDateSelectController.m */,
 				72ACB3B224E63724007C2813 /* AmaxEventListViewController.swift */,
-				84E98B2E168E6331006AAA55 /* AmaxEventListViewController.h */,
-				84E98B2F168E6331006AAA55 /* AmaxEventListViewController.m */,
 				72CAA1CC24E4496A00A5E948 /* AmaxInterpreterController.swift */,
-				84E98B30168E6331006AAA55 /* AmaxInterpreterController.h */,
-				84E98B31168E6331006AAA55 /* AmaxInterpreterController.m */,
 				726BC97324E5815200690CE2 /* AmaxLocationListController.swift */,
-				84E98B32168E6331006AAA55 /* AmaxLocationListController.h */,
-				84E98B33168E6331006AAA55 /* AmaxLocationListController.m */,
 				726BC97524E59E6500690CE2 /* AmaxSettingsController.swift */,
-				84E98B34168E6331006AAA55 /* AmaxSettingsController.h */,
-				84E98B35168E6331006AAA55 /* AmaxSettingsController.m */,
 				72ACB3B424E63730007C2813 /* AmaxSummaryViewController.swift */,
-				84E98B36168E6331006AAA55 /* AmaxSummaryViewController.h */,
-				84E98B37168E6331006AAA55 /* AmaxSummaryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
