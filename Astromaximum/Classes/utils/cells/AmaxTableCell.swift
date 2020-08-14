@@ -10,6 +10,8 @@
 //#import "AmaxBaseViewController.h"
 //#import "AmaxSummaryItem.h"
 
+import UIKit
+
 @objcMembers class AmaxTableCell : UITableViewCell {
 
     var eventLabel: UILabel?

@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxAstroLabel.h"
+import UIKit
 
 @objcMembers class AmaxAstroLabel : UILabel {
     /*override init(frame: CGRect) {

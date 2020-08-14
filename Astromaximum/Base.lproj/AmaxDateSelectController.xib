@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxDateSelectController">
             <connections>
-                <outlet property="datePicker" destination="4" id="8"/>
+                <outlet property="datePicker" destination="4" id="WUg-ye-1sg"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>

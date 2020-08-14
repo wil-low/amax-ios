@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AmaxBaseViewController.interpreterController = AmaxInterpreterController(nibName: "AmaxInterpreterController", bundle: nil);
 
             let summaryViewController = AmaxSummaryViewController(nibName: "AmaxSummaryViewController", bundle: nil)
-            navigationController = UINavigationController(rootViewController:summaryViewController)
+            navigationController = UINavigationController(rootViewController: summaryViewController)
             window!.rootViewController = navigationController
         }
         return true

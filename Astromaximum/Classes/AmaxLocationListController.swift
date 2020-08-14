@@ -6,9 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-//#import "AmaxLocationListController.h"
-//#import "Astromaximum-Swift.h"
-//#import "AmaxPrefs.h"
+import UIKit
 
 @objcMembers class AmaxLocationListController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     private var mDataProvider:AmaxDataProvider!

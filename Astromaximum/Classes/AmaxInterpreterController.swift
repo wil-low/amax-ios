@@ -6,8 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxInterpreterController.h"
-//#import "Astromaximum-Swift.h"
+import UIKit
 
 @objcMembers class AmaxInterpreterController : UIViewController {
 

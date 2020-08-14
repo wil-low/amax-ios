@@ -6,8 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxSettingsController.h"
-//#import "Astromaximum-Swift.h"
+import UIKit
 
 @objcMembers class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     private var mDataProvider:AmaxDataProvider!

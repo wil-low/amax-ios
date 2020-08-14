@@ -6,9 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxAspectSetCell.h"
-//#import "AmaxSummaryViewController.h"
-//#import "Astromaximum-Swift.h"
+import UIKit
 
 class AmaxAspectSetCell : AmaxTableCell {
 
@@ -74,7 +72,7 @@ class AmaxAspectSetCell : AmaxTableCell {
             responder = responder.next!
         }
         let controller = responder as! AmaxSummaryViewController
-        controller.showEventList(for: summaryItem, xib: "AspectCell")
+        controller.showEventListFor(si: summaryItem, xib: "AspectCell")
         NSLog("Ok button was tapped: dismiss the view controller.")
     }
 }

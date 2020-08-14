@@ -6,8 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxMoonMoveCell.h"
-//#import "Astromaximum-Swift.h"
+import UIKit
 
 class AmaxMoonMoveCell : AmaxTableCell {
 

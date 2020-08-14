@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxDateSelectController.h"
-//#import "Astromaximum-Swift.h"
+import UIKit
 
 @objcMembers class AmaxDateSelectController : UIViewController {
-    var datePicker: UIDatePicker!
+
+    @IBOutlet weak var datePicker: UIDatePicker?
 
     override init(nibName: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName:nibName, bundle:nibBundleOrNil)
@@ -37,7 +37,7 @@
     }
 
     @IBAction func didSelectDate(sender:AnyObject!) {
-        AmaxDataProvider.sharedInstance.setDate(from: datePicker.date)
+        AmaxDataProvider.sharedInstance.setDate(from: datePicker!.date)
         self.navigationController?.popViewController(animated: true)
     }
 }

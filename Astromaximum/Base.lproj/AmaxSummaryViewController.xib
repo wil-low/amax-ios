@@ -9,8 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxSummaryViewController">
             <connections>
-                <outlet property="_mTableView" destination="14" id="31"/>
-                <outlet property="_mToolbar" destination="15" id="21"/>
+                <outlet property="mTableView" destination="14" id="LZz-7g-1OZ"/>
+                <outlet property="mToolbar" destination="15" id="q1C-XJ-6F8"/>
                 <outlet property="view" destination="13" id="25"/>
             </connections>
         </placeholder>
