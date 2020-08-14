@@ -8,7 +8,8 @@
 
 import UIKit
 
-@objcMembers class AmaxLocationListController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AmaxLocationListController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     private var mDataProvider:AmaxDataProvider!
     private var workingLocationIndex = -1
     private var selectedLocationIndex = -1

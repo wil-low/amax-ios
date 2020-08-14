@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objcMembers class AmaxDateSelectController : UIViewController {
+class AmaxDateSelectController : UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker?
 

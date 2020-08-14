@@ -6,9 +6,8 @@
 //  Copyright © 2020 S&W Axis. All rights reserved.
 //
 
-import Foundation
-
-@objcMembers class AmaxLocationBundle : NSObject {
+class AmaxLocationBundle : NSObject {
+ 
     var recordLengths = [Int]()
     var locStream: AmaxDataInputStream
 

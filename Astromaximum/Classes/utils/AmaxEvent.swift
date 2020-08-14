@@ -8,7 +8,8 @@
 
 import Foundation
 
-@objcMembers class AmaxEvent : NSObject, NSCopying {
+class AmaxEvent : NSObject, NSCopying {
+
     convenience required init(_ with: AmaxEvent) {
         self.init(date: with.date(at: 0), planet: with.mPlanet0)
         self.mEvtype = with.mEvtype

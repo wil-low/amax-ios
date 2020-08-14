@@ -6,13 +6,9 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxTableCell.h"
-//#import "AmaxBaseViewController.h"
-//#import "AmaxSummaryItem.h"
-
 import UIKit
 
-@objcMembers class AmaxTableCell : UITableViewCell {
+class AmaxTableCell : UITableViewCell {
 
     var eventLabel: UILabel?
     var timeLabel: UILabel?

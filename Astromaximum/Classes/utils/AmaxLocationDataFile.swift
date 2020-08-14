@@ -6,7 +6,8 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-@objcMembers class AmaxLocationDataFile : NSObject {
+class AmaxLocationDataFile : NSObject {
+
     private var coords: [Int] = [0, 0, 0]
     private var customData: String?
     private var transitions: [AmaxTimezoneTransition]?

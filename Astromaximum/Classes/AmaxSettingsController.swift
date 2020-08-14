@@ -8,7 +8,8 @@
 
 import UIKit
 
-@objcMembers class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     private var mDataProvider:AmaxDataProvider!
     @IBOutlet weak var _mTableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!

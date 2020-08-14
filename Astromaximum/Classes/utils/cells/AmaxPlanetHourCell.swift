@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objcMembers class AmaxPlanetHourCell : AmaxTableCell {
+class AmaxPlanetHourCell : AmaxTableCell {
 
     private var hourLabel: UILabel?
 

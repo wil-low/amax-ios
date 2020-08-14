@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-@objcMembers class AmaxInterpretationProvider : NSObject {
+class AmaxInterpretationProvider : NSObject {
 
     private var mTexts: AmaxDataInputStream!
 

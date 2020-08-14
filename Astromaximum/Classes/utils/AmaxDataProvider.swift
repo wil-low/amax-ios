@@ -6,9 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//import "Astromaximum-Bridging-Header.h"
-
-@objcMembers class AmaxDataProvider : NSObject {
+class AmaxDataProvider : NSObject {
 
     private var mCommonDataFile: AmaxCommonDataFile
     private var mLocationDataFile: AmaxLocationDataFile?

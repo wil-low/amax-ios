@@ -66,7 +66,7 @@ class AmaxAspectSetCell : AmaxTableCell {
         self.updateInfoButtonWith(si)
     }
 
-    func aspectTapped(sender:UIButton!) {
+    @objc func aspectTapped(sender:UIButton!) {
         var responder: UIResponder = self
         while responder is UIView {
             responder = responder.next!

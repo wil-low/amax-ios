@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objcMembers class AmaxInterpreterController : UIViewController {
+class AmaxInterpreterController : UIViewController {
 
     private var _interpreterText: String = ""
     var interpreterText: String {

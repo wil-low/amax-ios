@@ -6,9 +6,8 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxSummaryItem.h"
+class AmaxSummaryItem : NSObject {
 
-@objcMembers class AmaxSummaryItem : NSObject {
     private var _mEvents = [AmaxEvent]()
     var mEvents: [AmaxEvent] {
         get { return _mEvents }
