@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-class AmaxSummaryItem : NSObject {
+class AmaxSummaryItem {
 
     private var _mEvents = [AmaxEvent]()
     var mEvents: [AmaxEvent] {

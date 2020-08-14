@@ -12,10 +12,6 @@
 class AmaxAspectCell : AmaxTableCell {
 
     private var mDataProvider: AmaxDataProvider?
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

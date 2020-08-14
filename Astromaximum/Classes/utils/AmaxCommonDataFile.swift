@@ -6,7 +6,9 @@
 //  Copyright © 2020 S&W Axis. All rights reserved.
 //
 
-class AmaxCommonDataFile : NSObject {
+import Foundation
+
+class AmaxCommonDataFile {
 
     var startYear:Int = 0
     var startMonth:Int = 0

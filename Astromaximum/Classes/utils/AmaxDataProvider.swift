@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-class AmaxDataProvider : NSObject {
+import Foundation
+
+class AmaxDataProvider {
 
     private var mCommonDataFile: AmaxCommonDataFile
     private var mLocationDataFile: AmaxLocationDataFile?
@@ -104,7 +106,7 @@ class AmaxDataProvider : NSObject {
 
     static let sharedInstance = AmaxDataProvider()
     
-    override init() {
+    init() {
         let filePath = Bundle.main.path(forResource: "common", ofType:"dat")
         mCommonDataFile = AmaxCommonDataFile(filePath:filePath!)
         documentsDirectory = AmaxDataProvider.getDocumentsDirectory()!

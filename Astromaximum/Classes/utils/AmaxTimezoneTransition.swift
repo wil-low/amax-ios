@@ -6,7 +6,9 @@
 //  Copyright © 2020 S&W Axis. All rights reserved.
 //
 
-class AmaxTimezoneTransition : NSObject {
+import Foundation
+
+class AmaxTimezoneTransition {
 
     var time:Date
     var offset:TimeInterval

@@ -13,10 +13,6 @@ class AmaxSunDegreeCell : AmaxTableCell {
     private var degreeLabel:UILabel!
     private var zodiacLabel:UILabel!
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         degreeLabel = (self.viewWithTag(3) as! UILabel)

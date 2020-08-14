@@ -6,7 +6,9 @@
 //  Copyright © 2020 S&W Axis. All rights reserved.
 //
 
-class AmaxDataInputStream : NSObject {
+import Foundation
+
+class AmaxDataInputStream {
 
     var position: Int = 0
     var dataLength: Int = 0

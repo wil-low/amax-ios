@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-class AmaxLocationDataFile : NSObject {
+import Foundation
+
+class AmaxLocationDataFile {
 
     private var coords: [Int] = [0, 0, 0]
     private var customData: String?

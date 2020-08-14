@@ -13,8 +13,8 @@ class AmaxEventListViewController : AmaxBaseViewController {
     var cellNibName: String = ""
     @IBOutlet weak var mTableView: UITableView!
 
-    private var _detailItem:AmaxSummaryItem!
-    var detailItem:AmaxSummaryItem! {
+    var detailItem: AmaxSummaryItem?
+    /*var detailItem:AmaxSummaryItem! {
         get { return _detailItem }
         set(newDetailItem) { 
             if _detailItem != newDetailItem {
@@ -24,7 +24,8 @@ class AmaxEventListViewController : AmaxBaseViewController {
                 self.configureView()
             }
         }
-    }
+    }*/
+    
     @IBOutlet weak var tvCell: AmaxTableCell?
 
     // `setDetailItem:` has moved as a setter.
@@ -58,8 +59,8 @@ class AmaxEventListViewController : AmaxBaseViewController {
             cell?.accessoryType = .none
         }
         // Configure the cell.
-        let event = _detailItem.mEvents[indexPath.row]
-        let si = AmaxSummaryItem(key: _detailItem.mKey, events: [event])
+        let event = detailItem!.mEvents[indexPath.row]
+        let si = AmaxSummaryItem(key: detailItem!.mKey, events: [event])
         si.mActiveEvent = event
         (cell as! AmaxTableCell).configure(si)
         return cell!
@@ -71,18 +72,18 @@ class AmaxEventListViewController : AmaxBaseViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = _detailItem.mEvents.count
+        let count = detailItem!.mEvents.count
         return count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String {
-        let textId = String(format:"%d", _detailItem.mKey.rawValue)
+        let textId = String(format:"%d", detailItem!.mKey.rawValue)
         return NSLocalizedString(textId, tableName: "EventListTitle", comment: "")
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let e = _detailItem.mEvents[indexPath.row]
+        let e = detailItem!.mEvents[indexPath.row]
         showInterpreterFor(event: e)
     }
 

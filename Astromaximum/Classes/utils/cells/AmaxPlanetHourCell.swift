@@ -12,10 +12,6 @@ class AmaxPlanetHourCell : AmaxTableCell {
 
     private var hourLabel: UILabel?
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         hourLabel = (self.viewWithTag(3) as! UILabel)

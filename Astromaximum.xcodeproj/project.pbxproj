@@ -37,6 +37,7 @@
 		72ACB3B124E63716007C2813 /* AmaxBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ACB3B024E63716007C2813 /* AmaxBaseViewController.swift */; };
 		72ACB3B324E63724007C2813 /* AmaxEventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ACB3B224E63724007C2813 /* AmaxEventListViewController.swift */; };
 		72ACB3B524E63730007C2813 /* AmaxSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ACB3B424E63730007C2813 /* AmaxSummaryViewController.swift */; };
+		72ACB3BC24E68E75007C2813 /* AmaxPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ACB3BB24E68E75007C2813 /* AmaxPrefs.swift */; };
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
 		72CAA1C924E4336E00A5E948 /* AmaxInterpretationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAA1C824E4336E00A5E948 /* AmaxInterpretationProvider.swift */; };
 		72CAA1CB24E4423C00A5E948 /* AmaxDateSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */; };
@@ -69,7 +70,6 @@
 		84E98AF3168E0F88006AAA55 /* ConstellLocative.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AF5168E0F88006AAA55 /* ConstellLocative.strings */; };
 		84E98AF9168E0FAB006AAA55 /* PlanetsGenitive.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98AFB168E0FAB006AAA55 /* PlanetsGenitive.strings */; };
 		84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98B01168E0FCA006AAA55 /* Aspects.strings */; };
-		84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B48168E6331006AAA55 /* AmaxPrefs.m */; };
 		84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B4D168E6331006AAA55 /* AmaxTypes.c */; };
 		84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EB53F6168CE8010089D6F6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -131,6 +131,7 @@
 		72ACB3B024E63716007C2813 /* AmaxBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxBaseViewController.swift; sourceTree = "<group>"; };
 		72ACB3B224E63724007C2813 /* AmaxEventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxEventListViewController.swift; sourceTree = "<group>"; };
 		72ACB3B424E63730007C2813 /* AmaxSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxSummaryViewController.swift; sourceTree = "<group>"; };
+		72ACB3BB24E68E75007C2813 /* AmaxPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxPrefs.swift; sourceTree = "<group>"; };
 		72B6C66424C8052C00E7BC98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		72B6C66624C8053D00E7BC98 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		72CAA1C824E4336E00A5E948 /* AmaxInterpretationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxInterpretationProvider.swift; sourceTree = "<group>"; };
@@ -325,6 +326,7 @@
 				72CAA1C824E4336E00A5E948 /* AmaxInterpretationProvider.swift */,
 				7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */,
 				7229137F24DFCDDF005B0698 /* AmaxLocationDataFile.swift */,
+				72ACB3BB24E68E75007C2813 /* AmaxPrefs.swift */,
 				84E98B47168E6331006AAA55 /* AmaxPrefs.h */,
 				84E98B48168E6331006AAA55 /* AmaxPrefs.m */,
 				726BC97724E5AF0400690CE2 /* AmaxSummaryItem.swift */,
@@ -511,7 +513,6 @@
 				72CAA1C924E4336E00A5E948 /* AmaxInterpretationProvider.swift in Sources */,
 				7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */,
 				726BC98F24E5BFF200690CE2 /* AmaxPlanetHourCell.swift in Sources */,
-				84E98B70168E6331006AAA55 /* AmaxPrefs.m in Sources */,
 				7229138024DFCDDF005B0698 /* AmaxLocationDataFile.swift in Sources */,
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
 				7229137E24DFAF5C005B0698 /* AmaxEvent.swift in Sources */,
@@ -520,6 +521,7 @@
 				72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */,
 				726BC97624E59E6500690CE2 /* AmaxSettingsController.swift in Sources */,
 				726BC97824E5AF0500690CE2 /* AmaxSummaryItem.swift in Sources */,
+				72ACB3BC24E68E75007C2813 /* AmaxPrefs.swift in Sources */,
 				726BC99124E5BFF200690CE2 /* AmaxMoonSignCell.swift in Sources */,
 				726BC97424E5815200690CE2 /* AmaxLocationListController.swift in Sources */,
 				726BC98D24E5BFF200690CE2 /* AmaxAspectSetCell.swift in Sources */,

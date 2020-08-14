@@ -13,10 +13,6 @@ class AmaxMoonMoveCell : AmaxTableCell {
     private var transitionSignLabel: UILabel?
     private var mDataProvider: AmaxDataProvider?
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
     override func awakeFromNib() {
         super.awakeFromNib()
         transitionSignLabel = (self.viewWithTag(3) as! UILabel)

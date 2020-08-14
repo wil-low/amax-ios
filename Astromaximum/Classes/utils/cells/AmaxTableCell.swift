@@ -15,10 +15,6 @@ class AmaxTableCell : UITableViewCell {
     var summaryItem: AmaxSummaryItem?
     var controller: AmaxBaseViewController?
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         if let v = viewWithTag(1) {

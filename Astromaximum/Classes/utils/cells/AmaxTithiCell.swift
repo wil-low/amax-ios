@@ -6,8 +6,7 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-//#import "AmaxTithiCell.h"
-//#import "Astromaximum-Swift.h"
+import Foundation
 
 class AmaxTithiCell : AmaxTableCell {
 

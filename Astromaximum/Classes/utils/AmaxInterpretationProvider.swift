@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 S&W Axis. All rights reserved.
 //
 
-class AmaxInterpretationProvider : NSObject {
+import Foundation
+
+class AmaxInterpretationProvider {
 
     private var mTexts: AmaxDataInputStream!
 
@@ -21,7 +23,7 @@ class AmaxInterpretationProvider : NSObject {
     
     static let sharedInstance = AmaxInterpretationProvider()
 
-    override init() {
+    init() {
         let filePath = Bundle.main.path(forResource: "interpret", ofType: "dat")
         guard let fullData = (NSData(contentsOfFile: filePath!) as Data?) else {
             print("AmaxCommonDataFile: failed to open \(filePath!)")
