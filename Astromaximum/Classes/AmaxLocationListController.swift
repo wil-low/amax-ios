@@ -39,7 +39,7 @@ class AmaxLocationListController : UIViewController, UITableViewDataSource, UITa
         super.viewDidAppear(animated)
         workingLocationIndex = 0
         for i in 0 ..< mDataProvider.mSortedLocationKeys.count {
-            if (mDataProvider.mLocationId == mDataProvider.mSortedLocationKeys[i]) {
+            if (mDataProvider.mLocationId == mDataProvider.mSortedLocationKeys[i].0) {
                 workingLocationIndex = i
                 break
             }
@@ -69,10 +69,13 @@ class AmaxLocationListController : UIViewController, UITableViewDataSource, UITa
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: CellIdentifier)
         }
 
-        cell?.textLabel?.text = mDataProvider.mLocations[mDataProvider.mSortedLocationKeys[indexPath.row]]
+        let loc = mDataProvider.mLocations[mDataProvider.mSortedLocationKeys[indexPath.row].0]!
 
-        let key = mDataProvider.mSortedLocationKeys[indexPath.row]
-        cell?.detailTextLabel?.text = key
+        cell?.textLabel?.text = loc.mCity
+        cell?.detailTextLabel?.text = loc.mCountry
+        if !loc.mState.isEmpty {
+            cell?.detailTextLabel?.text! += ", " + loc.mState
+        }
 
         cell?.accessoryType = selectedLocationIndex == indexPath.row ? .checkmark : .none
 
@@ -101,7 +104,7 @@ class AmaxLocationListController : UIViewController, UITableViewDataSource, UITa
 
     @IBAction func didSelectLocation(sender:AnyObject!) {
         workingLocationIndex = selectedLocationIndex
-        mDataProvider.loadLocationById(locationId:  mDataProvider.mSortedLocationKeys[workingLocationIndex])
+        mDataProvider.loadLocationById(locationId:  mDataProvider.mSortedLocationKeys[workingLocationIndex].0)
         navigationController?.popViewController(animated: true)
     }
 }

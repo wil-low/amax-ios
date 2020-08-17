@@ -63,13 +63,13 @@ class AmaxDataProvider {
         get { return _mUseCustomTime }
         set { _mUseCustomTime = newValue }
     }
-    private var _mLocations = [String: String]()
-    var mLocations: [String: String] {
+    private var _mLocations = [String: AmaxLocation]()
+    var mLocations: [String: AmaxLocation] {
         get { return _mLocations }
         set { _mLocations = newValue }
     }
-    private var _mSortedLocationKeys = [String]()
-    var mSortedLocationKeys: [String] {
+    private var _mSortedLocationKeys = [(String, AmaxLocation)]()
+    var mSortedLocationKeys: [(String, AmaxLocation)] {
         get { return _mSortedLocationKeys }
         set { _mSortedLocationKeys = newValue }
     }
@@ -132,15 +132,17 @@ class AmaxDataProvider {
             userDefaults.set(locationId, forKey:AMAX_PREFS_KEY_LOCATION_ID)
             _mLocationId = locationId
             mCalendar = Calendar.current
-            mCalendar.timeZone = TimeZone(identifier: mLocationDataFile!.mTimezone)!
+            mCalendar.timeZone = TimeZone(identifier: mLocationDataFile!.location.mTimezone)!
             var comp = DateComponents()
             comp.year = mLocationDataFile!.mStartYear
             comp.month = mLocationDataFile!.mStartMonth
             comp.day = mLocationDataFile!.mStartDay
-            let date = mCalendar.date(from: comp)
-            mStartJD = Int(date!.timeIntervalSince1970)
-            mFinalJD = mStartJD + mLocationDataFile!.mDayCount * Int(AmaxSECONDS_IN_DAY)
-            AmaxEvent.setTimeZone(mLocationDataFile!.mTimezone)
+            let date1 = mCalendar.date(from: comp)
+            mStartJD = Int(date1!.timeIntervalSince1970)
+            comp.month! += mLocationDataFile!.mMonthCount
+            let date2 = mCalendar.date(from: comp)
+            mFinalJD = Int(date2!.timeIntervalSince1970)
+            AmaxEvent.setTimeZone(mLocationDataFile!.location.mTimezone)
             NSLog("loadLocationById: %@ %@", _mLocationId, locationName())
         }
         catch {
@@ -161,49 +163,61 @@ class AmaxDataProvider {
         var index = 0
 
         let userDefaults = UserDefaults.standard
-        var locationDictionary = [String: String]()
+        var locationDictionary = [String: AmaxLocation]()
         for _ in 0 ..< locBundle.recordLengths.count {
             let data = locBundle.extractLocation(by: index)
             let datafile = AmaxLocationDataFile(data: data, headerOnly: true)
-            lastLocationId = String(format:"%08X", datafile.mCityId)
-            NSLog("%d: %@ %@", index, lastLocationId, datafile.mCity)
+            lastLocationId = String(format:"%08X", datafile.location.mCityId)
+            NSLog("%d: %@ %@", index, lastLocationId, datafile.location.mCity)
             let locFile = locationFileById(locationId: lastLocationId)
             do {
                 try data.write(to: locFile!)
-                locationDictionary[lastLocationId] = datafile.mCity
+                locationDictionary[lastLocationId] = datafile.location
             }
             catch {
             }
             index += 1
-         }
-        userDefaults.set(locationDictionary, forKey:AMAX_PREFS_KEY_LOCATION_LIST)
+        }
+        var locationSaver = [String: String]()
+        for item in locationDictionary {
+            let stream = item.value.serialize()
+            locationSaver[item.key] = stream
+        }
+        userDefaults.set(locationSaver, forKey:AMAX_PREFS_KEY_LOCATION_LIST)
         NSLog("unbundled")
         for item in locationDictionary {
-            NSLog("Location %@ : %@", item.key, item.value)
+            NSLog("Location %@ : %@", item.key, item.value.mCity)
          }
         return lastLocationId
     }
 
     func restoreSavedState() {
         let userDefaults = UserDefaults.standard
+        _mLocations.removeAll()
         var locations = getLocations()
         if locations != nil {
-            _mLocations = locations as! [String: String]
-            for item in _mLocations {
-                NSLog("Location %@ : %@", item.key, item.value)
-             }
-            _mSortedLocationKeys = ((mLocations as NSDictionary).keysSortedByValue(using: #selector(NSString.compare(_:))) as! [String])
+            let locs = locations as! [String: String]
+            for item in locs {
+                var loc = AmaxLocation()
+                loc.deserialize(stream: item.value)
+                NSLog("Location %@ : %@, %@", item.key, loc.mCity, loc.mCountry)
+                _mLocations[item.key] = loc
+            }
+            _mSortedLocationKeys = _mLocations.sorted { $0.value.mCity < $1.value.mCity }
         }
         var locationId = userDefaults.string(forKey: AMAX_PREFS_KEY_LOCATION_ID)
         if locationId == nil {
             locationId = unbundleLocationAsset()
             locations = getLocations()
             if locations != nil {
-                _mLocations = locations as! [String: String]
-                for item in _mLocations {
-                    NSLog("Location %@ : %@", item.key, item.value)
+                let locs = locations as! [String: String]
+                for item in locs {
+                    var loc = AmaxLocation()
+                    loc.deserialize(stream: item.value)
+                    NSLog("Location %@ : %@", item.key, loc.mCity)
+                    _mLocations[item.key] = loc
                 }
-                _mSortedLocationKeys = ((mLocations as NSDictionary).keysSortedByValue(using: #selector(NSString.compare(_:))) as! [String])
+                _mSortedLocationKeys = _mLocations.sorted { return $0.value.mCity < $1.value.mCity }
             }
         }
         loadLocationById(locationId: locationId!)
@@ -375,7 +389,7 @@ class AmaxDataProvider {
     		     EV_RISE,
     		     EV_SET,
     		     EV_ASCAPHETICS:
-                return readSubDataFromStream(stream: mLocationDataFile!.mData, type:evtype, planet:planet, isCommon:false, dayStart:dayStart, dayEnd:dayEnd)
+                return readSubDataFromStream(stream: mLocationDataFile!.mData!, type:evtype, planet:planet, isCommon:false, dayStart:dayStart, dayEnd:dayEnd)
     		default:
                 return readSubDataFromStream(stream: mCommonDataFile.data!, type: evtype, planet: planet, isCommon:true, dayStart: dayStart, dayEnd: dayEnd)
         }
@@ -666,7 +680,7 @@ class AmaxDataProvider {
     }
 
     func locationName() -> String! {
-        return mLocationDataFile!.mCity
+        return mLocationDataFile!.location.mCity
     }
 
     func getHighlightTimeString() -> String! {
