@@ -136,13 +136,13 @@ class AmaxInterpreterController : UIViewController {
         switch (event.mEvtype) { 
     		case EV_ASP_EXACT_MOON,
     		     EV_ASP_EXACT:
-                return AmaxEvent.long2String(event.date(at: 0), format:AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+                return AmaxEvent.long2String(event.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
             default:
                 break
         }
         return String(format:"%@ - %@",
-                      AmaxEvent.long2String(event.date(at: 0), format:AmaxEvent.monthAbbrDayDateFormatter(), h24: false),
-                      AmaxEvent.long2String(event.date(at: 1), format:AmaxEvent.monthAbbrDayDateFormatter(), h24: true))
+                      AmaxEvent.long2String(event.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false),
+                      AmaxEvent.long2String(event.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: true))
     }
 
     // MARK: - View lifecycle

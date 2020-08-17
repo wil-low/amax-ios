@@ -107,6 +107,7 @@ class AmaxDataProvider {
     static let sharedInstance = AmaxDataProvider()
     
     init() {
+        AmaxEvent.initStatic()
         let filePath = Bundle.main.path(forResource: "common", ofType:"dat")
         mCommonDataFile = AmaxCommonDataFile(filePath:filePath!)
         documentsDirectory = AmaxDataProvider.getDocumentsDirectory()!
