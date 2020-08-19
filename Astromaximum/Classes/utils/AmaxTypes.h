@@ -87,6 +87,8 @@ typedef enum {
 static const int AmaxROUNDING_SEC = 60;
 static const int AmaxSECONDS_IN_DAY = 24 * 60 * 60;
 
+static const int AmaxLABEL_FONT_SIZE = 26;
+
 static const char* EVENT_TYPE_STR[] = {
     "EV_VOC", // 0; // void of course
     "EV_SIGN_ENTER", // 1; // enter into sign

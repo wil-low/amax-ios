@@ -12,7 +12,7 @@ class AmaxAstroLabel : UILabel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        font = UIFont(name: "Astronom", size: font.pointSize)
+        font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
     }
 
 }

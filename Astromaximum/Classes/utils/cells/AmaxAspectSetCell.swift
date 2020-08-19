@@ -19,47 +19,57 @@ class AmaxAspectSetCell : AmaxTableCell {
 
     override func configure(_ si: AmaxSummaryItem) {
         super.configure(si)
-        var aspects = [UIButton]()
+        if si.mEvents.count == 0 {
+            return
+        }
+
+        var aspects = [UIView]()
+
         for e in si.mEvents {
             //UIView* view = [[NSBundle mainBundle] loadNibNamed:@"AspectCell" owner:self options:nil].firstObject;
             //UILabel* aspect = (UILabel*)[view viewWithTag:3];
             let aspect = UIButton(type: .system)
+            aspect.layer.borderWidth = 0.8
+            aspect.layer.borderColor = UIColor.gray.cgColor
             aspect.setTitle(String(format: "%c %c %c",
                                    getSymbol(TYPE_PLANET, e.mPlanet0.rawValue),
                                    getSymbol(TYPE_ASPECT, Int32(e.mDegree)),
                                    getSymbol(TYPE_PLANET, e.mPlanet1.rawValue)),
                             for: .normal)
-            aspect.titleLabel?.font = UIFont(name: "Astronom", size: (aspect.titleLabel?.font.pointSize)!)
-            aspect.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
-            aspect.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+            aspect.titleLabel?.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*(aspect.titleLabel?.font.pointSize)!*/)
+            //aspect.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
+            //aspect.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+            aspect.sizeToFit()
 
             aspect.addTarget(self, action: #selector(self.aspectTapped(sender:)), for: .touchUpInside)
 
             aspects.append(aspect)
-         }
+        }
+
+        let spacerButton = UIButton()
+        spacerButton.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
+        spacerButton.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+        spacerButton.layer.borderWidth = 0.8
+        spacerButton.layer.borderColor = UIColor.red.cgColor
+        aspects.append(spacerButton)
+
         for view in contentView.subviews {
             view.removeFromSuperview()
-         }
+        }
 
         let stackedInfoView:UIStackView! = UIStackView(arrangedSubviews:aspects)
 
         stackedInfoView.axis = .horizontal
-        stackedInfoView.distribution = .fillEqually//EqualSpacing;
-        stackedInfoView.alignment = .fill
-        //stackedInfoView.spacing = 5;
+        //stackedInfoView.distribution = .fillEqually//EqualSpacing;
+        //stackedInfoView.alignment = .fill
+        stackedInfoView.spacing = 20;
         stackedInfoView.translatesAutoresizingMaskIntoConstraints = false
-
-        // To Make Our Buttons aligned to left We have added one spacer view
-        let spacerButton:UIButton! = UIButton()
-        spacerButton.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
-        spacerButton.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
-        stackedInfoView.addArrangedSubview(spacerButton)
 
         self.contentView.addSubview(stackedInfoView)
 
         stackedInfoView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         stackedInfoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        stackedInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        stackedInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         stackedInfoView.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor).isActive = true
         //[stackedInfoView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = true;
 
