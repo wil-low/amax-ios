@@ -31,7 +31,6 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
         addGestureRecognizer(tap)
 
         for e in si.mEvents {
-            //let cell = AmaxRetrogradeCell()
             let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
             if let dummy = cell.viewWithTag(3) {
                 let planet = dummy.viewWithTag(1) as! UILabel
@@ -39,7 +38,6 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
                 planet.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE))
                 //dummy.layer.borderWidth = 0.8
                 //dummy.layer.borderColor = UIColor.gray.cgColor
-                //dummy.sizeToFit()
                 events.append(dummy)
             }
         }
@@ -81,6 +79,6 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
         }
         let controller = responder as! AmaxSummaryViewController
         controller.showEventListFor(si: summaryItem, xib: "RetrogradeCell")
-        NSLog("Ok button was tapped: dismiss the view controller.")
+        //NSLog("Ok button was tapped: dismiss the view controller.")
     }
 }

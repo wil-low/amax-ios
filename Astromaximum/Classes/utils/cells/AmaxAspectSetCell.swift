@@ -25,32 +25,35 @@ class AmaxAspectSetCell : AmaxTableCell {
 
         var aspects = [UIView]()
 
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.itemTapped(sender:)))
+        tap.numberOfTapsRequired = 1
+        addGestureRecognizer(tap)
+
         for e in si.mEvents {
             //UIView* view = [[NSBundle mainBundle] loadNibNamed:@"AspectCell" owner:self options:nil].firstObject;
             //UILabel* aspect = (UILabel*)[view viewWithTag:3];
-            let aspect = UIButton(type: .system)
-            aspect.layer.borderWidth = 0.8
-            aspect.layer.borderColor = UIColor.gray.cgColor
-            aspect.setTitle(String(format: "%c %c %c",
+            let aspect = UILabel()
+            //aspect.layer.borderWidth = 0.8
+            //aspect.layer.borderColor = UIColor.gray.cgColor
+            aspect.text = String(format: "%c %c %c",
                                    getSymbol(TYPE_PLANET, e.mPlanet0.rawValue),
                                    getSymbol(TYPE_ASPECT, Int32(e.mDegree)),
-                                   getSymbol(TYPE_PLANET, e.mPlanet1.rawValue)),
-                            for: .normal)
-            aspect.titleLabel?.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*(aspect.titleLabel?.font.pointSize)!*/)
+                                   getSymbol(TYPE_PLANET, e.mPlanet1.rawValue))
+            aspect.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*(aspect.titleLabel?.font.pointSize)!*/)
             //aspect.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
             //aspect.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
             aspect.sizeToFit()
 
-            aspect.addTarget(self, action: #selector(self.aspectTapped(sender:)), for: .touchUpInside)
+            //aspect.addGestureRecognizer(tap)  //addTarget(self, action: #selector(self.itemTapped(sender:)), for: .touchUpInside)
 
             aspects.append(aspect)
         }
 
-        let spacerButton = UIButton()
+        let spacerButton = UIView()
         spacerButton.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
         spacerButton.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
-        spacerButton.layer.borderWidth = 0.8
-        spacerButton.layer.borderColor = UIColor.red.cgColor
+        //spacerButton.layer.borderWidth = 0.8
+        //spacerButton.layer.borderColor = UIColor.red.cgColor
         aspects.append(spacerButton)
 
         for view in contentView.subviews {
@@ -71,18 +74,18 @@ class AmaxAspectSetCell : AmaxTableCell {
         stackedInfoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         stackedInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         stackedInfoView.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor).isActive = true
-        //[stackedInfoView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = true;
 
         self.updateInfoButtonWith(si)
     }
 
-    @objc func aspectTapped(sender:UIButton!) {
+    @objc func itemTapped(sender:UIButton!) {
+        //NSLog("AmaxAspectCell tapped")
         var responder: UIResponder = self
         while responder is UIView {
             responder = responder.next!
         }
         let controller = responder as! AmaxSummaryViewController
         controller.showEventListFor(si: summaryItem, xib: "AspectCell")
-        NSLog("Ok button was tapped: dismiss the view controller.")
+        //NSLog("Ok button was tapped: dismiss the view controller.")
     }
 }
