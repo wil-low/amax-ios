@@ -20,28 +20,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="261" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" fixedFrame="YES" text="P1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="115" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="P1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="gOc-20-r44"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0m-qR-wan">
-                        <rect key="frame" x="0.0" y="2" width="115" height="39"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0m-qR-wan">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="VR7-r0-IsT"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" fixedFrame="YES" text="TimeRange" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                        <rect key="frame" x="123" y="0.0" width="119" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="TimeRange" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                        <rect key="frame" x="155" y="0.0" width="86" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="3" firstAttribute="bottom" secondItem="IJh-Ud-kqa" secondAttribute="bottom" id="4RN-0N-6QY"/>
+                    <constraint firstItem="3" firstAttribute="top" secondItem="IJh-Ud-kqa" secondAttribute="top" id="7rl-33-vAF"/>
+                    <constraint firstItem="v0m-qR-wan" firstAttribute="leading" secondItem="IJh-Ud-kqa" secondAttribute="leading" id="DhV-hR-60b"/>
+                    <constraint firstItem="v0m-qR-wan" firstAttribute="bottom" secondItem="IJh-Ud-kqa" secondAttribute="bottom" id="EcU-c1-bdD"/>
+                    <constraint firstItem="4" firstAttribute="trailing" secondItem="IJh-Ud-kqa" secondAttribute="trailing" constant="-20" id="GCy-Ut-PP4"/>
+                    <constraint firstItem="v0m-qR-wan" firstAttribute="top" secondItem="IJh-Ud-kqa" secondAttribute="top" id="RQx-62-QrL"/>
+                    <constraint firstItem="4" firstAttribute="top" secondItem="IJh-Ud-kqa" secondAttribute="top" id="eKG-IB-2cQ"/>
+                    <constraint firstItem="3" firstAttribute="leading" secondItem="IJh-Ud-kqa" secondAttribute="leading" id="lfD-KH-Dyt"/>
+                    <constraint firstItem="4" firstAttribute="bottom" secondItem="IJh-Ud-kqa" secondAttribute="bottom" id="xtH-bA-U8N"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="33.333333333333336" y="53.571428571428569"/>
         </tableViewCell>

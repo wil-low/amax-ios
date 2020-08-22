@@ -34,32 +34,32 @@
                     <items>
                         <barButtonItem width="44" systemItem="search" id="32"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Tht-XR-M6m"/>
-                        <barButtonItem image="today.png" style="plain" id="33">
+                        <barButtonItem image="today" style="plain" id="33">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
                             <connections>
                                 <action selector="goToToday:" destination="-1" id="37"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Mpk-cY-fJM"/>
-                        <barButtonItem image="previous.png" style="plain" id="16">
+                        <barButtonItem image="previous" style="plain" id="16">
                             <connections>
                                 <action selector="goToPreviousDate:" destination="-1" id="29"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JaD-qi-INZ"/>
-                        <barButtonItem image="next.png" style="plain" id="28">
+                        <barButtonItem image="next" style="plain" id="28">
                             <connections>
                                 <action selector="goToNextDate:" destination="-1" id="30"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="AyX-GU-LCL"/>
-                        <barButtonItem image="calendar.png" style="plain" id="34">
+                        <barButtonItem image="calendar" style="plain" id="34">
                             <connections>
                                 <action selector="selectDate:" destination="-1" id="38"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ivc-QQ-NWw"/>
-                        <barButtonItem image="options.png" style="plain" id="35">
+                        <barButtonItem image="options" style="plain" id="35">
                             <connections>
                                 <action selector="showSettings:" destination="-1" id="36"/>
                             </connections>
@@ -74,10 +74,10 @@
         </view>
     </objects>
     <resources>
-        <image name="calendar.png" width="12.800000190734863" height="12.800000190734863"/>
-        <image name="next.png" width="11" height="11"/>
-        <image name="options.png" width="24" height="24"/>
-        <image name="previous.png" width="11" height="11"/>
-        <image name="today.png" width="12.800000190734863" height="12.800000190734863"/>
+        <image name="calendar" width="24" height="24"/>
+        <image name="next" width="25" height="25"/>
+        <image name="options" width="24" height="24"/>
+        <image name="previous" width="25" height="25"/>
+        <image name="today" width="24" height="24"/>
     </resources>
 </document>

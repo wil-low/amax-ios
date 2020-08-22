@@ -20,21 +20,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="261" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" fixedFrame="YES" text="Tithi #" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3">
-                        <rect key="frame" x="20" y="0.0" width="142" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Tithi #" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                        <rect key="frame" x="20" y="0.0" width="110" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="Ckd-ez-SRj"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" fixedFrame="YES" text="TimeRange" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                        <rect key="frame" x="123" y="0.0" width="119" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="TimeRange" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                        <rect key="frame" x="155" y="0.0" width="86" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="4" firstAttribute="top" secondItem="I4C-AL-5B2" secondAttribute="top" id="DXD-dq-rI2"/>
+                    <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="20" id="DdI-lQ-Et8"/>
+                    <constraint firstItem="3" firstAttribute="top" secondItem="I4C-AL-5B2" secondAttribute="top" id="JkP-IA-IAR"/>
+                    <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="O0o-s1-tqj"/>
+                    <constraint firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="UTe-26-aKX"/>
+                    <constraint firstItem="3" firstAttribute="leading" secondItem="I4C-AL-5B2" secondAttribute="leading" constant="20" id="a1U-ZX-K9h"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="34" y="54"/>
         </tableViewCell>

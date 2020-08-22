@@ -32,14 +32,14 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LyU-aD-Jmd"/>
-                        <barButtonItem image="previous.png" width="44" style="plain" id="14">
+                        <barButtonItem image="previous" width="44" style="plain" id="14">
                             <inset key="imageInsets" minX="0.0" minY="2" maxX="0.0" maxY="-2"/>
                             <connections>
                                 <action selector="goToPreviousDate:" destination="-1" id="SFf-ee-vtQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="26" style="plain" systemItem="fixedSpace" id="grT-v4-OWi"/>
-                        <barButtonItem image="next.png" width="44" style="plain" id="13">
+                        <barButtonItem image="next" width="44" style="plain" id="13">
                             <inset key="imageInsets" minX="0.0" minY="2" maxX="0.0" maxY="-2"/>
                             <connections>
                                 <action selector="goToNextDate:" destination="-1" id="C8k-xF-Wzx"/>
@@ -55,7 +55,7 @@
         </view>
     </objects>
     <resources>
-        <image name="next.png" width="11" height="11"/>
-        <image name="previous.png" width="11" height="11"/>
+        <image name="next" width="25" height="25"/>
+        <image name="previous" width="25" height="25"/>
     </resources>
 </document>

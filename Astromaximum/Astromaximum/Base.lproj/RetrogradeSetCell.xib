@@ -19,6 +19,20 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2" id="A2O-cC-WoB">
                 <rect key="frame" x="0.0" y="0.0" width="293" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRu-o5-0oy">
+                        <rect key="frame" x="20" y="0.0" width="273" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="mRu-o5-0oy" firstAttribute="trailing" secondItem="A2O-cC-WoB" secondAttribute="trailing" id="LaN-Vc-n1l"/>
+                    <constraint firstItem="mRu-o5-0oy" firstAttribute="top" secondItem="A2O-cC-WoB" secondAttribute="top" id="Ztn-UJ-YFt"/>
+                    <constraint firstItem="mRu-o5-0oy" firstAttribute="bottom" secondItem="A2O-cC-WoB" secondAttribute="bottom" id="aNo-r2-06t"/>
+                    <constraint firstItem="mRu-o5-0oy" firstAttribute="leading" secondItem="A2O-cC-WoB" secondAttribute="leading" constant="20" id="rzT-JK-qQK"/>
+                </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="-298.55072463768118" y="53.571428571428569"/>
         </tableViewCell>

@@ -19,8 +19,22 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2" id="A2O-cC-WoB">
                 <rect key="frame" x="0.0" y="0.0" width="293" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCV-zS-dg5">
+                        <rect key="frame" x="20" y="0.0" width="273" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vCV-zS-dg5" firstAttribute="trailing" secondItem="A2O-cC-WoB" secondAttribute="trailing" id="V5M-Ti-yLy"/>
+                    <constraint firstItem="vCV-zS-dg5" firstAttribute="bottom" secondItem="A2O-cC-WoB" secondAttribute="bottom" id="ccZ-e4-SHe"/>
+                    <constraint firstItem="vCV-zS-dg5" firstAttribute="top" secondItem="A2O-cC-WoB" secondAttribute="top" id="jZE-5a-z7x"/>
+                    <constraint firstItem="vCV-zS-dg5" firstAttribute="leading" secondItem="A2O-cC-WoB" secondAttribute="leading" constant="20" id="upM-nW-xoY"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-298.55072463768118" y="53.571428571428569"/>
+            <point key="canvasLocation" x="86" y="83"/>
         </tableViewCell>
     </objects>
 </document>

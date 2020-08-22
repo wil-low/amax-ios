@@ -20,30 +20,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="261" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" fixedFrame="YES" text="Hour" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3">
-                        <rect key="frame" x="20" y="0.0" width="46" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Hour" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                        <rect key="frame" x="20" y="0.0" width="38" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" fixedFrame="YES" text="TimeRange" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                        <rect key="frame" x="123" y="0.0" width="119" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" fixedFrame="YES" text="P" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                        <rect key="frame" x="63" y="12" width="30" height="31"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="P" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                        <rect key="frame" x="66" y="0.0" width="17.5" height="44"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="TimeRange" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                        <rect key="frame" x="155" y="0.0" width="86" height="44"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="6" firstAttribute="top" secondItem="tiH-l1-DkE" secondAttribute="top" id="4U2-49-4bp"/>
+                    <constraint firstItem="3" firstAttribute="bottom" secondItem="tiH-l1-DkE" secondAttribute="bottom" id="6u5-bZ-GYg"/>
+                    <constraint firstItem="6" firstAttribute="bottom" secondItem="tiH-l1-DkE" secondAttribute="bottom" id="9Qk-Wh-rOp"/>
+                    <constraint firstItem="3" firstAttribute="top" secondItem="tiH-l1-DkE" secondAttribute="top" id="K3o-Hs-1uo"/>
+                    <constraint firstItem="4" firstAttribute="top" secondItem="tiH-l1-DkE" secondAttribute="top" id="Msu-SP-UIl"/>
+                    <constraint firstItem="6" firstAttribute="leading" secondItem="3" secondAttribute="trailing" constant="8" symbolic="YES" id="Nvg-2P-gvh"/>
+                    <constraint firstItem="3" firstAttribute="leading" secondItem="tiH-l1-DkE" secondAttribute="leading" constant="20" id="eWI-1z-22G"/>
+                    <constraint firstItem="4" firstAttribute="trailing" secondItem="tiH-l1-DkE" secondAttribute="trailing" constant="-20" id="pji-EL-aiN"/>
+                    <constraint firstItem="4" firstAttribute="bottom" secondItem="tiH-l1-DkE" secondAttribute="bottom" id="rVj-wp-IMC"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="34" y="54"/>
+            <point key="canvasLocation" x="33.333333333333336" y="53.571428571428569"/>
         </tableViewCell>
     </objects>
 </document>

@@ -14,6 +14,7 @@ class AmaxViaCombustaCell : AmaxTableCell {
     override func configure(_ si: AmaxSummaryItem) {
         super.configure(si)
         if let e = si.mActiveEvent {
+            eventLabel?.text = "VC"
             timeLabel?.text = e.normalizedRangeString()
         }
         self.updateInfoButtonWith(si)

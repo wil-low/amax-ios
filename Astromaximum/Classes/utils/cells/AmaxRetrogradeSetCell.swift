@@ -65,9 +65,8 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
 
         stackedInfoView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         stackedInfoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        stackedInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        stackedInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         stackedInfoView.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor).isActive = true
-        //[stackedInfoView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = true;
 
         self.updateInfoButtonWith(si)
     }
