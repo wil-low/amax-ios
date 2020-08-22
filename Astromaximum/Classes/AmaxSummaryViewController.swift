@@ -94,7 +94,12 @@ class AmaxSummaryViewController : AmaxBaseViewController {
             Bundle.main.loadNibNamed(cellIdentifier, owner: self, options: nil)
             cell = tvCell
             tvCell = nil
-            cell?.accessoryType = si.mEvents.count > 0 && si.mKey != EV_ASP_EXACT ? .detailDisclosureButton : .none
+            if si.mEvents.count > 0 && si.mKey != EV_ASP_EXACT && si.mKey != EV_RETROGRADE {
+                cell?.accessoryType = .detailDisclosureButton
+            }
+            else {
+                cell?.accessoryType = .none
+            }
             (cell as! AmaxTableCell).controller = self
         }
 
