@@ -79,7 +79,6 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
             case CELL_LOCATION_NAME:
                 c.textLabel?.text = NSLocalizedString("Current_location", comment: "Current location")
                 c.detailTextLabel?.text = mDataProvider.locationName()
-                break
             case CELL_IS_CUSTOM_TIME:
                 c.textLabel?.text = NSLocalizedString("Highlight_time", comment: "Highlight time")
                 c.detailTextLabel?.text = "88:88"
@@ -87,7 +86,6 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
                 c.accessoryView = switchView
                 switchView.setOn(false, animated: false)
                 switchView.addTarget(self, action: #selector(self.customTimeSwitchChanged(sender:)), for: .valueChanged)
-                break
             default:
                 break
         }
