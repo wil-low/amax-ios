@@ -46,8 +46,8 @@
                             <constraint firstItem="3" firstAttribute="top" secondItem="2Ng-dc-IyI" secondAttribute="top" id="vnn-v7-KEL"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="TimeRange" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                        <rect key="frame" x="186.5" y="0.0" width="86.5" height="44"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="TimeRange1 TimeRange2" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                        <rect key="frame" x="176.5" y="0.0" width="96.5" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>

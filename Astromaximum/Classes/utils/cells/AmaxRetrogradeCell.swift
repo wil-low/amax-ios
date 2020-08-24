@@ -21,9 +21,11 @@ class AmaxRetrogradeCell : AmaxTableCell {
     override func configure(_ si: AmaxSummaryItem) {
         super.configure(si)
         if let e = si.mActiveEvent {
-            eventLabel?.text = String(format: "%c",
-                                      getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
-            timeLabel?.text = AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
+            eventLabel?.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
+            timeLabel?.text =
+                AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+                + "\n"
+                + AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
         }
         self.updateInfoButtonWith(si)
     }
