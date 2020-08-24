@@ -359,8 +359,10 @@ class AmaxDataProvider {
     func currentDateString() -> String! {
         var weekday = "\(mCurrentDateComponents.weekday!)"
         weekday = NSLocalizedString(weekday, tableName: "WeekDays", comment: "")
-        return String(format:"%@ %02ld.%02ld %04ld",
-                      weekday, mCurrentDateComponents.month!, mCurrentDateComponents.day!, mCurrentDateComponents.year!)
+        var month = "\(mCurrentDateComponents.month!)"
+        month = NSLocalizedString(month, tableName: "Months", comment: "")
+        return String(format: NSLocalizedString("fmt_current_date", comment: ""),
+                      weekday, mCurrentDateComponents.year!, month, mCurrentDateComponents.day!)
     }
 
     func getEventsOnPeriodForEvent(evtype: AmaxEventType, planet: AmaxPlanet, special: Bool, from dayStart: Int, to dayEnd: Int, value: Int) -> [AmaxEvent] {

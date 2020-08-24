@@ -1,0 +1,20 @@
+/* 
+  Months.strings
+  Astromaximum
+
+  Created by Andrei Ivushkin on 24.08.2020.
+  Copyright © 2020 S&W Axis. All rights reserved.
+*/
+
+"1" = "Jan";
+"2" = "Feb";
+"3" = "Mar";
+"4" = "Apr";
+"5" = "May";
+"6" = "Jun";
+"7" = "Jul";
+"8" = "Aug";
+"9" = "Sep";
+"10" = "Oct";
+"11" = "Nov";
+"12" = "Dec";
