@@ -14,21 +14,14 @@ class AmaxEventListViewController : AmaxBaseViewController {
     @IBOutlet weak var mTableView: UITableView!
 
     var detailItem: AmaxSummaryItem?
-    /*var detailItem:AmaxSummaryItem! {
-        get { return _detailItem }
-        set(newDetailItem) { 
-            if _detailItem != newDetailItem {
-                _detailItem = newDetailItem
-
-                // Update the view.
-                self.configureView()
-            }
-        }
-    }*/
     
     @IBOutlet weak var tvCell: AmaxTableCell?
 
-    // `setDetailItem:` has moved as a setter.
+    override func updateDisplay() {
+        if let dp = mDataProvider {
+            title = dp.currentDateString()
+        }
+    }
 
     func configureView() {
         navigationItem.title = NSLocalizedString("event_list_title", comment: "")
@@ -36,7 +29,7 @@ class AmaxEventListViewController : AmaxBaseViewController {
 
     init(nibName: String, bundle nibBundleOrNil: Bundle) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
-        // Custom initialization
+        mDataProvider = AmaxDataProvider.sharedInstance
     }
     
     required init?(coder: NSCoder) {
@@ -97,6 +90,7 @@ class AmaxEventListViewController : AmaxBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mTableView.reloadData()
+        updateDisplay()
     }
 
     override func viewDidAppear(_ animated: Bool) {
