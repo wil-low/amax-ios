@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ng-dc-IyI">
-                        <rect key="frame" x="20" y="0.0" width="44" height="44"/>
+                        <rect key="frame" x="20" y="0.0" width="48" height="44"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="P" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="22" height="44"/>
@@ -30,8 +30,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-Fn-qMn">
-                                <rect key="frame" x="22" y="23.5" width="11" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="22" y="24" width="10" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -41,8 +41,8 @@
                             <constraint firstItem="Qlw-Fn-qMn" firstAttribute="leading" secondItem="3" secondAttribute="trailing" id="2hi-A2-1oS"/>
                             <constraint firstItem="3" firstAttribute="leading" secondItem="2Ng-dc-IyI" secondAttribute="leading" id="Wkq-fC-YQp"/>
                             <constraint firstItem="3" firstAttribute="bottom" secondItem="2Ng-dc-IyI" secondAttribute="bottom" id="WsS-QX-EcA"/>
-                            <constraint firstItem="Qlw-Fn-qMn" firstAttribute="bottom" secondItem="2Ng-dc-IyI" secondAttribute="bottom" id="bf9-IP-hIk"/>
-                            <constraint firstAttribute="width" constant="44" id="cn6-hI-Z5h"/>
+                            <constraint firstItem="Qlw-Fn-qMn" firstAttribute="bottom" secondItem="2Ng-dc-IyI" secondAttribute="bottom" constant="-2" id="bf9-IP-hIk"/>
+                            <constraint firstAttribute="width" constant="48" id="cn6-hI-Z5h"/>
                             <constraint firstItem="3" firstAttribute="top" secondItem="2Ng-dc-IyI" secondAttribute="top" id="vnn-v7-KEL"/>
                         </constraints>
                     </view>
