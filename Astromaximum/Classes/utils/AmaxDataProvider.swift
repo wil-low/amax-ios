@@ -142,7 +142,7 @@ class AmaxDataProvider {
             mStartJD = Int(date1!.timeIntervalSince1970)
             comp.month! += mLocationDataFile!.mMonthCount
             let date2 = mCalendar.date(from: comp)
-            mFinalJD = Int(date2!.timeIntervalSince1970)
+            mFinalJD = Int(date2!.timeIntervalSince1970) - Int(AmaxROUNDING_SEC)
             AmaxEvent.setTimeZone(mLocationDataFile!.location.mTimezone)
             NSLog("loadLocationById: %@ %@", _mLocationId, locationName())
         }

@@ -26,7 +26,7 @@ class AmaxLocationDataFile {
         dis.skipBytes(4) // signature
         let version = dis.readUnsignedByte()
         mStartYear = Int(dis.readShort())
-        mStartMonth = Int(dis.readUnsignedByte() - 1)
+        mStartMonth = Int(dis.readUnsignedByte())
         mStartDay = Int(dis.readUnsignedByte())
         if version == 3 {
             mMonthCount = Int(dis.readUnsignedByte())

@@ -36,6 +36,12 @@ class AmaxDateSelectController : UIViewController {
         // Do any additional setup after loading the view from its nib.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        datePicker?.minimumDate = Date(timeIntervalSince1970: TimeInterval(AmaxDataProvider.sharedInstance.mStartJD))
+        datePicker?.maximumDate = Date(timeIntervalSince1970: TimeInterval(AmaxDataProvider.sharedInstance.mFinalJD))
+    }
+    
     @IBAction func didSelectDate(sender:AnyObject!) {
         AmaxDataProvider.sharedInstance.setDate(from: datePicker!.date)
         self.navigationController?.popViewController(animated: true)
