@@ -239,7 +239,7 @@ class AmaxDataProvider {
         setDate(from: Date())
     }
 
-    func readSubDataFromStream(stream: AmaxDataInputStream, type evtype: AmaxEventType, planet: AmaxPlanet, isCommon: Bool, dayStart: Int, dayEnd: Int) -> Int {
+    func readSubDataFrom(stream: AmaxDataInputStream, eventType evtype: AmaxEventType, planet: AmaxPlanet, isCommon: Bool, dayStart: Int, dayEnd: Int) -> Int {
     	let EF_DATE:Int16 = 0x1 // contains 2nd date - 4b
     	let EF_PLANET1:Int16 = 0x2 // contains 1nd planet - 1b
     	let EF_PLANET2:Int16 = 0x4 // contains 2nd planet - 1b
@@ -365,10 +365,10 @@ class AmaxDataProvider {
                       weekday, mCurrentDateComponents.year!, month, mCurrentDateComponents.day!)
     }
 
-    func getEventsOnPeriodForEvent(evtype: AmaxEventType, planet: AmaxPlanet, special: Bool, from dayStart: Int, to dayEnd: Int, value: Int) -> [AmaxEvent] {
+    func getEventsOnPeriodFor(eventType: AmaxEventType, planet: AmaxPlanet, special: Bool, from dayStart: Int, to dayEnd: Int, value: Int) -> [AmaxEvent] {
         var flag = false
         var result = [AmaxEvent]()
-        let cnt = getEventsForType(evtype: evtype, planet: planet, from: dayStart, to: dayEnd)
+        let cnt = getEventsFor(eventType: eventType, planet: planet, from: dayStart, to: dayEnd)
         for i in 0 ..< cnt {
             let ev = mEvents[i]
             if ev.isInPeriod(from: dayStart, to:dayEnd, special: special) {
@@ -385,44 +385,44 @@ class AmaxDataProvider {
         return result
     }
 
-    func getEventsForType(evtype: AmaxEventType, planet: AmaxPlanet, from dayStart: Int, to dayEnd: Int) -> Int {
-        switch (evtype) { 
+    func getEventsFor(eventType: AmaxEventType, planet: AmaxPlanet, from dayStart: Int, to dayEnd: Int) -> Int {
+        switch (eventType) { 
     		case EV_ASTRORISE,
     		     EV_ASTROSET,
     		     EV_RISE,
     		     EV_SET,
     		     EV_ASCAPHETICS:
-                return readSubDataFromStream(stream: mLocationDataFile!.mData!, type:evtype, planet:planet, isCommon:false, dayStart:dayStart, dayEnd:dayEnd)
+                return readSubDataFrom(stream: mLocationDataFile!.mData!, eventType:eventType, planet:planet, isCommon:false, dayStart:dayStart, dayEnd:dayEnd)
     		default:
-                return readSubDataFromStream(stream: mCommonDataFile.data!, type: evtype, planet: planet, isCommon:true, dayStart: dayStart, dayEnd: dayEnd)
+                return readSubDataFrom(stream: mCommonDataFile.data!, eventType: eventType, planet: planet, isCommon:true, dayStart: dayStart, dayEnd: dayEnd)
         }
     }
 
     func calculateVOCs() -> [AmaxEvent] {
-        return getEventsOnPeriodForEvent(evtype: EV_VOC, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType: EV_VOC, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
     }
 
     func calculateVC() -> [AmaxEvent] {
-        return getEventsOnPeriodForEvent(evtype:  EV_VIA_COMBUSTA, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType:  EV_VIA_COMBUSTA, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
     }
 
     func calculateSunDegree() -> [AmaxEvent] {
-        return getEventsOnPeriodForEvent(evtype:  EV_DEGREE_PASS, planet: SE_SUN, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType:  EV_DEGREE_PASS, planet: SE_SUN, special: false, from: mStartTime, to: mEndTime, value: 0)
     }
 
     func calculateMoonSign() -> [AmaxEvent] {
-        return getEventsOnPeriodForEvent(evtype: EV_SIGN_ENTER, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
     }
 
     func calculateTithis() -> [AmaxEvent] {
-        return getEventsOnPeriodForEvent(evtype: EV_TITHI, planet:  SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType: EV_TITHI, planet:  SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
     }
 
-    func getPlanetaryHoursInto( result: inout [AmaxEvent], currentSunRise: AmaxEvent, nextSunRise: AmaxEvent!, dayOfWeek: Int) {
+    func getPlanetaryHours(into: inout [AmaxEvent], currentSunRise: AmaxEvent, nextSunRise: AmaxEvent!, dayOfWeek: Int) {
         var startHour = WEEK_START_HOUR[dayOfWeek]
         let dayHour: Int = (currentSunRise.date(at: 1) - currentSunRise.date(at: 0)) / 12
         let nightHour: Int = (nextSunRise.date(at: 0) - currentSunRise.date(at: 1)) / 12
-        NSLog("getPlanetaryHoursInto: %ld, %ld", dayHour, nightHour)
+        NSLog("getPlanetaryHours: %ld, %ld", dayHour, nightHour)
         var st = currentSunRise.date(at: 0)
         for i in 0 ..< 24 {
             let ev:AmaxEvent! = AmaxEvent(date:(st - (st % Int(AmaxROUNDING_SEC))), planet:PLANET_HOUR_SEQUENCE[startHour % 7])
@@ -432,15 +432,15 @@ class AmaxDataProvider {
             date1 -= (date1 % Int(AmaxROUNDING_SEC))
             ev.setDate(at: 1, value: date1)
             if ev.isInPeriod(from: mStartTime, to: mEndTime, special: false) {
-                result.append(ev)
+                into.append(ev)
             }
             startHour += 1
          }
     }
 
     func calculatePlanetaryHours() -> [AmaxEvent] {
-        let sunRises = getEventsOnPeriodForEvent(evtype: EV_RISE, planet: SE_SUN, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (mEndTime + Int(AmaxSECONDS_IN_DAY)), value: 0)
-        let sunSets = getEventsOnPeriodForEvent(evtype: EV_SET, planet: SE_SUN, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (mEndTime + Int(AmaxSECONDS_IN_DAY)), value:0)
+        let sunRises = getEventsOnPeriodFor(eventType: EV_RISE, planet: SE_SUN, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (mEndTime + Int(AmaxSECONDS_IN_DAY)), value: 0)
+        let sunSets = getEventsOnPeriodFor(eventType: EV_SET, planet: SE_SUN, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (mEndTime + Int(AmaxSECONDS_IN_DAY)), value:0)
         var result = [AmaxEvent]()
         if sunRises.count < 3 || sunRises.count != sunSets.count {
             return result
@@ -455,16 +455,16 @@ class AmaxDataProvider {
         else {
             dayOfWeek -= 1
         }
-        getPlanetaryHoursInto(result: &result, currentSunRise: sunRises[0], nextSunRise: sunRises[1], dayOfWeek: dayOfWeek)
+        getPlanetaryHours(into: &result, currentSunRise: sunRises[0], nextSunRise: sunRises[1], dayOfWeek: dayOfWeek)
         dayOfWeek = (dayOfWeek + 1) % 7
-        getPlanetaryHoursInto(result: &result, currentSunRise: sunRises[1], nextSunRise: sunRises[2], dayOfWeek: dayOfWeek)
+        getPlanetaryHours(into: &result, currentSunRise: sunRises[1], nextSunRise: sunRises[2], dayOfWeek: dayOfWeek)
         return result
     }
 
-    func getAspectsOnPeriodForPlanet(planet: AmaxPlanet, from startTime: Int, to endTime: Int) -> [AmaxEvent] {
+    func getAspectsOnPeriodFor(planet: AmaxPlanet, from startTime: Int, to endTime: Int) -> [AmaxEvent] {
         var result = [AmaxEvent]()
         var flag = false
-        let cnt = getEventsForType(evtype: EV_ASP_EXACT, planet: (planet == SE_MOON ? SE_MOON : SE_UNDEFINED), from: startTime, to: endTime)
+        let cnt = getEventsFor(eventType: EV_ASP_EXACT, planet: (planet == SE_MOON ? SE_MOON : SE_UNDEFINED), from: startTime, to: endTime)
         for i in 0 ..< cnt {
             let ev = mEvents[i]
             if planet == SE_UNDEFINED || ev.mPlanet0 == planet || ev.mPlanet1 == planet {
@@ -498,8 +498,8 @@ class AmaxDataProvider {
     }
 
     func calculateMoonMove() -> [AmaxEvent] {
-        var asp = getEventsOnPeriodForEvent(evtype: EV_SIGN_ENTER, planet: SE_MOON, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (mEndTime + Int(AmaxSECONDS_IN_DAY) * 4), value: 0)
-        var moonMoveVec = getAspectsOnPeriodForPlanet(planet: SE_MOON, from: (mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (mEndTime + Int(AmaxSECONDS_IN_DAY) * 2))
+        var asp = getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (mEndTime + Int(AmaxSECONDS_IN_DAY) * 4), value: 0)
+        var moonMoveVec = getAspectsOnPeriodFor(planet: SE_MOON, from: (mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (mEndTime + Int(AmaxSECONDS_IN_DAY) * 2))
 
         mergeEvents(dest: &moonMoveVec, add: asp, isSort: true)
         asp.removeAll()
@@ -576,7 +576,7 @@ class AmaxDataProvider {
     func calculateRetrogrades() -> [AmaxEvent] {
         var result = [AmaxEvent]()
         for planet in SE_MERCURY.rawValue ... SE_PLUTO.rawValue {
-            let v = getEventsOnPeriodForEvent(evtype: EV_RETROGRADE, planet: AmaxPlanet(rawValue: planet), special: false, from: mStartTime, to: mEndTime, value: 0)
+            let v = getEventsOnPeriodFor(eventType: EV_RETROGRADE, planet: AmaxPlanet(rawValue: planet), special: false, from: mStartTime, to: mEndTime, value: 0)
             if v.count > 0 {
                 result.append(contentsOf: v)
             }
@@ -626,12 +626,12 @@ class AmaxDataProvider {
     */
 
     func calculateAspects() -> [AmaxEvent] {
-        return getAspectsOnPeriodForPlanet(planet: SE_UNDEFINED, from: mStartTime, to: mEndTime)
+        return getAspectsOnPeriodFor(planet: SE_UNDEFINED, from: mStartTime, to: mEndTime)
     }
 
-    func calculateForKey(key: AmaxEventType) -> AmaxSummaryItem? {
+    func calculateFor(eventType: AmaxEventType) -> AmaxSummaryItem? {
         var events: [AmaxEvent]
-        switch (key) { 
+        switch (eventType) { 
     		case EV_VOC:
     			events = calculateVOCs()
     			break
@@ -662,7 +662,7 @@ class AmaxDataProvider {
     		default:
     			return nil
         }
-        let si = AmaxSummaryItem(key:key, events: events)
+        let si = AmaxSummaryItem(key: eventType, events: events)
         _mEventCache.append(si)
         return si
     }
@@ -678,7 +678,7 @@ class AmaxDataProvider {
 
     func calculateAll() {
         for item in START_PAGE_ITEM_SEQ {
-            _ = calculateForKey(key: item)
+            _ = calculateFor(eventType: item)
          }
     }
 
