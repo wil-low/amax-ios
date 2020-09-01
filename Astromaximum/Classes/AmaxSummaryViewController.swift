@@ -94,8 +94,15 @@ class AmaxSummaryViewController : AmaxBaseViewController {
             Bundle.main.loadNibNamed(cellIdentifier, owner: self, options: nil)
             cell = tvCell
             tvCell = nil
-            if si.mEvents.count > 0 && si.mKey != EV_ASP_EXACT && si.mKey != EV_RETROGRADE {
-                cell?.accessoryType = .detailDisclosureButton
+            if si.mEvents.count > 0 {
+                switch si.mKey {
+                case EV_ASP_EXACT,
+                     EV_RETROGRADE,
+                     EV_MOON_MOVE:
+                    cell?.accessoryType = .disclosureIndicator
+                default:
+                    cell?.accessoryType = .detailDisclosureButton
+                }
             }
             else {
                 cell?.accessoryType = .none
@@ -132,16 +139,16 @@ class AmaxSummaryViewController : AmaxBaseViewController {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let si = mDataProvider?.mEventCache[indexPath.row]
+        showEventListFor(si: si, xib: xibNames[indexPath.row])
+    }
+
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let si = mDataProvider?.mEventCache[indexPath.row]
         if let e = si?.mActiveEvent {
             showInterpreterFor(event: e)
         }
-    }
-
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let si = mDataProvider?.mEventCache[indexPath.row]
-        showEventListFor(si: si, xib: xibNames[indexPath.row])
     }
 
     func showEventListFor(si: AmaxSummaryItem!, xib xibName:String!) {
