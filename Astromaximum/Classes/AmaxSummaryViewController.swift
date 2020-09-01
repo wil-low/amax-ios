@@ -94,25 +94,27 @@ class AmaxSummaryViewController : AmaxBaseViewController {
             Bundle.main.loadNibNamed(cellIdentifier, owner: self, options: nil)
             cell = tvCell
             tvCell = nil
-            if si.mEvents.count > 0 {
-                switch si.mKey {
-                case EV_ASP_EXACT,
-                     EV_RETROGRADE,
-                     EV_MOON_MOVE:
-                    cell?.accessoryType = .disclosureIndicator
-                default:
-                    cell?.accessoryType = .detailDisclosureButton
-                }
-            }
-            else {
-                cell?.accessoryType = .none
-            }
             (cell as! AmaxTableCell).controller = self
         }
 
         // Configure the cell.
         si.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
         (cell as! AmaxTableCell).configure(si)
+
+        if si.mEvents.count > 0 {
+            switch si.mKey {
+            case EV_ASP_EXACT,
+                 EV_RETROGRADE,
+                 EV_MOON_MOVE:
+                cell?.accessoryType = .disclosureIndicator
+            default:
+                cell?.accessoryType = .detailDisclosureButton
+            }
+        }
+        else {
+            cell?.accessoryType = .none
+        }
+
         return cell!
     }
 
@@ -139,8 +141,10 @@ class AmaxSummaryViewController : AmaxBaseViewController {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let si = mDataProvider?.mEventCache[indexPath.row]
-        showEventListFor(si: si, xib: xibNames[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let si = mDataProvider?.mEventCache[indexPath.row] {
+            showEventListFor(si: si, xib: xibNames[indexPath.row])
+        }
     }
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
@@ -151,9 +155,13 @@ class AmaxSummaryViewController : AmaxBaseViewController {
         }
     }
 
-    func showEventListFor(si: AmaxSummaryItem!, xib xibName:String!) {
+    func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
+        if si.mEvents.count == 0 {
+            return
+        }
+        
         if (eventListViewController == nil) {
-            eventListViewController = AmaxEventListViewController(nibName:"AmaxEventListViewController", bundle: Bundle.main)
+            eventListViewController = AmaxEventListViewController(nibName: "AmaxEventListViewController", bundle: Bundle.main)
         }
         eventListViewController?.detailItem = si
         eventListViewController?.cellNibName = xibName

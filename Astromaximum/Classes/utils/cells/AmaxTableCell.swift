@@ -37,6 +37,7 @@ class AmaxTableCell : UITableViewCell {
         timeLabel?.text = nil
 
         if si.mEvents.count > 0 {
+            eventLabel?.textColor = .black
             //TODO: timeLabel.text = String(UTF8String:EVENT_TYPE_STR[si.mKey()])
         }
         else {
@@ -72,6 +73,7 @@ class AmaxTableCell : UITableViewCell {
             default:
                 break
             }
+            eventLabel?.textColor = .systemGray
             eventLabel?.text = NSLocalizedString(textId, comment: "")
         }
     }

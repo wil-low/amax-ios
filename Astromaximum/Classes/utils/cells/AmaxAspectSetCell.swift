@@ -19,7 +19,17 @@ class AmaxAspectSetCell : AmaxTableCell {
 
     override func configure(_ si: AmaxSummaryItem) {
         super.configure(si)
-        if si.mEvents.count == 0 {
+
+        for view in contentView.subviews {
+            if view.tag != 1 {
+                view.removeFromSuperview()
+            }
+        }
+
+        let isEmpty = si.mEvents.count == 0
+        eventLabel?.isHidden = !isEmpty
+
+        if isEmpty {
             return
         }
 
@@ -56,10 +66,6 @@ class AmaxAspectSetCell : AmaxTableCell {
         //spacerButton.layer.borderColor = UIColor.red.cgColor
         aspects.append(spacerButton)
 
-        for view in contentView.subviews {
-            view.removeFromSuperview()
-        }
-
         let stackedInfoView:UIStackView! = UIStackView(arrangedSubviews:aspects)
 
         stackedInfoView.axis = .horizontal
@@ -79,13 +85,15 @@ class AmaxAspectSetCell : AmaxTableCell {
     }
 
     @objc func itemTapped(sender:UIButton!) {
-        //NSLog("AmaxAspectCell tapped")
-        var responder: UIResponder = self
-        while responder is UIView {
-            responder = responder.next!
+        if let si = summaryItem {
+            //NSLog("AmaxAspectCell tapped")
+            var responder: UIResponder = self
+            while responder is UIView {
+                responder = responder.next!
+            }
+            let controller = responder as! AmaxSummaryViewController
+            controller.showEventListFor(si: si, xib: "AspectCell")
+            //NSLog("Ok button was tapped: dismiss the view controller.")
         }
-        let controller = responder as! AmaxSummaryViewController
-        controller.showEventListFor(si: summaryItem, xib: "AspectCell")
-        //NSLog("Ok button was tapped: dismiss the view controller.")
     }
 }

@@ -20,7 +20,17 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
 
     override func configure(_ si: AmaxSummaryItem) {
         super.configure(si)
-        if si.mEvents.count == 0 {
+
+        for view in contentView.subviews {
+            if view.tag != 1 {
+                view.removeFromSuperview()
+            }
+        }
+
+        let isEmpty = si.mEvents.count == 0
+        eventLabel?.isHidden = !isEmpty
+
+        if isEmpty {
             return
         }
 
@@ -49,10 +59,6 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
         //spacerButton.layer.borderColor = UIColor.red.cgColor
         events.append(spacerButton)
 
-        for view in contentView.subviews {
-            view.removeFromSuperview()
-        }
-
         let stackedInfoView:UIStackView! = UIStackView(arrangedSubviews: events)
 
         stackedInfoView.axis = .horizontal
@@ -71,13 +77,15 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
         self.updateInfoButtonWith(si)
     }
 
-    @objc func itemTapped(sender:UIButton!) {
-        var responder: UIResponder = self
-        while responder is UIView {
-            responder = responder.next!
+    @objc func itemTapped(sender: UIButton!) {
+        if let si = summaryItem {
+            var responder: UIResponder = self
+            while responder is UIView {
+                responder = responder.next!
+            }
+            let controller = responder as! AmaxSummaryViewController
+            controller.showEventListFor(si: si, xib: "RetrogradeCell")
+            //NSLog("Ok button was tapped: dismiss the view controller.")
         }
-        let controller = responder as! AmaxSummaryViewController
-        controller.showEventListFor(si: summaryItem, xib: "RetrogradeCell")
-        //NSLog("Ok button was tapped: dismiss the view controller.")
     }
 }
