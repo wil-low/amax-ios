@@ -668,12 +668,11 @@ class AmaxDataProvider {
     }
 
     func prepareCalculation() {
-        let date = mCalendar.date(from: mCurrentDateComponents)
-        mStartTime = Int(date!.timeIntervalSince1970)
+        let date = currentDate()
+        mStartTime = Int(date.timeIntervalSince1970)
         mEndTime = Int(Int32(mStartTime) + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC)
         AmaxEvent.setTimeRange(from: mStartTime, to: mEndTime)
         _mEventCache.removeAll()
-
     }
 
     func calculateAll() {
@@ -692,11 +691,16 @@ class AmaxDataProvider {
         return String(format:"%02ld:%02ld", _mCurrentHour, _mCurrentMinute)
     }
 
-    func changeDate(deltaDays: Int) {
-        _mEventCache.removeAll()
-        mStartTime += Int(AmaxSECONDS_IN_DAY) * deltaDays + Int(AmaxSECONDS_IN_DAY) / 2
+    func changeDate(deltaDays: Int) -> Bool {
+        let date = mStartTime + Int(AmaxSECONDS_IN_DAY) * deltaDays + Int(AmaxSECONDS_IN_DAY) / 2
+        if date < mStartJD || date >= mFinalJD {
+            return false
+        }
+        mStartTime = date
         let newDate = Date(timeIntervalSince1970: TimeInterval(mStartTime))
         mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newDate)
+        _mEventCache.removeAll()
+        return true
     }
 
     func currentDate() -> Date {

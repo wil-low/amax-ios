@@ -53,13 +53,15 @@ class AmaxBaseViewController : UIViewController, UITableViewDelegate, UITableVie
     }
 
     @IBAction func goToPreviousDate(_ sender: AnyObject!) {
-        mDataProvider?.changeDate(deltaDays: -1)
-        updateDisplay()
+        if mDataProvider!.changeDate(deltaDays: -1) {
+            updateDisplay()
+        }
     }
 
     @IBAction func goToNextDate(_ sender: AnyObject!) {
-        mDataProvider?.changeDate(deltaDays: 1)
-        updateDisplay()
+        if mDataProvider!.changeDate(deltaDays: 1) {
+            updateDisplay()
+        }
     }
 
     func showInterpreterFor(event: AmaxEvent) {
