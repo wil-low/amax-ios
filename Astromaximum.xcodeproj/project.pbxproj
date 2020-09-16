@@ -35,6 +35,7 @@
 		729AFB2324D0C0C500EF0894 /* AspectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729AFB2124D0C0C500EF0894 /* AspectCell.xib */; };
 		729C4FDC24DDD23D0058E1EA /* AmaxDataInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C4FDB24DDD23D0058E1EA /* AmaxDataInputStream.swift */; };
 		729C4FDD24DDD38C0058E1EA /* AmaxCommonDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB5BA824DC702500E20F7E /* AmaxCommonDataFile.swift */; };
+		72A36FBA250E2A1700C0AD63 /* AmaxStartPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A36FB8250E2A1700C0AD63 /* AmaxStartPageViewController.xib */; };
 		72A4218824C8AE860096DF9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A4218724C8AE860096DF9C /* Images.xcassets */; };
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
 		72A9B7B024ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A9B7AF24ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift */; };
@@ -133,6 +134,7 @@
 		727CAEB224C160A10008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxSummaryViewController.xib; sourceTree = "<group>"; };
 		729AFB2224D0C0C500EF0894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AspectCell.xib; sourceTree = "<group>"; };
 		729C4FDB24DDD23D0058E1EA /* AmaxDataInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxDataInputStream.swift; sourceTree = "<group>"; };
+		72A36FB9250E2A1700C0AD63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/AmaxStartPageViewController.xib; sourceTree = "<group>"; };
 		72A4218724C8AE860096DF9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		72A9B7AF24ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxRetrogradeSetCell.swift; sourceTree = "<group>"; };
 		72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				84DFC22F16A59E00003D8B01 /* AmaxLocationListController.xib */,
 				84DFC23116A59E00003D8B01 /* AmaxSettingsController.xib */,
 				84DFC23316A59E00003D8B01 /* AmaxSummaryViewController.xib */,
+				72A36FB8250E2A1700C0AD63 /* AmaxStartPageViewController.xib */,
 			);
 			name = Xib;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				84DFC23A16A59E00003D8B01 /* AmaxSummaryViewController.xib in Resources */,
 				84DFC24E16A5A380003D8B01 /* AspectSetCell.xib in Resources */,
 				84DFC24F16A5A380003D8B01 /* MoonMoveCell.xib in Resources */,
+				72A36FBA250E2A1700C0AD63 /* AmaxStartPageViewController.xib in Resources */,
 				84DFC25016A5A380003D8B01 /* MoonSignCell.xib in Resources */,
 				84DFC25116A5A380003D8B01 /* PlanetHourCell.xib in Resources */,
 				84DFC25216A5A380003D8B01 /* RetrogradeCell.xib in Resources */,
@@ -582,6 +586,14 @@
 				729AFB2224D0C0C500EF0894 /* Base */,
 			);
 			name = AspectCell.xib;
+			sourceTree = "<group>";
+		};
+		72A36FB8250E2A1700C0AD63 /* AmaxStartPageViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72A36FB9250E2A1700C0AD63 /* Base */,
+			);
+			name = AmaxStartPageViewController.xib;
 			sourceTree = "<group>";
 		};
 		72A6011D24B83144002C1322 /* VocCell.xib */ = {
