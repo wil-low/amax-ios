@@ -13,7 +13,11 @@ class AmaxEventListViewController : AmaxBaseViewController {
     var cellNibName: String = ""
     @IBOutlet weak var mTableView: UITableView!
 
+    var mYearDataProvider: AmaxDataProvider?
+
     var detailItem: AmaxSummaryItem?
+    var wholeYearItem: AmaxSummaryItem?
+    var isWholeYearMode = false
     
     @IBOutlet weak var tvCell: AmaxTableCell?
 
@@ -30,6 +34,8 @@ class AmaxEventListViewController : AmaxBaseViewController {
     init(nibName: String, bundle nibBundleOrNil: Bundle) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
         mDataProvider = AmaxDataProvider.sharedInstance
+        mYearDataProvider = AmaxDataProvider()
+        mYearDataProvider?.setRange(from: mDataProvider!.mStartJD, to: mDataProvider!.mFinalJD)
     }
     
     required init?(coder: NSCoder) {
@@ -52,10 +58,10 @@ class AmaxEventListViewController : AmaxBaseViewController {
             cell?.accessoryType = .none
         }
         // Configure the cell.
-        let event = detailItem!.mEvents[indexPath.row]
-        let si = AmaxSummaryItem(key: detailItem!.mKey, events: [event])
+        let event = sourceItem()!.mEvents[indexPath.row]
+        let si = AmaxSummaryItem(key: sourceItem()!.mKey, events: [event])
         si.mActiveEvent = event
-        (cell as! AmaxTableCell).configure(si)
+        (cell as! AmaxTableCell).configure(si, isWholeYearMode)
         return cell!
     }
 
@@ -65,18 +71,18 @@ class AmaxEventListViewController : AmaxBaseViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = detailItem!.mEvents.count
+        let count = sourceItem()!.mEvents.count
         return count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String {
-        let textId = String(format:"%d", detailItem!.mKey.rawValue)
+        let textId = String(format:"%d", sourceItem()!.mKey.rawValue)
         return NSLocalizedString(textId, tableName: "EventListTitle", comment: "")
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let e = detailItem!.mEvents[indexPath.row]
+        let e = sourceItem()!.mEvents[indexPath.row]
         showInterpreterFor(event: e)
     }
 
@@ -89,11 +95,25 @@ class AmaxEventListViewController : AmaxBaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        isWholeYearMode = false
         mTableView.reloadData()
         updateDisplay()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    @IBAction func switchMode(_ sender: AnyObject!) {
+        isWholeYearMode = !isWholeYearMode
+        if isWholeYearMode && wholeYearItem == nil {
+            mYearDataProvider?.mLocationDataFile = mDataProvider?.mLocationDataFile
+            wholeYearItem = mYearDataProvider?.calculateFor(eventType: detailItem!.mKey)
+        }
+        mTableView.reloadData()
+    }
+    
+    func sourceItem() -> AmaxSummaryItem? {
+        return isWholeYearMode ? wholeYearItem : detailItem
     }
 }

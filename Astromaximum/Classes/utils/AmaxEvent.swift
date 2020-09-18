@@ -30,8 +30,8 @@ class AmaxEvent : NSObject, NSCopying {
     var mEvtype: AmaxEventType
     var mDegree: Int16 = 0
     static var mCalendar:Calendar?
-    static var mPeriod0: Int = 0
-    static var mPeriod1: Int = 0
+    var mPeriod0: Int = 0
+    var mPeriod1: Int = 0
     static let DEFAULT_DATE_FORMAT = "%02d-%02d %02d:%02d"
     static var mMonthAbbrDayDateFormatter:DateFormatter?
     
@@ -86,7 +86,7 @@ class AmaxEvent : NSObject, NSCopying {
         return result
     }
 
-    class func setTimeRange(from date0: Int, to date1: Int) {
+    func setTimeRange(from date0: Int, to date1: Int) {
         mPeriod0 = date0
         mPeriod1 = date1
     }
@@ -113,16 +113,16 @@ class AmaxEvent : NSObject, NSCopying {
         var date0 = mDate[0]
         var date1 = mDate[1]
         if USE_EXACT_RANGE {
-            if date0 < AmaxEvent.mPeriod0 {
-                date0 = AmaxEvent.mPeriod0
+            if date0 < mPeriod0 {
+                date0 = mPeriod0
             }
-            if date1 > AmaxEvent.mPeriod1 {
-                date1 = AmaxEvent.mPeriod1
+            if date1 > mPeriod1 {
+                date1 = mPeriod1
             }
             return String.init(format: "%@ - %@", AmaxEvent.long2String(date0, format: nil, h24: false), AmaxEvent.long2String(date1, format: nil, h24: true))
         }
-        let isTillRequired = date0 < AmaxEvent.mPeriod0
-        let isSinceRequired = date1 > AmaxEvent.mPeriod1
+        let isTillRequired = date0 < mPeriod0
+        let isSinceRequired = date1 > mPeriod1
         
         if isTillRequired && isSinceRequired {
             return NSLocalizedString("norm_range_whole_day", comment: "")

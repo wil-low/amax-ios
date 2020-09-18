@@ -99,7 +99,7 @@ class AmaxSummaryViewController : AmaxBaseViewController {
 
         // Configure the cell.
         si.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
-        (cell as! AmaxTableCell).configure(si)
+        (cell as! AmaxTableCell).configure(si, false)
 
         if si.mEvents.count > 0 {
             switch si.mKey {

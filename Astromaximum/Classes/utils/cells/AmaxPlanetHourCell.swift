@@ -18,10 +18,20 @@ class AmaxPlanetHourCell : AmaxTableCell {
         hourLabel?.text = NSLocalizedString("hour_of", comment: "Planet hour event caption")
     }
 
-    override func configure(_ si: AmaxSummaryItem) {
-        super.configure(si)
+    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
+        super.configure(si, isYearMode)
         if let e = si.mActiveEvent {
-            timeLabel?.text = e.normalizedRangeString()
+            if isYearMode {
+                timeLabel?.numberOfLines = 2
+                timeLabel?.text =
+                    AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+                    + "\n"
+                    + AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+            }
+            else {
+                timeLabel?.numberOfLines = 1
+                timeLabel?.text = e.normalizedRangeString()
+            }
             eventLabel?.text = String(format: "%c",
                                       getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
             self.setColorOf(label: eventLabel!, byEventMode: e)

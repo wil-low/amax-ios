@@ -17,8 +17,8 @@ class AmaxAspectSetCell : AmaxTableCell {
         //stackView.translatesAutoresizingMaskIntoConstraints = false;
     }
 
-    override func configure(_ si: AmaxSummaryItem) {
-        super.configure(si)
+    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
+        super.configure(si, isYearMode)
 
         for view in contentView.subviews {
             if view.tag != 1 {
