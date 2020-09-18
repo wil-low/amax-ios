@@ -18,8 +18,8 @@ class AmaxAspectCell : AmaxTableCell {
         mDataProvider = AmaxDataProvider.sharedInstance
     }
 
-    override func configure(_ si: AmaxSummaryItem) {
-        super.configure(si)
+    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
+        super.configure(si, isYearMode)
         if let e = si.mActiveEvent {
             eventLabel?.text = String(format: "%c %c %c",
                                       getSymbol(TYPE_PLANET, e.mPlanet0.rawValue),

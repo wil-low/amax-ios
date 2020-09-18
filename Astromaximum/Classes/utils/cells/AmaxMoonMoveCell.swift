@@ -20,8 +20,8 @@ class AmaxMoonMoveCell : AmaxTableCell {
         mDataProvider = AmaxDataProvider.sharedInstance
     }
 
-    override func configure(_ si: AmaxSummaryItem) {
-        super.configure(si)
+    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
+        super.configure(si, isYearMode)
         if let e = si.mActiveEvent {
             //mText0.setTextColor(mDefaultTextColor);
             let date0 = e.date(at: 0)

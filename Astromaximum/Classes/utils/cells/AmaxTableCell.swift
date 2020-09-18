@@ -31,7 +31,7 @@ class AmaxTableCell : UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(_ si: AmaxSummaryItem) {
+    func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
         summaryItem = si
 
         timeLabel?.text = nil

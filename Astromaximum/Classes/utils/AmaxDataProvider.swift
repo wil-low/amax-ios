@@ -11,9 +11,9 @@ import Foundation
 class AmaxDataProvider {
 
     private var mCommonDataFile: AmaxCommonDataFile
-    private var mLocationDataFile: AmaxLocationDataFile?
+    var mLocationDataFile: AmaxLocationDataFile?
     private var documentsDirectory: URL
-    private var mEvents = [AmaxEvent].init(repeating: AmaxEvent(), count: 100)
+    private var mEvents = [AmaxEvent].init(repeating: AmaxEvent(), count: 1000)
     private var mCalendar = Calendar.current
     private var mCurrentDateComponents = DateComponents()
     private var mStartTime = 0
@@ -662,6 +662,9 @@ class AmaxDataProvider {
     		default:
     			return nil
         }
+        for e in events {
+            e.setTimeRange(from: mStartTime, to: mEndTime)
+        }
         let si = AmaxSummaryItem(key: eventType, events: events)
         _mEventCache.append(si)
         return si
@@ -669,10 +672,8 @@ class AmaxDataProvider {
 
     func prepareCalculation() {
         let date = currentDate()
-        mStartTime = Int(date.timeIntervalSince1970)
-        mEndTime = Int(Int32(mStartTime) + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC)
-        AmaxEvent.setTimeRange(from: mStartTime, to: mEndTime)
-        _mEventCache.removeAll()
+        let start = Int(date.timeIntervalSince1970)
+        setRange(from: start, to: Int(Int32(start) + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC))
     }
 
     func calculateAll() {
@@ -696,10 +697,9 @@ class AmaxDataProvider {
         if date < mStartJD || date >= mFinalJD {
             return false
         }
-        mStartTime = date
+        setRange(from: date, to: Int(Int32(date) + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC))
         let newDate = Date(timeIntervalSince1970: TimeInterval(mStartTime))
         mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newDate)
-        _mEventCache.removeAll()
         return true
     }
 
@@ -748,5 +748,11 @@ class AmaxDataProvider {
 
     func isInCurrentDay(date: Int) -> Bool {
         return dateBetween(date, mStartTime, mEndTime) == 0
+    }
+    
+    func setRange(from: Int, to: Int) {
+        mStartTime = from
+        mEndTime = to
+        _mEventCache.removeAll()
     }
 }
