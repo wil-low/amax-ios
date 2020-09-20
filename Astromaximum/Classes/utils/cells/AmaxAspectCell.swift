@@ -18,14 +18,20 @@ class AmaxAspectCell : AmaxTableCell {
         mDataProvider = AmaxDataProvider.sharedInstance
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
-        super.configure(si, isYearMode)
+    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
+        super.configure(si, extRangeMode)
         if let e = si.mActiveEvent {
             eventLabel?.text = String(format: "%c %c %c",
                                       getSymbol(TYPE_PLANET, e.mPlanet0.rawValue),
                                       getSymbol(TYPE_ASPECT, Int32(e.mDegree)),
                                       getSymbol(TYPE_PLANET, e.mPlanet1.rawValue))
-            timeLabel?.text = AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
+            if extRangeMode {
+                timeLabel?.text =
+                    AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+            }
+            else {
+                timeLabel?.text = AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
+            }
         }
         self.updateInfoButtonWith(si)
     }

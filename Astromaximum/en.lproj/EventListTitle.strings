@@ -15,3 +15,8 @@
 "8" = "Tithi";
 "2" = "Aspect";
 "6" = "Retrograde Motion";
+
+"OneDay" = "± day";
+"TwoDays" = "± 2 days";
+"Month" = "± month";
+"Year" = "all year";

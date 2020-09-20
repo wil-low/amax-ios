@@ -16,8 +16,15 @@ class AmaxDataProvider {
     private var mEvents = [AmaxEvent].init(repeating: AmaxEvent(), count: 1000)
     private var mCalendar = Calendar.current
     private var mCurrentDateComponents = DateComponents()
-    private var mStartTime = 0
-    private var mEndTime = 0
+
+    private var _mStartTime = 0
+    var mStartTime: Int {
+        get { return _mStartTime }
+    }
+    private var _mEndTime = 0
+    var mEndTime: Int {
+        get { return _mEndTime }
+    }
 
     private var _mEventCache = [AmaxSummaryItem]()
     var mEventCache: [AmaxSummaryItem] {
@@ -399,23 +406,23 @@ class AmaxDataProvider {
     }
 
     func calculateVOCs() -> [AmaxEvent] {
-        return getEventsOnPeriodFor(eventType: EV_VOC, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType: EV_VOC, planet: SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
     func calculateVC() -> [AmaxEvent] {
-        return getEventsOnPeriodFor(eventType:  EV_VIA_COMBUSTA, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType:  EV_VIA_COMBUSTA, planet: SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
     func calculateSunDegree() -> [AmaxEvent] {
-        return getEventsOnPeriodFor(eventType:  EV_DEGREE_PASS, planet: SE_SUN, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType:  EV_DEGREE_PASS, planet: SE_SUN, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
     func calculateMoonSign() -> [AmaxEvent] {
-        return getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
     func calculateTithis() -> [AmaxEvent] {
-        return getEventsOnPeriodFor(eventType: EV_TITHI, planet:  SE_MOON, special: false, from: mStartTime, to: mEndTime, value: 0)
+        return getEventsOnPeriodFor(eventType: EV_TITHI, planet:  SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
     func getPlanetaryHours(into: inout [AmaxEvent], currentSunRise: AmaxEvent, nextSunRise: AmaxEvent!, dayOfWeek: Int) {
@@ -431,7 +438,7 @@ class AmaxDataProvider {
             var date1:Int = st - Int(AmaxROUNDING_SEC) // exclude last minute
             date1 -= (date1 % Int(AmaxROUNDING_SEC))
             ev.setDate(at: 1, value: date1)
-            if ev.isInPeriod(from: mStartTime, to: mEndTime, special: false) {
+            if ev.isInPeriod(from: _mStartTime, to: _mEndTime, special: false) {
                 into.append(ev)
             }
             startHour += 1
@@ -439,8 +446,8 @@ class AmaxDataProvider {
     }
 
     func calculatePlanetaryHours() -> [AmaxEvent] {
-        let sunRises = getEventsOnPeriodFor(eventType: EV_RISE, planet: SE_SUN, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (mEndTime + Int(AmaxSECONDS_IN_DAY)), value: 0)
-        let sunSets = getEventsOnPeriodFor(eventType: EV_SET, planet: SE_SUN, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (mEndTime + Int(AmaxSECONDS_IN_DAY)), value:0)
+        let sunRises = getEventsOnPeriodFor(eventType: EV_RISE, planet: SE_SUN, special: true, from: (_mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (_mEndTime + Int(AmaxSECONDS_IN_DAY)), value: 0)
+        let sunSets = getEventsOnPeriodFor(eventType: EV_SET, planet: SE_SUN, special: true, from: (_mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (_mEndTime + Int(AmaxSECONDS_IN_DAY)), value:0)
         var result = [AmaxEvent]()
         if sunRises.count < 3 || sunRises.count != sunSets.count {
             return result
@@ -448,6 +455,10 @@ class AmaxDataProvider {
         for i in 0 ..< sunRises.count {
             sunRises[i].setDate(at: 1, value: sunSets[i].date(at: 0))
         }
+
+        let newDate = Date(timeIntervalSince1970: TimeInterval(_mStartTime))
+        mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newDate)
+
         var dayOfWeek:Int = mCurrentDateComponents.weekday! - 1
         if dayOfWeek < 1 {
             dayOfWeek = 6
@@ -455,9 +466,10 @@ class AmaxDataProvider {
         else {
             dayOfWeek -= 1
         }
-        getPlanetaryHours(into: &result, currentSunRise: sunRises[0], nextSunRise: sunRises[1], dayOfWeek: dayOfWeek)
-        dayOfWeek = (dayOfWeek + 1) % 7
-        getPlanetaryHours(into: &result, currentSunRise: sunRises[1], nextSunRise: sunRises[2], dayOfWeek: dayOfWeek)
+        for i in 0 ..< sunRises.count - 1 {
+            getPlanetaryHours(into: &result, currentSunRise: sunRises[i], nextSunRise: sunRises[i + 1], dayOfWeek: dayOfWeek)
+            dayOfWeek = (dayOfWeek + 1) % 7
+        }
         return result
     }
 
@@ -498,8 +510,8 @@ class AmaxDataProvider {
     }
 
     func calculateMoonMove() -> [AmaxEvent] {
-        var asp = getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: true, from: (mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (mEndTime + Int(AmaxSECONDS_IN_DAY) * 4), value: 0)
-        var moonMoveVec = getAspectsOnPeriodFor(planet: SE_MOON, from: (mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (mEndTime + Int(AmaxSECONDS_IN_DAY) * 2))
+        var asp = getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: true, from: (_mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (_mEndTime + Int(AmaxSECONDS_IN_DAY) * 4), value: 0)
+        var moonMoveVec = getAspectsOnPeriodFor(planet: SE_MOON, from: (_mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (_mEndTime + Int(AmaxSECONDS_IN_DAY) * 2))
 
         mergeEvents(dest: &moonMoveVec, add: asp, isSort: true)
         asp.removeAll()
@@ -509,10 +521,10 @@ class AmaxDataProvider {
         var counter = 0
         for ev in asp {
             let dat = ev.date(at: 0)
-            if dat < mStartTime {
+            if dat < _mStartTime {
                 id1 = counter
             }
-            if id2 == -1 && dat >= mEndTime {
+            if id2 == -1 && dat >= _mEndTime {
                 id2 = counter
             }
             counter += 1
@@ -576,7 +588,7 @@ class AmaxDataProvider {
     func calculateRetrogrades() -> [AmaxEvent] {
         var result = [AmaxEvent]()
         for planet in SE_MERCURY.rawValue ... SE_PLUTO.rawValue {
-            let v = getEventsOnPeriodFor(eventType: EV_RETROGRADE, planet: AmaxPlanet(rawValue: planet), special: false, from: mStartTime, to: mEndTime, value: 0)
+            let v = getEventsOnPeriodFor(eventType: EV_RETROGRADE, planet: AmaxPlanet(rawValue: planet), special: false, from: _mStartTime, to: _mEndTime, value: 0)
             if v.count > 0 {
                 result.append(contentsOf: v)
             }
@@ -626,10 +638,10 @@ class AmaxDataProvider {
     */
 
     func calculateAspects() -> [AmaxEvent] {
-        return getAspectsOnPeriodFor(planet: SE_UNDEFINED, from: mStartTime, to: mEndTime)
+        return getAspectsOnPeriodFor(planet: SE_UNDEFINED, from: _mStartTime, to: _mEndTime)
     }
 
-    func calculateFor(eventType: AmaxEventType) -> AmaxSummaryItem? {
+    func calculateFor(eventType: AmaxEventType, extRange: Bool) -> AmaxSummaryItem? {
         var events: [AmaxEvent]
         switch (eventType) { 
     		case EV_VOC:
@@ -663,7 +675,7 @@ class AmaxDataProvider {
     			return nil
         }
         for e in events {
-            e.setTimeRange(from: mStartTime, to: mEndTime)
+            e.setTimeRange(from: _mStartTime, to: _mEndTime)
         }
         let si = AmaxSummaryItem(key: eventType, events: events)
         _mEventCache.append(si)
@@ -678,7 +690,7 @@ class AmaxDataProvider {
 
     func calculateAll() {
         for item in START_PAGE_ITEM_SEQ {
-            _ = calculateFor(eventType: item)
+            _ = calculateFor(eventType: item, extRange: false)
          }
     }
 
@@ -693,12 +705,12 @@ class AmaxDataProvider {
     }
 
     func changeDate(deltaDays: Int) -> Bool {
-        let date = mStartTime + Int(AmaxSECONDS_IN_DAY) * deltaDays + Int(AmaxSECONDS_IN_DAY) / 2
+        let date = _mStartTime + Int(AmaxSECONDS_IN_DAY) * deltaDays + Int(AmaxSECONDS_IN_DAY) / 2
         if date < mStartJD || date >= mFinalJD {
             return false
         }
         setRange(from: date, to: Int(Int32(date) + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC))
-        let newDate = Date(timeIntervalSince1970: TimeInterval(mStartTime))
+        let newDate = Date(timeIntervalSince1970: TimeInterval(_mStartTime))
         mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newDate)
         return true
     }
@@ -747,12 +759,41 @@ class AmaxDataProvider {
     }
 
     func isInCurrentDay(date: Int) -> Bool {
-        return dateBetween(date, mStartTime, mEndTime) == 0
+        return dateBetween(date, _mStartTime, _mEndTime) == 0
     }
     
     func setRange(from: Int, to: Int) {
-        mStartTime = from
-        mEndTime = to
+        _mStartTime = from
+        _mEndTime = to
+        _mEventCache.removeAll()
+    }
+
+    func setExtRange(mode: AmaxSummaryItem.ExtendedRangeMode, provider: AmaxDataProvider) {
+        var from = 0, to = 0
+        switch mode {
+        case .oneDay:
+            from = provider.mStartTime - Int(AmaxSECONDS_IN_DAY)
+            to = provider.mEndTime + Int(AmaxSECONDS_IN_DAY)
+        case .twoDays:
+            from = provider.mStartTime - Int(AmaxSECONDS_IN_DAY) * 2
+            to = provider.mEndTime + Int(AmaxSECONDS_IN_DAY) * 2
+        case .month:
+            from = provider.mStartTime - Int(AmaxSECONDS_IN_DAY) * 30
+            to = provider.mEndTime + Int(AmaxSECONDS_IN_DAY) * 30
+        case .year:
+            from = provider.mStartJD
+            to = provider.mFinalJD
+        default:
+            return
+        }
+        if from < provider.mStartJD {
+            from = provider.mStartJD
+        }
+        if to > provider.mFinalJD {
+            to = provider.mFinalJD
+        }
+        _mStartTime = from
+        _mEndTime = to
         _mEventCache.removeAll()
     }
 }

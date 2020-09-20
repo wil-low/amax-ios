@@ -80,16 +80,6 @@
 		84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EB53F6168CE8010089D6F6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		72AA650824BAB24A00633E55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7272D41E24B845A60017A464;
-			remoteInfo = Astromaximum2;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		7218830924ECCD8800163389 /* AmaxRetrogradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxRetrogradeCell.swift; sourceTree = "<group>"; };
 		7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxLocationBundle.swift; sourceTree = "<group>"; };
@@ -139,7 +129,6 @@
 		72A9B7AF24ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxRetrogradeSetCell.swift; sourceTree = "<group>"; };
 		72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Bridging-Header.h"; sourceTree = "<group>"; };
 		72AA2A6724DBC99600A5E00A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Astromaximum2.xcodeproj; path = ../Astromaximum2/Astromaximum2.xcodeproj; sourceTree = "<group>"; };
 		72ACB3B024E63716007C2813 /* AmaxBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxBaseViewController.swift; sourceTree = "<group>"; };
 		72ACB3B224E63724007C2813 /* AmaxEventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxEventListViewController.swift; sourceTree = "<group>"; };
 		72ACB3B424E63730007C2813 /* AmaxSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxSummaryViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +163,6 @@
 		84E98AFC168E0FAF006AAA55 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PlanetsGenitive.strings; sourceTree = "<group>"; };
 		84E98B00168E0FCA006AAA55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Aspects.strings; sourceTree = "<group>"; };
 		84E98B02168E0FCF006AAA55 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Aspects.strings; sourceTree = "<group>"; };
-		84E98B0D168E52A2006AAA55 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84E98B4D168E6331006AAA55 /* AmaxTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AmaxTypes.c; sourceTree = "<group>"; };
 		84E98B4E168E6331006AAA55 /* AmaxTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmaxTypes.h; sourceTree = "<group>"; };
 		84EB53F5168CE8010089D6F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -195,14 +183,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		72AA650524BAB24A00633E55 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				72AA650924BAB24A00633E55 /* Astromaximum2.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		8483FDDA166594AD000C9143 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +195,6 @@
 		84B1AC5F1647BB3E007188B1 = {
 			isa = PBXGroup;
 			children = (
-				72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */,
 				72606C9324B823FB009B0113 /* Default-568h@2x.png */,
 				84B1AC741647BB3E007188B1 /* Astromaximum */,
 				84B1AC6D1647BB3E007188B1 /* Frameworks */,
@@ -256,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				84E98B23168E62E7006AAA55 /* Localization */,
-				84E98B0D168E52A2006AAA55 /* main.m */,
 				72606C9724B82CBE009B0113 /* locations.dat */,
 				72606C9624B82CB4009B0113 /* common.dat */,
 				84B1AC761647BB3E007188B1 /* Astromaximum-Info.plist */,
@@ -435,28 +413,12 @@
 			mainGroup = 84B1AC5F1647BB3E007188B1;
 			productRefGroup = 84B1AC6B1647BB3E007188B1 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 72AA650524BAB24A00633E55 /* Products */;
-					ProjectRef = 72AA650424BAB24A00633E55 /* Astromaximum2.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				84B1AC691647BB3E007188B1 /* Astromaximum */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		72AA650924BAB24A00633E55 /* Astromaximum2.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Astromaximum2.app;
-			remoteRef = 72AA650824BAB24A00633E55 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		84B1AC681647BB3E007188B1 /* Resources */ = {
