@@ -46,7 +46,7 @@ class AmaxSummaryItem {
     func activeEventPosition(customTime: Int, currentTime: Int) -> Int {
         var index = 0
         var prev = -1
-        switch (_mKey) { 
+        switch _mKey {
     		case EV_MOON_MOVE:
     			for e in _mEvents {
     				if e.mEvtype == EV_MOON_MOVE {
@@ -61,7 +61,6 @@ class AmaxSummaryItem {
     				}
     				index += 1
     			 }
-    			break
     		case EV_VOC, EV_VIA_COMBUSTA:
     			for e in _mEvents {
                     let between = dateBetween(currentTime, e.date(at: 0), e.date(at: 1))
@@ -81,6 +80,15 @@ class AmaxSummaryItem {
     				index += 1
     			 }
     			return prev
+            case EV_ASP_EXACT:
+                for e in _mEvents {
+                    if currentTime < e.date(at: 0) {
+                        return index - 1
+                    }
+                    else {
+                        index += 1
+                    }
+                }
     		default:
     			for e in _mEvents {
     				if dateBetween(currentTime, e.date(at: 0), e.date(at: 1)) == 0 {
@@ -93,7 +101,6 @@ class AmaxSummaryItem {
     				}
     				index += 1
     			 }
-    			break
         }
         return -1    
     }
@@ -102,4 +109,30 @@ class AmaxSummaryItem {
         let pos = activeEventPosition(customTime: customTime, currentTime: currentTime)
         _mActiveEvent = (pos == -1) ? nil : _mEvents[pos]
     }
+    
+    enum ExtendedRangeMode {
+        case none
+        case oneDay
+        case twoDays
+        case month
+        case year
+    }
+    
+    func extendedRangeMode() -> ExtendedRangeMode {
+        switch _mKey {
+        case EV_MOON_MOVE:
+            return .twoDays
+        case EV_PLANET_HOUR:
+            return .oneDay
+        case EV_MOON_SIGN:
+            return .month
+        case EV_RETROGRADE, EV_ASP_EXACT, EV_SUN_DEGREE, EV_TITHI:
+            return .year
+        case EV_VOC, EV_VIA_COMBUSTA:
+            return .none
+        default:
+            return .none
+        }
+    }
+
 }

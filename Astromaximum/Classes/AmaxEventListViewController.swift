@@ -12,12 +12,13 @@ class AmaxEventListViewController : AmaxBaseViewController {
 
     var cellNibName: String = ""
     @IBOutlet weak var mTableView: UITableView!
+    @IBOutlet weak var mSwitchModeButton: UIBarButtonItem!
 
-    var mYearDataProvider: AmaxDataProvider?
+    var mExtRangeDataProvider: AmaxDataProvider?
 
     var detailItem: AmaxSummaryItem?
-    var wholeYearItem: AmaxSummaryItem?
-    var isWholeYearMode = false
+    var extRangeItem: AmaxSummaryItem?
+    var extRangeMode = false
     
     @IBOutlet weak var tvCell: AmaxTableCell?
 
@@ -34,8 +35,7 @@ class AmaxEventListViewController : AmaxBaseViewController {
     init(nibName: String, bundle nibBundleOrNil: Bundle) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
         mDataProvider = AmaxDataProvider.sharedInstance
-        mYearDataProvider = AmaxDataProvider()
-        mYearDataProvider?.setRange(from: mDataProvider!.mStartJD, to: mDataProvider!.mFinalJD)
+        mExtRangeDataProvider = AmaxDataProvider()
     }
     
     required init?(coder: NSCoder) {
@@ -61,7 +61,7 @@ class AmaxEventListViewController : AmaxBaseViewController {
         let event = sourceItem()!.mEvents[indexPath.row]
         let si = AmaxSummaryItem(key: sourceItem()!.mKey, events: [event])
         si.mActiveEvent = event
-        (cell as! AmaxTableCell).configure(si, isWholeYearMode)
+        (cell as! AmaxTableCell).configure(si, extRangeMode)
         return cell!
     }
 
@@ -77,7 +77,24 @@ class AmaxEventListViewController : AmaxBaseViewController {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String {
         let textId = String(format:"%d", sourceItem()!.mKey.rawValue)
-        return NSLocalizedString(textId, tableName: "EventListTitle", comment: "")
+        var title = NSLocalizedString(textId, tableName: "EventListTitle", comment: "")
+        if extRangeMode {
+            var mode = ""
+            switch detailItem?.extendedRangeMode() {
+            case .oneDay:
+                mode = "OneDay"
+            case .twoDays:
+                mode = "TwoDays"
+            case .month:
+                mode = "Month"
+            case .year:
+                mode = "Year"
+            default:
+                mode = "None"
+            }
+            title += " (" + NSLocalizedString(mode, tableName: "EventListTitle", comment: "") + ")"
+        }
+        return title
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -95,25 +112,38 @@ class AmaxEventListViewController : AmaxBaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        isWholeYearMode = false
         mTableView.reloadData()
         updateDisplay()
+        mSwitchModeButton.isEnabled = detailItem?.extendedRangeMode() != AmaxSummaryItem.ExtendedRangeMode.none
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        scrollToActive()
     }
     
     @IBAction func switchMode(_ sender: AnyObject!) {
-        isWholeYearMode = !isWholeYearMode
-        if isWholeYearMode && wholeYearItem == nil {
-            mYearDataProvider?.mLocationDataFile = mDataProvider?.mLocationDataFile
-            wholeYearItem = mYearDataProvider?.calculateFor(eventType: detailItem!.mKey)
+        extRangeMode = !extRangeMode
+        if extRangeMode && extRangeItem == nil {
+            mExtRangeDataProvider?.mLocationDataFile = mDataProvider?.mLocationDataFile
+            mExtRangeDataProvider?.setExtRange(mode: (detailItem?.extendedRangeMode())!, provider: mDataProvider!)
+            extRangeItem = mExtRangeDataProvider?.calculateFor(eventType: detailItem!.mKey, extRange: true)
         }
         mTableView.reloadData()
+        scrollToActive()
     }
     
     func sourceItem() -> AmaxSummaryItem? {
-        return isWholeYearMode ? wholeYearItem : detailItem
+        return extRangeMode ? extRangeItem : detailItem
+    }
+    
+    func scrollToActive() {
+        if extRangeMode {
+            let eventIndex = extRangeItem!.activeEventPosition(customTime: -1, currentTime: mDataProvider!.getCurrentTime())
+            if eventIndex != -1 {
+                let path = IndexPath(row: eventIndex, section: 0)
+                mTableView.scrollToRow(at: path, at: .middle, animated: true)
+            }
+        }
     }
 }

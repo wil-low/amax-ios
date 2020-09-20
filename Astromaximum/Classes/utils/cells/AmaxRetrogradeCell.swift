@@ -18,8 +18,8 @@ class AmaxRetrogradeCell : AmaxTableCell {
         mDataProvider = AmaxDataProvider.sharedInstance
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
-        super.configure(si, isYearMode)
+    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
+        super.configure(si, extRangeMode)
         if let e = si.mActiveEvent {
             eventLabel?.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
             timeLabel?.text =

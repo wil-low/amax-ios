@@ -11,8 +11,8 @@
 
 class AmaxViaCombustaCell : AmaxTableCell {
 
-    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
-        super.configure(si, isYearMode)
+    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
+        super.configure(si, extRangeMode)
         if let e = si.mActiveEvent {
             eventLabel?.text = "VC"
             timeLabel?.text = e.normalizedRangeString()

@@ -163,9 +163,14 @@ class AmaxSummaryViewController : AmaxBaseViewController {
         if (eventListViewController == nil) {
             eventListViewController = AmaxEventListViewController(nibName: "AmaxEventListViewController", bundle: Bundle.main)
         }
-        eventListViewController?.detailItem = si
-        eventListViewController?.cellNibName = xibName
-        navigationController?.pushViewController(eventListViewController!, animated: true)
+        
+        if let el = eventListViewController {
+            el.detailItem = si
+            el.cellNibName = xibName
+            el.extRangeMode = false
+            el.extRangeItem = nil
+            navigationController?.pushViewController(el, animated: true)
+        }
     }
 
     override func updateDisplay() {

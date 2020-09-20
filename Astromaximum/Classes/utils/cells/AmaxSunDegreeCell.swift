@@ -19,10 +19,20 @@ class AmaxSunDegreeCell : AmaxTableCell {
         zodiacLabel = (self.viewWithTag(4) as! UILabel)
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
-        super.configure(si, isYearMode)
+    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
+        super.configure(si, extRangeMode)
         if let e = si.mActiveEvent {
-            timeLabel?.text = e.normalizedRangeString()
+            if extRangeMode {
+                timeLabel?.numberOfLines = 2
+                timeLabel?.text =
+                    AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+                    + "\n"
+                    + AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+            }
+            else {
+                timeLabel?.numberOfLines = 1
+                timeLabel?.text = e.normalizedRangeString()
+            }
             eventLabel?.text = String(format: "%c",
                                       getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
             degreeLabel.text = String(format: "%d\u{00b0}",

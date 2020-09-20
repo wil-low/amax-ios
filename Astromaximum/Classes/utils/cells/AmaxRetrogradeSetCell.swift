@@ -18,8 +18,8 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
         //stackView.translatesAutoresizingMaskIntoConstraints = false;
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
-        super.configure(si, isYearMode)
+    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
+        super.configure(si, extRangeMode)
 
         for view in contentView.subviews {
             if view.tag != 1 {

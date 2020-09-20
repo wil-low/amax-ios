@@ -18,10 +18,10 @@ class AmaxPlanetHourCell : AmaxTableCell {
         hourLabel?.text = NSLocalizedString("hour_of", comment: "Planet hour event caption")
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
-        super.configure(si, isYearMode)
+    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
+        super.configure(si, extRangeMode)
         if let e = si.mActiveEvent {
-            if isYearMode {
+            if extRangeMode {
                 timeLabel?.numberOfLines = 2
                 timeLabel?.text =
                     AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)

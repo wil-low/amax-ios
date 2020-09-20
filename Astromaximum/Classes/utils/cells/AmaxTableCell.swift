@@ -14,7 +14,7 @@ class AmaxTableCell : UITableViewCell {
     var timeLabel: UILabel?
     var summaryItem: AmaxSummaryItem?
     var controller: AmaxBaseViewController?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         if let v = viewWithTag(1) {
@@ -31,7 +31,7 @@ class AmaxTableCell : UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(_ si: AmaxSummaryItem, _ isYearMode: Bool) {
+    func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
         summaryItem = si
 
         timeLabel?.text = nil
