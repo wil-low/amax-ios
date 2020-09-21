@@ -1,0 +1,18 @@
+!!type EV_DECUMBITURE
+!!params 1
+!!planet -1
+//Dynamics of acute diseases for about one month, not longer.The course of the disease is foretold according to both the state of the patient and the aspects of the Moon, whether they are good or evil. 
+
+[000]%0%#The beginning of the disease.|For the beginning take the time when the disease has somehow shown itself: the patient has either taken to his bed or felt badly; or when the first symptoms of the disease or injury on the body were revealed. #
+[045]/Diagnosis/%1%#±12 hours.|The disease can be discussed. Bad feeling of the patient as well as bad aspects promise severe acme. For a very acute disease it is the coming of acme.|On this day do not leave the patient unattended.# 
+[060]%2%#±12 hours.|The disease usually releaves; the converse indicates a serious sickness.# 
+[090]/Acme/%3%#±12 hours. Acme.|The danger increases if bad aspects of the Moon is near. Good aspects promise soon recovery. Good state of the patient points to recovery.|On this day do not leave the patient unattended.# 
+[120]%4%#±12 hours.|Mend of health, but the recovery can be told about only unless the disease comes back at the next acme.|The disease usually releases; the converse indicates a serious sickness.#
+[135]/Diagnosis/%5%#±12 hours. The disease can be discussed. Bad feeling of the patient as well as bad aspects promise severe acme.# 
+[180]/Acme/%6%#±12 hours. Acme.|The danger increases if bad aspects of the Moon is near. Good aspects promise fast recovery. Good state of the patient indicate complete recovery.|On this day do not leave the patient unattended.# 
+[225]/Diagnosis/%7%#±12 hours.|The disease can be discussed. Bad feeling of the patient as well as bad aspects indicate severe acme.# 
+[240]%8%#±12 hours.|Mend of health, but the recovery can be told about only unless the disease comes back at the next acme.|The disease usually releases; the converse indicates a serious sickness.#
+[270]/Acme/%9%#±12 hours. Acme.|The danger increases if bad aspects of the Moon is near. Good aspects promise fast recovery. Good state of the patient indicates complete recovery.|On this day do not leave the patient unattended.#
+[300]%10%#±12 hours.|Mend of health, but the recovery can be told about only unless the disease comes back at the next acme.|The disease usually releases; otherwise, a severe acme may be expected.# 
+[325]/Diagnosis/%11%#±12 hours.|The disease can be discussed. Bad feeling of the patient indicates a serious disease# 
+[360]/Acme/%12%#±24 hours.|It inevitably must be the end of any acute disease. If the disease does not end the acute disease turns into a rooted one.# 
