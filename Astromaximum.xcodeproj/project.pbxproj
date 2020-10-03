@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -50,6 +50,7 @@
 		72CAA1CD24E4496A00A5E948 /* AmaxInterpreterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAA1CC24E4496A00A5E948 /* AmaxInterpreterController.swift */; };
 		72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6724DBC99600A5E00A /* AppDelegate.swift */; };
 		72DB5BA424DC685000E20F7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB5BA324DC685000E20F7E /* SceneDelegate.swift */; };
+		72E051B1251DB3E80066721C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72E051B0251DB3E80066721C /* Launch Screen.storyboard */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -141,6 +142,7 @@
 		72CAA1CC24E4496A00A5E948 /* AmaxInterpreterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxInterpreterController.swift; sourceTree = "<group>"; };
 		72DB5BA324DC685000E20F7E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		72DB5BA824DC702500E20F7E /* AmaxCommonDataFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxCommonDataFile.swift; sourceTree = "<group>"; };
+		72E051B0251DB3E80066721C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Astromaximum/Astromaximum/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -195,6 +197,7 @@
 		84B1AC5F1647BB3E007188B1 = {
 			isa = PBXGroup;
 			children = (
+				72E051B0251DB3E80066721C /* Launch Screen.storyboard */,
 				72606C9324B823FB009B0113 /* Default-568h@2x.png */,
 				84B1AC741647BB3E007188B1 /* Astromaximum */,
 				84B1AC6D1647BB3E007188B1 /* Frameworks */,
@@ -391,7 +394,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1200;
-				ORGANIZATIONNAME = "S&W Axis";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					84B1AC691647BB3E007188B1 = {
 						DevelopmentTeam = 8MSTLPJ26R;
@@ -400,7 +403,7 @@
 				};
 			};
 			buildConfigurationList = 84B1AC641647BB3E007188B1 /* Build configuration list for PBXProject "Astromaximum" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -438,6 +441,7 @@
 				84E98AF9168E0FAB006AAA55 /* PlanetsGenitive.strings in Resources */,
 				72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */,
 				7245FD4D24F373E7000D71E1 /* Months.strings in Resources */,
+				72E051B1251DB3E80066721C /* Launch Screen.storyboard in Resources */,
 				84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */,
 				72606C9824B82D9C009B0113 /* locations.dat in Resources */,
 				84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */,
@@ -878,7 +882,10 @@
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 2020.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sw-axis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -900,7 +907,10 @@
 				GCC_PREFIX_HEADER = "Astromaximum/Astromaximum-Prefix.pch";
 				INFOPLIST_FILE = "Astromaximum/Astromaximum-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 2020.01;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sw-axis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
