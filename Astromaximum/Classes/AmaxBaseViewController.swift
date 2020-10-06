@@ -14,6 +14,9 @@ class AmaxBaseViewController : UIViewController, UITableViewDelegate, UITableVie
     var mCurrentTime: Int = 0
     var mDataProvider: AmaxDataProvider?
     static var interpreterController: AmaxInterpreterController?
+    
+    @IBOutlet weak var mSubtitle: UILabel!
+    
     /*var pageViewController: UIPageViewController!
 
     override func viewDidLoad() {

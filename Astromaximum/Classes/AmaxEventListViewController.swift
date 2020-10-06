@@ -27,9 +27,32 @@ class AmaxEventListViewController : AmaxBaseViewController {
             title = dp.currentDateString()
             mCurrentTime = dp.getCurrentTime()
             mCustomTime = dp.getCustomTime()
-        }
+            updateSubtitle()
+       }
     }
 
+    func updateSubtitle() {
+        let textId = String(format:"%d", sourceItem()!.mKey.rawValue)
+        var sub = NSLocalizedString(textId, tableName: "EventListTitle", comment: "")
+        if extRangeMode {
+            var mode = ""
+            switch detailItem?.extendedRangeMode() {
+            case .oneDay:
+                mode = "OneDay"
+            case .twoDays:
+                mode = "TwoDays"
+            case .month:
+                mode = "Month"
+            case .year:
+                mode = "Year"
+            default:
+                mode = "None"
+            }
+            sub += " (" + NSLocalizedString(mode, tableName: "EventListTitle", comment: "") + ")"
+        }
+        mSubtitle.text = sub
+    }
+    
     func configureView() {
         navigationItem.title = NSLocalizedString("event_list_title", comment: "")
     }
@@ -79,28 +102,6 @@ class AmaxEventListViewController : AmaxBaseViewController {
         return count
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String {
-        let textId = String(format:"%d", sourceItem()!.mKey.rawValue)
-        var title = NSLocalizedString(textId, tableName: "EventListTitle", comment: "")
-        if extRangeMode {
-            var mode = ""
-            switch detailItem?.extendedRangeMode() {
-            case .oneDay:
-                mode = "OneDay"
-            case .twoDays:
-                mode = "TwoDays"
-            case .month:
-                mode = "Month"
-            case .year:
-                mode = "Year"
-            default:
-                mode = "None"
-            }
-            title += " (" + NSLocalizedString(mode, tableName: "EventListTitle", comment: "") + ")"
-        }
-        return title
-    }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let e = sourceItem()!.mEvents[indexPath.row]
@@ -133,6 +134,7 @@ class AmaxEventListViewController : AmaxBaseViewController {
             mExtRangeDataProvider?.setExtRange(mode: (detailItem?.extendedRangeMode())!, provider: mDataProvider!)
             extRangeItem = mExtRangeDataProvider?.calculateFor(eventType: detailItem!.mKey, extRange: true)
         }
+        updateSubtitle()
         mTableView.reloadData()
         scrollToActive()
     }

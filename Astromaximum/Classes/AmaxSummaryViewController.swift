@@ -134,12 +134,6 @@ class AmaxSummaryViewController : AmaxBaseViewController {
     }
     */
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String! {
-        return String(format: "%@, %@",
-                      mDataProvider!.getHighlightTimeString(),
-                      mDataProvider!.locationName())
-    }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let si = mDataProvider?.mEventCache[indexPath.row] {
@@ -180,6 +174,9 @@ class AmaxSummaryViewController : AmaxBaseViewController {
             dp.calculateAll()
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
+            mSubtitle.text = String(format: "%@, %@",
+                          mDataProvider!.getHighlightTimeString(),
+                          mDataProvider!.locationName())
             mTableView.reloadData()
         }
     }

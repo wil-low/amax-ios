@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxSummaryViewController">
             <connections>
+                <outlet property="mSubtitle" destination="Mxd-L4-fGl" id="1ky-wG-ZBP"/>
                 <outlet property="mTableView" destination="14" id="LZz-7g-1OZ"/>
                 <outlet property="mToolbar" destination="15" id="q1C-XJ-6F8"/>
                 <outlet property="view" destination="13" id="25"/>
@@ -19,18 +20,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="14">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxd-L4-fGl">
+                    <rect key="frame" x="20" y="44" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="YWh-sr-NAY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14">
+                    <rect key="frame" x="0.0" y="84" width="320" height="332"/>
+                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="26"/>
                         <outlet property="delegate" destination="-1" id="27"/>
                     </connections>
                 </tableView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15">
                     <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem width="44" systemItem="search" id="32"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Tht-XR-M6m"/>
@@ -68,9 +76,22 @@
                 </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="15" firstAttribute="bottom" secondItem="13" secondAttribute="bottomMargin" id="00O-Zd-iO2"/>
+                <constraint firstItem="15" firstAttribute="trailing" secondItem="14" secondAttribute="trailing" id="FtM-3d-SPN"/>
+                <constraint firstItem="15" firstAttribute="top" secondItem="14" secondAttribute="bottom" id="Igz-X1-VFd"/>
+                <constraint firstItem="14" firstAttribute="trailing" secondItem="13" secondAttribute="trailing" id="NiV-Lr-JQg"/>
+                <constraint firstItem="15" firstAttribute="top" secondItem="14" secondAttribute="bottom" id="Sg0-ig-EVW"/>
+                <constraint firstItem="Mxd-L4-fGl" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="TKH-R2-Bxq"/>
+                <constraint firstItem="Mxd-L4-fGl" firstAttribute="leading" secondItem="14" secondAttribute="leading" constant="20" id="cMg-LX-egV"/>
+                <constraint firstItem="14" firstAttribute="top" secondItem="13" secondAttribute="topMargin" constant="40" id="mih-uy-f6r"/>
+                <constraint firstItem="14" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="nx1-yX-pMX"/>
+                <constraint firstItem="Mxd-L4-fGl" firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="-20" id="qqW-Ps-29S"/>
+                <constraint firstItem="15" firstAttribute="leading" secondItem="14" secondAttribute="leading" id="uZi-2e-J5Y"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="34" y="54"/>
+            <point key="canvasLocation" x="33.333333333333336" y="53.571428571428569"/>
         </view>
     </objects>
     <resources>
@@ -79,5 +100,8 @@
         <image name="options" width="24" height="24"/>
         <image name="previous" width="25" height="25"/>
         <image name="today" width="24" height="24"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

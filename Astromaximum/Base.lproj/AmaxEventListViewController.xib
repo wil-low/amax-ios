@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxEventListViewController">
             <connections>
+                <outlet property="mSubtitle" destination="gQ1-NQ-1zm" id="89z-QQ-QFy"/>
                 <outlet property="mSwitchModeButton" destination="SpK-AL-Ijb" id="k3m-Y6-xeV"/>
                 <outlet property="mTableView" destination="4" id="7"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -19,18 +20,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQ1-NQ-1zm">
+                    <rect key="frame" x="20" y="44" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Iaa-i7-JLu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                    <rect key="frame" x="0.0" y="84" width="320" height="332"/>
                     <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="5"/>
                         <outlet property="delegate" destination="-1" id="6"/>
                     </connections>
                 </tableView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8">
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8">
                     <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LyU-aD-Jmd"/>
                         <barButtonItem image="previous" width="44" style="plain" id="14">
@@ -57,6 +65,18 @@
                 </toolbar>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="0t0-Nh-526"/>
+                <constraint firstItem="gQ1-NQ-1zm" firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="-20" id="AfF-vt-gvQ"/>
+                <constraint firstItem="8" firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="E10-tZ-gnU"/>
+                <constraint firstItem="gQ1-NQ-1zm" firstAttribute="leading" secondItem="4" secondAttribute="leading" constant="20" id="E4V-ZZ-w20"/>
+                <constraint firstItem="gQ1-NQ-1zm" firstAttribute="top" secondItem="1" secondAttribute="topMargin" id="IfT-rd-SRr"/>
+                <constraint firstItem="4" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="JeB-cl-lVs"/>
+                <constraint firstItem="4" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="RiQ-Ch-UFr"/>
+                <constraint firstItem="4" firstAttribute="bottom" secondItem="8" secondAttribute="top" id="fS3-li-IQC"/>
+                <constraint firstItem="8" firstAttribute="bottom" secondItem="1" secondAttribute="bottomMargin" id="iqP-hf-YWR"/>
+                <constraint firstItem="4" firstAttribute="top" secondItem="gQ1-NQ-1zm" secondAttribute="bottom" id="kYG-e3-CFJ"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-35" y="135"/>
         </view>
