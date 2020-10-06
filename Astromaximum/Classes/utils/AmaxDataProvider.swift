@@ -83,12 +83,12 @@ class AmaxDataProvider {
 
     let START_PAGE_ITEM_SEQ = [
         EV_VOC,
+        EV_VIA_COMBUSTA,
         EV_MOON_MOVE,
         EV_PLANET_HOUR,
         EV_MOON_SIGN,
         EV_RETROGRADE,
         EV_ASP_EXACT,
-        EV_VIA_COMBUSTA,
         EV_SUN_DEGREE,
         EV_TITHI,
     ]

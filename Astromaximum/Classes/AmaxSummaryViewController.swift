@@ -11,12 +11,12 @@ import UIKit
 // sync with START_PAGE_ITEM_SEQ
 let xibNames = [
     "VocCell",
+    "ViaCombustaCell",
     "MoonMoveCell",
     "PlanetHourCell",
     "MoonSignCell",
     "RetrogradeSetCell",
     "AspectSetCell",
-    "ViaCombustaCell",
     "SunDegreeCell",
     "TithiCell",
 ]
