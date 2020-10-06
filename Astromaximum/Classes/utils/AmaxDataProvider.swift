@@ -592,7 +592,8 @@ class AmaxDataProvider {
             if v.count > 0 {
                 result.append(contentsOf: v)
             }
-         }
+        }
+        result.sort(by: <)
         return result
     }
 

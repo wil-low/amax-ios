@@ -8,7 +8,13 @@
 
 import Foundation
 
-class AmaxEvent : NSObject, NSCopying {
+class AmaxEvent : NSObject, NSCopying, Comparable {
+    static func < (lhs: AmaxEvent, rhs: AmaxEvent) -> Bool {
+        if lhs.date(at: 0) == rhs.date(at: 0) {
+            return lhs.mPlanet0.rawValue < rhs.mPlanet0.rawValue
+        }
+        return lhs.date(at: 0) < rhs.date(at: 0)
+    }
 
     convenience required init(_ with: AmaxEvent) {
         self.init(date: with.date(at: 0), planet: with.mPlanet0)
