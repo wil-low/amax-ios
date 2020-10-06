@@ -23,9 +23,9 @@ class AmaxRetrogradeCell : AmaxTableCell {
         if let e = getActiveEvent() {
             eventLabel?.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
             timeLabel?.text =
-                AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+                AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.YYMMDDDateFormatter(), h24: false, addTime: false)
                 + "\n"
-                + AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+                + AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.YYMMDDDateFormatter(), h24: false, addTime: false)
             setColorOf(label: timeLabel, byEventMode: e)
         }
     }

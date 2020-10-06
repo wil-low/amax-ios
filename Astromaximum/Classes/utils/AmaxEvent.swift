@@ -40,12 +40,16 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
     var mPeriod1: Int = 0
     static let DEFAULT_DATE_FORMAT = "%02d-%02d %02d:%02d"
     static var mMonthAbbrDayDateFormatter:DateFormatter?
-    
+    static var mYYMMDDDateFormatter: DateFormatter?
+
     let USE_EXACT_RANGE = false
 
     static func initStatic() {
         mMonthAbbrDayDateFormatter = DateFormatter.init()
         mMonthAbbrDayDateFormatter!.dateFormat = NSLocalizedString("month_abbr_day_date_format", comment: "")
+
+        mYYMMDDDateFormatter = DateFormatter.init()
+        mYYMMDDDateFormatter!.dateFormat = NSLocalizedString("yy_mm_dd_date_format", comment: "")
     }
 
     override init() {
@@ -69,7 +73,7 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
         mCalendar!.timeZone = TimeZone(identifier: timezone)!
     }
 
-    class func long2String(_ date0: Int, format dateFormatter: DateFormatter?, h24: Bool) -> String {
+    class func long2String(_ date0: Int, format dateFormatter: DateFormatter?, h24: Bool, addTime: Bool = true) -> String {
 
         let date = Date(timeIntervalSince1970: TimeInterval(date0))
         let comps = mCalendar!.dateComponents([.year, .month, .day, .hour, .minute,.weekday], from: date)
@@ -79,16 +83,19 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
         if let formatter = dateFormatter {
             formatter.calendar = mCalendar
             result += formatter.string(from: date)
-            result += " "
+            if addTime {
+                result += " "
+            }
         }
-        
-        var hh = comps.hour!
-        let mm = comps.minute!
-        
-        if h24 && (hh + mm == 0) {
-            hh = 24
+        if addTime {
+            var hh = comps.hour!
+            let mm = comps.minute!
+            
+            if h24 && (hh + mm == 0) {
+                hh = 24
+            }
+            result += String(format: "%02d:%02d", hh, mm)
         }
-        result += String(format: "%02d:%02d", hh, mm)
         return result
     }
 
@@ -99,6 +106,10 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
 
     class func monthAbbrDayDateFormatter() -> DateFormatter? {
         return mMonthAbbrDayDateFormatter
+    }
+
+    class func YYMMDDDateFormatter() -> DateFormatter? {
+        return mYYMMDDDateFormatter
     }
 
     func isDate(at index: Int, between start: Int, and end: Int) -> Bool {
