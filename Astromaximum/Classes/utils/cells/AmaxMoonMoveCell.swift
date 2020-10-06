@@ -20,9 +20,9 @@ class AmaxMoonMoveCell : AmaxTableCell {
         mDataProvider = AmaxDataProvider.sharedInstance
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
-        super.configure(si, extRangeMode)
-        if let e = si.mActiveEvent {
+    override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
+        super.configure(extRangeMode, summaryMode)
+        if let e = getActiveEvent() {
             //mText0.setTextColor(mDefaultTextColor);
             let date0 = e.date(at: 0)
             switch (e.mEvtype) { 
@@ -51,13 +51,12 @@ class AmaxMoonMoveCell : AmaxTableCell {
                 default:
                     break
             }
-            //[self setColorOf:eventLabel byEventMode:e];
+            setColorOf(label: timeLabel, byEventMode: e)
         }
         else {
             eventLabel?.text = ""
             eventLabel?.isHidden = true
             transitionSignLabel?.isHidden = false
         }
-        self.updateInfoButtonWith(si)
     }
 }

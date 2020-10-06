@@ -25,6 +25,8 @@ class AmaxEventListViewController : AmaxBaseViewController {
     override func updateDisplay() {
         if let dp = mDataProvider {
             title = dp.currentDateString()
+            mCurrentTime = dp.getCurrentTime()
+            mCustomTime = dp.getCustomTime()
         }
     }
 
@@ -60,8 +62,10 @@ class AmaxEventListViewController : AmaxBaseViewController {
         // Configure the cell.
         let event = sourceItem()!.mEvents[indexPath.row]
         let si = AmaxSummaryItem(key: sourceItem()!.mKey, events: [event])
-        si.mActiveEvent = event
-        (cell as! AmaxTableCell).configure(si, extRangeMode)
+        let c = cell as! AmaxTableCell
+        c.summaryItem = si
+        c.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
+        c.configure(extRangeMode, false)
         return cell!
     }
 

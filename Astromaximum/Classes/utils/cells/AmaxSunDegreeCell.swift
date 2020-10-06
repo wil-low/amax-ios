@@ -19,9 +19,9 @@ class AmaxSunDegreeCell : AmaxTableCell {
         zodiacLabel = (self.viewWithTag(4) as! UILabel)
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
-        super.configure(si, extRangeMode)
-        if let e = si.mActiveEvent {
+    override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
+        super.configure(extRangeMode, summaryMode)
+        if let e = getActiveEvent() {
             if extRangeMode {
                 timeLabel?.numberOfLines = 2
                 timeLabel?.text =
@@ -39,8 +39,7 @@ class AmaxSunDegreeCell : AmaxTableCell {
                                  e.getDegree() % 30 + 1)
             zodiacLabel.text = String(format: "%c",
                                       getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
-            self.setColorOf(label: eventLabel!, byEventMode: e)
+            setColorOf(label: timeLabel, byEventMode: e)
         }
-        self.updateInfoButtonWith(si)
     }
 }

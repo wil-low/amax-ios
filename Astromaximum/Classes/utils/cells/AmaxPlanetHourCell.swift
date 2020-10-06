@@ -18,9 +18,9 @@ class AmaxPlanetHourCell : AmaxTableCell {
         hourLabel?.text = NSLocalizedString("hour_of", comment: "Planet hour event caption")
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
-        super.configure(si, extRangeMode)
-        if let e = si.mActiveEvent {
+    override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
+        super.configure(extRangeMode, summaryMode)
+        if let e = getActiveEvent() {
             if extRangeMode {
                 timeLabel?.numberOfLines = 2
                 timeLabel?.text =
@@ -34,8 +34,7 @@ class AmaxPlanetHourCell : AmaxTableCell {
             }
             eventLabel?.text = String(format: "%c",
                                       getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
-            self.setColorOf(label: eventLabel!, byEventMode: e)
+            setColorOf(label: timeLabel, byEventMode: e)
         }
-        self.updateInfoButtonWith(si)
     }
 }

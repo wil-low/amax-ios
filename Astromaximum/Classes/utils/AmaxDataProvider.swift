@@ -429,7 +429,7 @@ class AmaxDataProvider {
         var startHour = WEEK_START_HOUR[dayOfWeek]
         let dayHour: Int = (currentSunRise.date(at: 1) - currentSunRise.date(at: 0)) / 12
         let nightHour: Int = (nextSunRise.date(at: 0) - currentSunRise.date(at: 1)) / 12
-        NSLog("getPlanetaryHours: %ld, %ld", dayHour, nightHour)
+        //NSLog("getPlanetaryHours: %ld, %ld", dayHour, nightHour)
         var st = currentSunRise.date(at: 0)
         for i in 0 ..< 24 {
             let ev:AmaxEvent! = AmaxEvent(date:(st - (st % Int(AmaxROUNDING_SEC))), planet:PLANET_HOUR_SEQUENCE[startHour % 7])
@@ -720,39 +720,33 @@ class AmaxDataProvider {
     }
 
     func getCustomTime() -> Int {
-    /*
-        unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
-        mCurrentDateComponents = [mCalendar components:unitFlags fromDate:date];
-
-        Calendar calendar = Calendar.getInstance(mCalendar.getTimeZone());
-        if (mUseCustomTime) {
-            calendar.set(mYear, mMonth, mDay, mCustomHour, mCustomMinute);
-            calendar.set(Calendar.SECOND, 0);
-            calendar.set(Calendar.MILLISECOND, 0);
-        } else {
-            calendar.set(Calendar.YEAR, mYear);
-            calendar.set(Calendar.MONTH, mMonth);
-            calendar.set(Calendar.DAY_OF_MONTH, mDay);
-            mCurrentHour = calendar.get(Calendar.HOUR_OF_DAY);
-            mCurrentMinute = calendar.get(Calendar.MINUTE);
+        let comp = mCurrentDateComponents
+        let date = Date()
+        var comp2 = mCalendar.dateComponents([.year, .month, .hour, .minute], from: date)
+        if _mUseCustomTime {
+            comp2.year = comp.year
+            comp2.month = comp.month
+            comp2.day = comp.day
+            comp2.hour = mCustomHour
+            comp2.minute = mCustomMinute
         }
-        MyLog.d("getCustomTime",
-                (String) DateFormat.format("dd MMMM yyyy, kk:mm:ss", calendar));
-        return calendar.getTimeInMillis();
-     */
-        return 0
+        else {
+            comp2.year = comp.year
+            comp2.month = comp.month
+            comp2.day = comp.day
+            _mCurrentHour = comp2.hour!
+            _mCurrentMinute = comp2.minute!
+        }
+        let date2 = mCalendar.date(from: comp2)!
+        return Int(date2.timeIntervalSince1970)
     }
 
     func getCurrentTime() -> Int {
         if !_mUseCustomTime {
-            var comp = mCurrentDateComponents
-            var date = Date()
+            let date = Date()
             let comp2 = mCalendar.dateComponents([.hour, .minute], from: date)
             _mCurrentHour = comp2.hour!
             _mCurrentMinute = comp2.minute!
-            comp.hour = _mCurrentHour
-            comp.minute = _mCurrentMinute
-            date = mCalendar.date(from: comp)!
             return Int(date.timeIntervalSince1970)
         }
         return 0

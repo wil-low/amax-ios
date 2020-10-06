@@ -10,6 +10,8 @@ import UIKit
 
 class AmaxBaseViewController : UIViewController, UITableViewDelegate, UITableViewDataSource/*, UIPageViewControllerDataSource*/ {
 
+    var mCustomTime: Int = 0
+    var mCurrentTime: Int = 0
     var mDataProvider: AmaxDataProvider?
     static var interpreterController: AmaxInterpreterController?
     /*var pageViewController: UIPageViewController!

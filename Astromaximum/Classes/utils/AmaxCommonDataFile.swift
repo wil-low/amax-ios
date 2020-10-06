@@ -19,7 +19,6 @@ class AmaxCommonDataFile {
     var data:AmaxDataInputStream?
 
     init(filePath: String) {
-        let isLegacy = false;
         guard let fullData = (NSData(contentsOfFile: filePath) as Data?) else {
             print("AmaxCommonDataFile: failed to open \(filePath)")
             return;
@@ -30,12 +29,7 @@ class AmaxCommonDataFile {
         startDay = Int(ais.readUnsignedByte())
 
         let customDataLen = Int(ais.readUnsignedShort()) // customData length
-        if isLegacy {
-            dayCount = Int(ais.readShort())
-        }
-        else {
-            monthCount = Int(ais.readUnsignedByte())
-        }
+        monthCount = Int(ais.readUnsignedByte())
         if customDataLen > 0 {
             customData = ais.read(length: customDataLen)
         }

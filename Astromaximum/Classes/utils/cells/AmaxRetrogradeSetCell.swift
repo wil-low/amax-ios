@@ -18,63 +18,63 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
         //stackView.translatesAutoresizingMaskIntoConstraints = false;
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
-        super.configure(si, extRangeMode)
+    override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
+        super.configure(extRangeMode, summaryMode)
 
-        for view in contentView.subviews {
-            if view.tag != 1 {
-                view.removeFromSuperview()
+        if let si = summaryItem {
+            for view in contentView.subviews {
+                if view.tag != 1 {
+                    view.removeFromSuperview()
+                }
             }
-        }
 
-        let isEmpty = si.mEvents.count == 0
-        eventLabel?.isHidden = !isEmpty
+            let isEmpty = si.mEvents.count == 0
+            eventLabel?.isHidden = !isEmpty
 
-        if isEmpty {
-            return
-        }
-
-        var events = [UIView]()
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.itemTapped(sender:)))
-        tap.numberOfTapsRequired = 1
-        addGestureRecognizer(tap)
-
-        for e in si.mEvents {
-            let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
-            if let dummy = cell.viewWithTag(3) {
-                let planet = dummy.viewWithTag(1) as! UILabel
-                planet.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
-                planet.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE))
-                //dummy.layer.borderWidth = 0.8
-                //dummy.layer.borderColor = UIColor.gray.cgColor
-                events.append(dummy)
+            if isEmpty {
+                return
             }
+
+            var events = [UIView]()
+
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.itemTapped(sender:)))
+            tap.numberOfTapsRequired = 1
+            addGestureRecognizer(tap)
+
+            for e in si.mEvents {
+                let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
+                if let dummy = cell.viewWithTag(3) {
+                    let planet = dummy.viewWithTag(1) as! UILabel
+                    planet.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
+                    planet.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE))
+                    //dummy.layer.borderWidth = 0.8
+                    //dummy.layer.borderColor = UIColor.gray.cgColor
+                    events.append(dummy)
+                }
+            }
+
+            let spacerButton = UIButton()
+            spacerButton.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
+            spacerButton.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+            //spacerButton.layer.borderWidth = 0.8
+            //spacerButton.layer.borderColor = UIColor.red.cgColor
+            events.append(spacerButton)
+
+            let stackedInfoView:UIStackView! = UIStackView(arrangedSubviews: events)
+
+            stackedInfoView.axis = .horizontal
+            //stackedInfoView.distribution = .fillEqually//EqualSpacing;
+            //stackedInfoView.alignment = .fill
+            stackedInfoView.spacing = 0;
+            stackedInfoView.translatesAutoresizingMaskIntoConstraints = false
+
+            self.contentView.addSubview(stackedInfoView)
+
+            stackedInfoView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+            stackedInfoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            stackedInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
+            stackedInfoView.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor).isActive = true
         }
-
-        let spacerButton = UIButton()
-        spacerButton.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
-        spacerButton.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
-        //spacerButton.layer.borderWidth = 0.8
-        //spacerButton.layer.borderColor = UIColor.red.cgColor
-        events.append(spacerButton)
-
-        let stackedInfoView:UIStackView! = UIStackView(arrangedSubviews: events)
-
-        stackedInfoView.axis = .horizontal
-        //stackedInfoView.distribution = .fillEqually//EqualSpacing;
-        //stackedInfoView.alignment = .fill
-        stackedInfoView.spacing = 0;
-        stackedInfoView.translatesAutoresizingMaskIntoConstraints = false
-
-        self.contentView.addSubview(stackedInfoView)
-
-        stackedInfoView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        stackedInfoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        stackedInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
-        stackedInfoView.trailingAnchor.constraint(greaterThanOrEqualTo: contentView.trailingAnchor).isActive = true
-
-        self.updateInfoButtonWith(si)
     }
 
     @objc func itemTapped(sender: UIButton!) {

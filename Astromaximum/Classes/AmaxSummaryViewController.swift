@@ -29,8 +29,6 @@ class AmaxSummaryViewController : AmaxBaseViewController {
     @IBOutlet weak  var mToolbar: UIToolbar!
     @IBOutlet weak  var tvCell: AmaxTableCell!
 
-    var mCustomTime: Int = 0
-    var mCurrentTime: Int = 0
     var eventListViewController: AmaxEventListViewController?
     var settingsController: AmaxSettingsController?
     var dateSelectController: AmaxDateSelectController?
@@ -98,8 +96,10 @@ class AmaxSummaryViewController : AmaxBaseViewController {
         }
 
         // Configure the cell.
-        si.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
-        (cell as! AmaxTableCell).configure(si, false)
+        let c = cell as! AmaxTableCell
+        c.summaryItem = si
+        c.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
+        c.configure(false, true)
 
         if si.mEvents.count > 0 {
             switch si.mKey {
@@ -149,8 +149,8 @@ class AmaxSummaryViewController : AmaxBaseViewController {
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let si = mDataProvider?.mEventCache[indexPath.row]
-        if let e = si?.mActiveEvent {
+        let c = tableView.cellForRow(at: indexPath) as! AmaxTableCell
+        if let e = c.getActiveEvent() {
             showInterpreterFor(event: e)
         }
     }

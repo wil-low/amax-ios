@@ -13,11 +13,6 @@ class AmaxSummaryItem {
         get { return _mEvents }
         set { _mEvents = newValue }
     }
-    private var _mActiveEvent: AmaxEvent?
-    var mActiveEvent: AmaxEvent? {
-        get { return _mActiveEvent }
-        set { _mActiveEvent = newValue }
-    }
 
     private var _mKey: AmaxEventType
     var mKey: AmaxEventType {
@@ -105,11 +100,6 @@ class AmaxSummaryItem {
         return -1    
     }
 
-    func calculateActiveEvent(customTime: Int, currentTime: Int) {
-        let pos = activeEventPosition(customTime: customTime, currentTime: currentTime)
-        _mActiveEvent = (pos == -1) ? nil : _mEvents[pos]
-    }
-    
     enum ExtendedRangeMode {
         case none
         case oneDay
@@ -128,8 +118,8 @@ class AmaxSummaryItem {
             return .month
         case EV_RETROGRADE, EV_ASP_EXACT, EV_SUN_DEGREE, EV_TITHI:
             return .year
-        case EV_VOC, EV_VIA_COMBUSTA:
-            return .none
+        //case EV_VOC, EV_VIA_COMBUSTA:
+        //    return .none
         default:
             return .none
         }

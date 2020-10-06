@@ -11,12 +11,12 @@
 
 class AmaxVocCell : AmaxTableCell {
 
-    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
-        super.configure(si, extRangeMode)
-        if let e = si.mActiveEvent {
+    override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
+        super.configure(extRangeMode, summaryMode)
+        if let e = getActiveEvent() {
             eventLabel?.text = "VOC"
             timeLabel?.text = e.normalizedRangeString()
+            setColorOf(label: timeLabel, byEventMode: e)
         }
-        self.updateInfoButtonWith(si)
     }
 }

@@ -18,15 +18,15 @@ class AmaxRetrogradeCell : AmaxTableCell {
         mDataProvider = AmaxDataProvider.sharedInstance
     }
 
-    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
-        super.configure(si, extRangeMode)
-        if let e = si.mActiveEvent {
+    override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
+        super.configure(extRangeMode, summaryMode)
+        if let e = getActiveEvent() {
             eventLabel?.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
             timeLabel?.text =
                 AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
                 + "\n"
                 + AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+            setColorOf(label: timeLabel, byEventMode: e)
         }
-        self.updateInfoButtonWith(si)
     }
 }

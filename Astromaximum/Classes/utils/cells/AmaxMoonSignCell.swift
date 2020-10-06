@@ -11,9 +11,9 @@
 
 class AmaxMoonSignCell : AmaxTableCell {
 
-    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
-        super.configure(si, extRangeMode)
-        if let e = si.mActiveEvent {
+    override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
+        super.configure(extRangeMode, summaryMode)
+        if let e = getActiveEvent() {
             if extRangeMode {
                 timeLabel?.numberOfLines = 2
                 timeLabel?.text =
@@ -28,8 +28,7 @@ class AmaxMoonSignCell : AmaxTableCell {
             eventLabel?.text = String(format: "%c %c",
                                       getSymbol(TYPE_PLANET, e.mPlanet0.rawValue),
                                       getSymbol(TYPE_ZODIAC, Int32(e.getDegree())))
-            setColorOf(label: eventLabel!, byEventMode: e)
+            setColorOf(label: timeLabel, byEventMode: e)
         }
-        self.updateInfoButtonWith(si)
     }
 }

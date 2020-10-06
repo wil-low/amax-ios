@@ -10,9 +10,9 @@ import Foundation
 
 class AmaxTithiCell : AmaxTableCell {
 
-    override func configure(_ si: AmaxSummaryItem, _ extRangeMode: Bool) {
-        super.configure(si, extRangeMode)
-        if let e = si.mActiveEvent {
+    override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
+        super.configure(extRangeMode, summaryMode)
+        if let e = getActiveEvent() {
             if extRangeMode {
                 timeLabel?.numberOfLines = 2
                 timeLabel?.text =
@@ -27,8 +27,7 @@ class AmaxTithiCell : AmaxTableCell {
             eventLabel?.text = String(format: "%@ %d",
                                      NSLocalizedString("tithi", comment: "Tithi"),
                                  e.getDegree())
-            self.setColorOf(label: eventLabel!, byEventMode: e)
+            setColorOf(label: timeLabel, byEventMode: e)
         }
-        self.updateInfoButtonWith(si)
     }
 }
