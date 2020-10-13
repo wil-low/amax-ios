@@ -706,14 +706,20 @@ class AmaxDataProvider {
     }
 
     func changeDate(deltaDays: Int) -> Bool {
-        let date = _mStartTime + Int(AmaxSECONDS_IN_DAY) * deltaDays
+        var date = _mStartTime + Int(AmaxSECONDS_IN_DAY) * deltaDays + Int(AmaxSECONDS_IN_DAY) / 2
         if date < mStartJD || date >= mFinalJD {
             return false
         }
-        setRange(from: date, to: Int(Int32(date) + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC))
-        let newDate = Date(timeIntervalSince1970: TimeInterval(_mStartTime))
+        let newDate = Date(timeIntervalSince1970: TimeInterval(date))
         mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newDate)
-        //print("changeDate: " + newDate.description)
+        mCurrentDateComponents.hour = 0
+        mCurrentDateComponents.minute = 0
+        mCurrentDateComponents.second = 0
+        mCurrentDateComponents.nanosecond = 0
+        let alignedDate = mCalendar.date(from: mCurrentDateComponents)!
+        date = Int(alignedDate.timeIntervalSince1970)
+        setRange(from: date, to: Int(Int32(date) + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC))
+        //print("changeDate: " + alignedDate.description)
         return true
     }
 
