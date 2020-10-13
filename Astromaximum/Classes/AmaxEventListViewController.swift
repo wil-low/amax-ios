@@ -25,9 +25,12 @@ class AmaxEventListViewController : AmaxBaseViewController {
     override func updateDisplay() {
         if let dp = mDataProvider {
             title = dp.currentDateString()
+            //TODO: extra calculation when the controller appears
+            detailItem = dp.calculateFor(eventType: detailItem!.mKey, extRange: extRangeMode)
             mCurrentTime = dp.getCurrentTime()
             mCustomTime = dp.getCustomTime()
             updateSubtitle()
+            mTableView.reloadData()
        }
     }
 
@@ -117,7 +120,6 @@ class AmaxEventListViewController : AmaxBaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mTableView.reloadData()
         updateDisplay()
         mSwitchModeButton.isEnabled = detailItem?.extendedRangeMode() != AmaxSummaryItem.ExtendedRangeMode.none
     }
