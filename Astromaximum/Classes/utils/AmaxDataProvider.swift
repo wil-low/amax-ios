@@ -684,9 +684,9 @@ class AmaxDataProvider {
     }
 
     func prepareCalculation() {
-        let date = currentDate()
-        let start = Int(date.timeIntervalSince1970)
-        setRange(from: start, to: Int(Int32(start) + AmaxSECONDS_IN_DAY - AmaxROUNDING_SEC))
+        _mEventCache.removeAll()
+        _mStartTime = Int(currentDate().timeIntervalSince1970)
+        _ = changeDate(deltaDays: 0)
     }
 
     func calculateAll() {
@@ -705,27 +705,34 @@ class AmaxDataProvider {
         return String(format:"%02ld:%02ld", _mCurrentHour, _mCurrentMinute)
     }
 
-    func changeDate(deltaDays: Int) -> Bool {
-        var newStart = _mStartTime + Int(AmaxSECONDS_IN_DAY) * deltaDays + Int(AmaxSECONDS_IN_DAY) / 2
-        mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: Date(timeIntervalSince1970: TimeInterval(newStart)))
-        mCurrentDateComponents.hour = 0
-        mCurrentDateComponents.minute = 0
-        mCurrentDateComponents.second = 0
-        mCurrentDateComponents.nanosecond = 0
-        let newStartAligned = mCalendar.date(from: mCurrentDateComponents)!
-        newStart = Int(newStartAligned.timeIntervalSince1970)
+    func alignDate(_ date: Int) -> Int {
+        var dc = mCalendar.dateComponents([.year, .month, .day, .weekday], from: Date(timeIntervalSince1970: TimeInterval(date)))
+        dc.hour = 0
+        dc.minute = 0
+        dc.second = 0
+        dc.nanosecond = 0
+        let aligned = mCalendar.date(from: dc)!
+        return Int(aligned.timeIntervalSince1970)
+    }
 
+    func changeDate(deltaDays: Int) -> Bool {
+        let newStart = alignDate(_mStartTime + Int(AmaxSECONDS_IN_DAY) * deltaDays + Int(AmaxSECONDS_IN_DAY) / 2)
         if newStart < mStartJD || newStart >= mFinalJD {
             return false
         }
+        let newStartAligned = Date(timeIntervalSince1970: TimeInterval(newStart))
+        mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newStartAligned)
 
         let newEndAligned = mCalendar.date(byAdding: .day, value: 1, to: newStartAligned, wrappingComponents: false)
         let newEnd = Int(newEndAligned!.timeIntervalSince1970) - Int(AmaxROUNDING_SEC)
         setRange(from: newStart, to: newEnd)
+/*
         let startPrint = Date(timeIntervalSince1970: TimeInterval(_mStartTime))
         let endPrint = Date(timeIntervalSince1970: TimeInterval(_mEndTime))
-
         print("changeDate: " + startPrint.description + ", " + endPrint.description + "; " + (newEnd - newStart).description)
+        print("mStartTime: " + AmaxEvent.long2String(_mStartTime, format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true) + " (" + String(format: "%d", _mStartTime) + ")")
+        print("mEndTime: " + AmaxEvent.long2String(_mEndTime, format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true) + " (" + String(format: "%d", _mEndTime) + ")")
+ */
         return true
     }
 
