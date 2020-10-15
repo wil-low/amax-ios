@@ -446,8 +446,10 @@ class AmaxDataProvider {
     }
 
     func calculatePlanetaryHours() -> [AmaxEvent] {
-        let sunRises = getEventsOnPeriodFor(eventType: EV_RISE, planet: SE_SUN, special: true, from: (_mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (_mEndTime + Int(AmaxSECONDS_IN_DAY)), value: 0)
-        let sunSets = getEventsOnPeriodFor(eventType: EV_SET, planet: SE_SUN, special: true, from: (_mStartTime - Int(AmaxSECONDS_IN_DAY)), to: (_mEndTime + Int(AmaxSECONDS_IN_DAY)), value:0)
+        let start = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: -1, isTrailing: false)
+        let end = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: 2, isTrailing: true)
+        let sunRises = getEventsOnPeriodFor(eventType: EV_RISE, planet: SE_SUN, special: true, from: start, to: end, value: 0)
+        let sunSets = getEventsOnPeriodFor(eventType: EV_SET, planet: SE_SUN, special: true, from: start, to: end, value:0)
         var result = [AmaxEvent]()
         if sunRises.count < 3 || sunRises.count != sunSets.count {
             return result
@@ -510,8 +512,13 @@ class AmaxDataProvider {
     }
 
     func calculateMoonMove() -> [AmaxEvent] {
-        var asp = getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: true, from: (_mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (_mEndTime + Int(AmaxSECONDS_IN_DAY) * 4), value: 0)
-        var moonMoveVec = getAspectsOnPeriodFor(planet: SE_MOON, from: (_mStartTime - Int(AmaxSECONDS_IN_DAY) * 2), to: (_mEndTime + Int(AmaxSECONDS_IN_DAY) * 2))
+        var start = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: -2, isTrailing: false)
+        var end = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: 5, isTrailing: true)
+        var asp = getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: true, from: start, to: end, value: 0)
+
+        start = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: -2, isTrailing: false)
+        end = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: 3, isTrailing: true)
+        var moonMoveVec = getAspectsOnPeriodFor(planet: SE_MOON, from: start, to: end)
 
         mergeEvents(dest: &moonMoveVec, add: asp, isSort: true)
         asp.removeAll()
@@ -716,15 +723,15 @@ class AmaxDataProvider {
     }
 
     func changeDate(deltaDays: Int) -> Bool {
-        let newStart = alignDate(_mStartTime + Int(AmaxSECONDS_IN_DAY) * deltaDays + Int(AmaxSECONDS_IN_DAY) / 2)
+        let AmaxSECONDS_IN_DAY = 24 * 60 * 60;
+        let newStart = alignDate(_mStartTime + AmaxSECONDS_IN_DAY * deltaDays + AmaxSECONDS_IN_DAY / 2)
         if newStart < mStartJD || newStart >= mFinalJD {
             return false
         }
         let newStartAligned = Date(timeIntervalSince1970: TimeInterval(newStart))
         mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newStartAligned)
 
-        let newEndAligned = mCalendar.date(byAdding: .day, value: 1, to: newStartAligned, wrappingComponents: false)
-        let newEnd = Int(newEndAligned!.timeIntervalSince1970) - Int(AmaxROUNDING_SEC)
+        let newEnd = shiftDate(alignedDate: newStart, byAdding: .day, value: 1, isTrailing: true)
         setRange(from: newStart, to: newEnd)
 /*
         let startPrint = Date(timeIntervalSince1970: TimeInterval(_mStartTime))
@@ -783,18 +790,27 @@ class AmaxDataProvider {
         _mEventCache.removeAll()
     }
 
+    func shiftDate(alignedDate date: Int, byAdding component: Calendar.Component, value val: Int, isTrailing: Bool) -> Int {
+        let newAligned = mCalendar.date(byAdding: component, value: val, to: Date(timeIntervalSince1970: TimeInterval(date)), wrappingComponents: false)
+        var result = Int(newAligned!.timeIntervalSince1970)
+        if isTrailing {
+            result -= Int(AmaxROUNDING_SEC)
+        }
+        return result
+    }
+
     func setExtRange(mode: AmaxSummaryItem.ExtendedRangeMode, provider: AmaxDataProvider) {
         var from = 0, to = 0
         switch mode {
         case .oneDay:
-            from = provider.mStartTime - Int(AmaxSECONDS_IN_DAY)
-            to = provider.mEndTime + Int(AmaxSECONDS_IN_DAY)
+            from = shiftDate(alignedDate: provider.mStartTime, byAdding: .day, value: -1, isTrailing: false)
+            to = shiftDate(alignedDate: provider.mStartTime, byAdding: .day, value: 2, isTrailing: true)
         case .twoDays:
-            from = provider.mStartTime - Int(AmaxSECONDS_IN_DAY) * 2
-            to = provider.mEndTime + Int(AmaxSECONDS_IN_DAY) * 2
+            from = shiftDate(alignedDate: provider.mStartTime, byAdding: .day, value: -2, isTrailing: false)
+            to = shiftDate(alignedDate: provider.mStartTime, byAdding: .day, value: 3, isTrailing: true)
         case .month:
-            from = provider.mStartTime - Int(AmaxSECONDS_IN_DAY) * 30
-            to = provider.mEndTime + Int(AmaxSECONDS_IN_DAY) * 30
+            from = shiftDate(alignedDate: provider.mStartTime, byAdding: .day, value: -30, isTrailing: false)
+            to = shiftDate(alignedDate: provider.mStartTime, byAdding: .day, value: 31, isTrailing: true)
         case .year:
             from = provider.mStartJD
             to = provider.mFinalJD

@@ -85,7 +85,6 @@ typedef enum {
 } AmaxEventType;
 
 static const int AmaxROUNDING_SEC = 60;
-static const int AmaxSECONDS_IN_DAY = 24 * 60 * 60;
 
 static const int AmaxLABEL_FONT_SIZE = 26;
 
