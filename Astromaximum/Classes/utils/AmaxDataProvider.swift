@@ -449,9 +449,10 @@ class AmaxDataProvider {
 
     func calculatePlanetaryHours() -> [AmaxEvent] {
         let start = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: -1, isTrailing: false)
-        let end = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: 2, isTrailing: true)
+        let end = shiftDate(alignedDate: _mEndTime, byAdding: .day, value: 1, isTrailing: false)
         let sunRises = getEventsOnPeriodFor(eventType: EV_RISE, planet: SE_SUN, special: true, from: start, to: end, value: 0)
         let sunSets = getEventsOnPeriodFor(eventType: EV_SET, planet: SE_SUN, special: true, from: start, to: end, value:0)
+
         var result = [AmaxEvent]()
         if sunRises.count < 3 || sunRises.count != sunSets.count {
             return result
@@ -515,33 +516,28 @@ class AmaxDataProvider {
 
     func calculateMoonMove() -> [AmaxEvent] {
         var start = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: -2, isTrailing: false)
-        var end = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: 5, isTrailing: true)
+        var end = shiftDate(alignedDate: _mEndTime, byAdding: .day, value: 4, isTrailing: false)
         var asp = getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: true, from: start, to: end, value: 0)
 
         start = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: -2, isTrailing: false)
-        end = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: 3, isTrailing: true)
+        end = shiftDate(alignedDate: _mEndTime, byAdding: .day, value: 2, isTrailing: false)
         var moonMoveVec = getAspectsOnPeriodFor(planet: SE_MOON, from: start, to: end)
 
         mergeEvents(dest: &moonMoveVec, add: asp, isSort: true)
         asp.removeAll()
         mergeEvents(dest: &asp, add: moonMoveVec, isSort: false)
-        var id1 = -1
-        var id2 = -1
-        var counter = 0
+        
+        // time range to filter events afterwards
+        var aspTime1 = -1
+        var aspTime2 = -1
+
         for ev in asp {
             let dat = ev.date(at: 0)
             if dat < _mStartTime {
-                id1 = counter
+                aspTime1 = dat
             }
-            if id2 == -1 && dat >= _mEndTime {
-                id2 = counter
-            }
-            counter += 1
-         }
-        moonMoveVec.removeAll()
-        if id1 != -1 && id2 != -1 {
-            for i in id1 ... id2 {
-                moonMoveVec.append(asp[i])
+            if aspTime2 == -1 && dat >= _mEndTime {
+                aspTime2 = dat
             }
         }
 
@@ -566,7 +562,7 @@ class AmaxDataProvider {
                 while j >= 0 {
                     let prev = moonMoveVec[j]
                     if prev.mEvtype != EV_MOON_MOVE {
-                        let planet:AmaxPlanet = prev.mPlanet1
+                        let planet = prev.mPlanet1
                         if planet.rawValue <= SE_SATURN.rawValue {
                             e.mPlanet0 = planet
                             break
@@ -590,7 +586,26 @@ class AmaxDataProvider {
             else if e.mEvtype == EV_ASP_EXACT {
                 e.mEvtype = EV_ASP_EXACT_MOON
             }
-         }
+        }
+        /*
+        for e in moonMoveVec {
+            print("MoonMove1: " + e.description)
+        }
+        print("aspTimes: " +
+                AmaxEvent.long2String(aspTime1, format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true) +
+                " - " +
+                AmaxEvent.long2String(aspTime2, format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true) +
+                String(format: " (%d / %d)", aspTime1, aspTime2))
+        */
+        moonMoveVec.removeAll(where: { (e) -> Bool in
+            let date = e.date(at: 0)
+            return date < aspTime1 || date > aspTime2 || (date == aspTime2 && e.mEvtype == EV_MOON_MOVE)
+        })
+        /*
+        for e in moonMoveVec {
+            print("MoonMove2: " + e.description)
+        }
+        */
         return moonMoveVec
     }
 
