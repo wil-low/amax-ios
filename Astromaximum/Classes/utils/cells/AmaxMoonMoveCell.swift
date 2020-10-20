@@ -90,8 +90,7 @@ class AmaxMoonMoveCell : AmaxTableCell {
                               getSymbol(TYPE_ZODIAC, Int32(e.mDegree)))
             }
             else {
-                return String(format: "%c %c %c",
-                              getSymbol(TYPE_PLANET, e.mPlanet0.rawValue),
+                return String(format: "%c %c",
                               getSymbol(TYPE_ASPECT, Int32(e.mDegree)),
                               getSymbol(TYPE_PLANET, e.mPlanet1.rawValue))
             }
