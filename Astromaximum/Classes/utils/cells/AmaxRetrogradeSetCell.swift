@@ -53,7 +53,7 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
                 }
             }
 
-            let spacerButton = UIButton()
+            let spacerButton = UIView()
             spacerButton.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
             spacerButton.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
             //spacerButton.layer.borderWidth = 0.8
