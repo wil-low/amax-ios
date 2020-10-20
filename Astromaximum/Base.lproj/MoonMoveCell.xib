@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,22 +20,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="261" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="P1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="110" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqc-O9-EUY" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                        <rect key="frame" x="20" y="0.0" width="34" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="110" id="gOc-20-r44"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="6xx-cx-hAY"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0m-qR-wan">
-                        <rect key="frame" x="0.0" y="0.0" width="110" height="44"/>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0m-qR-wan" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                        <rect key="frame" x="54" y="0.0" width="34" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="110" id="VR7-r0-IsT"/>
+                            <constraint firstAttribute="width" constant="34" id="3fc-Ql-JdG"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVq-TB-HTo" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                        <rect key="frame" x="88" y="0.0" width="37.5" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="Gp8-sF-7MN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                        <rect key="frame" x="54" y="0.0" width="34" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="34" id="XTD-ws-qSx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="TimeRange" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
@@ -46,14 +64,21 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="jqc-O9-EUY" secondAttribute="bottom" id="1FW-af-NTF"/>
                     <constraint firstItem="3" firstAttribute="bottom" secondItem="IJh-Ud-kqa" secondAttribute="bottom" id="4RN-0N-6QY"/>
+                    <constraint firstItem="hVq-TB-HTo" firstAttribute="bottom" secondItem="IJh-Ud-kqa" secondAttribute="bottom" id="5tj-o2-LRR"/>
                     <constraint firstItem="3" firstAttribute="top" secondItem="IJh-Ud-kqa" secondAttribute="top" id="7rl-33-vAF"/>
-                    <constraint firstItem="v0m-qR-wan" firstAttribute="leading" secondItem="IJh-Ud-kqa" secondAttribute="leading" id="DhV-hR-60b"/>
+                    <constraint firstItem="v0m-qR-wan" firstAttribute="leading" secondItem="jqc-O9-EUY" secondAttribute="trailing" id="DhV-hR-60b"/>
                     <constraint firstItem="v0m-qR-wan" firstAttribute="bottom" secondItem="IJh-Ud-kqa" secondAttribute="bottom" id="EcU-c1-bdD"/>
                     <constraint firstItem="4" firstAttribute="trailing" secondItem="IJh-Ud-kqa" secondAttribute="trailing" constant="-20" id="GCy-Ut-PP4"/>
+                    <constraint firstItem="hVq-TB-HTo" firstAttribute="bottom" secondItem="IJh-Ud-kqa" secondAttribute="bottom" id="GuD-wN-nUv"/>
+                    <constraint firstItem="jqc-O9-EUY" firstAttribute="top" secondItem="IJh-Ud-kqa" secondAttribute="top" id="Ia4-3y-KxA"/>
+                    <constraint firstItem="hVq-TB-HTo" firstAttribute="top" secondItem="IJh-Ud-kqa" secondAttribute="top" id="Pz2-pC-VSb"/>
                     <constraint firstItem="v0m-qR-wan" firstAttribute="top" secondItem="IJh-Ud-kqa" secondAttribute="top" id="RQx-62-QrL"/>
                     <constraint firstItem="4" firstAttribute="top" secondItem="IJh-Ud-kqa" secondAttribute="top" id="eKG-IB-2cQ"/>
-                    <constraint firstItem="3" firstAttribute="leading" secondItem="IJh-Ud-kqa" secondAttribute="leading" id="lfD-KH-Dyt"/>
+                    <constraint firstItem="3" firstAttribute="centerX" secondItem="v0m-qR-wan" secondAttribute="centerX" id="lfD-KH-Dyt"/>
+                    <constraint firstItem="jqc-O9-EUY" firstAttribute="leading" secondItem="IJh-Ud-kqa" secondAttribute="leading" constant="20" id="qaj-Qf-8h8"/>
+                    <constraint firstItem="hVq-TB-HTo" firstAttribute="leading" secondItem="v0m-qR-wan" secondAttribute="trailing" id="vHM-OQ-B1P"/>
                     <constraint firstItem="4" firstAttribute="bottom" secondItem="IJh-Ud-kqa" secondAttribute="bottom" id="xtH-bA-U8N"/>
                 </constraints>
             </tableViewCellContentView>

@@ -98,7 +98,8 @@ class AmaxSummaryViewController : AmaxBaseViewController {
         // Configure the cell.
         let c = cell as! AmaxTableCell
         c.summaryItem = si
-        c.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
+        let pos = c.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
+        c.activeEventPosition = pos
         c.configure(false, true)
 
         if si.mEvents.count > 0 {

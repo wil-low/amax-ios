@@ -90,7 +90,7 @@ class AmaxEventListViewController : AmaxBaseViewController {
         let si = AmaxSummaryItem(key: sourceItem()!.mKey, events: [event])
         let c = cell as! AmaxTableCell
         c.summaryItem = si
-        c.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
+        _ = c.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
         c.configure(extRangeMode, false)
         return cell!
     }

@@ -16,6 +16,7 @@ class AmaxTableCell : UITableViewCell {
     var controller: AmaxBaseViewController?
     private var mActiveEvent: AmaxEvent?
     private var isSummaryMode = true
+    var activeEventPosition = -1  // used in MOON_MOVE so far
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -81,14 +82,16 @@ class AmaxTableCell : UITableViewCell {
         }
     }
 
-    func calculateActiveEvent(customTime: Int, currentTime: Int) {
+    func calculateActiveEvent(customTime: Int, currentTime: Int) -> Int {
+        var pos = -1
         if let si = summaryItem {
-            let pos = si.activeEventPosition(customTime: customTime, currentTime: currentTime)
+            pos = si.activeEventPosition(customTime: customTime, currentTime: currentTime)
             mActiveEvent = (pos == -1) ? nil : si.mEvents[pos]
         }
         else {
             mActiveEvent = nil
         }
+        return pos
     }
     
     func getActiveEvent() -> AmaxEvent? {
