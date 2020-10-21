@@ -22,12 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         self.window = window
-
-        _ = AmaxInterpretationProvider.sharedInstance
-        AmaxBaseViewController.interpreterController = AmaxInterpreterController(nibName: "AmaxInterpreterController", bundle: nil);
-
-        let summaryViewController = AmaxSummaryViewController(nibName: "AmaxSummaryViewController", bundle: Bundle.main)
-        window.rootViewController = UINavigationController(rootViewController: summaryViewController)
+        runStartingController(in: window)
         window.makeKeyAndVisible()
     }
 

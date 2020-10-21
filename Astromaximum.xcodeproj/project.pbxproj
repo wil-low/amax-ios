@@ -51,6 +51,7 @@
 		72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6724DBC99600A5E00A /* AppDelegate.swift */; };
 		72DB5BA424DC685000E20F7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB5BA324DC685000E20F7E /* SceneDelegate.swift */; };
 		72E051B1251DB3E80066721C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72E051B0251DB3E80066721C /* Launch Screen.storyboard */; };
+		72EC3C77253FF09300790609 /* AmaxStartPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EC3C76253FF09300790609 /* AmaxStartPageViewController.swift */; };
 		84B1AC6F1647BB3E007188B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC6E1647BB3E007188B1 /* UIKit.framework */; };
 		84B1AC711647BB3E007188B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC701647BB3E007188B1 /* Foundation.framework */; };
 		84B1AC731647BB3E007188B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84B1AC721647BB3E007188B1 /* CoreGraphics.framework */; };
@@ -143,6 +144,7 @@
 		72DB5BA324DC685000E20F7E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		72DB5BA824DC702500E20F7E /* AmaxCommonDataFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxCommonDataFile.swift; sourceTree = "<group>"; };
 		72E051B0251DB3E80066721C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Astromaximum/Astromaximum/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		72EC3C76253FF09300790609 /* AmaxStartPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxStartPageViewController.swift; sourceTree = "<group>"; };
 		84B1AC6A1647BB3E007188B1 /* Astromaximum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astromaximum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1AC6E1647BB3E007188B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84B1AC701647BB3E007188B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -362,6 +364,7 @@
 				726BC97324E5815200690CE2 /* AmaxLocationListController.swift */,
 				726BC97524E59E6500690CE2 /* AmaxSettingsController.swift */,
 				72ACB3B424E63730007C2813 /* AmaxSummaryViewController.swift */,
+				72EC3C76253FF09300790609 /* AmaxStartPageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				72ACB3C124E7099C007C2813 /* AmaxLocation.swift in Sources */,
 				72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */,
 				726BC97624E59E6500690CE2 /* AmaxSettingsController.swift in Sources */,
+				72EC3C77253FF09300790609 /* AmaxStartPageViewController.swift in Sources */,
 				726BC97824E5AF0500690CE2 /* AmaxSummaryItem.swift in Sources */,
 				72ACB3BC24E68E75007C2813 /* AmaxPrefs.swift in Sources */,
 				726BC99124E5BFF200690CE2 /* AmaxMoonSignCell.swift in Sources */,
