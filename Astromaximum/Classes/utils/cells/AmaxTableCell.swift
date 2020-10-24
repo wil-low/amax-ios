@@ -99,10 +99,14 @@ class AmaxTableCell : UITableViewCell {
     }
     
     func setColorOf(label: UILabel?, byEventMode e: AmaxEvent) {
+        AmaxTableCell.setColorOf(label: label, si: summaryItem, activeEvent: mActiveEvent, byEventMode: e)
+    }
+
+    class func setColorOf(label: UILabel?, si: AmaxSummaryItem?, activeEvent: AmaxEvent?, byEventMode e: AmaxEvent) {
         if let l = label {
             var color = UIColor.black
-            if e == mActiveEvent {
-                switch(summaryItem?.mEventMode) {
+            if e == activeEvent {
+                switch(si?.mEventMode) {
                 case .currentTime:
                     color = UIColor.systemRed
                 case .customTime:

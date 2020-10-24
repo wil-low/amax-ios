@@ -8,20 +8,32 @@
 
 import UIKit
 
-// sync with START_PAGE_ITEM_SEQ
-let xibNames = [
-    "VocCell",
-    "ViaCombustaCell",
-    "MoonMoveCell",
-    "PlanetHourCell",
-    "MoonSignCell",
-    "RetrogradeSetCell",
-    "AspectSetCell",
-    "SunDegreeCell",
-    "TithiCell",
-]
-
 class AmaxSummaryViewController : AmaxBaseViewController {
+
+    // sync with START_PAGE_ITEMS
+    let xibNames = [
+        "VocCell",
+        "ViaCombustaCell",
+        "MoonMoveCell",
+        "PlanetHourCell",
+        "MoonSignCell",
+        "RetrogradeSetCell",
+        "AspectSetCell",
+        "SunDegreeCell",
+        "TithiCell",
+    ]
+
+    let START_PAGE_ITEMS = [
+        EV_VOC,
+        EV_VIA_COMBUSTA,
+        EV_MOON_MOVE,
+        EV_PLANET_HOUR,
+        EV_MOON_SIGN,
+        EV_RETROGRADE,
+        EV_ASP_EXACT,
+        EV_SUN_DEGREE,
+        EV_TITHI,
+    ]
 
     private var mTitleDate: String = ""
 
@@ -172,7 +184,7 @@ class AmaxSummaryViewController : AmaxBaseViewController {
         if let dp = mDataProvider {
             title = dp.currentDateString()
             dp.prepareCalculation()
-            dp.calculateAll()
+            dp.calculateAll(types: START_PAGE_ITEMS)
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
             mSubtitle.text = String(format: "%@, %@",

@@ -10,13 +10,26 @@ import UIKit
 
 class AmaxStartPageViewController : AmaxBaseViewController {
 
+    let START_PAGE_ITEMS = [
+        EV_VOC,
+        EV_VIA_COMBUSTA,
+        EV_MOON_MOVE,
+        EV_PLANET_HOUR,
+        EV_MOON_SIGN,
+        EV_RETROGRADE,
+        EV_ASP_EXACT,
+        EV_SUN_DEGREE,
+        EV_TITHI,
+    ]
+
     private var mTitleDate: String = ""
 
     @IBOutlet weak var mVocTime: UILabel!
     @IBOutlet weak var mVcTime: UILabel!
     @IBOutlet weak var mSunDay: UILabel!
+    @IBOutlet weak var mSunDegree: UILabel!
     @IBOutlet weak var mSunSign: UILabel!
-    @IBOutlet weak var mSunSignTime: UILabel!
+    @IBOutlet weak var mSunDegreeTime: UILabel!
     @IBOutlet weak var mMoonDay: UILabel!
     @IBOutlet weak var mMoonSign: UILabel!
     @IBOutlet weak var mMoonSignTime: UILabel!
@@ -145,12 +158,14 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     }
     */
 
+    /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let si = mDataProvider?.mEventCache[indexPath.row] {
             showEventListFor(si: si, xib: xibNames[indexPath.row])
         }
     }
+     */
 
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -178,19 +193,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         }
     }
 
-    override func updateDisplay() {
-        if let dp = mDataProvider {
-            title = dp.currentDateString()
-            dp.prepareCalculation()
-            dp.calculateAll()
-            self.mCurrentTime = dp.getCurrentTime()
-            self.mCustomTime = dp.getCustomTime()
-            /*mSubtitle.text = String(format: "%@, %@",
-                          mDataProvider!.getHighlightTimeString(),
-                          mDataProvider!.locationName())*/
-        }
-    }
-
     @IBAction func showSettings(_ sender: AnyObject!) {
         if (settingsController == nil) {
             settingsController = AmaxSettingsController(nibName:"AmaxSettingsController", bundle:nil)
@@ -210,5 +212,58 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         let date = mDataProvider!.currentDate()
         dateSelectController!.datePicker?.date = date
         navigationController?.pushViewController(dateSelectController!, animated:true)
+    }
+
+    override func updateDisplay() {
+        if let dp = mDataProvider {
+            title = dp.currentDateString()
+            dp.prepareCalculation()
+            dp.calculateAll(types: START_PAGE_ITEMS)
+            self.mCurrentTime = dp.getCurrentTime()
+            self.mCustomTime = dp.getCustomTime()
+            /*mSubtitle.text = String(format: "%@, %@",
+                          mDataProvider!.getHighlightTimeString(),
+                          mDataProvider!.locationName())*/
+
+            showEvent(label: mVocTime, dataProvider: dp, eventType: EV_VOC, string: { e in
+                        e.normalizedRangeString() })
+            showEvent(label: mVcTime, dataProvider: dp, eventType: EV_VIA_COMBUSTA, string: { e in
+                        e.normalizedRangeString() })
+
+            showEvent(label: mSunDegree, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
+                        String(format: "%d\u{00b0}", e.getDegree() % 30 + 1) })
+            showEvent(label: mSunSign, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
+                        String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30))) })
+            showEvent(label: mSunDegreeTime, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
+                        e.normalizedRangeString() })
+
+            showEvent(label: mMoonSign, dataProvider: dp, eventType: EV_MOON_SIGN, string: { e in
+                        String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree()))) })
+            showEvent(label: mMoonSignTime, dataProvider: dp, eventType: EV_MOON_SIGN, string: { e in
+                        e.normalizedRangeString() })
+        }
+    }
+
+    func showEvent(label: UILabel, dataProvider: AmaxDataProvider, eventType: AmaxEventType, string: (AmaxEvent) -> String) {
+        var itemFound: AmaxSummaryItem?
+        for item in dataProvider.mEventCache {
+            if item.mKey == eventType {
+                itemFound = item
+                break
+            }
+        }
+        if let si = itemFound {
+            var pos = -1
+            var activeEvent: AmaxEvent?
+            pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
+            activeEvent = (pos == -1) ? nil : si.mEvents[pos]
+
+            if let e = activeEvent {
+                label.text = string(e)
+                AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
+                return
+            }
+        }
+        label.text = ""
     }
 }

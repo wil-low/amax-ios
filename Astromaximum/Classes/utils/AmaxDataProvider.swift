@@ -83,18 +83,6 @@ class AmaxDataProvider {
         set { _mSortedLocationKeys = newValue }
     }
 
-    let START_PAGE_ITEM_SEQ = [
-        EV_VOC,
-        EV_VIA_COMBUSTA,
-        EV_MOON_MOVE,
-        EV_PLANET_HOUR,
-        EV_MOON_SIGN,
-        EV_RETROGRADE,
-        EV_ASP_EXACT,
-        EV_SUN_DEGREE,
-        EV_TITHI,
-    ]
-
     let WEEK_START_HOUR = [ 0, 3, 6, 2, 5, 1, 4 ]
     let PLANET_HOUR_SEQUENCE = [
         SE_SUN, SE_VENUS, SE_MERCURY, SE_MOON, SE_SATURN, SE_JUPITER, SE_MARS
@@ -713,8 +701,8 @@ class AmaxDataProvider {
         _ = changeDate(deltaDays: 0)
     }
 
-    func calculateAll() {
-        for item in START_PAGE_ITEM_SEQ {
+    func calculateAll(types: [AmaxEventType]) {
+        for item in types {
             _ = calculateFor(eventType: item, extRange: false)
          }
     }
