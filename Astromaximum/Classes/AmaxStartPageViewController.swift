@@ -32,6 +32,19 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
         mDataProvider = AmaxDataProvider.sharedInstance
+        // set static labels
+        if let v = view.viewWithTag(1) {
+            (v as! UILabel).text = String(format: "%c", getSymbol(TYPE_PLANET, SE_SUN.rawValue))
+        }
+        if let v = view.viewWithTag(2) {
+            (v as! UILabel).text = String(format: "%c", getSymbol(TYPE_PLANET, SE_MOON.rawValue))
+        }
+        /*if let v = view.viewWithTag(3) {
+            (v as! UILabel).text = String(format: "%c", getSymbol(TYPE_PLANET, SE_SUN.rawValue))
+        }
+        if let v = view.viewWithTag(4) {
+            (v as! UILabel).text = String(format: "%c", getSymbol(TYPE_PLANET, SE_SUN.rawValue))
+        }*/
     }
     
     required init?(coder: NSCoder) {
@@ -76,7 +89,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mDataProvider!.mEventCache.count
     }
-
+/*
     // Customize the appearance of table view cells.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = xibNames[indexPath.row]
@@ -84,7 +97,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         let si = mDataProvider!.mEventCache[indexPath.row]
 
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        /*
+        
         if cell == nil {
             Bundle.main.loadNibNamed(cellIdentifier, owner: self, options: nil)
             cell = tvCell
@@ -112,10 +125,10 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         else {
             cell?.accessoryType = .none
         }
-*/
+ 
         return cell!
     }
-
+*/
     /*
     // Override to support rearranging the table view.
     - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -166,19 +179,16 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     }
 
     override func updateDisplay() {
-        /*
         if let dp = mDataProvider {
             title = dp.currentDateString()
             dp.prepareCalculation()
             dp.calculateAll()
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
-            mSubtitle.text = String(format: "%@, %@",
+            /*mSubtitle.text = String(format: "%@, %@",
                           mDataProvider!.getHighlightTimeString(),
-                          mDataProvider!.locationName())
-            mTableView.reloadData()
+                          mDataProvider!.locationName())*/
         }
- */
     }
 
     @IBAction func showSettings(_ sender: AnyObject!) {

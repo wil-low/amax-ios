@@ -13,6 +13,8 @@ let AMAX_PREFS_KEY_LOCATION_ID = "location_id"
 let AMAX_PREFS_KEY_LOCATION_LIST = "location_list"
 let AMAX_PREFS_KEY_CURRENT_DATE = "current_date"
 
+let useSummaryView = true
+
 func getLocations() -> [String: Any]?
 {
     let userDefaults = UserDefaults.standard
@@ -25,7 +27,7 @@ func runStartingController(in window: UIWindow) {
     AmaxBaseViewController.interpreterController = AmaxInterpreterController(nibName: "AmaxInterpreterController", bundle: nil);
 
     var viewController: AmaxBaseViewController
-    if true {
+    if useSummaryView {
         viewController = AmaxSummaryViewController(nibName: "AmaxSummaryViewController", bundle: nil)
     }
     else {
