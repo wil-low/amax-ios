@@ -13,6 +13,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     let START_PAGE_ITEMS = [
         EV_VOC,
         EV_VIA_COMBUSTA,
+        EV_SUN_DAY,
+        EV_MOON_RISE,
         EV_MOON_MOVE,
         EV_PLANET_HOUR,
         EV_MOON_SIGN,
@@ -221,26 +223,36 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             dp.calculateAll(types: START_PAGE_ITEMS)
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
-            /*mSubtitle.text = String(format: "%@, %@",
-                          mDataProvider!.getHighlightTimeString(),
-                          mDataProvider!.locationName())*/
+            mSubtitle.text = String(format: "%@, %@", dp.getHighlightTimeString(), dp.locationName())
 
             showEvent(label: mVocTime, dataProvider: dp, eventType: EV_VOC, string: { e in
                         e.normalizedRangeString() })
             showEvent(label: mVcTime, dataProvider: dp, eventType: EV_VIA_COMBUSTA, string: { e in
                         e.normalizedRangeString() })
 
+            showEvent(label: mSunDay, dataProvider: dp, eventType: EV_SUN_DAY, string: { e in
+                var day = e.getDegree()
+                if day >= 360 {
+                    day = -(day - 359)
+                }
+                return String(format: "%d", day)
+            })
             showEvent(label: mSunDegree, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
-                        String(format: "%d\u{00b0}", e.getDegree() % 30 + 1) })
+                String(format: "%d\u{00b0}", e.getDegree() % 30 + 1)
+            })
             showEvent(label: mSunSign, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
-                        String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30))) })
+                String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
+            })
             showEvent(label: mSunDegreeTime, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
-                        e.normalizedRangeString() })
+                e.normalizedRangeString()
+            })
 
             showEvent(label: mMoonSign, dataProvider: dp, eventType: EV_MOON_SIGN, string: { e in
-                        String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree()))) })
+                String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree())))
+            })
             showEvent(label: mMoonSignTime, dataProvider: dp, eventType: EV_MOON_SIGN, string: { e in
-                        e.normalizedRangeString() })
+                e.normalizedRangeString()
+            })
         }
     }
 

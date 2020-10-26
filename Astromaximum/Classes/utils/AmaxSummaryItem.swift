@@ -84,6 +84,8 @@ class AmaxSummaryItem {
                         index += 1
                     }
                 }
+            case EV_SUN_DAY:
+                return index
     		default:
     			for e in _mEvents {
     				if dateBetween(currentTime, e.date(at: 0), e.date(at: 1)) == 0 {

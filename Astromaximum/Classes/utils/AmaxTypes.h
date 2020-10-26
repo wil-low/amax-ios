@@ -39,7 +39,7 @@ typedef enum {
 	EV_NAKSHATRA = 9,
 	EV_SET = 10, // rising & setting
 	EV_DECL_EXACT = 11, // declination
-	//EV_NAVROZ = 12, // Navroz
+	EV_NAVROZ = 12, // Navroz
 	EV_TOP_DAY = 13, // week days
 	EV_PLANET_HOUR = 14, // planetary hours
 	EV_STATUS = 15,
@@ -49,8 +49,8 @@ typedef enum {
 	EV_SEL_DEGREES = 19,
 	EV_DAY_HOURS = 20,
 	EV_NIGHT_HOURS = 21,
-	//EV_SUN_DAY = 22,
-	//EV_MOON_DAY = 23,
+	EV_SUN_DAY = 22,
+	EV_MOON_DAY = 23,
 	EV_TOP_MONTH = 24,
 	EV_MOON_PHASE = 25,
 	EV_ZODIAC_SIGN = 26,

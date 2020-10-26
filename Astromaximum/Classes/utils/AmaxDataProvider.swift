@@ -17,6 +17,8 @@ class AmaxDataProvider {
     private var mCalendar = Calendar.current
     private var mCurrentDateComponents = DateComponents()
     
+    private var mNavroz = [AmaxEvent].init(repeating: AmaxEvent(), count: 2)
+    
     private let AmaxROUNDING_SEC = 60
 
     private var _mStartTime = 0
@@ -141,6 +143,14 @@ class AmaxDataProvider {
             let date2 = mCalendar.date(from: comp)
             mFinalJD = Int(date2!.timeIntervalSince1970) - AmaxROUNDING_SEC
             AmaxEvent.setTimeZone(mLocationDataFile!.location.mTimezone)
+            let count = getEventsFor(eventType: EV_NAVROZ, planet: SE_SUN, from: 0, to: mFinalJD)
+            if count != 2 {
+                NSLog("NAVROZ count = %d!", count)
+            }
+            else {
+                mNavroz[0] = mEvents[0]
+                mNavroz[1] = mEvents[1]
+            }
             NSLog("loadLocationById: %@ %@", _mLocationId, locationName())
         }
         catch {
@@ -259,22 +269,34 @@ class AmaxDataProvider {
             var rub = stream.readUnsignedByte()
             while evtype.rawValue != rub {
                 skipOff = Int(stream.readShort() - 3)
+                /*if !isCommon {
+                    print(String(format: "readSubData(%u) evt: %u, skipOff %d", evtype.rawValue, rub, skipOff))
+                }*/
                 stream.skipBytes(skipOff)
+                if stream.reachedEOF() {
+                    return 0
+                }
                 _ = stream.readUnsignedByte()
                 rub = stream.readUnsignedByte()
-                if stream.reachedEOF()
-                    {return 0}
+                if stream.reachedEOF() {
+                    return 0
+                }
             }
             skipOff = Int(stream.readShort())
             flag = stream.readShort()
             if planet.rawValue == stream.readByte() {
                 break
-            } else {
+            }
+            else {
                 stream.skipBytes(skipOff - 6)
             }
-            if stream.reachedEOF()
-                {return 0}
+            if stream.reachedEOF() {
+                return 0
+            }
         }
+        /*if !isCommon {
+            print(String(format: "readSubData(%u) evt found", evtype.rawValue))
+        }*/
         let count = stream.readShort()
         let fcumul_date_b = (flag & EF_CUMUL_DATE_B)
         let fcumul_date_w = (flag & EF_CUMUL_DATE_W)
@@ -388,6 +410,7 @@ class AmaxDataProvider {
     		     EV_ASTROSET,
     		     EV_RISE,
     		     EV_SET,
+                 EV_NAVROZ,
     		     EV_ASCAPHETICS:
                 return readSubDataFrom(stream: mLocationDataFile!.mData!, eventType:eventType, planet:planet, isCommon:false, dayStart:dayStart, dayEnd:dayEnd)
     		default:
@@ -609,6 +632,40 @@ class AmaxDataProvider {
         return result
     }
 
+    func calculateSunDay() -> [AmaxEvent] {
+        var result = [AmaxEvent]()
+        if let sunriseEvent = getEventOnPeriod(eventType: EV_RISE, planet: SE_SUN, special: true, from: _mStartTime, to: _mEndTime) {
+            var navroz = mNavroz[1].date(at: 0)
+            //print("Navroz: " + mNavroz[1].description)
+            let sunrise = sunriseEvent.date(at: 0)
+            if sunrise < navroz {
+                navroz = mNavroz[0].date(at: 0)
+            }
+            //print("sunrise: " + String(format: "%d", sunrise - navroz))
+            var pltDaySun: Int = ((sunrise - navroz) * 1000 / (60 * 60 * 24) + 500) / 1000
+            if pltDaySun < 360 {
+                pltDaySun = pltDaySun % 30 + 1
+            }
+            sunriseEvent.mDegree = Int16(pltDaySun)
+            //print("sunrise: " + sunriseEvent.description)
+            result.append(sunriseEvent)
+        }
+        return result
+    }
+
+    func calculateMoonRise() -> [AmaxEvent] {
+        var result = [AmaxEvent]()
+        /*
+        for planet in SE_MERCURY.rawValue ... SE_PLUTO.rawValue {
+            let v = getEventsOnPeriodFor(eventType: EV_RETROGRADE, planet: AmaxPlanet(rawValue: planet), special: false, from: _mStartTime, to: _mEndTime, value: 0)
+            if v.count > 0 {
+                result.append(contentsOf: v)
+            }
+        }
+        result.sort(by: <) */
+        return result
+    }
+
     func getRiseSetForPlanet(planet: AmaxPlanet, from startTime: Int, to endTime: Int) -> [AmaxEvent]? {
         /*
         ArrayList<Event> result = new ArrayList<Event>();
@@ -628,27 +685,16 @@ class AmaxDataProvider {
          */
         return nil
     }
-    /*
-    private Event getEventOnPeriod(int evType, int planet, boolean special,
-                                   long startTime, long endTime) {
-        int cnt = getEvents(evType, planet, startTime, endTime);
-        if (evType == Event.EV_RISE && planet == Event.SE_SUN) {
-            Event dummy = new Event(startTime, 0);
-            dummy.mDate[1] = endTime;
-            MyLog.d("dummy", dummy.toString());
-            for (int i = 0; i < cnt; i++) {
-                MyLog.d("getEventOnPeriod", mEvents[i].toString());
+    
+    func getEventOnPeriod(eventType: AmaxEventType, planet: AmaxPlanet, special: Bool, from: Int, to: Int) -> AmaxEvent? {
+        let events = getEventsOnPeriodFor(eventType: eventType, planet: planet, special: special, from: from, to: to, value: 0)
+        for e in events {
+            if (e.isInPeriod(from: from, to: to, special: special)) {
+                return e;
             }
         }
-        for (int i = 0; i < cnt; i++) {
-            final Event ev = mEvents[i];
-            if (ev.isInPeriod(startTime, endTime, special)) {
-                return ev;
-            }
-        }
-        return null;
+        return nil;
     }
-    */
 
     func calculateAspects() -> [AmaxEvent] {
         return getAspectsOnPeriodFor(planet: SE_UNDEFINED, from: _mStartTime, to: _mEndTime)
@@ -684,6 +730,12 @@ class AmaxDataProvider {
     		case EV_RETROGRADE:
     			events = calculateRetrogrades()
     			break
+            case EV_SUN_DAY:
+                events = calculateSunDay()
+                break
+            case EV_MOON_RISE:
+                events = calculateMoonRise()
+                break
     		default:
     			return nil
         }
