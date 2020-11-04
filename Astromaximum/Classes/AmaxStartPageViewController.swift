@@ -10,11 +10,13 @@ import UIKit
 
 class AmaxTapRecognizer : UITapGestureRecognizer {
     var mEvent: AmaxEvent?
+    var mEventType: AmaxEventType?
     
-    init(target: Any?, action: Selector?, event: AmaxEvent) {
+    init(target: Any?, action: Selector?, event: AmaxEvent, eventType: AmaxEventType) {
         super.init(target: target, action: action)
         numberOfTapsRequired = 1
         mEvent = event
+        mEventType = eventType
     }
 }
 
@@ -183,7 +185,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let c = tableView.cellForRow(at: indexPath) as! AmaxTableCell
         if let e = c.getActiveEvent() {
-            showInterpreterFor(event: e)
+            showInterpreterFor(event: e, type: e.mEvtype)
         }
     }
 
@@ -235,41 +237,41 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             self.mCustomTime = dp.getCustomTime()
             mSubtitle.text = String(format: "%@, %@", dp.getHighlightTimeString(), dp.locationName())
 
-            showEvent(label: mVocTime, dataProvider: dp, eventType: EV_VOC, string: { e in
+            showEvent(label: mVocTime, dataProvider: dp, findType: EV_VOC, interpretationType: EV_VOC, string: { e in
                         e.normalizedRangeString() })
-            showEvent(label: mVcTime, dataProvider: dp, eventType: EV_VIA_COMBUSTA, string: { e in
+            showEvent(label: mVcTime, dataProvider: dp, findType: EV_VIA_COMBUSTA, interpretationType: EV_VIA_COMBUSTA, string: { e in
                         e.normalizedRangeString() })
 
-            showEvent(label: mSunDay, dataProvider: dp, eventType: EV_SUN_DAY, string: { e in
+            showEvent(label: mSunDay, dataProvider: dp, findType: EV_SUN_DAY, interpretationType: EV_SUN_DAY, string: { e in
                 var day = e.getDegree()
                 if day >= 360 {
                     day = -(day - 359)
                 }
                 return String(format: "%d", day)
             })
-            showEvent(label: mSunDegree, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
+            showEvent(label: mSunDegree, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
                 String(format: "%d\u{00b0}", e.getDegree() % 30 + 1)
             })
-            showEvent(label: mSunSign, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
+            showEvent(label: mSunSign, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
                 String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
             })
-            showEvent(label: mSunDegreeTime, dataProvider: dp, eventType: EV_SUN_DEGREE, string: { e in
+            showEvent(label: mSunDegreeTime, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
                 e.normalizedRangeString()
             })
 
-            showEvent(label: mMoonSign, dataProvider: dp, eventType: EV_MOON_SIGN, string: { e in
+            showEvent(label: mMoonSign, dataProvider: dp, findType: EV_MOON_SIGN, interpretationType: EV_SIGN_ENTER, string: { e in
                 String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree())))
             })
-            showEvent(label: mMoonSignTime, dataProvider: dp, eventType: EV_MOON_SIGN, string: { e in
+            showEvent(label: mMoonSignTime, dataProvider: dp, findType: EV_MOON_SIGN, interpretationType: EV_SIGN_ENTER, string: { e in
                 e.normalizedRangeString()
             })
         }
     }
 
-    func showEvent(label: UILabel, dataProvider: AmaxDataProvider, eventType: AmaxEventType, string: (AmaxEvent) -> String) {
+    func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String) {
         var itemFound: AmaxSummaryItem?
         for item in dataProvider.mEventCache {
-            if item.mKey == eventType {
+            if item.mKey == findType {
                 itemFound = item
                 break
             }
@@ -284,7 +286,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 label.text = string(e)
                 AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
                 label.isUserInteractionEnabled = true
-                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: e)
+                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: e, eventType: interpretationType)
                 label.addGestureRecognizer(tap)
                 return
             }
@@ -295,8 +297,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     
     @objc func itemTapped(sender: UITapGestureRecognizer) {
         if let tap = sender as? AmaxTapRecognizer {
-            print("itemTapped: " + tap.mEvent!.description)
-            showInterpreterFor(event: tap.mEvent!)
+            print("itemTapped: \(tap.mEvent!.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType!.rawValue)])")
+            showInterpreterFor(event: tap.mEvent!, type: tap.mEventType!)
         }
     }
 

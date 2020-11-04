@@ -69,12 +69,15 @@ class AmaxBaseViewController : UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
-    func showInterpreterFor(event: AmaxEvent) {
+    func showInterpreterFor(event: AmaxEvent, type: AmaxEventType) {
         let iProvider = AmaxInterpretationProvider.sharedInstance
-        if let text = iProvider.getTextFor(event: event) {
-            AmaxBaseViewController.interpreterController?.interpreterText = text
-            AmaxBaseViewController.interpreterController?.interpreterEvent = event
-            navigationController?.pushViewController(AmaxBaseViewController.interpreterController!, animated: true)
+        if let text = iProvider.getTextFor(event: event, type: type) {
+            if let ic = AmaxBaseViewController.interpreterController {
+                ic.interpreterText = text
+                ic.interpreterEvent = event
+                ic.eventType = type
+                navigationController?.pushViewController(ic, animated: true)
+            }
         }
     }
 }

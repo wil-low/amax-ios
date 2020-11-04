@@ -108,7 +108,7 @@ class AmaxEventListViewController : AmaxBaseViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let e = sourceItem()!.mEvents[indexPath.row]
-        showInterpreterFor(event: e)
+        showInterpreterFor(event: e, type: e.mEvtype)
     }
 
     // MARK: - View lifecycle

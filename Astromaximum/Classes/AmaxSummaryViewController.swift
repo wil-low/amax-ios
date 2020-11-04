@@ -159,7 +159,7 @@ class AmaxSummaryViewController : AmaxBaseViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         let c = tableView.cellForRow(at: indexPath) as! AmaxTableCell
         if let e = c.getActiveEvent() {
-            showInterpreterFor(event: e)
+            showInterpreterFor(event: e, type: e.mEvtype)
         }
     }
 

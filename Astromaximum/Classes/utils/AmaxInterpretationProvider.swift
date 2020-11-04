@@ -32,11 +32,11 @@ class AmaxInterpretationProvider {
         mTexts = AmaxDataInputStream(data: fullData)
     }
 
-    func getTextFor(event ev: AmaxEvent?) -> String? {
+    func getTextFor(event ev: AmaxEvent?, type: AmaxEventType) -> String? {
         guard let e = ev else {
             return nil
         }
-        let params = makeInterpreterCode(event: e)
+        let params = makeInterpreterCode(event: e, type: type)
         //NSLog("type: %s (%d), params: %d, %d, %d, %d", EVENT_TYPE_STR[Int(e.mEvtype.rawValue)], Int(e.mEvtype.rawValue),
         //      params[0], params[1], params[2], params[3])
         var tempParams = [0, 0, 0, 0]
@@ -45,7 +45,7 @@ class AmaxInterpretationProvider {
         let sectionCount = mTexts.readUnsignedShort()
         var eventCount = 0
         for _ in 0 ..< sectionCount {
-            if Int8(e.mEvtype.rawValue) == mTexts.readByte() {
+            if Int8(params[0]) == mTexts.readByte() {
                 let offset = mTexts.readInt()
                 eventCount = Int(mTexts.readUnsignedShort())
                 mTexts.reset()
@@ -63,7 +63,7 @@ class AmaxInterpretationProvider {
             }
             var isEqual = true
             for j in 0 ..< 3 {
-                if params[j] != tempParams[j] {
+                if params[j + 1] != tempParams[j] {
                     isEqual = false
                     break
                 }
@@ -79,10 +79,20 @@ class AmaxInterpretationProvider {
         return nil
     }
 
-    func makeInterpreterCode(event ev: AmaxEvent) -> [Int] {
+    func makeInterpreterCode(event ev: AmaxEvent, type: AmaxEventType) -> [Int] {
+        var evType = type
         var planet = -1
         var param0 = -1, param1 = -1, param2 = -1
-        switch (ev.mEvtype) { 
+        switch (type) { 
+            case EV_SUN_DAY:
+                evType = EV_NAVROZ
+                var dgr = ev.getDegree()
+                if dgr >= 360 {
+                    dgr += 1
+                }
+                planet = Int(ev.mPlanet0.rawValue)
+                param0 = dgr
+                break
     		case EV_ASP_EXACT_MOON:
                 planet = Int(ev.mPlanet0.rawValue)
                 param0 = Int(ev.mPlanet1.rawValue)
@@ -128,7 +138,7 @@ class AmaxInterpretationProvider {
             default:
                 break
         }
-        return [planet, param0, param1, param2]
+        return [Int(evType.rawValue), planet, param0, param1, param2]
     }
 
     func composeHTML(_ text: String) -> String {
