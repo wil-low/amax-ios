@@ -65,6 +65,7 @@ class AmaxSummaryViewController : AmaxBaseViewController {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(title: NSLocalizedString("Summary", comment: "Summary"), style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButton
+        AmaxBaseViewController.interpreterController!.view.layoutSubviews()
     }
 
     override func viewWillAppear(_ animated: Bool) {

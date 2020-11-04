@@ -69,7 +69,7 @@ class AmaxInterpretationProvider {
                 }
              }
             if isEqual {
-                return String(format: "%@%@%@", "<html><head><style type=\"text/css\">body{font-family: '-apple-system','HelveticaNeue';font-size:17;}</style></head><body>", mTexts.readUTF()!, "</body></html")
+                return composeHTML(mTexts.readUTF()!)
             }
             else {
                 let len = mTexts.readUnsignedShort()
@@ -129,5 +129,60 @@ class AmaxInterpretationProvider {
                 break
         }
         return [planet, param0, param1, param2]
+    }
+
+    func composeHTML(_ text: String) -> String {
+        let html = """
+        <html>
+        <head>
+        <style type="text/css">
+        :root {
+          color-scheme: light dark;
+          --title-color: red;
+          --subhead-color: green;
+          --link-color: blue;
+        }
+
+        @media screen and (prefers-color-scheme: dark) {
+          :root {
+            --title-color: #ff8080;
+            --subhead-color: #80ff80;
+            --link-color: #93d5ff;
+          }
+        }
+
+        body {
+            font: -apple-system-body;
+        }
+
+        h1 {
+            font: -apple-system-headline;
+            color: var(--title-color);
+        }
+
+        h2 {
+            font: -apple-system-subheadline;
+            color: var(--subhead-color);
+        }
+
+        footer {
+            font: -apple-system-footnote;
+        }
+
+        a {
+            color: var(--link-color);
+        }
+
+        img {
+            max-width: 100%;
+        }
+        </style>
+        </head>
+        <body>
+        \(text)
+        </body>
+        </html>
+        """
+        return html
     }
 }

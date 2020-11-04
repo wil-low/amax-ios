@@ -151,6 +151,7 @@ class AmaxInterpreterController : UIViewController {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("interp_title", comment: "")
         // Do any additional setup after loading the view from its nib.
+        interpreterTextView.loadHTMLString("", baseURL: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
