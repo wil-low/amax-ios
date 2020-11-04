@@ -8,6 +8,16 @@
 
 import UIKit
 
+class AmaxTapRecognizer : UITapGestureRecognizer {
+    var mEvent: AmaxEvent?
+    
+    init(target: Any?, action: Selector?, event: AmaxEvent) {
+        super.init(target: target, action: action)
+        numberOfTapsRequired = 1
+        mEvent = event
+    }
+}
+
 class AmaxStartPageViewController : AmaxBaseViewController {
 
     let START_PAGE_ITEMS = [
@@ -273,9 +283,21 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             if let e = activeEvent {
                 label.text = string(e)
                 AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
+                label.isUserInteractionEnabled = true
+                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: e)
+                label.addGestureRecognizer(tap)
                 return
             }
         }
         label.text = ""
+        label.gestureRecognizers = []
     }
+    
+    @objc func itemTapped(sender: UITapGestureRecognizer) {
+        if let tap = sender as? AmaxTapRecognizer {
+            print("itemTapped: " + tap.mEvent!.description)
+            showInterpreterFor(event: tap.mEvent!)
+        }
+    }
+
 }
