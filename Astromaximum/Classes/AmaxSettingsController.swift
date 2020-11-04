@@ -114,27 +114,12 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
         if let sw = sender as? UISwitch {
             UserDefaults.standard.set(sw.isOn, forKey: AMAX_PREFS_KEY_START_PAGE_AS_GRID)
             if var controllers = navigationController?.viewControllers {
-                var found = false
-                if sw.isOn {  // set SummaryViewController
-                    for i in 0 ..< controllers.count {
-                        if controllers[i] is AmaxStartPageViewController {
-                            controllers[i] = createStartingController(useSummaryView: true)
-                            found = true
-                            break
-                        }
+                for i in 0 ..< controllers.count {
+                    if (sw.isOn && controllers[i] is AmaxStartPageViewController) || (!sw.isOn && controllers[i] is AmaxSummaryViewController) {
+                        controllers[i] = createStartingController(useSummaryView: sw.isOn)
+                        navigationController?.setViewControllers(controllers, animated: false)
+                        break
                     }
-                }
-                else {  // set StartPageViewController
-                    for i in 0 ..< controllers.count {
-                        if controllers[i] is AmaxSummaryViewController {
-                            controllers[i] = createStartingController(useSummaryView: false)
-                            found = true
-                            break
-                        }
-                    }
-                }
-                if found {
-                    navigationController?.setViewControllers(controllers, animated: false)
                 }
             }
         }
