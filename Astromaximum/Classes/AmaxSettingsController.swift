@@ -18,11 +18,13 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     var locationListController: AmaxLocationListController!
 
     let CELL_LOCATION_NAME = 0
-    let CELL_IS_CUSTOM_TIME = 1
-    let CELL_HIGHIGHT_TIME = 2
+    let CELL_STARTING_CONTROLLER = 1
+    let CELL_IS_CUSTOM_TIME = 2
+    let CELL_HIGHIGHT_TIME = 3
 
     let AmaxSettingsXibNames = [
         "LocationNameCell",
+        "StartingControllerSwitchCell",
         "CustomTimeSwitchCell"
     ]
 
@@ -79,6 +81,13 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
             case CELL_LOCATION_NAME:
                 c.textLabel?.text = NSLocalizedString("Current_location", comment: "Current location")
                 c.detailTextLabel?.text = mDataProvider.locationName()
+            case CELL_STARTING_CONTROLLER:
+                c.textLabel?.text = NSLocalizedString("Summary_as_list", comment: "Summary as list")
+                c.detailTextLabel?.text = ""
+                let switchView = UISwitch(frame: CGRect.zero)
+                c.accessoryView = switchView
+                switchView.setOn(UserDefaults.standard.bool(forKey: AMAX_PREFS_KEY_START_PAGE_AS_GRID), animated: false)
+                switchView.addTarget(self, action: #selector(self.startPageSwitchChanged(sender:)), for: .valueChanged)
             case CELL_IS_CUSTOM_TIME:
                 c.textLabel?.text = NSLocalizedString("Highlight_time", comment: "Highlight time")
                 c.detailTextLabel?.text = "88:88"
@@ -98,6 +107,36 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
                 locationListController = AmaxLocationListController(nibName: "AmaxLocationListController", bundle: nil)
             }
             self.navigationController?.pushViewController(locationListController, animated: true)
+        }
+    }
+
+    @IBAction func startPageSwitchChanged(sender: AnyObject!) {
+        if let sw = sender as? UISwitch {
+            UserDefaults.standard.set(sw.isOn, forKey: AMAX_PREFS_KEY_START_PAGE_AS_GRID)
+            if var controllers = navigationController?.viewControllers {
+                var found = false
+                if sw.isOn {  // set SummaryViewController
+                    for i in 0 ..< controllers.count {
+                        if controllers[i] is AmaxStartPageViewController {
+                            controllers[i] = createStartingController(useSummaryView: true)
+                            found = true
+                            break
+                        }
+                    }
+                }
+                else {  // set StartPageViewController
+                    for i in 0 ..< controllers.count {
+                        if controllers[i] is AmaxSummaryViewController {
+                            controllers[i] = createStartingController(useSummaryView: false)
+                            found = true
+                            break
+                        }
+                    }
+                }
+                if found {
+                    navigationController?.setViewControllers(controllers, animated: false)
+                }
+            }
         }
     }
 
