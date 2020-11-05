@@ -26,6 +26,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         EV_VOC,
         EV_VIA_COMBUSTA,
         EV_SUN_DAY,
+        EV_MOON_DAY,
         EV_MOON_RISE,
         EV_MOON_MOVE,
         EV_PLANET_HOUR,
@@ -44,11 +45,11 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     @IBOutlet weak var mSunDegree: UILabel!
     @IBOutlet weak var mSunSign: UILabel!
     @IBOutlet weak var mSunDegreeTime: UILabel!
-    @IBOutlet weak var mMoonDay: UILabel!
+    @IBOutlet weak var mMoonDayStack: UIStackView!
     @IBOutlet weak var mMoonSign: UILabel!
     @IBOutlet weak var mMoonSignTime: UILabel!
     @IBOutlet weak var mMoonPhase: UIImageView!
-    @IBOutlet weak var mTithi: UILabel!
+    @IBOutlet weak var mTithiStack: UIStackView!
     @IBOutlet weak var mMoonMoveTable: UITableView!
     @IBOutlet weak var mPlanetHourTable: UITableView!
 
@@ -250,7 +251,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 return String(format: "%d", day)
             })
             showEvent(label: mSunDegree, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
-                String(format: "%d\u{00b0}", e.getDegree() % 30 + 1)
+                String(format: "%d\u{00b0} ", e.getDegree() % 30 + 1)
             })
             showEvent(label: mSunSign, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
                 String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
@@ -264,6 +265,13 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             })
             showEvent(label: mMoonSignTime, dataProvider: dp, findType: EV_MOON_SIGN, interpretationType: EV_SIGN_ENTER, string: { e in
                 e.normalizedRangeString()
+            })
+            showEventStack(stack: mMoonDayStack, dataProvider: dp, findType: EV_MOON_DAY, interpretationType: EV_MOON_DAY, string: { e in
+                return String(format: "%d", e.getDegree())
+            })
+
+            showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
+                return String(format: "%d", e.getDegree())
             })
         }
     }
@@ -285,6 +293,10 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             if let e = activeEvent {
                 label.text = string(e)
                 AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
+
+                label.layer.borderWidth = 0.8
+                label.layer.borderColor = UIColor.gray.cgColor
+
                 label.isUserInteractionEnabled = true
                 let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: e, eventType: interpretationType)
                 label.addGestureRecognizer(tap)
@@ -295,6 +307,42 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         label.gestureRecognizers = []
     }
     
+    func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String) {
+        var itemFound: AmaxSummaryItem?
+        for item in dataProvider.mEventCache {
+            if item.mKey == findType {
+                itemFound = item
+                break
+            }
+        }
+        for view in stack.subviews {
+            view.removeFromSuperview()
+        }
+        if let si = itemFound {
+            var pos = -1
+            var activeEvent: AmaxEvent?
+            pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
+            activeEvent = (pos == -1) ? nil : si.mEvents[pos]
+            for event in si.mEvents {
+                let label = UILabel()
+                label.text = string(event)
+
+                label.layer.borderWidth = 0.8
+                label.layer.borderColor = UIColor.gray.cgColor
+
+                label.textAlignment = .center
+                AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event)
+
+                label.isUserInteractionEnabled = true
+                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: interpretationType)
+                label.addGestureRecognizer(tap)
+
+                label.sizeToFit()
+                stack.addArrangedSubview(label)
+            }
+        }
+    }
+
     @objc func itemTapped(sender: UITapGestureRecognizer) {
         if let tap = sender as? AmaxTapRecognizer {
             print("itemTapped: \(tap.mEvent!.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType!.rawValue)])")

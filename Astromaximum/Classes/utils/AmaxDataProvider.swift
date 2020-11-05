@@ -653,6 +653,12 @@ class AmaxDataProvider {
         return result
     }
 
+    func calculateMoonDay() -> [AmaxEvent] {
+        var result = [AmaxEvent]()
+        result = getEventsOnPeriodFor(eventType: EV_RISE, planet: SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
+        return result
+    }
+
     func calculateMoonRise() -> [AmaxEvent] {
         var result = [AmaxEvent]()
         /*
@@ -732,6 +738,9 @@ class AmaxDataProvider {
     			break
             case EV_SUN_DAY:
                 events = calculateSunDay()
+                break
+            case EV_MOON_DAY:
+                events = calculateMoonDay()
                 break
             case EV_MOON_RISE:
                 events = calculateMoonRise()

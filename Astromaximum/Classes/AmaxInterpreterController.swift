@@ -102,6 +102,10 @@ class AmaxInterpreterController : UIViewController {
                 }
                 return String(format:"%@ %d", result, dgr)
             
+            case EV_MOON_DAY:
+                let result = NSLocalizedString("si_moon_day", comment: "")
+                return String(format:"%@ %d", result, ev.getDegree())
+            
             default:
                 return ev.description
        }
