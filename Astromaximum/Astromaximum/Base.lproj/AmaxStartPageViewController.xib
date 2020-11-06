@@ -159,7 +159,7 @@
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-Cs-19W" userLabel="MoonMove">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-Cs-19W" userLabel="MoonMove">
                             <rect key="frame" x="0.0" y="386.5" width="343" height="88"/>
                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                             <constraints>
@@ -170,7 +170,7 @@
                                 <outlet property="delegate" destination="-1" id="3wB-zI-SQ7"/>
                             </connections>
                         </tableView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Muh-YU-kUV" userLabel="PlanetHour">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Muh-YU-kUV" userLabel="PlanetHour">
                             <rect key="frame" x="0.0" y="484.5" width="343" height="88"/>
                             <color key="backgroundColor" systemColor="systemTealColor"/>
                             <constraints>
