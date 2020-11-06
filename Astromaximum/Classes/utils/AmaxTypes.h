@@ -80,7 +80,8 @@ typedef enum {
 	EV_MOON_SIGN = 54,
 	EV_SUN_RISESET = 55,
 	EV_MOON_RISESET = 56,
-	EV_LAST = 57, // last - do not use
+    EV_PLANET_HOUR_EXT = 57, // planetary hours with tomorrow
+	EV_LAST = 58, // last - do not use
     
 } AmaxEventType;
 

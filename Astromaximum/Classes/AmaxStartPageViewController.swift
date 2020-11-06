@@ -30,10 +30,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         EV_MOON_RISE,
         EV_MOON_MOVE,
         EV_MOON_PHASE,
-        EV_PLANET_HOUR,
+        EV_PLANET_HOUR_EXT,
         EV_MOON_SIGN,
-        EV_RETROGRADE,
-        EV_ASP_EXACT,
         EV_SUN_DEGREE,
         EV_TITHI,
     ]
@@ -51,8 +49,9 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     @IBOutlet weak var mMoonSignTime: UILabel!
     @IBOutlet weak var mMoonPhase: MoonPhaseView!
     @IBOutlet weak var mTithiStack: UIStackView!
-    @IBOutlet weak var mMoonMoveTable: UITableView!
-    @IBOutlet weak var mPlanetHourTable: UITableView!
+    @IBOutlet weak var mMoonMoveStack: UIStackView!
+    @IBOutlet weak var mPlanetHourDayStack: UIStackView!
+    @IBOutlet weak var mPlanetHourNightStack: UIStackView!
 
     var eventListViewController: AmaxEventListViewController?
     var settingsController: AmaxSettingsController?
@@ -108,87 +107,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
     	super.viewDidDisappear(animated)
-    }
-
-    // Customize the number of sections in the table view.
-    func numberOfSections(in: UITableView!) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mDataProvider!.mEventCache.count
-    }
-/*
-    // Customize the appearance of table view cells.
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = xibNames[indexPath.row]
-
-        let si = mDataProvider!.mEventCache[indexPath.row]
-
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-        
-        if cell == nil {
-            Bundle.main.loadNibNamed(cellIdentifier, owner: self, options: nil)
-            cell = tvCell
-            tvCell = nil
-            (cell as! AmaxTableCell).controller = self
-        }
-
-        // Configure the cell.
-        let c = cell as! AmaxTableCell
-        c.summaryItem = si
-        let pos = c.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
-        c.activeEventPosition = pos
-        c.configure(false, true)
-
-        if si.mEvents.count > 0 {
-            switch si.mKey {
-            case EV_ASP_EXACT,
-                 EV_RETROGRADE,
-                 EV_MOON_MOVE:
-                cell?.accessoryType = .disclosureIndicator
-            default:
-                cell?.accessoryType = .detailDisclosureButton
-            }
-        }
-        else {
-            cell?.accessoryType = .none
-        }
- 
-        return cell!
-    }
-*/
-    /*
-    // Override to support rearranging the table view.
-    - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-    {
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-    {
-        // Return NO if you do not want the item to be re-orderable.
-        return YES;
-    }
-    */
-
-    /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if let si = mDataProvider?.mEventCache[indexPath.row] {
-            showEventListFor(si: si, xib: xibNames[indexPath.row])
-        }
-    }
-     */
-
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let c = tableView.cellForRow(at: indexPath) as! AmaxTableCell
-        if let e = c.getActiveEvent() {
-            showInterpreterFor(event: e, type: e.mEvtype)
-        }
     }
 
     func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
@@ -275,6 +193,9 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 return String(format: "%d", e.getDegree())
             })
             showMoonPhase(dataProvider: dp, events: tithis)
+
+            showPlanetHourStack(stack: mPlanetHourDayStack, dataProvider: dp, isDay: true)
+            showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
         }
     }
 
@@ -300,8 +221,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 label.text = string(e)
                 AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
 
-                label.layer.borderWidth = 0.8
-                label.layer.borderColor = UIColor.gray.cgColor
+                //label.layer.borderWidth = 0.8
+                //label.layer.borderColor = UIColor.gray.cgColor
 
                 label.isUserInteractionEnabled = true
                 let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: e, eventType: interpretationType)
@@ -326,8 +247,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             let label = UILabel()
             label.text = string(event)
 
-            label.layer.borderWidth = 0.8
-            label.layer.borderColor = UIColor.gray.cgColor
+            //label.layer.borderWidth = 0.8
+            //label.layer.borderColor = UIColor.gray.cgColor
 
             label.textAlignment = .center
             AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event)
@@ -351,6 +272,48 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: si.mEvents[0], eventType: EV_MOON_PHASE)
                 mMoonPhase.addGestureRecognizer(tap)
             }
+        }
+    }
+
+    func showPlanetHourStack(stack: UIStackView, dataProvider: AmaxDataProvider, isDay: Bool) {
+        for view in stack.subviews {
+            view.removeFromSuperview()
+        }
+        var activeEvent: AmaxEvent?
+        let si = findInCache(dataProvider: dataProvider, findType: EV_PLANET_HOUR_EXT)!
+        var pos = -1
+        pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
+        activeEvent = (pos == -1) ? nil : si.mEvents[pos]
+        let skipToNum = isDay ? 0 : 12
+        var showEvents = false
+        for event in si.mEvents {
+            if !showEvents && event.getDegree() != skipToNum {
+                continue
+            }
+            showEvents = true
+            if event.getDegree() >= skipToNum + 12 {
+                break
+            }
+            let label = UILabel()
+            label.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
+            label.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
+            
+            //label.layer.borderWidth = 0.8
+            //label.layer.borderColor = UIColor.gray.cgColor
+
+            label.textAlignment = .center
+            let color = isDay ? ColorCompatibility.label : ColorCompatibility.systemIndigo
+            AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event, defaultColor: color)
+            if event.date(at: 1) > dataProvider.mEndTime {
+                label.backgroundColor = ColorCompatibility.systemGray6
+            }
+
+            label.isUserInteractionEnabled = true
+            let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: EV_PLANET_HOUR)
+            label.addGestureRecognizer(tap)
+
+            label.sizeToFit()
+            stack.addArrangedSubview(label)
         }
     }
 

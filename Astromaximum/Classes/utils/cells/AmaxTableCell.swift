@@ -102,9 +102,9 @@ class AmaxTableCell : UITableViewCell {
         AmaxTableCell.setColorOf(label: label, si: summaryItem, activeEvent: mActiveEvent, byEventMode: e)
     }
 
-    class func setColorOf(label: UILabel?, si: AmaxSummaryItem?, activeEvent: AmaxEvent?, byEventMode e: AmaxEvent) {
+    class func setColorOf(label: UILabel?, si: AmaxSummaryItem?, activeEvent: AmaxEvent?, byEventMode e: AmaxEvent, defaultColor: UIColor = ColorCompatibility.label) {
         if let l = label {
-            var color = ColorCompatibility.label
+            var color = defaultColor
             if e == activeEvent {
                 switch(si?.mEventMode) {
                 case .currentTime:
@@ -112,7 +112,7 @@ class AmaxTableCell : UITableViewCell {
                 case .customTime:
                     color = UIColor.systemBlue
                 default:
-                    color = ColorCompatibility.label
+                    color = defaultColor
                 }
             }
             l.textColor = color

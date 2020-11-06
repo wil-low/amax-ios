@@ -438,11 +438,12 @@ class AmaxDataProvider {
         return getEventsOnPeriodFor(eventType: EV_TITHI, planet:  SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
-    func getPlanetaryHours(into: inout [AmaxEvent], currentSunRise: AmaxEvent, nextSunRise: AmaxEvent!, dayOfWeek: Int) {
+    func getPlanetaryHours(into: inout [AmaxEvent], currentSunRise: AmaxEvent, nextSunRise: AmaxEvent!, dayOfWeek: Int, withTomorrow: Bool) {
         var startHour = WEEK_START_HOUR[dayOfWeek]
         let dayHour: Int = (currentSunRise.date(at: 1) - currentSunRise.date(at: 0)) / 12
         let nightHour: Int = (nextSunRise.date(at: 0) - currentSunRise.date(at: 1)) / 12
         //NSLog("getPlanetaryHours: %ld, %ld", dayHour, nightHour)
+        let endTime = withTomorrow ? _mEndTime + 60 * 60 * 12 : _mEndTime
         var st = currentSunRise.date(at: 0)
         for i in 0 ..< 24 {
             let ev:AmaxEvent! = AmaxEvent(date: (st - (st % AmaxROUNDING_SEC)), planet: PLANET_HOUR_SEQUENCE[startHour % 7])
@@ -451,14 +452,15 @@ class AmaxDataProvider {
             var date1 = st - AmaxROUNDING_SEC // exclude last minute
             date1 -= (date1 % AmaxROUNDING_SEC)
             ev.setDate(at: 1, value: date1)
-            if ev.isInPeriod(from: _mStartTime, to: _mEndTime, special: false) {
+            ev.mDegree = Int16(i)
+            if ev.isInPeriod(from: _mStartTime, to: endTime, special: false) {
                 into.append(ev)
             }
             startHour += 1
          }
     }
 
-    func calculatePlanetaryHours() -> [AmaxEvent] {
+    func calculatePlanetaryHours(withTomorrow: Bool) -> [AmaxEvent] {
         let start = shiftDate(alignedDate: _mStartTime, byAdding: .day, value: -1, isTrailing: false)
         let end = shiftDate(alignedDate: _mEndTime, byAdding: .day, value: 1, isTrailing: false)
         let sunRises = getEventsOnPeriodFor(eventType: EV_RISE, planet: SE_SUN, special: true, from: start, to: end, value: 0)
@@ -483,7 +485,7 @@ class AmaxDataProvider {
             dayOfWeek -= 1
         }
         for i in 0 ..< sunRises.count - 1 {
-            getPlanetaryHours(into: &result, currentSunRise: sunRises[i], nextSunRise: sunRises[i + 1], dayOfWeek: dayOfWeek)
+            getPlanetaryHours(into: &result, currentSunRise: sunRises[i], nextSunRise: sunRises[i + 1], dayOfWeek: dayOfWeek, withTomorrow: withTomorrow)
             dayOfWeek = (dayOfWeek + 1) % 7
         }
         return result
@@ -666,7 +668,7 @@ class AmaxDataProvider {
     }
 
     func calculateMoonRise() -> [AmaxEvent] {
-        var result = [AmaxEvent]()
+        let result = [AmaxEvent]()
         /*
         for planet in SE_MERCURY.rawValue ... SE_PLUTO.rawValue {
             let v = getEventsOnPeriodFor(eventType: EV_RETROGRADE, planet: AmaxPlanet(rawValue: planet), special: false, from: _mStartTime, to: _mEndTime, value: 0)
@@ -728,8 +730,11 @@ class AmaxDataProvider {
     			events = calculateMoonSign()
     			break
     		case EV_PLANET_HOUR:
-    			events = calculatePlanetaryHours()
+                events = calculatePlanetaryHours(withTomorrow: false)
     			break
+            case EV_PLANET_HOUR_EXT:
+                events = calculatePlanetaryHours(withTomorrow: true)
+                break
     		case EV_ASP_EXACT:
     			events = calculateAspects()
     			break

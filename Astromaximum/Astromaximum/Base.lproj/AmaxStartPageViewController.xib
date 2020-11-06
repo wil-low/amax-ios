@@ -11,11 +11,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxStartPageViewController" customModule="Astromaximum" customModuleProvider="target">
             <connections>
                 <outlet property="mMoonDayStack" destination="rCY-7i-X9V" id="GTE-hY-8l7"/>
-                <outlet property="mMoonMoveTable" destination="Kaq-Cs-19W" id="Wfb-Vd-y7s"/>
+                <outlet property="mMoonMoveStack" destination="gEx-VW-avL" id="YbV-Ta-TZF"/>
                 <outlet property="mMoonPhase" destination="PR3-7x-pFI" id="lB4-Cj-4DV"/>
                 <outlet property="mMoonSign" destination="nYM-Nq-bkL" id="vdS-bZ-fur"/>
                 <outlet property="mMoonSignTime" destination="mlE-EF-9Ls" id="AJd-gh-Igd"/>
-                <outlet property="mPlanetHourTable" destination="Muh-YU-kUV" id="prE-R4-Znz"/>
+                <outlet property="mPlanetHourDayStack" destination="mO8-WC-eJE" id="OfR-n3-1Pp"/>
+                <outlet property="mPlanetHourNightStack" destination="xfR-bb-AOH" id="Qxh-hA-ruG"/>
                 <outlet property="mSubtitle" destination="Iwr-O4-raY" id="bCe-Hv-Z3A"/>
                 <outlet property="mSunDay" destination="JMR-Fz-EEh" id="SyK-ma-wDb"/>
                 <outlet property="mSunDegree" destination="Z4g-IP-RZ8" id="fxn-Sj-uar"/>
@@ -45,29 +46,29 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="scY-yy-Fxl" userLabel="SView1">
-                            <rect key="frame" x="0.0" y="50" width="343" height="87.5"/>
+                            <rect key="frame" x="0.0" y="50" width="343" height="18"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="VOC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9c-nG-b4i">
-                                    <rect key="frame" x="0.0" y="0.0" width="35.5" height="87.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="31.5" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-Sb-Uxn" userLabel="VocTime">
-                                    <rect key="frame" x="45.5" y="0.0" width="121" height="87.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-Sb-Uxn" userLabel="VocTime">
+                                    <rect key="frame" x="41.5" y="0.0" width="125" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43W-1N-sFy">
-                                    <rect key="frame" x="176.5" y="0.0" width="22.5" height="87.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="176.5" y="0.0" width="20.5" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMW-ew-u7z" userLabel="VcTime">
-                                    <rect key="frame" x="209" y="0.0" width="134" height="87.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="207" y="0.0" width="136" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -77,48 +78,48 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dXL-rZ-qFz" userLabel="SView2">
-                            <rect key="frame" x="0.0" y="147.5" width="343" height="229"/>
+                            <rect key="frame" x="0.0" y="78" width="343" height="200"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WCL-ws-tBz" userLabel="SView21">
-                                    <rect key="frame" x="0.0" y="0.0" width="114.5" height="229"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="114.5" height="200"/>
                                     <subviews>
                                         <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-Ag-Cjg" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="114.5" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="114.5" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMR-Fz-EEh" userLabel="SunDay">
-                                            <rect key="frame" x="0.0" y="57.5" width="114.5" height="57"/>
+                                            <rect key="frame" x="0.0" y="50" width="114.5" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNc-Bx-5ma" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="114.5" width="114.5" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="100" width="114.5" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-7i-X9V" userLabel="MoonDayStack">
-                                            <rect key="frame" x="0.0" y="172" width="114.5" height="57"/>
+                                            <rect key="frame" x="0.0" y="150" width="114.5" height="50"/>
                                         </stackView>
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-3D-isH" userLabel="SView22">
-                                    <rect key="frame" x="114.5" y="0.0" width="114" height="229"/>
+                                    <rect key="frame" x="114.5" y="0.0" width="114" height="200"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="a0Q-5j-SjK" userLabel="SView221">
-                                            <rect key="frame" x="0.0" y="0.0" width="114" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="114" height="50"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="22*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-IP-RZ8" userLabel="SunDegree">
-                                                    <rect key="frame" x="0.0" y="0.0" width="27.5" height="57.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="27.5" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KES-vw-PSy" userLabel="SunSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                    <rect key="frame" x="27.5" y="0.0" width="86.5" height="57.5"/>
+                                                    <rect key="frame" x="27.5" y="0.0" width="86.5" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -126,19 +127,19 @@
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRe-b5-2bz" userLabel="SunDegreeTime">
-                                            <rect key="frame" x="0.0" y="57.5" width="114" height="57"/>
+                                            <rect key="frame" x="0.0" y="50" width="114" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYM-Nq-bkL" userLabel="MoonSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="114.5" width="114" height="57.5"/>
+                                            <rect key="frame" x="0.0" y="100" width="114" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-EF-9Ls" userLabel="MoonSignTime">
-                                            <rect key="frame" x="0.0" y="172" width="114" height="57"/>
+                                            <rect key="frame" x="0.0" y="150" width="114" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -146,41 +147,45 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="92y-dE-jRC" userLabel="SView23">
-                                    <rect key="frame" x="228.5" y="0.0" width="114.5" height="229"/>
+                                    <rect key="frame" x="228.5" y="0.0" width="114.5" height="200"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR3-7x-pFI" userLabel="MoonPhase" customClass="MoonPhaseView" customModule="Astromaximum" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="114.5" height="114.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="114.5" height="100"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="tun-nB-Ru8"/>
+                                            </constraints>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Dj-9iL" userLabel="TithiStack">
-                                            <rect key="frame" x="0.0" y="114.5" width="114.5" height="114.5"/>
+                                            <rect key="frame" x="0.0" y="100" width="114.5" height="100"/>
                                         </stackView>
                                     </subviews>
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-Cs-19W" userLabel="MoonMove">
-                            <rect key="frame" x="0.0" y="386.5" width="343" height="88"/>
-                            <color key="backgroundColor" systemColor="systemGreenColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="87.999999999999972" id="Cxf-i5-clz"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="3oS-BM-kcw"/>
-                                <outlet property="delegate" destination="-1" id="3wB-zI-SQ7"/>
-                            </connections>
-                        </tableView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Muh-YU-kUV" userLabel="PlanetHour">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
+                            <rect key="frame" x="0.0" y="288" width="343" height="186.5"/>
+                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tIH-j7-Orv" userLabel="SView3">
                             <rect key="frame" x="0.0" y="484.5" width="343" height="88"/>
-                            <color key="backgroundColor" systemColor="systemTealColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="88" id="l4L-8k-FX3"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="egL-39-d0J"/>
-                                <outlet property="delegate" destination="-1" id="3wK-0S-t29"/>
-                            </connections>
-                        </tableView>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mO8-WC-eJE" userLabel="PlanetHourDay">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="ryD-VJ-LA9"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-bb-AOH" userLabel="PlanetHourNight">
+                                    <rect key="frame" x="0.0" y="44" width="343" height="44"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="trD-Mi-Anu"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                        </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhY-SR-qfP" userLabel="Status">
                             <rect key="frame" x="0.0" y="582.5" width="343" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -191,6 +196,9 @@
                 </stackView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="AxI-xw-T99">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Vqf-2E-a6k"/>
+                    </constraints>
                     <items>
                         <barButtonItem systemItem="search" id="DZW-B8-aO9"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LpB-Ts-AeD"/>
@@ -238,7 +246,7 @@
                 <constraint firstItem="UNL-ui-bLn" firstAttribute="top" secondItem="13" secondAttribute="topMargin" constant="10" id="zD9-Zg-E33"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <point key="canvasLocation" x="364" y="160"/>
+            <point key="canvasLocation" x="364" y="158.77061469265368"/>
         </view>
     </objects>
     <resources>
@@ -250,11 +258,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
