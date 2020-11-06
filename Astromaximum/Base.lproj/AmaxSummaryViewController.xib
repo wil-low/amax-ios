@@ -30,7 +30,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14">
                     <rect key="frame" x="0.0" y="84" width="320" height="332"/>
                     <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                     <connections>
@@ -82,10 +82,9 @@
                 <constraint firstItem="15" firstAttribute="trailing" secondItem="14" secondAttribute="trailing" id="FtM-3d-SPN"/>
                 <constraint firstItem="15" firstAttribute="top" secondItem="14" secondAttribute="bottom" id="Igz-X1-VFd"/>
                 <constraint firstItem="14" firstAttribute="trailing" secondItem="13" secondAttribute="trailing" id="NiV-Lr-JQg"/>
-                <constraint firstItem="15" firstAttribute="top" secondItem="14" secondAttribute="bottom" id="Sg0-ig-EVW"/>
                 <constraint firstItem="Mxd-L4-fGl" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="TKH-R2-Bxq"/>
                 <constraint firstItem="Mxd-L4-fGl" firstAttribute="leading" secondItem="14" secondAttribute="leading" constant="20" id="cMg-LX-egV"/>
-                <constraint firstItem="14" firstAttribute="top" secondItem="13" secondAttribute="topMargin" constant="40" id="mih-uy-f6r"/>
+                <constraint firstItem="14" firstAttribute="top" secondItem="Mxd-L4-fGl" secondAttribute="bottom" id="mih-uy-f6r"/>
                 <constraint firstItem="14" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="nx1-yX-pMX"/>
                 <constraint firstItem="Mxd-L4-fGl" firstAttribute="trailing" secondItem="14" secondAttribute="trailing" constant="-20" id="qqW-Ps-29S"/>
                 <constraint firstItem="15" firstAttribute="leading" secondItem="14" secondAttribute="leading" id="uZi-2e-J5Y"/>
