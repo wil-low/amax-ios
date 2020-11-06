@@ -40,14 +40,14 @@ class MoonPhaseView: UIView {
         }
         mag = abs(cos(phase * Float.pi * 2))
 
-        //print("Phase: \(phase), sweep: \(sweep[0]) \(sweep[1]), mag \(mag)")
         context.setLineWidth(3)
         context.setStrokeColor(UIColor.white.cgColor)
 
-        let tx: Float = Float(radius) * (1 - mag)
         let path = CGMutablePath()
-        path.addArc(center: center, radius: radius, startAngle: CGFloat.pi / 2, endAngle: CGFloat.pi * 3 / 2, clockwise: sweep[0], transform: CGAffineTransform.identity.translatedBy(x: CGFloat(tx), y: 0).scaledBy(x: CGFloat(mag), y: 1))
+        path.addArc(center: CGPoint(x: 0, y: center.y), radius: radius, startAngle: CGFloat.pi / 2, endAngle: CGFloat.pi * 3 / 2, clockwise: sweep[0], transform: CGAffineTransform.identity.scaledBy(x: CGFloat(mag), y: 1).translatedBy(x: center.x / CGFloat(mag), y: 0))
+        //print("cur_point: \(path.currentPoint.x), middle: \(center.x), mag \(mag), radius \(radius)")
         path.addArc(center: center, radius: radius, startAngle: CGFloat.pi * 3 / 2, endAngle: CGFloat.pi / 2, clockwise: sweep[1])
+        //print("cur_point2: \(path.currentPoint.x)")
         path.closeSubpath()
 
         context.addPath(path)
