@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72142FEF2553CCB800452F4E /* MoonPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72142FEE2553CCB800452F4E /* MoonPhaseView.swift */; };
 		7218830A24ECCD8800163389 /* AmaxRetrogradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7218830924ECCD8800163389 /* AmaxRetrogradeCell.swift */; };
 		7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */; };
 		7229137C24DFAEDE005B0698 /* AmaxTimezoneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72142FEE2553CCB800452F4E /* MoonPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhaseView.swift; sourceTree = "<group>"; };
 		7218830924ECCD8800163389 /* AmaxRetrogradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxRetrogradeCell.swift; sourceTree = "<group>"; };
 		7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxLocationBundle.swift; sourceTree = "<group>"; };
 		7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxTimezoneTransition.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				726BC98624E5BFF200690CE2 /* AmaxTithiCell.swift */,
 				726BC98024E5BFF000690CE2 /* AmaxViaCombustaCell.swift */,
 				726BC98224E5BFF100690CE2 /* AmaxVocCell.swift */,
+				72142FEE2553CCB800452F4E /* MoonPhaseView.swift */,
 			);
 			name = Cells;
 			path = utils/cells;
@@ -525,6 +528,7 @@
 				72ACB3B124E63716007C2813 /* AmaxBaseViewController.swift in Sources */,
 				726BC99024E5BFF200690CE2 /* AmaxTithiCell.swift in Sources */,
 				726BC98A24E5BFF200690CE2 /* AmaxViaCombustaCell.swift in Sources */,
+				72142FEF2553CCB800452F4E /* MoonPhaseView.swift in Sources */,
 				726BC98B24E5BFF200690CE2 /* AmaxAspectCell.swift in Sources */,
 				729C4FDD24DDD38C0058E1EA /* AmaxCommonDataFile.swift in Sources */,
 				726BC98824E5BFF200690CE2 /* AmaxSunDegreeCell.swift in Sources */,

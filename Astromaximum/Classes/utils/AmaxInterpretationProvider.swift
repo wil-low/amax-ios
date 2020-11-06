@@ -97,6 +97,10 @@ class AmaxInterpretationProvider {
                 planet = Int(ev.mPlanet0.rawValue)
                 param0 = ev.getDegree()
                 break
+            case EV_MOON_PHASE:
+                planet = Int(ev.mPlanet0.rawValue)
+                param0 = Int(ev.mPlanet1.rawValue)
+                break
     		case EV_ASP_EXACT_MOON:
                 planet = Int(ev.mPlanet0.rawValue)
                 param0 = Int(ev.mPlanet1.rawValue)

@@ -29,6 +29,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         EV_MOON_DAY,
         EV_MOON_RISE,
         EV_MOON_MOVE,
+        EV_MOON_PHASE,
         EV_PLANET_HOUR,
         EV_MOON_SIGN,
         EV_RETROGRADE,
@@ -48,7 +49,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     @IBOutlet weak var mMoonDayStack: UIStackView!
     @IBOutlet weak var mMoonSign: UILabel!
     @IBOutlet weak var mMoonSignTime: UILabel!
-    @IBOutlet weak var mMoonPhase: UIImageView!
+    @IBOutlet weak var mMoonPhase: MoonPhaseView!
     @IBOutlet weak var mTithiStack: UIStackView!
     @IBOutlet weak var mMoonMoveTable: UITableView!
     @IBOutlet weak var mPlanetHourTable: UITableView!
@@ -266,17 +267,18 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             showEvent(label: mMoonSignTime, dataProvider: dp, findType: EV_MOON_SIGN, interpretationType: EV_SIGN_ENTER, string: { e in
                 e.normalizedRangeString()
             })
-            showEventStack(stack: mMoonDayStack, dataProvider: dp, findType: EV_MOON_DAY, interpretationType: EV_MOON_DAY, string: { e in
+            _ = showEventStack(stack: mMoonDayStack, dataProvider: dp, findType: EV_MOON_DAY, interpretationType: EV_MOON_DAY, string: { e in
                 return String(format: "%d", e.getDegree())
             })
 
-            showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
+            let tithis = showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
                 return String(format: "%d", e.getDegree())
             })
+            showMoonPhase(dataProvider: dp, events: tithis)
         }
     }
 
-    func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String) {
+    func findInCache(dataProvider: AmaxDataProvider, findType: AmaxEventType) -> AmaxSummaryItem? {
         var itemFound: AmaxSummaryItem?
         for item in dataProvider.mEventCache {
             if item.mKey == findType {
@@ -284,7 +286,11 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 break
             }
         }
-        if let si = itemFound {
+        return itemFound
+    }
+    
+    func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String) {
+        if let si = findInCache(dataProvider: dataProvider, findType: findType) {
             var pos = -1
             var activeEvent: AmaxEvent?
             pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
@@ -307,45 +313,50 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         label.gestureRecognizers = []
     }
     
-    func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String) {
-        var itemFound: AmaxSummaryItem?
-        for item in dataProvider.mEventCache {
-            if item.mKey == findType {
-                itemFound = item
-                break
-            }
-        }
+    func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String) -> [AmaxEvent] {
         for view in stack.subviews {
             view.removeFromSuperview()
         }
-        if let si = itemFound {
-            var pos = -1
-            var activeEvent: AmaxEvent?
-            pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
-            activeEvent = (pos == -1) ? nil : si.mEvents[pos]
-            for event in si.mEvents {
-                let label = UILabel()
-                label.text = string(event)
+        var activeEvent: AmaxEvent?
+        let si = findInCache(dataProvider: dataProvider, findType: findType)!
+        var pos = -1
+        pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
+        activeEvent = (pos == -1) ? nil : si.mEvents[pos]
+        for event in si.mEvents {
+            let label = UILabel()
+            label.text = string(event)
 
-                label.layer.borderWidth = 0.8
-                label.layer.borderColor = UIColor.gray.cgColor
+            label.layer.borderWidth = 0.8
+            label.layer.borderColor = UIColor.gray.cgColor
 
-                label.textAlignment = .center
-                AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event)
+            label.textAlignment = .center
+            AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event)
 
-                label.isUserInteractionEnabled = true
-                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: interpretationType)
-                label.addGestureRecognizer(tap)
+            label.isUserInteractionEnabled = true
+            let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: interpretationType)
+            label.addGestureRecognizer(tap)
 
-                label.sizeToFit()
-                stack.addArrangedSubview(label)
+            label.sizeToFit()
+            stack.addArrangedSubview(label)
+        }
+        return si.mEvents
+    }
+    
+    func showMoonPhase(dataProvider: AmaxDataProvider, events: [AmaxEvent]) {
+        mMoonPhase.phase = Float(events[events.count == 3 ? 1 : 0].getDegree() - 1) / 29
+        mMoonPhase.setNeedsDisplay()
+        mMoonPhase.gestureRecognizers = []
+        if let si = findInCache(dataProvider: dataProvider, findType: EV_MOON_PHASE) {
+            if si.mEvents.count > 0 {
+                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: si.mEvents[0], eventType: EV_MOON_PHASE)
+                mMoonPhase.addGestureRecognizer(tap)
             }
         }
     }
 
     @objc func itemTapped(sender: UITapGestureRecognizer) {
         if let tap = sender as? AmaxTapRecognizer {
-            print("itemTapped: \(tap.mEvent!.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType!.rawValue)])")
+            //print("itemTapped: \(tap.mEvent!.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType!.rawValue)])")
             showInterpreterFor(event: tap.mEvent!, type: tap.mEventType!)
         }
     }
