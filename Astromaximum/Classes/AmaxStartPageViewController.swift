@@ -194,6 +194,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             })
             showMoonPhase(dataProvider: dp, events: tithis)
 
+            showMoonMoveStack(stack: mMoonMoveStack, dataProvider: dp)
             showPlanetHourStack(stack: mPlanetHourDayStack, dataProvider: dp, isDay: true)
             showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
         }
@@ -314,6 +315,35 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
             label.sizeToFit()
             stack.addArrangedSubview(label)
+        }
+    }
+
+    func showMoonMoveStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
+        for view in stack.subviews {
+            view.removeFromSuperview()
+        }
+        //stack.layer.borderWidth = 0.8
+        //stack.layer.borderColor = UIColor.gray.cgColor
+
+        var activeEvent: AmaxEvent?
+        let si = findInCache(dataProvider: dataProvider, findType: EV_MOON_MOVE)!
+        var pos = -1
+        pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
+        activeEvent = (pos == -1) ? nil : si.mEvents[pos]
+        for event in si.mEvents {
+            let view = Bundle.main.loadNibNamed("MoonMoveView", owner: self, options: nil)![0]
+            if let v = view as? AmaxMoonMoveView {
+                v.configure(event: event, activeEvent: activeEvent, summaryItem: si)
+                
+                //v.layer.borderWidth = 0.8
+                //v.layer.borderColor = UIColor.gray.cgColor
+                
+                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: event.mEvtype)
+                v.addGestureRecognizer(tap)
+
+                v.sizeToFit()
+                stack.addArrangedSubview(v)
+            }
         }
     }
 
