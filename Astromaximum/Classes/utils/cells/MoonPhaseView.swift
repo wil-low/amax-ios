@@ -17,8 +17,7 @@ class MoonPhaseView: UIView {
     }
 
     func draw(inContext context: CGContext) {
-        let radius = min(bounds.width, bounds.height) / 2
-
+        let radius = min(bounds.width, bounds.height) / 2 - 5
         var sweep: [Bool]
         var mag: Float
         // the "sweep-flag" and the direction of movement change every quarter moon
@@ -43,10 +42,12 @@ class MoonPhaseView: UIView {
         context.setLineWidth(3)
         context.setStrokeColor(UIColor.white.cgColor)
 
+        let cpoint = CGPoint(x: bounds.minX + bounds.width / 2, y: bounds.minY + bounds.height / 2)
+
         let path = CGMutablePath()
-        path.addArc(center: CGPoint(x: 0, y: center.y), radius: radius, startAngle: CGFloat.pi / 2, endAngle: CGFloat.pi * 3 / 2, clockwise: sweep[0], transform: CGAffineTransform.identity.scaledBy(x: CGFloat(mag), y: 1).translatedBy(x: center.x / CGFloat(mag), y: 0))
-        //print("cur_point: \(path.currentPoint.x), middle: \(center.x), mag \(mag), radius \(radius)")
-        path.addArc(center: center, radius: radius, startAngle: CGFloat.pi * 3 / 2, endAngle: CGFloat.pi / 2, clockwise: sweep[1])
+        path.addArc(center: CGPoint(x: 0, y: cpoint.y), radius: radius, startAngle: CGFloat.pi / 2, endAngle: CGFloat.pi * 3 / 2, clockwise: sweep[0], transform: CGAffineTransform.identity.scaledBy(x: CGFloat(mag), y: 1).translatedBy(x: cpoint.x / CGFloat(mag), y: 0))
+        //print("cur_point: \(path.currentPoint.x), middle: \(cpoint.x), mag \(mag), radius \(radius)")
+        path.addArc(center: cpoint, radius: radius, startAngle: CGFloat.pi * 3 / 2, endAngle: CGFloat.pi / 2, clockwise: sweep[1])
         //print("cur_point2: \(path.currentPoint.x)")
         path.closeSubpath()
 

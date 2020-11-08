@@ -168,9 +168,11 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             mSubtitle.text = String(format: "%@, %@", dp.getHighlightTimeString(), dp.locationName())
 
             showEvent(label: mVocTime, dataProvider: dp, findType: EV_VOC, interpretationType: EV_VOC, string: { e in
-                        e.normalizedRangeString() })
+                "VOC " + e.normalizedRangeString()
+            }, defaultString: "VOC")
             showEvent(label: mVcTime, dataProvider: dp, findType: EV_VIA_COMBUSTA, interpretationType: EV_VIA_COMBUSTA, string: { e in
-                        e.normalizedRangeString() })
+                "VC " + e.normalizedRangeString()
+            }, defaultString: "VC")
 
             showEvent(label: mSunDay, dataProvider: dp, findType: EV_SUN_DAY, interpretationType: EV_SUN_DAY, string: { e in
                 var day = e.getDegree()
@@ -197,7 +199,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             })
             _ = showEventStack(stack: mMoonDayStack, dataProvider: dp, findType: EV_MOON_DAY, interpretationType: EV_MOON_DAY, string: { e in
                 return String(format: "%d", e.getDegree())
-            })
+            }, alignment: .left)
 
             let tithis = showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
                 return String(format: "%d", e.getDegree())
@@ -221,7 +223,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         return itemFound
     }
     
-    func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String) {
+    func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType,  string: (AmaxEvent) -> String, defaultString: String = "") {
         if let si = findInCache(dataProvider: dataProvider, findType: findType) {
             var pos = -1
             var activeEvent: AmaxEvent?
@@ -241,11 +243,11 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 return
             }
         }
-        label.text = ""
+        label.text = defaultString
         label.gestureRecognizers = []
     }
     
-    func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String) -> [AmaxEvent] {
+    func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String, alignment: NSTextAlignment = .center) -> [AmaxEvent] {
         for view in stack.subviews {
             view.removeFromSuperview()
         }
@@ -261,7 +263,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             //label.layer.borderWidth = 0.8
             //label.layer.borderColor = UIColor.gray.cgColor
 
-            label.textAlignment = .center
+            label.textAlignment = alignment
             AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event)
 
             label.isUserInteractionEnabled = true
