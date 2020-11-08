@@ -37,6 +37,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     ]
 
     private var mTitleDate: String = ""
+    
+    private var mHourLabels: [UILabel] = [UILabel]()
 
     @IBOutlet weak var mVocTime: UILabel!
     @IBOutlet weak var mVcTime: UILabel!
@@ -67,12 +69,20 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         if let v = view.viewWithTag(2) {
             (v as! UILabel).text = String(format: "%c", getSymbol(TYPE_PLANET, SE_MOON.rawValue))
         }
-        /*if let v = view.viewWithTag(3) {
-            (v as! UILabel).text = String(format: "%c", getSymbol(TYPE_PLANET, SE_SUN.rawValue))
+        for i in 0 ..< 2 {
+            for _ in 0 ..< 12 {
+                let label = UILabel()
+                mHourLabels.append(label)
+                label.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
+
+                //label.layer.borderWidth = 0.8
+                //label.layer.borderColor = UIColor.gray.cgColor
+
+                label.textAlignment = .center
+                label.isUserInteractionEnabled = true
+                (i == 0 ? mPlanetHourDayStack : mPlanetHourNightStack).addArrangedSubview(label)
+            }
         }
-        if let v = view.viewWithTag(4) {
-            (v as! UILabel).text = String(format: "%c", getSymbol(TYPE_PLANET, SE_SUN.rawValue))
-        }*/
     }
     
     required init?(coder: NSCoder) {
@@ -277,9 +287,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     }
 
     func showPlanetHourStack(stack: UIStackView, dataProvider: AmaxDataProvider, isDay: Bool) {
-        for view in stack.subviews {
-            view.removeFromSuperview()
-        }
         var activeEvent: AmaxEvent?
         let si = findInCache(dataProvider: dataProvider, findType: EV_PLANET_HOUR_EXT)!
         var pos = -1
@@ -287,6 +294,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         activeEvent = (pos == -1) ? nil : si.mEvents[pos]
         let skipToNum = isDay ? 0 : 12
         var showEvents = false
+        var counter = 0;
         for event in si.mEvents {
             if !showEvents && event.getDegree() != skipToNum {
                 continue
@@ -295,26 +303,19 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             if event.getDegree() >= skipToNum + 12 {
                 break
             }
-            let label = UILabel()
-            label.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
+            let label = mHourLabels[(isDay ? 0 : 12) + counter]
             label.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
             
-            //label.layer.borderWidth = 0.8
-            //label.layer.borderColor = UIColor.gray.cgColor
-
-            label.textAlignment = .center
+            label.backgroundColor = (event.date(at: 1) > dataProvider.mEndTime) ? ColorCompatibility.systemGray6 : ColorCompatibility.systemBackground
             let color = isDay ? ColorCompatibility.label : ColorCompatibility.systemIndigo
             AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event, defaultColor: color)
-            if event.date(at: 1) > dataProvider.mEndTime {
-                label.backgroundColor = ColorCompatibility.systemGray6
-            }
 
-            label.isUserInteractionEnabled = true
+            label.gestureRecognizers = []
             let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: EV_PLANET_HOUR)
             label.addGestureRecognizer(tap)
 
-            label.sizeToFit()
-            stack.addArrangedSubview(label)
+            //label.sizeToFit()
+            counter += 1
         }
     }
 
