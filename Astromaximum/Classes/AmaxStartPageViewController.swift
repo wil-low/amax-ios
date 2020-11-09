@@ -30,6 +30,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         EV_MOON_RISE,
         EV_MOON_MOVE,
         EV_MOON_PHASE,
+        EV_RETROGRADE,
         EV_PLANET_HOUR_EXT,
         EV_MOON_SIGN,
         EV_SUN_DEGREE,
@@ -52,8 +53,11 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     @IBOutlet weak var mMoonPhase: MoonPhaseView!
     @IBOutlet weak var mTithiStack: UIStackView!
     @IBOutlet weak var mMoonMoveStack: UIStackView!
+    @IBOutlet weak var mRetrogradeStack: UIStackView!
     @IBOutlet weak var mPlanetHourDayStack: UIStackView!
     @IBOutlet weak var mPlanetHourNightStack: UIStackView!
+    
+    @IBOutlet weak var tvCell: UITableViewCell!
 
     var eventListViewController: AmaxEventListViewController?
     var settingsController: AmaxSettingsController?
@@ -207,6 +211,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             showMoonPhase(dataProvider: dp, events: tithis)
 
             showMoonMoveStack(stack: mMoonMoveStack, dataProvider: dp)
+            showRetrogradeStack(stack: mRetrogradeStack, dataProvider: dp)
+            
             showPlanetHourStack(stack: mPlanetHourDayStack, dataProvider: dp, isDay: true)
             showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
         }
@@ -348,6 +354,39 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 stack.addArrangedSubview(v)
             }
         }
+    }
+
+    func showRetrogradeStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
+        for view in stack.subviews {
+            view.removeFromSuperview()
+        }
+        //stack.layer.borderWidth = 0.8
+        //stack.layer.borderColor = UIColor.gray.cgColor
+
+        let si = findInCache(dataProvider: dataProvider, findType: EV_RETROGRADE)!
+        for event in si.mEvents {
+            let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
+            if let v = cell.viewWithTag(3) {
+                let planet = v.viewWithTag(1) as! UILabel
+                planet.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
+                planet.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE))
+
+                //v.layer.borderWidth = 0.8
+                //v.layer.borderColor = UIColor.gray.cgColor
+
+                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: event.mEvtype)
+                v.addGestureRecognizer(tap)
+
+                v.sizeToFit()
+                stack.addArrangedSubview(v)
+            }
+        }
+        let spacerButton = UIView()
+        spacerButton.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
+        spacerButton.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+        //spacerButton.layer.borderWidth = 0.8
+        //spacerButton.layer.borderColor = UIColor.red.cgColor
+        stack.addArrangedSubview(spacerButton)
     }
 
     @objc func itemTapped(sender: UITapGestureRecognizer) {

@@ -17,6 +17,7 @@
                 <outlet property="mMoonSignTime" destination="mlE-EF-9Ls" id="AJd-gh-Igd"/>
                 <outlet property="mPlanetHourDayStack" destination="mO8-WC-eJE" id="OfR-n3-1Pp"/>
                 <outlet property="mPlanetHourNightStack" destination="xfR-bb-AOH" id="Qxh-hA-ruG"/>
+                <outlet property="mRetrogradeStack" destination="Plr-by-dVt" id="ZrM-s9-9oA"/>
                 <outlet property="mSubtitle" destination="Iwr-O4-raY" id="bCe-Hv-Z3A"/>
                 <outlet property="mSunDay" destination="JMR-Fz-EEh" id="SyK-ma-wDb"/>
                 <outlet property="mSunDegree" destination="Z4g-IP-RZ8" id="fxn-Sj-uar"/>
@@ -133,38 +134,53 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemGray3Color"/>
                                 </stackView>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-Ti-qPB" userLabel="SView3">
-                            <rect key="frame" x="0.0" y="195.5" width="343" height="50"/>
+                            <rect key="frame" x="0.0" y="195.5" width="343" height="44"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-7i-X9V" userLabel="MoonDayStack">
-                                    <rect key="frame" x="0.0" y="0.0" width="107.5" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="107.5" height="44"/>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-EF-9Ls" userLabel="MoonSignTime">
-                                    <rect key="frame" x="117.5" y="0.0" width="108" height="50"/>
+                                    <rect key="frame" x="117.5" y="0.0" width="108" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Dj-9iL" userLabel="TithiStack">
-                                    <rect key="frame" x="235.5" y="0.0" width="107.5" height="50"/>
+                                    <rect key="frame" x="235.5" y="0.0" width="107.5" height="44"/>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemYellowColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="3yi-cC-LYA"/>
+                            </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
-                            <rect key="frame" x="0.0" y="255.5" width="343" height="90"/>
+                            <rect key="frame" x="0.0" y="249.5" width="343" height="90"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="90" id="0Cv-z3-RlJ"/>
                             </constraints>
                         </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RB7-zP-ucN" userLabel="Spacer1">
+                            <rect key="frame" x="0.0" y="349.5" width="343" height="81.5"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-by-dVt" userLabel="Retrograde">
-                            <rect key="frame" x="0.0" y="355.5" width="343" height="149.5"/>
+                            <rect key="frame" x="0.0" y="441" width="343" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="uGH-iD-sBf"/>
+                            </constraints>
                         </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wih-DV-QYs" userLabel="Spacer2">
+                            <rect key="frame" x="0.0" y="495" width="343" height="10"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="gPy-sl-Keo"/>
+                            </constraints>
+                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tIH-j7-Orv" userLabel="SView4">
                             <rect key="frame" x="0.0" y="515" width="343" height="88"/>
                             <subviews>
@@ -241,7 +257,7 @@
                 <constraint firstItem="UNL-ui-bLn" firstAttribute="top" secondItem="13" secondAttribute="topMargin" constant="10" id="zD9-Zg-E33"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <point key="canvasLocation" x="364" y="158.77061469265368"/>
+            <point key="canvasLocation" x="-50" y="36"/>
         </view>
     </objects>
     <resources>
@@ -252,12 +268,6 @@
         <image name="today" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
