@@ -2,8 +2,8 @@
 !!params 1
 !!planet -1
 // DG Natureistics of degrees. 
-  // Nomade 
-  // 
+ // Nomade 
+ // 
 [1] of the Ram
 1 %0% Energy and quarrelsome disposition. Great difficulties and overcoming of obstacles; precipitation, debates, quarrels. 
 2 %1% Self-importance and numerous enemies. Enterprise. Danger of disasters. 
@@ -19,7 +19,7 @@
 12 %11% Success in operations. Ascent, but trials and changes in destiny. 
 13 %12% Ascent and glory due to own merit and persistence. 
 14 %13% Risk of captivity or exile. Slave of own passions. Weak will, subordination. 
-15 %14% Friends' betrayal of  causing difficulties. Imprudence, recklessness.
+15 %14% Friends' betrayal of causing difficulties. Imprudence, recklessness.
 16 %15% Love of nature; diligence, openness. 
 17 %16% Insidents play a big role; inclination to luxury, pleasures; idleness. 
 18 %17% Happiness due to a woman. Good luck in all new affairs, ideas and plans receive support. 
@@ -54,8 +54,8 @@
 15 %44% Inclination to mysticism, research temper, adventurism and commercial talent. 
 16 %45% Inheritance, diligence, critical attitude. The person will be able to choose a better way. 
 17 %46% Fruitful efforts; exile or captivity. 
-18 %47%  Shrewishness and anger leading to fatal results; dangerous wounds by weapon. 
-19 %48% Gentle nature; success only in physical work. Changes related to  investments. 
+18 %47% Shrewishness and anger leading to fatal results; dangerous wounds by weapon. 
+19 %48% Gentle nature; success only in physical work. Changes related to investments. 
 20 %49% Enviness, hostility, militancy, though enterprise as well. 
 21 %50% Secretiveness, secret or numerous enemies. Inability to conduct negotiations. Pursuit. Criminal actions. 
 22 %51% Success, especially in friendly enterprises. Profit from partnership and trips, flexibility, foresight. 
@@ -326,7 +326,7 @@
 
 [11] of the Aquarius 
 1 %300% Indecisiveness, diffidence and uncertainty in everything; poverty. 
-2 %301%  Deep mind, success in sciences, inventions. 
+2 %301% Deep mind, success in sciences, inventions. 
 3 %302% Griefs, troubles, losses. 
 4 %303% Achievement of a bright position, glory, estate, though fear of expenditures and losses. 
 5 %304% Passion, playing with danger, pursuit. 
@@ -350,7 +350,7 @@
 23 %322% Energy, mobility, dramatic talent, anarchism. 
 24 %323% Faint-heartedness, troubles, losses, weakness; possibility of crimes. 
 25 %324% Absent-minded person. Wealth, liking for power, danger of wounding another person. 
-26 %325%  Melancholy, pessimism, mysticism, commotion and falling. 
+26 %325% Melancholy, pessimism, mysticism, commotion and falling. 
 27 %326% Stable constant income and estate, good family man. 
 28 %327% Passion for pleasures, tipsiness. 
 29 %328% Military art, representation and dignity; successes in commerce. 

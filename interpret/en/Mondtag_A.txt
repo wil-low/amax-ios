@@ -1,4 +1,4 @@
-﻿!!type EV_MOON_DAY
+!!type EV_MOON_DAY
 !!params 1
 !!planet 1
 // MD Moon Days
@@ -23,7 +23,7 @@
 
 %9% }The day is good for old affairs, unhappy for the new ones.}|Dreams come true.|#The started disease is difficult but not mortal.#
 
-%10% }The day is happy for all enterprises.|(+)for registration of enterprises.} Sadness is short-term.|Dreams are not valid. |#The fallen ill will die if he is not given urgent help.#
+%10% }The day is happy for all enterprises.|✅ for registration of enterprises.} Sadness is short-term.|Dreams are not valid. |#The fallen ill will die if he is not given urgent help.#
 
 %11% }The day is happy for trips and movings.}|#For women the started disease is dangerous.#
 
@@ -31,7 +31,7 @@
 
 %13% }The day is unhappy, it is better not to undertake anything.}|Dreams come true.|#The fallen ill will be sick for a long time.#
 
-%14% }The day is happy.|(+)for registration of enterprises.}|Dreams are doubtful.|#The disease will not leave serious consequences.#
+%14% }The day is happy.|✅ for registration of enterprises.}|Dreams are doubtful.|#The disease will not leave serious consequences.#
 
 %15% }The day is neither good nor bad. It is possible to conclude small deals and start an enterprise, the beginning of which is not great.}|Dreams are probable.|#The happening disease is not dangerous.#
 
@@ -43,9 +43,9 @@
 
 %19% }The day is dangerous. You must not start going anywhere on it.}Do not visit drunk people. Better to remain at home.|Dreams come true soon.|#The started disease will stop soon.#
 
-%20% }The day is happy for all enterprises.|(+)for registration of enterprises.}|Dreams are not reliable.|#The started disease is a long-term one.#
+%20% }The day is happy for all enterprises.|✅ for registration of enterprises.}|Dreams are not reliable.|#The started disease is a long-term one.#
 
-%21% }The day is happy for different entertainments and for economy.|(+)for the registration of an enterprise.} The lost thin on this day will soon be found. The thieves will be caught soon.|Dreams do not mean anything.|#The disease will appear threatening, but curable.#
+%21% }The day is happy for different entertainments and for economy.|✅ for the registration of an enterprise.} The lost thin on this day will soon be found. The thieves will be caught soon.|Dreams do not mean anything.|#The disease will appear threatening, but curable.#
 
 %22% }The day is unhappy. Nothing to be started.}|Dreams come true.|#Diseases are rather dangerous.#
 
@@ -61,7 +61,7 @@
 
 %28% }The day is happy, every affair will succeed.}|Dreams are empty.|#The disease is not dangerous.#
 
-%29% }(-)The day is extremely unhappy for everything.|(-)for registration of enterprises.}|Dreams are truthful.|#The sick ones however recover on it.# 
+%29% }🚫 The day is extremely unhappy for everything.|🚫 for registration of enterprises.}|Dreams are truthful.|#The sick ones however recover on it.# 
 
 %30% }The day is equivocal.}|Dreams are truthful, their coming true will bring much joy.|#Only immediate help will save the one fallen ill.#
 

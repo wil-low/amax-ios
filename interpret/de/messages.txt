@@ -1,20 +1,20 @@
-!!type  EV_MSG
+!!type EV_MSG
 !!params 1
 !!planet -1
 
 // Localization strings for Astromaximum interface - German
 
-%0%  Sonntag
-%1%  Montag
-%2%  Dienstag
-%3%  Mittwoch
-%4%  Donnerstag
-%5%  Freitag
-%6%  Samstag
+%0% Sonntag
+%1% Montag
+%2% Dienstag
+%3% Mittwoch
+%4% Donnerstag
+%5% Freitag
+%6% Samstag
 
-%7%  Januar
-%8%  Februar
-%9%  März
+%7% Januar
+%8% Februar
+%9% März
 %10% April
 %11% Mai
 %12% Juni
@@ -191,7 +191,7 @@
 ?Searching...=Searching...
 
 
-__degree\==  degree\=
+__degree\== degree\=
 
 Ready.=Ready.
 
