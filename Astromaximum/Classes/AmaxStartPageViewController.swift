@@ -363,6 +363,13 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         //stack.layer.borderWidth = 0.8
         //stack.layer.borderColor = UIColor.gray.cgColor
 
+        let spacer1 = UIView()
+        spacer1.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        //spacerButton1.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        //spacerButton1.layer.borderWidth = 0.8
+        //spacerButton1.layer.borderColor = UIColor.red.cgColor
+        stack.addArrangedSubview(spacer1)
+        
         let si = findInCache(dataProvider: dataProvider, findType: EV_RETROGRADE)!
         for event in si.mEvents {
             let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
@@ -381,12 +388,14 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 stack.addArrangedSubview(v)
             }
         }
-        let spacerButton = UIView()
-        spacerButton.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
-        spacerButton.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
-        //spacerButton.layer.borderWidth = 0.8
-        //spacerButton.layer.borderColor = UIColor.red.cgColor
-        stack.addArrangedSubview(spacerButton)
+        let spacer2 = UIView()
+        spacer2.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        //spacerButton2.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        //spacerButton2.layer.borderWidth = 0.8
+        //spacerButton2.layer.borderColor = UIColor.red.cgColor
+        stack.addArrangedSubview(spacer2)
+        
+        spacer1.widthAnchor.constraint(equalTo: spacer2.widthAnchor).isActive = true
     }
 
     @objc func itemTapped(sender: UITapGestureRecognizer) {
