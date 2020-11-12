@@ -5,13 +5,13 @@
 // According to Albert the Great
 
 
-%1% }The day is unfavourable for everything.}|Night dreams are for joy.|#The one fallen ill will on this day will lie for a long time but will recover.#
+%1% }The day is unfavourable for everything.}|Night dreams are for joy.|#The one fallen ill on this day will lie for a long time but will recover.#
 
 %2% }Good for travellers, for requests, for the beginning of building and planting}, for continuing the family; the theft will be revealed soon, the thieves will be caught.|Dreams do not mean anything.|#The disease is short-term.#
 
-%3% }The day is unhappy. You shouldn’t begin anything.}|Neither sow nor plant. Dreams do not have a meaning.|#The started disease is dangerous.#
+%3% }The day is unhappy. You shouldn't begin anything.}|Neither sow nor plant. Dreams do not have a meaning.|#The started disease is dangerous.#
 
-%4% }favourable for all enterprises if they are thoroughly thought over}; for finding lost things and water constructions.|Good dreams will come true and bad ones won’t.|#Diseases are dangerous.#
+%4% }Favourable for all enterprises if they are thoroughly thought over}; for finding lost things and water constructions.|Good dreams will come true and bad ones won't.|#Diseases are dangerous.#
 
 %5% }The day is unhappy.} The criminal will not avoid punishment.|Dreams are doubtful.|#The disease is extremely dangerous.#
 

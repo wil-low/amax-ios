@@ -255,13 +255,13 @@
 24 %233% Capacity for work, quiet temper, kind heart. 
 25 %234% Illegal imcome, lack of principles; unsympathetic person, able to sacrifice everything for his desires. 
 26 %235% Losses because of bad people, danger to perish in exile. Flatterer, unsympathetic person. 
-27 %236% Sympathy for other’s grief, sympathies, eloquence, literary capabilities. 
+27 %236% Sympathy for other's grief, sympathies, eloquence, literary capabilities. 
 28 %237% Success in life, outstanding position. Religiousness, spirituality, merit, respect.
 29 %238% Good capabilities, studying; success in science. Wealth. 
 30 %239% Eloquence, carefulness and cunning; bright career. 
 
 [9] of the Sagittarius
-1 %240% Failures in enterprises because of the partners’ blunders. Dangerous relations, useless aspirations. 
+1 %240% Failures in enterprises because of the partners' blunders. Dangerous relations, useless aspirations. 
 2 %241% Danger of wounding. Fighting spirit, grumbling, aggressiveness, precipitation. 
 3 %242% Burny behaviour: persistence, stubborness, firmness and anger. 
 4 %243% Successful military career. Purposefulness, fighting spirit and wrath. 
@@ -289,7 +289,7 @@
 26 %265% Adroitness, game with ideas. Keenness on stage. 
 27 %266% Hard struggle. Hostility, changeableness, danger. 
 28 %267% Remarkable all-defeating strength of will. Persistence, purposefulness. 
-29 %268% Dexterity, inconstancy, recklessness, “head diseases”. 
+29 %268% Dexterity, inconstancy, recklessness, "head diseases”. 
 30 %269% Hard life, success in mining. Happiness and unhappiness are interchangeable, some success. 
 
 [10] of the Capricorn
