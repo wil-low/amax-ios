@@ -39,11 +39,15 @@ class MoonPhaseView: UIView {
         }
         mag = abs(cos(phase * Float.pi * 2))
 
-        context.setLineWidth(3)
-        context.setStrokeColor(UIColor.white.cgColor)
+        let lineWidth: CGFloat = 2
 
         let cpoint = CGPoint(x: bounds.minX + bounds.width / 2, y: bounds.minY + bounds.height / 2)
 
+        context.addEllipse(in: CGRect(x: cpoint.x - radius - lineWidth, y: cpoint.y - radius - lineWidth, width: (radius + lineWidth) * 2, height: (radius + lineWidth) * 2))
+        context.setFillColor(UIColor.black.cgColor)
+        context.fillPath()
+
+        context.setStrokeColor(UIColor.white.cgColor)
         let path = CGMutablePath()
         path.addArc(center: CGPoint(x: 0, y: cpoint.y), radius: radius, startAngle: CGFloat.pi / 2, endAngle: CGFloat.pi * 3 / 2, clockwise: sweep[0], transform: CGAffineTransform.identity.scaledBy(x: CGFloat(mag), y: 1).translatedBy(x: cpoint.x / CGFloat(mag), y: 0))
         //print("cur_point: \(path.currentPoint.x), middle: \(cpoint.x), mag \(mag), radius \(radius)")

@@ -164,7 +164,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR3-7x-pFI" userLabel="MoonPhase" customClass="MoonPhaseView" customModule="Astromaximum" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="133" height="133"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="PR3-7x-pFI" secondAttribute="height" multiplier="1:1" id="6oW-Uu-Aii"/>
                                                     </constraints>
