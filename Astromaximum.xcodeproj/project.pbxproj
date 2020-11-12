@@ -135,6 +135,7 @@
 		72A2D77225566AC700EFA496 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/MoonMoveView.xib; sourceTree = "<group>"; };
 		72A36FB9250E2A1700C0AD63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/AmaxStartPageViewController.xib; sourceTree = "<group>"; };
 		72A4218724C8AE860096DF9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		72A4CEA9255D58080067B91E /* interpret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interpret; sourceTree = SOURCE_ROOT; };
 		72A9B7AF24ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxRetrogradeSetCell.swift; sourceTree = "<group>"; };
 		72AA2A6624DBC99600A5E00A /* Astromaximum-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Astromaximum-Bridging-Header.h"; sourceTree = "<group>"; };
 		72AA2A6724DBC99600A5E00A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +248,7 @@
 		84B1AC751647BB3E007188B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				72A4CEA9255D58080067B91E /* interpret */,
 				84E98B23168E62E7006AAA55 /* Localization */,
 				72606C9724B82CBE009B0113 /* locations.dat */,
 				72606C9624B82CB4009B0113 /* common.dat */,
