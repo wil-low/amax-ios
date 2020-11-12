@@ -192,18 +192,18 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
             })
             showEvent(label: mSunDegreeTime, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
-                e.normalizedRangeString()
+                AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
             })
 
             showEvent(label: mMoonSign, dataProvider: dp, findType: EV_MOON_SIGN, interpretationType: EV_SIGN_ENTER, string: { e in
                 String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree())))
             })
             showEvent(label: mMoonSignTime, dataProvider: dp, findType: EV_MOON_SIGN, interpretationType: EV_SIGN_ENTER, string: { e in
-                e.normalizedRangeString()
+                AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
             })
             _ = showEventStack(stack: mMoonDayStack, dataProvider: dp, findType: EV_MOON_DAY, interpretationType: EV_MOON_DAY, string: { e in
                 return String(format: "%d", e.getDegree())
-            }, alignment: .left)
+            })
 
             let tithis = showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
                 return String(format: "%d", e.getDegree())
