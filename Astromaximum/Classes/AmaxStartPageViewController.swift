@@ -114,7 +114,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        centerMoonMoveScroll()
+        centerMoonMoveScroll(flash: false)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -125,13 +125,14 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     	super.viewDidDisappear(animated)
     }
 
-    func centerMoonMoveScroll() {
-        mMoonMoveScroll.flashScrollIndicators()
+    func centerMoonMoveScroll(flash: Bool) {
         mMoonMoveScroll.setNeedsLayout()
         mMoonMoveScroll.layoutIfNeeded()
         let newContentOffsetX = (mMoonMoveScroll.contentSize.width - mMoonMoveScroll.frame.size.width) / 2;
-        mMoonMoveScroll.setContentOffset(CGPoint(x: newContentOffsetX, y: 0), animated: true)
-        //mMoonMoveScroll.contentOffset = CGPoint(x: newContentOffsetX, y: 0)
+        mMoonMoveScroll.setContentOffset(CGPoint(x: newContentOffsetX, y: 0), animated: false)
+        if flash && newContentOffsetX > 0 {
+            mMoonMoveScroll.flashScrollIndicators()
+        }
     }
 
     func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
@@ -227,7 +228,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             showPlanetHourStack(stack: mPlanetHourDayStack, dataProvider: dp, isDay: true)
             showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
             
-            centerMoonMoveScroll()
+            centerMoonMoveScroll(flash: true)
         }
     }
 
