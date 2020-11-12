@@ -52,6 +52,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     @IBOutlet weak var mMoonSignTime: UILabel!
     @IBOutlet weak var mMoonPhase: MoonPhaseView!
     @IBOutlet weak var mTithiStack: UIStackView!
+    @IBOutlet weak var mMoonMoveScroll: UIScrollView!
     @IBOutlet weak var mMoonMoveStack: UIStackView!
     @IBOutlet weak var mRetrogradeStack: UIStackView!
     @IBOutlet weak var mPlanetHourDayStack: UIStackView!
@@ -113,6 +114,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        centerMoonMoveScroll()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -121,6 +123,15 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
     	super.viewDidDisappear(animated)
+    }
+
+    func centerMoonMoveScroll() {
+        mMoonMoveScroll.flashScrollIndicators()
+        mMoonMoveScroll.setNeedsLayout()
+        mMoonMoveScroll.layoutIfNeeded()
+        let newContentOffsetX = (mMoonMoveScroll.contentSize.width - mMoonMoveScroll.frame.size.width) / 2;
+        mMoonMoveScroll.setContentOffset(CGPoint(x: newContentOffsetX, y: 0), animated: true)
+        //mMoonMoveScroll.contentOffset = CGPoint(x: newContentOffsetX, y: 0)
     }
 
     func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
@@ -215,6 +226,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             
             showPlanetHourStack(stack: mPlanetHourDayStack, dataProvider: dp, isDay: true)
             showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
+            
+            centerMoonMoveScroll()
         }
     }
 
@@ -350,7 +363,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: event.mEvtype)
                 v.addGestureRecognizer(tap)
 
-                v.sizeToFit()
+                v.widthAnchor.constraint(equalTo: v.heightAnchor, multiplier: CGFloat(0.5)).isActive = true
                 stack.addArrangedSubview(v)
             }
         }

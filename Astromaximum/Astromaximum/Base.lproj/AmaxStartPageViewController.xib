@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxStartPageViewController" customModule="Astromaximum" customModuleProvider="target">
             <connections>
                 <outlet property="mMoonDayStack" destination="rCY-7i-X9V" id="GTE-hY-8l7"/>
+                <outlet property="mMoonMoveScroll" destination="AKl-LI-VFu" id="eFB-iL-c0J"/>
                 <outlet property="mMoonMoveStack" destination="gEx-VW-avL" id="YbV-Ta-TZF"/>
                 <outlet property="mMoonPhase" destination="PR3-7x-pFI" id="lB4-Cj-4DV"/>
                 <outlet property="mMoonSign" destination="nYM-Nq-bkL" id="vdS-bZ-fur"/>
@@ -184,13 +185,27 @@
                                 </stackView>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-LI-VFu" userLabel="MoonMoveScroll">
                             <rect key="frame" x="0.0" y="341.5" width="343" height="76"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="76" id="0Cv-z3-RlJ"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="height" constant="76" id="0Cv-z3-RlJ"/>
+                                <constraint firstAttribute="height" constant="76" id="Ed8-PY-lUG"/>
+                                <constraint firstItem="gEx-VW-avL" firstAttribute="leading" secondItem="AKl-LI-VFu" secondAttribute="leading" id="P7g-sr-yT2"/>
+                                <constraint firstAttribute="trailing" secondItem="gEx-VW-avL" secondAttribute="trailing" id="ac9-2B-6Gd"/>
+                                <constraint firstItem="gEx-VW-avL" firstAttribute="top" secondItem="pGH-kw-KtC" secondAttribute="top" id="dlc-aX-5kV"/>
+                                <constraint firstAttribute="bottom" secondItem="gEx-VW-avL" secondAttribute="bottom" id="jYM-nn-gE6"/>
                             </constraints>
-                        </stackView>
+                            <viewLayoutGuide key="contentLayoutGuide" id="dEx-NX-rnd"/>
+                            <viewLayoutGuide key="frameLayoutGuide" id="pGH-kw-KtC"/>
+                        </scrollView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-by-dVt" userLabel="Retrograde">
                             <rect key="frame" x="0.0" y="444.5" width="343" height="44"/>
                             <constraints>
