@@ -102,7 +102,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-7i-X9V" userLabel="MoonDayStack">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-7i-X9V" userLabel="MoonDayStack">
                                                             <rect key="frame" x="0.0" y="44.5" width="95" height="44.5"/>
                                                         </stackView>
                                                     </subviews>

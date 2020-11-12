@@ -215,7 +215,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             })
             _ = showEventStack(stack: mMoonDayStack, dataProvider: dp, findType: EV_MOON_DAY, interpretationType: EV_MOON_DAY, string: { e in
                 return String(format: "%d", e.getDegree())
-            })
+            }, alignment: .left)
 
             let tithis = showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
                 return String(format: "%d", e.getDegree())
@@ -292,6 +292,12 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
             label.sizeToFit()
             stack.addArrangedSubview(label)
+        }
+        if alignment == .left {
+            let spacer1 = UIView()
+            //spacer1.layer.borderWidth = 0.8
+            //spacer1.layer.borderColor = UIColor.red.cgColor
+            stack.addArrangedSubview(spacer1)
         }
         return si.mEvents
     }
