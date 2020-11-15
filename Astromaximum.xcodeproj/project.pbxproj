@@ -39,6 +39,9 @@
 		72A2D76F25566AAB00EFA496 /* AmaxMoonMoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A2D76E25566AAB00EFA496 /* AmaxMoonMoveView.swift */; };
 		72A2D77325566AC700EFA496 /* MoonMoveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A2D77125566AC700EFA496 /* MoonMoveView.xib */; };
 		72A36FBA250E2A1700C0AD63 /* AmaxStartPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A36FB8250E2A1700C0AD63 /* AmaxStartPageViewController.xib */; };
+		72A3F172255EC34E00AD8ABF /* AmaxHelpTopicsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A3F170255EC34E00AD8ABF /* AmaxHelpTopicsController.xib */; };
+		72A3F175255EC38000AD8ABF /* AmaxHelpTopicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A3F174255EC38000AD8ABF /* AmaxHelpTopicsController.swift */; };
+		72A3F182255F056900AD8ABF /* ConstellNominative.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72A3F180255F056900AD8ABF /* ConstellNominative.strings */; };
 		72A4218824C8AE860096DF9C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72A4218724C8AE860096DF9C /* Images.xcassets */; };
 		72A6011F24B83144002C1322 /* VocCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A6011D24B83144002C1322 /* VocCell.xib */; };
 		72A9B7B024ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A9B7AF24ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift */; };
@@ -134,6 +137,10 @@
 		72A2D76E25566AAB00EFA496 /* AmaxMoonMoveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxMoonMoveView.swift; sourceTree = "<group>"; };
 		72A2D77225566AC700EFA496 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/MoonMoveView.xib; sourceTree = "<group>"; };
 		72A36FB9250E2A1700C0AD63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/AmaxStartPageViewController.xib; sourceTree = "<group>"; };
+		72A3F171255EC34E00AD8ABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Astromaximum/Base.lproj/AmaxHelpTopicsController.xib; sourceTree = "<group>"; };
+		72A3F174255EC38000AD8ABF /* AmaxHelpTopicsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxHelpTopicsController.swift; sourceTree = "<group>"; };
+		72A3F181255F056900AD8ABF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConstellNominative.strings; sourceTree = "<group>"; };
+		72A3F184255F057B00AD8ABF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ConstellNominative.strings; sourceTree = "<group>"; };
 		72A4218724C8AE860096DF9C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		72A4CEA9255D58080067B91E /* interpret */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = interpret; sourceTree = SOURCE_ROOT; };
 		72A9B7AF24ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxRetrogradeSetCell.swift; sourceTree = "<group>"; };
@@ -265,6 +272,7 @@
 				84DFC23B16A5A362003D8B01 /* Cells */,
 				84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */,
 				84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */,
+				72A3F170255EC34E00AD8ABF /* AmaxHelpTopicsController.xib */,
 				84DFC22D16A59E00003D8B01 /* AmaxInterpreterController.xib */,
 				84DFC22F16A59E00003D8B01 /* AmaxLocationListController.xib */,
 				84DFC23116A59E00003D8B01 /* AmaxSettingsController.xib */,
@@ -296,6 +304,7 @@
 		84E98B23168E62E7006AAA55 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				72A3F180255F056900AD8ABF /* ConstellNominative.strings */,
 				72B6C66324C8052C00E7BC98 /* EventListTitle.strings */,
 				84E39A0A168DCF73005DC0C5 /* interpret.dat */,
 				84EB53F6168CE8010089D6F6 /* Localizable.strings */,
@@ -374,6 +383,7 @@
 				72ACB3B024E63716007C2813 /* AmaxBaseViewController.swift */,
 				72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */,
 				72ACB3B224E63724007C2813 /* AmaxEventListViewController.swift */,
+				72A3F174255EC38000AD8ABF /* AmaxHelpTopicsController.swift */,
 				72CAA1CC24E4496A00A5E948 /* AmaxInterpreterController.swift */,
 				726BC97324E5815200690CE2 /* AmaxLocationListController.swift */,
 				726BC97524E59E6500690CE2 /* AmaxSettingsController.swift */,
@@ -390,6 +400,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84B1AC8E1647BB3E007188B1 /* Build configuration list for PBXNativeTarget "Astromaximum" */;
 			buildPhases = (
+				728AF92F25610BE400BCBDF6 /* ShellScript */,
 				84B1AC661647BB3E007188B1 /* Sources */,
 				84B1AC671647BB3E007188B1 /* Frameworks */,
 				84B1AC681647BB3E007188B1 /* Resources */,
@@ -445,6 +456,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A3F172255EC34E00AD8ABF /* AmaxHelpTopicsController.xib in Resources */,
 				84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */,
 				72A4218824C8AE860096DF9C /* Images.xcassets in Resources */,
 				72606C9424B823FB009B0113 /* Default-568h@2x.png in Resources */,
@@ -460,6 +472,7 @@
 				7245FD4D24F373E7000D71E1 /* Months.strings in Resources */,
 				72E051B1251DB3E80066721C /* Launch Screen.storyboard in Resources */,
 				84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */,
+				72A3F182255F056900AD8ABF /* ConstellNominative.strings in Resources */,
 				72606C9824B82D9C009B0113 /* locations.dat in Resources */,
 				84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */,
 				84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */,
@@ -487,6 +500,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		728AF92F25610BE400BCBDF6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd scripts && /bin/sh make_interpret.sh\n";
+			showEnvVarsInLog = 0;
+		};
 		84825A701663E71500524DB2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -543,6 +574,7 @@
 				729C4FDD24DDD38C0058E1EA /* AmaxCommonDataFile.swift in Sources */,
 				726BC98824E5BFF200690CE2 /* AmaxSunDegreeCell.swift in Sources */,
 				7229138224DFF422005B0698 /* AmaxDataProvider.swift in Sources */,
+				72A3F175255EC38000AD8ABF /* AmaxHelpTopicsController.swift in Sources */,
 				72ACB3B524E63730007C2813 /* AmaxSummaryViewController.swift in Sources */,
 				726BC97A24E5B88700690CE2 /* AmaxAstroLabel.swift in Sources */,
 			);
@@ -590,6 +622,23 @@
 				72A36FB9250E2A1700C0AD63 /* Base */,
 			);
 			name = AmaxStartPageViewController.xib;
+			sourceTree = "<group>";
+		};
+		72A3F170255EC34E00AD8ABF /* AmaxHelpTopicsController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72A3F171255EC34E00AD8ABF /* Base */,
+			);
+			name = AmaxHelpTopicsController.xib;
+			sourceTree = "<group>";
+		};
+		72A3F180255F056900AD8ABF /* ConstellNominative.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72A3F181255F056900AD8ABF /* en */,
+				72A3F184255F057B00AD8ABF /* ru */,
+			);
+			name = ConstellNominative.strings;
 			sourceTree = "<group>";
 		};
 		72A6011D24B83144002C1322 /* VocCell.xib */ = {

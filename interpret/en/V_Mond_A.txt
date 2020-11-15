@@ -1,10 +1,10 @@
-﻿!!type EV_MOON_MOVE
+!!type EV_MOON_MOVE
 !!params 2
 !!planet 1
 //Movement of the Moon
-//FROM THE Sun to Saturn - %0,6%
-//VOC to Mercury - %1,2%
-//VOC - %255,1%
+//FROM THE Sun to Saturn – %0,6%
+//VOC to Mercury – %1,2%
+//VOC – %255,1%
 
 %6,5%@Luck, stable position, the favourite of fortune. More favourable for the buyer. The captured one will be released soon.@
 %6,4%@Bad luck, disaster, accident.@

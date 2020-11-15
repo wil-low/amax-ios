@@ -2,7 +2,7 @@
 !!params 1
 !!planet -1
 
-// Localization strings for Astromaximum interface - English
+// Localization strings for Astromaximum interface – English
 
 %0% Sunday
 %1% Monday
@@ -175,7 +175,7 @@
 %159% City database is corrupted. You will need to reinstall additional cities. Do you want to reset the database?
 %160% No topic
 %161% Menu
-%162% - astrological calendar for mobile devices
+%162% – astrological calendar for mobile devices
 %163% Version
 %164% Current city:
 %165% Mobile version:
@@ -192,7 +192,7 @@
 %182% Lat.
 %183% Lon.
 %184% Alt.
-// altitude - meters
+// altitude – meters
 %185% m
 
 %186% Standard time zone

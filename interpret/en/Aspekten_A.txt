@@ -2,24 +2,24 @@
 !!params 3
 !!planet -1
 
-// 1st 2nd param - planet 
-// 3rd param: 0 - conjunction, 1 - bad, 2 - good 
+// 1st 2nd param – planet 
+// 3rd param: 0 – conjunction, 1 – bad, 2 – good 
 
 Sun:Mercury%0,2,0% @Inadequate actions and opinions; cunning.@~[--]No medicines, only bloodletting. ~ 
 %0,3,0% @Sympathies or unhealthy perception.@~[--] Damage done by medicines.~ 
-%0,4,0% @Enterprise, but harm of unrestraint. Quarrels, damage by fire. [--] Tension, crisis — initial phase.@~[--]Medicines are harmful.~
-%0,5,0% @Success in affairs if arrogance and illegal actions are not disturbing.[--]Peace treaty — initial phase. @~Too awkward treatment.~
-%0,6,0% @Limitations, difficulties, egocentrism; either striving for working in solitude and deserved material success. [--]Cycle of diplomatic activity — initial hase. @~[--]Hinders recovery. ~
-%0,7,0% @Separatism — initial phase @ 
-%0,8,0% @Idealism. [--]Diffusion of powers, derogation — initial phase.@
-%0,9,0% @Critical stage. [--]Shadow power — initial phase.@
+%0,4,0% @Enterprise, but harm of unrestraint. Quarrels, damage by fire. [--] Tension, crisis – initial phase.@~[--]Medicines are harmful.~
+%0,5,0% @Success in affairs if arrogance and illegal actions are not disturbing.[--]Peace treaty – initial phase. @~Too awkward treatment.~
+%0,6,0% @Limitations, difficulties, egocentrism; either striving for working in solitude and deserved material success. [--]Cycle of diplomatic activity – initial hase. @~[--]Hinders recovery. ~
+%0,7,0% @Separatism – initial phase @ 
+%0,8,0% @Idealism. [--]Diffusion of powers, derogation – initial phase.@
+%0,9,0% @Critical stage. [--]Shadow power – initial phase.@
 
 Mercury:Venus%2,3,0% @Possibility to come to an agreement. Favourable time for commerce and beginning to study some craft; prodigality and idleness. @~[--]Improper medicine.~
 %2,4,0% @Disagreements, dangers on the way; keenness of the mind. Criminal actions. @~[--]Medicines are adverse.~
 %2,5,0% @Trips, commerce, research are successful. @~[--]Any treatment is useless.~
 %2,6,0% @Carefulness, circumspection; 🚫 obstacles, cunning, insidiousness. @~[--] Blood-letting and medicines are not desirable.~
 %2,7,0% @ Innovation or chaotic actions.@
-%2,8,0% @Secret negotiations and trips. [--]Undercover policy — initial phase.@
+%2,8,0% @Secret negotiations and trips. [--]Undercover policy – initial phase.@
 %2,9,0% @Transformation of views and opinions.@
 
 Venus:Mars%3,4,0% @Intimacy. Obstacles in woman's crafts.@~[--]Any treatment is useless or may hurt.~
@@ -29,34 +29,34 @@ Venus:Mars%3,4,0% @Intimacy. Obstacles in woman's crafts.@~[--]Any treatment is 
 %3,8,0% @Euphoria.@
 %3,9,0% @Transformation of partnership agreements.@
 
-Mars:Jupiter%4,5,0% @Optimism, ambitions. Lucky actions, reconciliation. |--|Policy, law — initial phase.@~|--|Harm done by blood-letting, but successful treatment of acute diseases.~ 
+Mars:Jupiter%4,5,0% @Optimism, ambitions. Lucky actions, reconciliation. |--|Policy, law – initial phase.@~|--|Harm done by blood-letting, but successful treatment of acute diseases.~ 
 %4,6,0% @Quarrels, bloodshed. @~|--|Blood-letting and medicines are harmful.~
 %4,7,0% @Sudden actions, stress situations.@ 
 %4,8,0% @Vain attempts, collapse of illusions.@
-%4,9,0% @Disasters — critical phase.@ 
+%4,9,0% @Disasters – critical phase.@ 
 
-Jupiter:Saturn%5,6,0% @Change of social structures — initial phase.@~|--|Blood-letting and medicines are contra-indicated.~
-%5,7,0% @Cycle of a free market — initial phase.@
-%5,8,0% @Ideological and humanities cycle — initial phase.@ 
-%5,9,0% @Political power — initial phase.@
+Jupiter:Saturn%5,6,0% @Change of social structures – initial phase.@~|--|Blood-letting and medicines are contra-indicated.~
+%5,7,0% @Cycle of a free market – initial phase.@
+%5,8,0% @Ideological and humanities cycle – initial phase.@ 
+%5,9,0% @Political power – initial phase.@
 
-Saturn:Uranus%6,7,0% @Political activity of the concervative nature — initial phase.@
-%6,8,0% @Reforms and politics of the democratic nature — initial phase. @
-%6,9,0% @Purification, transformation of the nation — initial stage.@
+Saturn:Uranus%6,7,0% @Political activity of the concervative nature – initial phase.@
+%6,8,0% @Reforms and politics of the democratic nature – initial phase. @
+%6,9,0% @Purification, transformation of the nation – initial stage.@
 
-Sun-Mars%0,4,2% @Dynamism. Favourable for all projects. |--|Tension, crisis — phase of slackening.@
-%0,5,2% @Success in everything. Concord. |--|Peace treaty — productive phase.@
-%0,6,2% @Administration, structuring, strategic planning. |--|Cycle of diplomatic activity — productive phase. @~|--|Medicines are useless.~
-%0,7,2% @Changes, reforms. |--|Separatism — phase of slackening.@
-%0,8,2% @Grounded idealism, adaptation of ideas. |--|Dissolution of power, undermining of authorities — phase of weakening.@
-%0,9,2% @Reorganisation. |--|Shadow power — productive phase.@
+Sun-Mars%0,4,2% @Dynamism. Favourable for all projects. |--|Tension, crisis – phase of slackening.@
+%0,5,2% @Success in everything. Concord. |--|Peace treaty – productive phase.@
+%0,6,2% @Administration, structuring, strategic planning. |--|Cycle of diplomatic activity – productive phase. @~|--|Medicines are useless.~
+%0,7,2% @Changes, reforms. |--|Separatism – phase of slackening.@
+%0,8,2% @Grounded idealism, adaptation of ideas. |--|Dissolution of power, undermining of authorities – phase of weakening.@
+%0,9,2% @Reorganisation. |--|Shadow power – productive phase.@
 
 Mercury-Venus%2,3,2% @Possibility to come to an agreement; showing sympathies, life with taste. Favourable time for commerce and beginning to study some profession.@ 
 %2,4,2% @Enterprise. Favourable time for commerce and beginning to study some profession.@
 %2,5,2% @Business relations, financial prospects.@
 %2,6,2% @Stability of the course. Successful commerce and research activities. @~|--|Medicines are useful.~
 %2,7,2% @Original decisions, innovations.@
-%2,8,2% @Inspired actions. |--|Undercover politics — productive phase.@
+%2,8,2% @Inspired actions. |--|Undercover politics – productive phase.@
 %2,9,2% @Magic of the word.@ 
 
 Venus-Mars%3,4,2% @Satisfaction. Favourable time for the beginning of studying some profession.@~|--|✅ for cosmetic treatment.~
@@ -66,33 +66,33 @@ Venus-Mars%3,4,2% @Satisfaction. Favourable time for the beginning of studying s
 %3,8,2% @Romanticism.@
 %3,9,2% @Profitable relations.@ 
 
-Mars-Jupiter%4,5,2% @Resultative activities. |--|Politics, law — productive phase.@~|--|✅ for cosmetic procedures.~
+Mars-Jupiter%4,5,2% @Resultative activities. |--|Politics, law – productive phase.@~|--|✅ for cosmetic procedures.~
 %4,6,2% @Persistence. Success in actions due to organised and brave actions.@~|--|Abstain from any treatment.~
 %4,7,2% @Successful manoeuvring.@ 
 %4,8,2% @Secret activities.@
-%4,9,2% @Disasters — phase of weakening.@
+%4,9,2% @Disasters – phase of weakening.@
 
-Jupiter-Saturn%5,6,2% @Resultative time. Prestige. |--|Change of social structures — productive phase.@~|--|Medicines are neither good nor bad.~
-%5,7,2% @Cycle of a free market — productive phase.@
-%5,8,2% @Ideological and humanitarian cycle — productive phase.@
-%5,9,2% @Political power — productive phase.@
+Jupiter-Saturn%5,6,2% @Resultative time. Prestige. |--|Change of social structures – productive phase.@~|--|Medicines are neither good nor bad.~
+%5,7,2% @Cycle of a free market – productive phase.@
+%5,8,2% @Ideological and humanitarian cycle – productive phase.@
+%5,9,2% @Political power – productive phase.@
 
-Saturn-Uranus%6,7,2% @(long-time aspect) Political activity of conservative type — productive phase.@
-%6,8,2% @(long-time aspect) Reforms and politics of democratic nature — productive phase.@
-%6,9,2% @(long-time aspect) Purification, transformation of the nation — productive phase.@ 
+Saturn-Uranus%6,7,2% @(long-time aspect) Political activity of conservative type – productive phase.@
+%6,8,2% @(long-time aspect) Reforms and politics of democratic nature – productive phase.@
+%6,9,2% @(long-time aspect) Purification, transformation of the nation – productive phase.@ 
 
-Sun-Mars%0,4,1% @ Damage and dangers. |--|Tension, crisis — critical phase.@~|--| Harm of medicines.~
-%0,5,1% @Disagreements and conflicts. Crisis of power. |--| Peace treaty — critical phase.@ 
-%0,6,1% @Obstacles, failures. |--| Cycle of diplomatic activity — critical phase.@~ |--| Harm of medicines.~
-%0,7,1% @Critical moments, nervousness. |--| Separatism — critical phase. @
-%0,8,1% @Crisis of idealism. |--| Dissolution of power, undermining of authority — critical phase.@
-%0,9,1% @Threat from regulatory authority. |--| Shadow power — critical phase.@ 
+Sun-Mars%0,4,1% @ Damage and dangers. |--|Tension, crisis – critical phase.@~|--| Harm of medicines.~
+%0,5,1% @Disagreements and conflicts. Crisis of power. |--| Peace treaty – critical phase.@ 
+%0,6,1% @Obstacles, failures. |--| Cycle of diplomatic activity – critical phase.@~ |--| Harm of medicines.~
+%0,7,1% @Critical moments, nervousness. |--| Separatism – critical phase. @
+%0,8,1% @Crisis of idealism. |--| Dissolution of power, undermining of authority – critical phase.@
+%0,9,1% @Threat from regulatory authority. |--| Shadow power – critical phase.@ 
 
 Mercury-Mars%2,4,1% @Precipitation, disagreements, dangers on the way. Threat of deception and swindling, especially in the hour of Mercury.@
 %2,5,1% @Blunders, deceptions, financial unwisdom. Conflictness.@
 %2,6,1% @Problematic agreements. Improper time for commercial activities. Threat of deception and swindling, especially in the hour of Mercury.@~|--|Medicines are excessive.~
 %2,7,1% @Harm of hasty actions, dangers on the way.@
-%2,8,1% @Scheming, deception. |--| Undercover policy — critical phase.@
+%2,8,1% @Scheming, deception. |--| Undercover policy – critical phase.@
 %2,9,1% @Unconsidered actions, insidiousness.@
 
 Venus-Mars%3,4,1% @Foolish financial activity, calamity.@~|--| Problematic childbirth.~
@@ -102,17 +102,17 @@ Venus-Mars%3,4,1% @Foolish financial activity, calamity.@~|--| Problematic child
 %3,8,1% @Difficulties due to sex and finances.@
 %3,9,1% @ Problematic partnership.@
 
-Mars-Jupiter%4,5,1% @Waste, conflict. |🚫 for the beginning of cooperation, unions, communities; the aspect promises conflicts and disagreements. |--| Politics, law — critical phase; blockading bills, government crisis.@~|--| It is better to give up medicines if possible.~
+Mars-Jupiter%4,5,1% @Waste, conflict. |🚫 for the beginning of cooperation, unions, communities; the aspect promises conflicts and disagreements. |--| Politics, law – critical phase; blockading bills, government crisis.@~|--| It is better to give up medicines if possible.~
 %4,6,1% @Quarrels, conflicts. Exaggerations, problematic activity; |🚫 for the beginning of building. @~|--| Harm of medicines.~
 %4,7,1% @Unjustified risk.@
 %4,8,1% @Insidiousness, betrayal; poisoning, danger on the water.@
-%4,9,1% @Disasters — critical phase.@ 
+%4,9,1% @Disasters – critical phase.@ 
 
-Jupiter-Saturn%5,6,1% @Non-effectiveness. Fruitless time. |--| Change of social structures — critical phase. @~|--| Harm of medicines.~
-%5,7,1% @Cycle of free market — critical phase.@
-%5,8,1% @Ideological and humanitarian cycle — critical phase: struggle of ideas, ministerial crisis.@
-%5,9,1% @Political power — critical phase.@
+Jupiter-Saturn%5,6,1% @Non-effectiveness. Fruitless time. |--| Change of social structures – critical phase. @~|--| Harm of medicines.~
+%5,7,1% @Cycle of free market – critical phase.@
+%5,8,1% @Ideological and humanitarian cycle – critical phase: struggle of ideas, ministerial crisis.@
+%5,9,1% @Political power – critical phase.@
 
-Saturn-Uranus%6,7,1% @Political activities of conservative mind — critical phase.@
-%6,8,1% @Reforms and policy of democratic mind — critical phase.@
-%6,9,1% @Purification, transformation of the nation — critical phase.@
+Saturn-Uranus%6,7,1% @Political activities of conservative mind – critical phase.@
+%6,8,1% @Reforms and policy of democratic mind – critical phase.@
+%6,9,1% @Purification, transformation of the nation – critical phase.@

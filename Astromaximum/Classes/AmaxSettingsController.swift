@@ -16,15 +16,18 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var tvCell: UITableViewCell!
     var locationListController: AmaxLocationListController!
+    var helpTopicsController: AmaxHelpTopicsController!
 
     let CELL_LOCATION_NAME = 0
     let CELL_STARTING_CONTROLLER = 1
-    let CELL_IS_CUSTOM_TIME = 2
-    let CELL_HIGHIGHT_TIME = 3
+    let CELL_HELP_TOPICS = 2
+    let CELL_IS_CUSTOM_TIME = 102
+    let CELL_HIGHIGHT_TIME = 103
 
     let AmaxSettingsXibNames = [
         "LocationNameCell",
         "StartingControllerSwitchCell",
+        "HelpTopicsCell",
         "CustomTimeSwitchCell"
     ]
 
@@ -63,7 +66,7 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
-        return 2
+        return 3
     }
 
     // Customize the appearance of table view cells.
@@ -88,6 +91,8 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
                 c.accessoryView = switchView
                 switchView.setOn(UserDefaults.standard.bool(forKey: AMAX_PREFS_KEY_START_PAGE_AS_GRID), animated: false)
                 switchView.addTarget(self, action: #selector(self.startPageSwitchChanged(sender:)), for: .valueChanged)
+            case CELL_HELP_TOPICS:
+                c.textLabel?.text = NSLocalizedString("help_title", comment: "Help list")
             case CELL_IS_CUSTOM_TIME:
                 c.textLabel?.text = NSLocalizedString("Highlight_time", comment: "Highlight time")
                 c.detailTextLabel?.text = "88:88"
@@ -102,11 +107,18 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == CELL_LOCATION_NAME {
             if locationListController == nil {
                 locationListController = AmaxLocationListController(nibName: "AmaxLocationListController", bundle: nil)
             }
             self.navigationController?.pushViewController(locationListController, animated: true)
+        }
+        else if indexPath.row == CELL_HELP_TOPICS {
+            if helpTopicsController == nil {
+                helpTopicsController = AmaxHelpTopicsController(nibName: "AmaxHelpTopicsController", bundle: nil)
+            }
+            self.navigationController?.pushViewController(helpTopicsController, animated: true)
         }
     }
 

@@ -55,7 +55,13 @@ foreach my $infile (@interpret_files) {
 				$param[$i] = int($param[$i]);
 			}
 		}
-		$line =~ s/[\*\~\#\^\$\}\>\@\=\{]//g;
+		if ($evt =~ /EV_HELP/) {
+			$line =~ s/^(.+?)\|/<h1>$1<\/h1><p>/;
+		}
+		else {
+			$line =~ s/[\*\~\#\^\$\}\>\@\=\{]//g;
+		}
+
 		$line =~ s/\|/<\/p><p>/g;
 		$line =~ s/<p>--<\/p>/<hr\/>/g;
 		$line =~ s/--/&#8212;/g;

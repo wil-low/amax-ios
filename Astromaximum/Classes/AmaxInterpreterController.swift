@@ -28,9 +28,11 @@ class AmaxInterpreterController : UIViewController {
     @IBOutlet weak var interpreterTextView: UIWebView!
     @IBOutlet weak var eventDescriptionView: UILabel!
     @IBOutlet weak var dateRangeView: UILabel!
+    @IBOutlet weak var headerStack: UIStackView!
 
     override init(nibName: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName:nibName, bundle:nibBundleOrNil)
+        title = ""
     }
     
     required init?(coder: NSCoder) {
@@ -132,15 +134,21 @@ class AmaxInterpreterController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = NSLocalizedString("interp_title", comment: "")
+        navigationItem.title = title!.isEmpty ? NSLocalizedString("interp_title", comment: "") : title!
         // Do any additional setup after loading the view from its nib.
         interpreterTextView.loadHTMLString("", baseURL: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        eventDescriptionView.text = makeTitleFrom(event: _interpreterEvent, type: _eventType!)
-        dateRangeView.text = makeDateRangeFrom(event: _interpreterEvent)
+        if _eventType == EV_HELP0 || _eventType == EV_HELP1 {
+            headerStack.isHidden = true
+        }
+        else {
+            headerStack.isHidden = false
+            eventDescriptionView.text = makeTitleFrom(event: _interpreterEvent, type: _eventType!)
+            dateRangeView.text = makeDateRangeFrom(event: _interpreterEvent)
+        }
         interpreterTextView.loadHTMLString(_interpreterText, baseURL: nil)
         //NSLog(@"%@", _interpreterText);
     }

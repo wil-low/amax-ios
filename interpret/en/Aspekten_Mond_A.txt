@@ -2,8 +2,8 @@
 !!params 2
 !!planet 1
 
-//1st param - planet
-//2nd param: 0 - conjunction, 1 - bad, 2 - good 
+//1st param – planet
+//2nd param: 0 – conjunction, 1 – bad, 2 – good 
 
 //[2.3]%2,0% Moon:Mercury 
 //[2.3]%2,1% Moon-Mercury

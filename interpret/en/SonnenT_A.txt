@@ -2,8 +2,8 @@
 !!params 1
 !!planet 0
 %01% On the day of Ohrmazd drink wine and be joyful. "God is Wise".
-%02% On the day of Vohuman put on new clothes. "Good Intentions" - patron of settled tribes, communities, public meetings, commonwealth.
-%03% >✅ for registration and getting licence for any kind of activities.>|On the day of Ardwahisht go to the Temple of Fire. Vakhishta - The Richest.
+%02% On the day of Vohuman put on new clothes. "Good Intentions" – patron of settled tribes, communities, public meetings, commonwealth.
+%03% >✅ for registration and getting licence for any kind of activities.>|On the day of Ardwahisht go to the Temple of Fire. Vakhishta – The Richest.
 %04% On the day of Shahrewar enjoy yourself.
 %05% On the day of Spandarmad plough soil.
 %06% On the day of Hordad dig canals for irrigation.
@@ -18,7 +18,7 @@
 %15% On the day of Day-pa-Mihr wash your head and cut hair and nails, gather grapes and put them under the press, for the wine to be good.
 %16% >🚫 for registration and getting licence for any kind of activities.>|On the day of Mihr, if you are unjustly accused, stand in front of Mitra and ask him aloud for justice. Mitra watches following agreements and law, punishes liars and violators of treaties.
 %17% >🚫 for registration and getting licence for any kind of activities.>| On the day of Srosh ask blessed Srosh for blessing for the sake of soul salvation. Obedience and punishment for self-will.
-%18% On the day of Rashnu life is joyful - do in holiness whatever you want.
+%18% On the day of Rashnu life is joyful – do in holiness whatever you want.
 %19% On the day of Frawardin do not take any oaths; on this day make a donation to the souls of your ancestors to do them more happy.
 %20% On the day of Warharan make a foundation of your house, for it to be built quickly, and go to war to victoriously return.
 %21% >✅ for registration and getting licence for any kind of activities.>| On the day of Ram call your wife and enjoy; also hand in applications to judges, to win the case and reach the desired. Ram is a god of meadows, pastures and wealth.
@@ -29,13 +29,13 @@
 %26% >✅ for registration and getting licence for any kind of activities.>| On the day of Ashtad allow your mares, cows and females of beasts of burden to join their males. Justice, honesty, virtue.
 %27% Χ On the day of Asman (the Sky) go for a long way to be back safe and sound.
 %28% On the day of Zam (the Earth) do not take in medicines.
-%29% >✅ for registration and getting licence for any kind of activities.>| On the day of Mahraspand mend your clothes, sew and put it on; take your wife for the baby of keen wit and good will to be born. "Holy Word" - impressive, persuading, healing. 
+%29% >✅ for registration and getting licence for any kind of activities.>| On the day of Mahraspand mend your clothes, sew and put it on; take your wife for the baby of keen wit and good will to be born. "Holy Word" – impressive, persuading, healing. 
 %30% On the day of (the Endless Light) cut your hair and nails, and take your wife, if you want to beget an exceptional child.
 
 "stolen days"
-%361% >🚫 for registration and getting licence for any kind of activities.>|Ahunavad - devote the day to the souls of the ancestors.
-%362% >🚫 for registration and getting licence for any kind of activities.>|Ushtavad - devote the day to the souls of the ancestors.
-%363% >🚫 for registration and getting licence for any kind of activities.>|Spentomad - devote the day to the souls of the ancestors.
-%364% >🚫 for registration and getting licence for any kind of activities.>|Vohukhshathra - devote the day to the souls of the ancestors.
-%365% >🚫 for registration and getting licence for any kind of activities.>|Vahishtoist - devote the day to the souls of the ancestors.
-%366% >🚫 for registration and getting licence for any kind of activities.>|Bikh-jazak - devote the day to the souls of the ancestors.
+%361% >🚫 for registration and getting licence for any kind of activities.>|Ahunavad – devote the day to the souls of the ancestors.
+%362% >🚫 for registration and getting licence for any kind of activities.>|Ushtavad – devote the day to the souls of the ancestors.
+%363% >🚫 for registration and getting licence for any kind of activities.>|Spentomad – devote the day to the souls of the ancestors.
+%364% >🚫 for registration and getting licence for any kind of activities.>|Vohukhshathra – devote the day to the souls of the ancestors.
+%365% >🚫 for registration and getting licence for any kind of activities.>|Vahishtoist – devote the day to the souls of the ancestors.
+%366% >🚫 for registration and getting licence for any kind of activities.>|Bikh-jazak – devote the day to the souls of the ancestors.

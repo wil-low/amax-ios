@@ -14,7 +14,7 @@
 7 %6% Prudence and caution in everything. 
 8 %7% Irritation with consequences, wild passions. Meanness, victim of own foolishness.
 9 %8% Self-importance; eloquence and bravery.
-10 %9% Struggle in life, but with final victory. Influental friends. In the worst case — exile. 
+10 %9% Struggle in life, but with final victory. Influental friends. In the worst case – exile. 
 11 %10% Kindness; love will influence the destiny. 
 12 %11% Success in operations. Ascent, but trials and changes in destiny. 
 13 %12% Ascent and glory due to own merit and persistence. 
@@ -26,15 +26,15 @@
 19 %18% Extravagancy, loss of estate because of the immoral life. Dishonesty. 
 20 %19% Travel to foreign lands. Success in affairs. 
 21 %20% Nobleness, self-confidence, rush for trips. 
-22 %21% Idleness, conflictness, loss of estate. A woman will cause much grief. For women — a lot of scheming. 
+22 %21% Idleness, conflictness, loss of estate. A woman will cause much grief. For women – a lot of scheming. 
 23 %22% Destroys any untertaking. Obstacles, envious people may cause many misfortunes. Victory due to quick perception. 
 24 %23% Whirl of passions, slave of love, troubles because of those. Scandals. 
-25 %24% Beautiful career, unbending will, but the resistance on the way will be stronger, thus — a sad final. 
+25 %24% Beautiful career, unbending will, but the resistance on the way will be stronger, thus – a sad final. 
 26 %25% Ascent. Strong patrons favouring the achievement of way-up position. 
 27 %26% Changing fortune; high position only by the old age, or a quick success at the beginning and a collapse at the end. 
 28 %27% Success due to the patronage of an influental woman. The important role of people of opposite sex. 
 29 %28% Hard working life; numerous obstacles, which are to be overcome. Enterprise.
-30 %29% Tyranny and rush for power. Unhappiness caused by a woman. For women — destroyed family life. 
+30 %29% Tyranny and rush for power. Unhappiness caused by a woman. For women – destroyed family life. 
 
 [2] of the Taurus 
 1 %30% Success after long struggle. Dexterity, strength, negotiating of obstacles. 
@@ -44,7 +44,7 @@
 5 %34% Peacefulness. Patiency, love of rest, fidelity. 
 6 %35% Great capabilities; science fame. Multisidedness, quick-wittedness, glory, knowledge. 
 7 %36% Beauty; happy marriage, lucky partnership. Happiness, enterpise. Fame/capability in arts. 
-8 %37% Loss of estate and unhappiness due to women; for women — dangerous passions, loss of estate. 
+8 %37% Loss of estate and unhappiness due to women; for women – dangerous passions, loss of estate. 
 9 %38% Prophets of new ideas; large family. Agriculture, many troubles and work for others, trips. 
 10%39% Sensuality; illegal relations. Idleness, inclination to games and pleasures. 
 11 %40% Undoubtalle success, thrift. Rush for power, quarrels, cupidity. Ambitions, prestige, reckoning. 
@@ -65,7 +65,7 @@
 26 %55% Soft temper, quiet life. Consent, wealth, kindness. 
 27 %56% Economy, thrift, wealth after work and endeavours. 
 28 %57% Ambitious person, receiving no satisfaction. Purposefulness, though disorder of actions. 
-29 %58% Odd nature, despotism, desire to have power. Wife is the leader at home; for woman — unaccomodating nature. 
+29 %58% Odd nature, despotism, desire to have power. Wife is the leader at home; for woman – unaccomodating nature. 
 30 %59% Success in enterprises, ability to architecture, aptness, good circumstances. 
 
 [3] of the Gemini. 
@@ -148,7 +148,7 @@
 13 %132% Strong will, consistency, quiet work and successes. Practicalness. 
 14 %133% Loss of estate at own fault, due to idleness and laziness. 
 15 %134% Bright capabilities, success in enterprises. Self-confidence, power, nobility. 
-16 %135% Stubborness and conceit, obstinacy, thus — troubles. 
+16 %135% Stubborness and conceit, obstinacy, thus – troubles. 
 17 %136% Hard life, far-away travel. 
 18 %137% Fortune and wealth. Inventiveness, research spirit. 
 19 %138% Life full of struggle and successes. Restraint. 
@@ -174,7 +174,7 @@
 7 %156% Difficulties and sadness because of laziness. 
 8 %157% Idyll, naivety, joy of labour. 
 9 %158% Unhappy marriage. Evil lazy person. Decay. 
-10 %159% Good circumstances; for women — unlucky marriage. Income without labour. 
+10 %159% Good circumstances; for women – unlucky marriage. Income without labour. 
 11 %160% Genius, strong will, splendid career. Quick judgement, bravery, enterprise, seriousness. 
 12 %161% Falsity, reticency. Danger to cause unhappiness to a friend. 
 13 %162% Happy and quiet life, wealth. 
@@ -275,7 +275,7 @@
 12 %251% Sensiteveness, passions, weak will. 
 13 %252% Danger of captivity or imprisonment; many troubles, robbery. Bad plans. 
 14 %253% Literary talent. Learning, religiousness, philosophic spirit. 
-15 %254% Unstable position; the started affair will result in disappointment. Due to stupidity — damage for estate and descendants. 
+15 %254% Unstable position; the started affair will result in disappointment. Due to stupidity – damage for estate and descendants. 
 16 %255% Talent losing its power with lack of goal; hopeless efforts, errors and slips, poverty. 
 17 %256% Sad ending. Loneliness, self-denial, threat for life. 
 18 %257% Danger of madness; delusions of spirit, false research. 

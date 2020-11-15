@@ -37,8 +37,7 @@ class AmaxInterpretationProvider {
             return nil
         }
         let params = makeInterpreterCode(event: e, type: type)
-        //NSLog("type: %s (%d), params: %d, %d, %d, %d", EVENT_TYPE_STR[Int(e.mEvtype.rawValue)], Int(e.mEvtype.rawValue),
-        //      params[0], params[1], params[2], params[3])
+        //NSLog("type: %@ (%d), params: %d, %d, %d, %d", AmaxEvent.EVENT_TYPE_STR[Int(e.mEvtype.rawValue)], Int(e.mEvtype.rawValue), params[0], params[1], params[2], params[3])
         var tempParams = [0, 0, 0, 0]
         mTexts.reset()
         mTexts.skipBytes(4)
@@ -61,6 +60,7 @@ class AmaxInterpretationProvider {
             for j in 0 ..< 3 {
                 tempParams[j + 1] = Int(mTexts.readShort())
             }
+            //NSLog("temp params: %d, %d, %d, %d", tempParams[0], tempParams[1], tempParams[2], tempParams[3])
             var isEqual = true
             for j in 0 ..< 3 {
                 if params[j + 1] != tempParams[j] {
@@ -143,6 +143,9 @@ class AmaxInterpretationProvider {
                     }
                     param1 = Int(ev.mPlanet1.rawValue)
     			}
+            case EV_HELP0, EV_HELP1:
+                param0 = ev.getDegree()
+                break
             default:
                 break
         }
@@ -156,14 +159,12 @@ class AmaxInterpretationProvider {
         <style type="text/css">
         :root {
           color-scheme: light dark;
-          --title-color: red;
           --subhead-color: green;
           --link-color: blue;
         }
 
         @media screen and (prefers-color-scheme: dark) {
           :root {
-            --title-color: #ff8080;
             --subhead-color: #80ff80;
             --link-color: #93d5ff;
           }
@@ -176,6 +177,7 @@ class AmaxInterpretationProvider {
         h1 {
             font: -apple-system-headline;
             color: var(--title-color);
+            text-align: center;
         }
 
         h2 {

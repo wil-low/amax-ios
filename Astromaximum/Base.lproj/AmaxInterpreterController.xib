@@ -12,57 +12,58 @@
             <connections>
                 <outlet property="dateRangeView" destination="16" id="17"/>
                 <outlet property="eventDescriptionView" destination="4" id="15"/>
+                <outlet property="headerStack" destination="02Z-Dc-y2d" id="Wxw-xq-OSU"/>
                 <outlet property="interpreterTextView" destination="12" id="13"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="540"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date Range" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="16">
-                    <rect key="frame" x="0.0" y="87" width="320" height="24"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Event Description" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                    <rect key="frame" x="0.0" y="119" width="320" height="23"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="23" id="mcs-Lw-KjM"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12">
-                    <rect key="frame" x="0.0" y="150" width="320" height="286"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <dataDetectorType key="dataDetectorTypes"/>
-                </webView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1pD-fO-zJ5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="540"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="300" verticalCompressionResistancePriority="500" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="02Z-Dc-y2d" userLabel="HeaderStack">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date Range" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="16">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="GJf-3L-Pxe"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Event Description" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                                    <rect key="frame" x="0.0" y="44" width="320" height="36"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="12">
+                            <rect key="frame" x="0.0" y="80" width="320" height="460"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <dataDetectorType key="dataDetectorTypes"/>
+                        </webView>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="16" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="2uV-Fb-Fi0"/>
-                <constraint firstItem="12" firstAttribute="bottom" secondItem="1" secondAttribute="bottomMargin" id="8Vr-1l-0JH"/>
-                <constraint firstItem="16" firstAttribute="centerX" secondItem="4" secondAttribute="centerX" id="8cP-5H-cQR"/>
-                <constraint firstItem="4" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="9Je-qj-4MY"/>
-                <constraint firstItem="16" firstAttribute="leading" secondItem="12" secondAttribute="leading" id="BFy-4Q-RrB"/>
-                <constraint firstItem="4" firstAttribute="top" secondItem="1" secondAttribute="top" constant="119" id="Cfw-dm-dHn"/>
-                <constraint firstItem="4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="16" secondAttribute="leading" id="F3W-hG-CDE"/>
-                <constraint firstItem="4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="12" secondAttribute="leading" id="GjK-Zg-x9A"/>
-                <constraint firstItem="12" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="8" id="Tti-Bf-lsi"/>
-                <constraint firstItem="16" firstAttribute="trailing" secondItem="12" secondAttribute="trailing" id="clh-LL-f0L"/>
-                <constraint firstItem="4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="16" secondAttribute="trailing" id="dTI-SD-Avz"/>
-                <constraint firstItem="4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1" secondAttribute="leading" id="h33-oQ-fD8"/>
-                <constraint firstItem="4" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="12" secondAttribute="trailing" id="le3-zz-Rp7"/>
-                <constraint firstItem="4" firstAttribute="top" secondItem="16" secondAttribute="bottom" constant="8" id="saw-yL-9B6"/>
+                <constraint firstAttribute="bottom" secondItem="1pD-fO-zJ5" secondAttribute="bottom" id="AYz-vx-jzX"/>
+                <constraint firstItem="1pD-fO-zJ5" firstAttribute="top" secondItem="1" secondAttribute="topMargin" id="LKC-VD-TGc"/>
+                <constraint firstItem="1pD-fO-zJ5" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="U9W-gD-H8Q"/>
+                <constraint firstAttribute="trailing" secondItem="1pD-fO-zJ5" secondAttribute="trailing" id="qEh-gY-u2D"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="33.333333333333336" y="53.571428571428569"/>
+            <point key="canvasLocation" x="33.333333333333336" y="88.392857142857139"/>
         </view>
     </objects>
     <resources>
