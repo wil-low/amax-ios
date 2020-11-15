@@ -127,7 +127,7 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
         default:
             return
         }
-        //print("indexPath: \(indexPath.section), \(indexPath.row)")
+        //print("indexPath: \(indexPath.section), \(indexPath.row), \(e.mDegree)")
         showInterpreterFor(event: e, type: e.mEvtype, title: NSLocalizedString(mTopics[indexPath.section], comment: ""))
     }
 
@@ -135,11 +135,11 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //mTableView.reloadData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
