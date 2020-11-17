@@ -20,6 +20,17 @@ class AmaxTapRecognizer : UITapGestureRecognizer {
     }
 }
 
+class AmaxLongPressRecognizer : UILongPressGestureRecognizer {
+    var mSummaryItem: AmaxSummaryItem!
+    var mXibName: String!
+    
+    init(target: Any?, action: Selector?, summaryItem: AmaxSummaryItem, xib xibName: String) {
+        super.init(target: target, action: action)
+        mSummaryItem = summaryItem
+        mXibName = xibName
+    }
+}
+
 class AmaxStartPageViewController : AmaxBaseViewController {
 
     let START_PAGE_ITEMS = [
@@ -219,7 +230,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
             let tithis = showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
                 return String(format: "%d", e.getDegree())
-            })
+            }, alignment: .center, xibForLongPress: "TithiCell")
+
             showMoonPhase(dataProvider: dp, events: tithis)
 
             showMoonMoveStack(stack: mMoonMoveStack, dataProvider: dp)
@@ -258,7 +270,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 //label.layer.borderColor = UIColor.gray.cgColor
 
                 label.isUserInteractionEnabled = true
-                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: e, eventType: interpretationType)
+                let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: interpretationType)
                 label.addGestureRecognizer(tap)
                 return
             }
@@ -267,7 +279,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         label.gestureRecognizers = []
     }
     
-    func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String, alignment: NSTextAlignment = .center) -> [AmaxEvent] {
+    func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String, alignment: NSTextAlignment = .center, xibForLongPress: String = "") -> [AmaxEvent] {
         for view in stack.subviews {
             view.removeFromSuperview()
         }
@@ -287,7 +299,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event)
 
             label.isUserInteractionEnabled = true
-            let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: interpretationType)
+            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: interpretationType)
             label.addGestureRecognizer(tap)
 
             label.sizeToFit()
@@ -299,6 +311,9 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             //spacer1.layer.borderColor = UIColor.red.cgColor
             stack.addArrangedSubview(spacer1)
         }
+        if !xibForLongPress.isEmpty {
+            handleLongPress(view: stack, summaryItem: si, xib: xibForLongPress)
+        }
         return si.mEvents
     }
     
@@ -308,7 +323,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         mMoonPhase.gestureRecognizers = []
         if let si = findInCache(dataProvider: dataProvider, findType: EV_MOON_PHASE) {
             if si.mEvents.count > 0 {
-                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: si.mEvents[0], eventType: EV_MOON_PHASE)
+                let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: si.mEvents[0], eventType: EV_MOON_PHASE)
                 mMoonPhase.addGestureRecognizer(tap)
             }
         }
@@ -339,10 +354,9 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event, defaultColor: color)
 
             label.gestureRecognizers = []
-            let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: EV_PLANET_HOUR)
+            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: EV_PLANET_HOUR)
             label.addGestureRecognizer(tap)
 
-            //label.sizeToFit()
             counter += 1
         }
     }
@@ -367,13 +381,14 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 //v.layer.borderWidth = 0.8
                 //v.layer.borderColor = UIColor.gray.cgColor
                 
-                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: event.mEvtype)
+                let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
                 v.addGestureRecognizer(tap)
 
                 v.widthAnchor.constraint(equalTo: v.heightAnchor, multiplier: CGFloat(0.5)).isActive = true
                 stack.addArrangedSubview(v)
             }
         }
+        handleLongPress(view: stack, summaryItem: si, xib: "MoonMoveCell")
     }
 
     func showRetrogradeStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
@@ -401,7 +416,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 //v.layer.borderWidth = 0.8
                 //v.layer.borderColor = UIColor.gray.cgColor
 
-                let tap = AmaxTapRecognizer(target: self, action: #selector(self.itemTapped(sender:)), event: event, eventType: event.mEvtype)
+                let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
                 v.addGestureRecognizer(tap)
 
                 v.sizeToFit()
@@ -416,6 +431,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         stack.addArrangedSubview(spacer2)
         
         spacer1.widthAnchor.constraint(equalTo: spacer2.widthAnchor).isActive = true
+        
+        handleLongPress(view: stack, summaryItem: si, xib: "RetrogradeCell")
     }
 
     @objc func itemTapped(sender: UITapGestureRecognizer) {
@@ -425,4 +442,17 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         }
     }
 
+    @objc func itemLongPressed(sender: UILongPressGestureRecognizer) {
+        if let longPress = sender as? AmaxLongPressRecognizer {
+            if longPress.state == .began {
+                showEventListFor(si: longPress.mSummaryItem, xib: longPress.mXibName)
+            }
+        }
+    }
+    
+    func handleLongPress(view: UIView, summaryItem: AmaxSummaryItem, xib: String) {
+        view.gestureRecognizers = []
+        let longPress = AmaxLongPressRecognizer(target: self, action: #selector(itemLongPressed), summaryItem: summaryItem, xib: xib)
+        view.addGestureRecognizer(longPress)
+    }
 }
