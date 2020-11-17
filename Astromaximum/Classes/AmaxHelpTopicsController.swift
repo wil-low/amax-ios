@@ -15,7 +15,6 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
         "help_zodiac",
         "help_aspects",
         "help_moon_events",
-        "help_topics",
         "help_misc"
     ]
 
@@ -25,6 +24,26 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
         90,   // Square
         120,  // Trine
         60,   // Sextile
+    ]
+    
+    let mMoonEvents: [String] = [
+        "si_key_voc",
+        "si_key_vc",
+        "si_key_moon_move",
+        "help_moon_new",
+        "help_moon_1q",
+        "help_moon_full",
+        "help_moon_3q"
+    ]
+    
+    let mMisc: [String] = [
+        "si_key_tithi",
+        "help_misc_sd",
+        "help_misc_md",
+        "si_retrograde",
+        "help_misc_eclipse_sun",
+        "help_misc_eclipse_moon",
+        "help_misc_decumbiture"
     ]
     
     @IBOutlet weak var mTableView: UITableView!
@@ -47,7 +66,7 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
 
     // Customize the number of sections in the table view.
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3 //mTopics.count
+        return mTopics.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,12 +77,10 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
             return 12
         case 2:  // "help_aspects"
             return mAspects.count
-/*        case 3:  // "help_moon_events"
-            break
-        case 4:  // "help_topics"
-            break
-        case 5:  // "help_misc"
-            break*/
+        case 3:  // "help_moon_events"
+            return mMoonEvents.count
+        case 4:  // "help_misc"
+            return mMisc.count
         default:
             break
         }
@@ -94,13 +111,11 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
         case 2:  // "help_aspects"
             txt = NSLocalizedString("\(mAspects[indexPath.row])", tableName: "Aspects", comment: "")
         case 3:  // "help_moon_events"
-            break
-        case 4:  // "help_topics"
-            break
-        case 5:  // "help_misc"
-            break
+            txt = NSLocalizedString("\(mMoonEvents[indexPath.row])", comment: "")
+        case 4:  // "help_misc"
+            txt = NSLocalizedString("\(mMisc[indexPath.row])", comment: "")
         default:
-            txt = NSLocalizedString("Current_location", comment: "Current location")
+            break
         }
         c.textLabel?.text = txt
         return c
@@ -119,11 +134,11 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
             e.mEvtype = EV_HELP1
             e.mDegree = [70, 71, 72, 73, 74][indexPath.row]
          case 3:  // "help_moon_events"
-            break
-        case 4:  // "help_topics"
-            break
-        case 5:  // "help_misc"
-            break
+            e.mEvtype = EV_HELP1
+            e.mDegree = [60, 65, 77, 61, 62, 63, 64][indexPath.row]
+        case 4:  // "help_misc"
+            e.mEvtype = EV_HELP1
+            e.mDegree = [80, 81, 82, 75, 83, 84, 96][indexPath.row]
         default:
             return
         }

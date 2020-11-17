@@ -65,6 +65,7 @@ foreach my $infile (@interpret_files) {
 		$line =~ s/\|/<\/p><p>/g;
 		$line =~ s/<p>--<\/p>/<hr\/>/g;
 		$line =~ s/--/&#8212;/g;
+		$line =~ s/ – /&nbsp;– /g;
 		
 		my $len = 0;
 		do{
