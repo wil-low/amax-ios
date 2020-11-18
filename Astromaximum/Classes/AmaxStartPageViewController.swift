@@ -125,6 +125,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         if mMoonMoveStack.subviews.isEmpty {
             self.updateDisplay()
         }
+        makeSelected(selectedView)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -449,12 +450,16 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 }
                 else {
                     selectedView?.layer.borderWidth = 0
-                    newView.layer.borderWidth = 0.8
-                    newView.layer.borderColor = ColorCompatibility.label.cgColor
-                    selectedView = newView
+                    makeSelected(newView)
                 }
             }
         }
+    }
+
+    func makeSelected(_ view: UIView?) {
+        selectedView = view
+        selectedView?.layer.borderWidth = 0.8
+        selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
     }
 
     @objc func itemLongPressed(sender: UILongPressGestureRecognizer) {
