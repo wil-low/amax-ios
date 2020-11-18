@@ -74,6 +74,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     var eventListViewController: AmaxEventListViewController?
     var settingsController: AmaxSettingsController?
     var dateSelectController: AmaxDateSelectController?
+    
+    var selectedView: UIView?
 
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
@@ -120,7 +122,9 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.updateDisplay()
+        if mMoonMoveStack.subviews.isEmpty {
+            self.updateDisplay()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -439,7 +443,17 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     @objc func itemTapped(sender: UITapGestureRecognizer) {
         if let tap = sender as? AmaxTapRecognizer {
             //print("itemTapped: \(tap.mEvent!.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType!.rawValue)])")
-            showInterpreterFor(event: tap.mEvent!, type: tap.mEventType!)
+            if let newView = tap.view {
+                if newView == selectedView {
+                    showInterpreterFor(event: tap.mEvent!, type: tap.mEventType!)
+                }
+                else {
+                    selectedView?.layer.borderWidth = 0
+                    newView.layer.borderWidth = 0.8
+                    newView.layer.borderColor = ColorCompatibility.label.cgColor
+                    selectedView = newView
+                }
+            }
         }
     }
 
