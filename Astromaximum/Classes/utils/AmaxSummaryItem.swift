@@ -114,14 +114,12 @@ class AmaxSummaryItem {
         switch _mKey {
         case EV_MOON_MOVE:
             return .twoDays
-        case EV_PLANET_HOUR:
+        case EV_PLANET_HOUR, EV_PLANET_HOUR_EXT:
             return .oneDay
         case EV_MOON_SIGN:
             return .month
         case EV_RETROGRADE, EV_ASP_EXACT, EV_SUN_DEGREE, EV_TITHI:
             return .year
-        //case EV_VOC, EV_VIA_COMBUSTA:
-        //    return .none
         default:
             return .none
         }

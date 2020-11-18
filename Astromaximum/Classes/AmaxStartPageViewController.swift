@@ -312,7 +312,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             stack.addArrangedSubview(spacer1)
         }
         if !xibForLongPress.isEmpty {
-            handleLongPress(view: stack, summaryItem: si, xib: xibForLongPress)
+            addLongPressRecognizer(view: stack, summaryItem: si, xib: xibForLongPress)
         }
         return si.mEvents
     }
@@ -359,6 +359,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
             counter += 1
         }
+        addLongPressRecognizer(view: stack, summaryItem: si, xib: "PlanetHourCell")
     }
 
     func showMoonMoveStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
@@ -388,7 +389,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 stack.addArrangedSubview(v)
             }
         }
-        handleLongPress(view: stack, summaryItem: si, xib: "MoonMoveCell")
+        addLongPressRecognizer(view: stack, summaryItem: si, xib: "MoonMoveCell")
     }
 
     func showRetrogradeStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
@@ -432,7 +433,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         
         spacer1.widthAnchor.constraint(equalTo: spacer2.widthAnchor).isActive = true
         
-        handleLongPress(view: stack, summaryItem: si, xib: "RetrogradeCell")
+        addLongPressRecognizer(view: stack, summaryItem: si, xib: "RetrogradeCell")
     }
 
     @objc func itemTapped(sender: UITapGestureRecognizer) {
@@ -450,7 +451,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         }
     }
     
-    func handleLongPress(view: UIView, summaryItem: AmaxSummaryItem, xib: String) {
+    func addLongPressRecognizer(view: UIView, summaryItem: AmaxSummaryItem, xib: String) {
         view.gestureRecognizers = []
         let longPress = AmaxLongPressRecognizer(target: self, action: #selector(itemLongPressed), summaryItem: summaryItem, xib: xib)
         view.addGestureRecognizer(longPress)
