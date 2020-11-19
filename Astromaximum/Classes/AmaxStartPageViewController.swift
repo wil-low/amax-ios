@@ -9,8 +9,8 @@
 import UIKit
 
 class AmaxTapRecognizer : UITapGestureRecognizer {
-    var mEvent: AmaxEvent?
-    var mEventType: AmaxEventType?
+    var mEvent: AmaxEvent!
+    var mEventType: AmaxEventType!
     
     init(target: Any?, action: Selector?, event: AmaxEvent, eventType: AmaxEventType) {
         super.init(target: target, action: action)
@@ -54,13 +54,19 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
     @IBOutlet weak var mVocTime: UILabel!
     @IBOutlet weak var mVcTime: UILabel!
+
+    @IBOutlet weak var mSunBlock: UIView!
     @IBOutlet weak var mSunDay: UILabel!
     @IBOutlet weak var mSunDegree: UILabel!
     @IBOutlet weak var mSunSign: UILabel!
     @IBOutlet weak var mSunDegreeTime: UILabel!
+
     @IBOutlet weak var mMoonDayStack: UIStackView!
+    
+    @IBOutlet weak var mMoonBlock: UIView!
     @IBOutlet weak var mMoonSign: UILabel!
     @IBOutlet weak var mMoonSignTime: UILabel!
+
     @IBOutlet weak var mMoonPhase: MoonPhaseView!
     @IBOutlet weak var mTithiStack: UIStackView!
     @IBOutlet weak var mMoonMoveScroll: UIScrollView!
@@ -68,7 +74,9 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     @IBOutlet weak var mRetrogradeStack: UIStackView!
     @IBOutlet weak var mPlanetHourDayStack: UIStackView!
     @IBOutlet weak var mPlanetHourNightStack: UIStackView!
-    
+
+    @IBOutlet weak var mSelectedViewTime: UILabel!
+    @IBOutlet weak var mCornerTime: UILabel!
     @IBOutlet weak var tvCell: UITableViewCell!
 
     var eventListViewController: AmaxEventListViewController?
@@ -197,13 +205,13 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             dp.calculateAll(types: START_PAGE_ITEMS)
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
-            mSubtitle.text = String(format: "%@, %@", dp.getHighlightTimeString(), dp.locationName())
+            mCornerTime.text = dp.getHighlightTimeString()
 
             showEvent(label: mVocTime, dataProvider: dp, findType: EV_VOC, interpretationType: EV_VOC, string: { e in
-                "VOC " + e.normalizedRangeString()
+                "VOC " + e.normalizedRangeString(addSpaces: false)
             }, defaultString: "VOC")
             showEvent(label: mVcTime, dataProvider: dp, findType: EV_VIA_COMBUSTA, interpretationType: EV_VIA_COMBUSTA, string: { e in
-                "VC " + e.normalizedRangeString()
+                "VC " + e.normalizedRangeString(addSpaces: false)
             }, defaultString: "VC")
 
             showEvent(label: mSunDay, dataProvider: dp, findType: EV_SUN_DAY, interpretationType: EV_SUN_DAY, string: { e in
@@ -213,25 +221,47 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 }
                 return String(format: "%d", day)
             })
-            showEvent(label: mSunDegree, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
-                String(format: "%d\u{00b0} ", e.getDegree() % 30 + 1)
-            })
-            showEvent(label: mSunSign, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
-                String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
-            })
-            showEvent(label: mSunDegreeTime, dataProvider: dp, findType: EV_SUN_DEGREE, interpretationType: EV_DEGREE_PASS, string: { e in
-                AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
+            
+            showEventBlock(dataProvider: dp, findType: EV_SUN_DAY, configure: { event, si in
+                if let e = event {
+                    mSunDegree.text = String(format: "%d\u{00b0} ", e.getDegree() % 30 + 1)
+                    AmaxTableCell.setColorOf(label: mSunDegree, si: si, activeEvent: e, byEventMode: e)
+
+                    mSunSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
+                    AmaxTableCell.setColorOf(label: mSunSign, si: si, activeEvent: e, byEventMode: e)
+
+                    mSunDegreeTime.text = AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
+                    AmaxTableCell.setColorOf(label: mSunDegreeTime, si: si, activeEvent: e, byEventMode: e)
+
+                    //label.layer.borderWidth = 0.8
+                    //label.layer.borderColor = UIColor.gray.cgColor
+
+                    mSunBlock.gestureRecognizers = []
+                    let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: EV_DEGREE_PASS)
+                    mSunBlock.addGestureRecognizer(tap)
+                }
             })
 
-            showEvent(label: mMoonSign, dataProvider: dp, findType: EV_MOON_SIGN, interpretationType: EV_SIGN_ENTER, string: { e in
-                String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree())))
+            showEventBlock(dataProvider: dp, findType: EV_MOON_SIGN, configure: { event, si in
+                if let e = event {
+                    mMoonSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree())))
+                    AmaxTableCell.setColorOf(label: mMoonSign, si: si, activeEvent: e, byEventMode: e)
+
+                    mMoonSignTime.text = AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
+                    AmaxTableCell.setColorOf(label: mMoonSignTime, si: si, activeEvent: e, byEventMode: e)
+
+                    //label.layer.borderWidth = 0.8
+                    //label.layer.borderColor = UIColor.gray.cgColor
+
+                    mMoonBlock.gestureRecognizers = []
+                    let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: EV_SIGN_ENTER)
+                    mMoonBlock.addGestureRecognizer(tap)
+                }
             })
-            showEvent(label: mMoonSignTime, dataProvider: dp, findType: EV_MOON_SIGN, interpretationType: EV_SIGN_ENTER, string: { e in
-                AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
-            })
+
             _ = showEventStack(stack: mMoonDayStack, dataProvider: dp, findType: EV_MOON_DAY, interpretationType: EV_MOON_DAY, string: { e in
                 return String(format: "%d", e.getDegree())
-            }, alignment: .left)
+            })
 
             let tithis = showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
                 return String(format: "%d", e.getDegree())
@@ -246,6 +276,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
             
             centerMoonMoveScroll(flash: true)
+            
+            makeSelected(selectedView)
         }
     }
 
@@ -258,6 +290,16 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             }
         }
         return itemFound
+    }
+    
+    func showEventBlock(dataProvider: AmaxDataProvider, findType: AmaxEventType, configure: (AmaxEvent?, AmaxSummaryItem) -> Void ) {
+        if let si = findInCache(dataProvider: dataProvider, findType: findType) {
+            var pos = -1
+            var activeEvent: AmaxEvent?
+            pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
+            activeEvent = (pos == -1) ? nil : si.mEvents[pos]
+            configure(activeEvent, si)
+        }
     }
     
     func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType,  string: (AmaxEvent) -> String, defaultString: String = "") {
@@ -283,7 +325,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         label.text = defaultString
         label.gestureRecognizers = []
     }
-    
+
     func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String, alignment: NSTextAlignment = .center, xibForLongPress: String = "") -> [AmaxEvent] {
         for view in stack.subviews {
             view.removeFromSuperview()
@@ -443,13 +485,12 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
     @objc func itemTapped(sender: UITapGestureRecognizer) {
         if let tap = sender as? AmaxTapRecognizer {
-            //print("itemTapped: \(tap.mEvent!.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType!.rawValue)])")
+            //print("itemTapped: \(tap.mEvent.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType.rawValue)])")
             if let newView = tap.view {
                 if newView == selectedView {
-                    showInterpreterFor(event: tap.mEvent!, type: tap.mEventType!)
+                    showInterpreterFor(event: tap.mEvent, type: tap.mEventType)
                 }
                 else {
-                    selectedView?.layer.borderWidth = 0
                     makeSelected(newView)
                 }
             }
@@ -457,9 +498,33 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     }
 
     func makeSelected(_ view: UIView?) {
-        selectedView = view
-        selectedView?.layer.borderWidth = 0.8
-        selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
+        if view == nil || view!.window == nil {
+            mSelectedViewTime.text = mDataProvider?.locationName()
+            return
+        }
+        if selectedView != view {
+            selectedView?.layer.borderWidth = 0
+            selectedView = view
+            selectedView?.layer.borderWidth = 0.8
+            selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
+        }
+        if let grArray = selectedView?.gestureRecognizers {
+            for gr in grArray {
+                if let tap = gr as? AmaxTapRecognizer {
+                    mSelectedViewTime.text = makeSelectedDateString(tap.mEvent)
+                    break
+                }
+            }
+        }
+    }
+
+    func makeSelectedDateString(_ e: AmaxEvent) -> String {
+        if e.date(at: 0) == e.date(at: 1) {
+            return AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+        }
+        return String(format:"%@ - %@",
+                AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false),
+                AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: true))
     }
 
     @objc func itemLongPressed(sender: UILongPressGestureRecognizer) {

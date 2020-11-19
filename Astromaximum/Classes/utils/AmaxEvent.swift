@@ -191,7 +191,7 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
         return result
     }
 
-    func normalizedRangeString() -> String {
+    func normalizedRangeString(addSpaces: Bool = true) -> String {
         var date0 = mDate[0]
         var date1 = mDate[1]
         if USE_EXACT_RANGE {
@@ -201,7 +201,7 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
             if date1 > mPeriod1 {
                 date1 = mPeriod1
             }
-            return String.init(format: "%@ - %@", AmaxEvent.long2String(date0, format: nil, h24: false), AmaxEvent.long2String(date1, format: nil, h24: true))
+            return String.init(format: (addSpaces ? "%@ - %@" : "%@-%@"), AmaxEvent.long2String(date0, format: nil, h24: false), AmaxEvent.long2String(date1, format: nil, h24: true))
         }
         let isTillRequired = date0 < mPeriod0
         let isSinceRequired = date1 > mPeriod1
@@ -217,7 +217,7 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
         if isSinceRequired {
             return String(format: "%@ %@", AmaxEvent.long2String(date0, format: nil, h24: false), NSLocalizedString("norm_range_arrow", comment:""))
         }
-        return String(format: "%@ - %@", AmaxEvent.long2String(date0, format: nil, h24: false), AmaxEvent.long2String(date1, format: nil, h24: true))
+        return String(format: (addSpaces ? "%@ - %@" : "%@-%@"), AmaxEvent.long2String(date0, format: nil, h24: false), AmaxEvent.long2String(date1, format: nil, h24: true))
     }
 
     func getDegree() -> Int {
