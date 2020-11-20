@@ -222,7 +222,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 return String(format: "%d", day)
             })
             
-            showEventBlock(dataProvider: dp, findType: EV_SUN_DAY, configure: { event, si in
+            showEventBlock(dataProvider: dp, findType: EV_SUN_DEGREE, configure: { event, si in
                 if let e = event {
                     mSunDegree.text = String(format: "%d\u{00b0} ", e.getDegree() % 30 + 1)
                     AmaxTableCell.setColorOf(label: mSunDegree, si: si, activeEvent: e, byEventMode: e)
