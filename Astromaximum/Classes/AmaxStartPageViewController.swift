@@ -84,6 +84,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     var dateSelectController: AmaxDateSelectController?
     
     var selectedView: UIView?
+    
+    let dimmedColor = ColorCompatibility.systemGray2.cgColor
 
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
@@ -101,14 +103,16 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 mHourLabels.append(label)
                 label.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
 
-                //label.layer.borderWidth = 0.8
-                //label.layer.borderColor = UIColor.gray.cgColor
+                addBorders(to: label)
 
                 label.textAlignment = .center
                 label.isUserInteractionEnabled = true
                 (i == 0 ? mPlanetHourDayStack : mPlanetHourNightStack).addArrangedSubview(label)
             }
         }
+        addBorders(to: mMoonPhase)
+        addBorders(to: mSunBlock)
+        addBorders(to: mMoonBlock)
     }
     
     required init?(coder: NSCoder) {
@@ -198,6 +202,13 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         navigationController?.pushViewController(dateSelectController!, animated:true)
     }
 
+    func addBorders(to view: UIView) {
+        //view.layer.cornerRadius = 10
+        //view.layer.masksToBounds = true
+        view.layer.borderWidth = 0.8
+        view.layer.borderColor = dimmedColor
+    }
+
     override func updateDisplay() {
         if let dp = mDataProvider {
             title = dp.currentDateString()
@@ -233,9 +244,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                     mSunDegreeTime.text = AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
                     AmaxTableCell.setColorOf(label: mSunDegreeTime, si: si, activeEvent: e, byEventMode: e)
 
-                    //label.layer.borderWidth = 0.8
-                    //label.layer.borderColor = UIColor.gray.cgColor
-
                     mSunBlock.gestureRecognizers = []
                     let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: EV_DEGREE_PASS)
                     mSunBlock.addGestureRecognizer(tap)
@@ -249,9 +257,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
                     mMoonSignTime.text = AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
                     AmaxTableCell.setColorOf(label: mMoonSignTime, si: si, activeEvent: e, byEventMode: e)
-
-                    //label.layer.borderWidth = 0.8
-                    //label.layer.borderColor = UIColor.gray.cgColor
 
                     mMoonBlock.gestureRecognizers = []
                     let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: EV_SIGN_ENTER)
@@ -303,6 +308,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     }
     
     func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType,  string: (AmaxEvent) -> String, defaultString: String = "") {
+        addBorders(to: label)
         if let si = findInCache(dataProvider: dataProvider, findType: findType) {
             var pos = -1
             var activeEvent: AmaxEvent?
@@ -312,9 +318,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             if let e = activeEvent {
                 label.text = string(e)
                 AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
-
-                //label.layer.borderWidth = 0.8
-                //label.layer.borderColor = UIColor.gray.cgColor
 
                 label.isUserInteractionEnabled = true
                 let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: interpretationType)
@@ -339,8 +342,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             let label = UILabel()
             label.text = string(event)
 
-            //label.layer.borderWidth = 0.8
-            //label.layer.borderColor = UIColor.gray.cgColor
+            addBorders(to: label)
 
             label.textAlignment = alignment
             AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event)
@@ -426,9 +428,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             if let v = view as? AmaxMoonMoveView {
                 v.configure(event: event, activeEvent: activeEvent, summaryItem: si)
                 
-                //v.layer.borderWidth = 0.8
-                //v.layer.borderColor = UIColor.gray.cgColor
-                
+                addBorders(to: v)
+
                 let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
                 v.addGestureRecognizer(tap)
 
@@ -461,8 +462,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 planet.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
                 planet.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE))
 
-                //v.layer.borderWidth = 0.8
-                //v.layer.borderColor = UIColor.gray.cgColor
+                addBorders(to: v)
 
                 let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
                 v.addGestureRecognizer(tap)
@@ -503,9 +503,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             return
         }
         if selectedView != view {
-            selectedView?.layer.borderWidth = 0
+            selectedView?.layer.borderColor = dimmedColor
             selectedView = view
-            selectedView?.layer.borderWidth = 0.8
             selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
         }
         if let grArray = selectedView?.gestureRecognizers {
