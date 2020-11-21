@@ -717,11 +717,14 @@ class AmaxDataProvider {
     }
     
     func getEventOnPeriod(eventType: AmaxEventType, planet: AmaxPlanet, special: Bool, from: Int, to: Int) -> AmaxEvent? {
-        let events = getEventsOnPeriodFor(eventType: eventType, planet: planet, special: special, from: from, to: to, value: 0)
+        let events = getEventsOnPeriodFor(eventType: eventType, planet: planet, special: false, from: from, to: to, value: 0)
         for e in events {
             if (e.isInPeriod(from: from, to: to, special: special)) {
                 return e;
             }
+        }
+        if special && events.count > 0 {
+            return events[0]
         }
         return nil;
     }
