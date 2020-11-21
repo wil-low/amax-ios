@@ -112,30 +112,42 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="olO-2u-Dc7" userLabel="SView221">
                                                             <rect key="frame" x="0.0" y="0.0" width="95" height="89"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="a0Q-5j-SjK" userLabel="SView221">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0Q-5j-SjK" userLabel="SView221">
                                                                     <rect key="frame" x="0.0" y="0.0" width="95" height="44.5"/>
                                                                     <subviews>
+                                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9c-U2-L2K" userLabel="Spacer1">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="34" height="44.5"/>
+                                                                        </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="22*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-IP-RZ8" userLabel="SunDegree">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="27.5" height="44.5"/>
+                                                                            <rect key="frame" x="34" y="0.0" width="27.5" height="44.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KES-vw-PSy" userLabel="SunSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                            <rect key="frame" x="27.5" y="0.0" width="67.5" height="44.5"/>
+                                                                            <rect key="frame" x="61.5" y="0.0" width="0.0" height="44.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-F1-L8l" userLabel="Spacer2">
+                                                                            <rect key="frame" x="61.5" y="0.0" width="33.5" height="44.5"/>
+                                                                        </view>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="0pe-F1-L8l" firstAttribute="width" secondItem="U9c-U2-L2K" secondAttribute="width" id="iSc-kW-xH8"/>
+                                                                    </constraints>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:17" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRe-b5-2bz" userLabel="SunDegreeTime">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRe-b5-2bz" userLabel="SunDegreeTime">
                                                                     <rect key="frame" x="0.0" y="44.5" width="95" height="44.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="a0Q-5j-SjK" firstAttribute="centerX" secondItem="olO-2u-Dc7" secondAttribute="centerX" id="Amk-zb-uRb"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -152,13 +164,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6RG-xY-gwO" userLabel="SView222">
                                                             <rect key="frame" x="0.0" y="0.0" width="95" height="88.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYM-Nq-bkL" userLabel="MoonSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYM-Nq-bkL" userLabel="MoonSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="95" height="44"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-EF-9Ls" userLabel="MoonSignTime">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-EF-9Ls" userLabel="MoonSignTime">
                                                                     <rect key="frame" x="0.0" y="44" width="95" height="44.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
