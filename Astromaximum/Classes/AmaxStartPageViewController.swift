@@ -113,6 +113,21 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         addBorders(to: mMoonPhase)
         addBorders(to: mSunBlock)
         addBorders(to: mMoonBlock)
+
+        // retrograde spacers
+        let spacer1 = UIView()
+        spacer1.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        //spacerButton1.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        //spacerButton1.layer.borderWidth = 0.8
+        //spacerButton1.layer.borderColor = UIColor.red.cgColor
+        mRetrogradeStack.addArrangedSubview(spacer1)
+        let spacer2 = UIView()
+        spacer2.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        //spacerButton2.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        //spacerButton2.layer.borderWidth = 0.8
+        //spacerButton2.layer.borderColor = UIColor.red.cgColor
+        mRetrogradeStack.addArrangedSubview(spacer2)
+        spacer1.widthAnchor.constraint(equalTo: spacer2.widthAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -241,7 +256,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                     mSunSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
                     AmaxTableCell.setColorOf(label: mSunSign, si: si, activeEvent: e, byEventMode: e)
 
-                    mSunDegreeTime.text = AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
+                    mSunDegreeTime.text = dp.isInCurrentDay(date: e.date(at: 0)) ?
+                        AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false) : ""
                     AmaxTableCell.setColorOf(label: mSunDegreeTime, si: si, activeEvent: e, byEventMode: e)
 
                     mSunBlock.gestureRecognizers = []
@@ -408,9 +424,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     }
 
     func showMoonMoveStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
-        for view in stack.subviews {
-            view.removeFromSuperview()
-        }
         //stack.layer.borderWidth = 0.8
         //stack.layer.borderColor = UIColor.gray.cgColor
 
@@ -419,63 +432,69 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         var pos = -1
         pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
         activeEvent = (pos == -1) ? nil : si.mEvents[pos]
-        for event in si.mEvents {
-            let view = Bundle.main.loadNibNamed("MoonMoveView", owner: self, options: nil)![0]
-            if let v = view as? AmaxMoonMoveView {
-                v.configure(event: event, activeEvent: activeEvent, summaryItem: si)
-                
-                addBorders(to: v)
 
-                let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
-                v.addGestureRecognizer(tap)
-
-                v.widthAnchor.constraint(equalTo: v.heightAnchor, multiplier: CGFloat(0.5)).isActive = true
+        let viewCount = stack.arrangedSubviews.count
+        for i in 0 ..< si.mEvents.count {
+            let event = si.mEvents[i]
+            var v: AmaxMoonMoveView
+            if viewCount <= i {
+                // create a new view
+                v = Bundle.main.loadNibNamed("MoonMoveView", owner: self, options: nil)![0] as! AmaxMoonMoveView
                 stack.addArrangedSubview(v)
             }
+            else {
+                v = stack.arrangedSubviews[i] as! AmaxMoonMoveView
+            }
+            v.configure(event: event, activeEvent: activeEvent, summaryItem: si)
+            v.isHidden = false
+            addBorders(to: v)
+            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
+            v.addGestureRecognizer(tap)
+
+            v.widthAnchor.constraint(equalTo: v.heightAnchor, multiplier: CGFloat(0.5)).isActive = true
+        }
+        // hide extra views
+        for i in si.mEvents.count ..< stack.subviews.count {
+            stack.subviews[i].isHidden = true
         }
         addLongPressRecognizer(view: stack, summaryItem: si, xib: "MoonMoveCell")
     }
 
     func showRetrogradeStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
-        for view in stack.subviews {
-            view.removeFromSuperview()
-        }
         //stack.layer.borderWidth = 0.8
         //stack.layer.borderColor = UIColor.gray.cgColor
 
-        let spacer1 = UIView()
-        spacer1.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        //spacerButton1.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        //spacerButton1.layer.borderWidth = 0.8
-        //spacerButton1.layer.borderColor = UIColor.red.cgColor
-        stack.addArrangedSubview(spacer1)
-        
         let si = findInCache(dataProvider: dataProvider, findType: EV_RETROGRADE)!
-        for event in si.mEvents {
-            let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
-            if let v = cell.viewWithTag(3) {
+        let viewCount = stack.arrangedSubviews.count - 2
+        for i in 0 ..< si.mEvents.count {
+            let event = si.mEvents[i]
+            var v: UIView
+            if viewCount <= i {
+                // create a new view
+                let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
+                v = cell.viewWithTag(3)!
                 let planet = v.viewWithTag(1) as! UILabel
-                planet.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
                 planet.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE))
-
                 addBorders(to: v)
-
-                let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
-                v.addGestureRecognizer(tap)
-
-                v.sizeToFit()
-                stack.addArrangedSubview(v)
+                stack.insertArrangedSubview(v, at: i + 1)
             }
+            else {
+                v = stack.arrangedSubviews[i + 1]
+            }
+            let planet = v.viewWithTag(1) as! UILabel
+            planet.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
+
+            v.gestureRecognizers = []
+            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
+            v.addGestureRecognizer(tap)
+
+            //v.sizeToFit()
         }
-        let spacer2 = UIView()
-        spacer2.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        //spacerButton2.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        //spacerButton2.layer.borderWidth = 0.8
-        //spacerButton2.layer.borderColor = UIColor.red.cgColor
-        stack.addArrangedSubview(spacer2)
-        
-        spacer1.widthAnchor.constraint(equalTo: spacer2.widthAnchor).isActive = true
-        
+        // hide extra views
+        for i in si.mEvents.count ..< stack.subviews.count - 2 {
+            stack.subviews[i + 1].isHidden = true
+        }
+
         addLongPressRecognizer(view: stack, summaryItem: si, xib: "RetrogradeCell")
     }
 
