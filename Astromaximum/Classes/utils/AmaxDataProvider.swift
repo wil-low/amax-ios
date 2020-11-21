@@ -426,11 +426,27 @@ class AmaxDataProvider {
         return getEventsOnPeriodFor(eventType:  EV_VIA_COMBUSTA, planet: SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
-    func calculateSunDegree() -> [AmaxEvent] {
+    func calculateSunDegree(singleEvent: Bool) -> [AmaxEvent] {
+        if singleEvent {
+            if let e = getEventOnPeriod(eventType:  EV_DEGREE_PASS, planet: SE_SUN, special: true, from: _mStartTime, to: _mEndTime) {
+                return [e]
+            }
+            else {
+                return []
+            }
+        }
         return getEventsOnPeriodFor(eventType:  EV_DEGREE_PASS, planet: SE_SUN, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
-    func calculateMoonSign() -> [AmaxEvent] {
+    func calculateMoonSign(singleEvent: Bool) -> [AmaxEvent] {
+        if singleEvent {
+            if let e = getEventOnPeriod(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: true, from: _mStartTime, to: _mEndTime) {
+                return [e]
+            }
+            else {
+                return []
+            }
+        }
         return getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
     }
 
@@ -715,7 +731,7 @@ class AmaxDataProvider {
     }
 
     func calculateFor(eventType: AmaxEventType, extRange: Bool) -> AmaxSummaryItem? {
-        var events: [AmaxEvent]
+        var events = [AmaxEvent]()
         switch (eventType) { 
     		case EV_VOC:
     			events = calculateVOCs()
@@ -724,11 +740,17 @@ class AmaxDataProvider {
     			events = calculateVC()
     			break
     		case EV_SUN_DEGREE:
-    			events = calculateSunDegree()
+    			events = calculateSunDegree(singleEvent: false)
     			break
+            case EV_SUN_DEGREE_LARGE:
+                events = calculateSunDegree(singleEvent: true)
+                break
     		case EV_MOON_SIGN:
-    			events = calculateMoonSign()
+    			events = calculateMoonSign(singleEvent: false)
     			break
+            case EV_MOON_SIGN_LARGE:
+                events = calculateMoonSign(singleEvent: true)
+                break
     		case EV_PLANET_HOUR:
                 events = calculatePlanetaryHours(withTomorrow: false)
     			break
