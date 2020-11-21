@@ -731,7 +731,7 @@ class AmaxDataProvider {
     }
 
     func calculateFor(eventType: AmaxEventType, extRange: Bool) -> AmaxSummaryItem? {
-        var events = [AmaxEvent]()
+        var events: [AmaxEvent]
         switch (eventType) { 
     		case EV_VOC:
     			events = calculateVOCs()

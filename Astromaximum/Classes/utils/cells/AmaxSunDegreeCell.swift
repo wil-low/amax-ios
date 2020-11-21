@@ -33,7 +33,6 @@ class AmaxSunDegreeCell : AmaxTableCell {
                 timeLabel?.numberOfLines = 1
                 timeLabel?.text = e.normalizedRangeString()
             }
-            print("SunDegreeCell: " + e.description)
             eventLabel?.text = String(format: "%c",
                                       getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
             degreeLabel.text = String(format: "%d\u{00b0}",
