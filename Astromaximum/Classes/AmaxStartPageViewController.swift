@@ -296,7 +296,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             showPlanetHourStack(stack: mPlanetHourDayStack, dataProvider: dp, isDay: true)
             showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
             
-            centerMoonMoveScroll(flash: true)
+            centerMoonMoveScroll(flash: false)
             
             makeSelected(selectedView)
         }
