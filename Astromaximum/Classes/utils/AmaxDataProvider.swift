@@ -18,7 +18,9 @@ class AmaxDataProvider {
     private var mCurrentDateComponents = DateComponents()
     
     private var mNavroz = [AmaxEvent].init(repeating: AmaxEvent(), count: 2)
-    
+    var mMoonPhases = [AmaxEvent]()
+    var mEclipses = [AmaxEvent]()
+
     private let AmaxROUNDING_SEC = 60
 
     private var _mStartTime = 0
@@ -143,13 +145,34 @@ class AmaxDataProvider {
             let date2 = mCalendar.date(from: comp)
             mFinalJD = Int(date2!.timeIntervalSince1970) - AmaxROUNDING_SEC
             AmaxEvent.setTimeZone(mLocationDataFile!.location.mTimezone)
-            let count = getEventsFor(eventType: EV_NAVROZ, planet: SE_SUN, from: 0, to: mFinalJD)
+
+            var count = getEventsFor(eventType: EV_NAVROZ, planet: SE_SUN, from: 0, to: mFinalJD)
             if count != 2 {
                 NSLog("NAVROZ count = %d!", count)
             }
             else {
                 mNavroz[0] = mEvents[0]
                 mNavroz[1] = mEvents[1]
+            }
+
+            count = getEventsFor(eventType: EV_MOON_PHASE, planet: SE_MOON, from: mStartJD, to: mFinalJD)
+            if count == 0 {
+                NSLog("MOON_PHASE count = %d!", count)
+            }
+            else {
+                mMoonPhases = []
+                for i in 0 ..< count {
+                    mMoonPhases.append(mEvents[i])
+                }
+            }
+            mEclipses = []
+            count = getEventsFor(eventType: EV_ECLIPSE, planet: SE_SUN, from: mStartJD, to: mFinalJD)
+            for i in 0 ..< count {
+                mEclipses.append(mEvents[i])
+            }
+            count = getEventsFor(eventType: EV_ECLIPSE, planet: SE_MOON, from: mStartJD, to: mFinalJD)
+            for i in 0 ..< count {
+                mEclipses.append(mEvents[i])
             }
             NSLog("loadLocationById: %@ %@", _mLocationId, locationName())
         }
@@ -673,7 +696,16 @@ class AmaxDataProvider {
 
     func calculateMoonPhase() -> [AmaxEvent] {
         var result = [AmaxEvent]()
-        result = getEventsOnPeriodFor(eventType: EV_MOON_PHASE, planet: SE_MOON, special: false, from: _mStartTime, to: _mEndTime, value: 0)
+        var flag = false
+        for ev in mMoonPhases {
+            if ev.isInPeriod(from: _mStartTime, to: _mEndTime, special: false) {
+                flag = true
+                result.append(ev)
+            }
+            else if flag {
+                break
+            }
+        }
         return result
     }
 
@@ -931,5 +963,17 @@ class AmaxDataProvider {
         _mStartTime = from
         _mEndTime = to
         _mEventCache.removeAll()
+    }
+    
+    func todayEclipse(date: Int, delta: Int) -> AmaxEvent? {
+        var from = 0, to = 0
+        from = shiftDate(alignedDate: date, byAdding: .day, value: -delta, isTrailing: false)
+        to = shiftDate(alignedDate: date, byAdding: .day, value: delta + 1, isTrailing: true)
+        for ev in mEclipses {
+            if ev.isDate(at: 0, between: from, and: to) {
+                return ev
+            }
+        }
+        return nil
     }
 }

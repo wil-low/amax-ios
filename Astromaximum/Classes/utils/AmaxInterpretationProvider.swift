@@ -101,6 +101,9 @@ class AmaxInterpretationProvider {
                 planet = Int(ev.mPlanet0.rawValue)
                 param0 = Int(ev.mPlanet1.rawValue)
                 break
+            case EV_ECLIPSE:
+                param0 = 0
+                break
     		case EV_ASP_EXACT_MOON:
                 planet = Int(ev.mPlanet0.rawValue)
                 param0 = Int(ev.mPlanet1.rawValue)

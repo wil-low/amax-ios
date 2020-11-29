@@ -112,20 +112,20 @@ class AmaxInterpreterController : UIViewController {
                 let result = NSLocalizedString("si_moon_phase", comment: "")
                 return String(format:"%@", result)
 
+            case EV_ECLIPSE:
+                let result = NSLocalizedString(ev.mPlanet0 == SE_SUN ? "help_misc_eclipse_sun" : "help_misc_eclipse_moon", comment: "")
+                return String(format:"%@", result)
+
             default:
                 return ev.description
        }
     }
 
-    func makeDateRangeFrom(event:AmaxEvent!) -> String! {
-        switch (event.mEvtype) { 
-    		case EV_ASP_EXACT_MOON,
-    		     EV_ASP_EXACT:
-                return AmaxEvent.long2String(event.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
-            default:
-                break
+    func makeDateRangeFrom(event: AmaxEvent!) -> String! {
+        if event.date(at: 0) == event.date(at: 1) {
+            return AmaxEvent.long2String(event.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
         }
-        return String(format:"%@ - %@",
+        return String(format: "%@ - %@",
                       AmaxEvent.long2String(event.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false),
                       AmaxEvent.long2String(event.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: true))
     }

@@ -55,6 +55,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     @IBOutlet weak var mVocTime: UILabel!
     @IBOutlet weak var mVcTime: UILabel!
 
+    @IBOutlet weak var mSunEclipse: UILabel!
     @IBOutlet weak var mSunBlock: UIView!
     @IBOutlet weak var mSunDay: UILabel!
     @IBOutlet weak var mSunDegree: UILabel!
@@ -63,6 +64,10 @@ class AmaxStartPageViewController : AmaxBaseViewController {
 
     @IBOutlet weak var mMoonDayStack: UIStackView!
     
+    @IBOutlet weak var mMoonEclipseQuarter: UIView!
+    @IBOutlet weak var mMoonEclipse: UILabel!
+    @IBOutlet weak var mMoonQuarter: MoonPhaseView!
+
     @IBOutlet weak var mMoonBlock: UIView!
     @IBOutlet weak var mMoonSign: UILabel!
     @IBOutlet weak var mMoonSignTime: UILabel!
@@ -87,6 +92,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     
     let dimmedColor = ColorCompatibility.systemGray2.cgColor
 
+    //MARK: Init
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
         mDataProvider = AmaxDataProvider.sharedInstance
@@ -110,6 +116,10 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 (i == 0 ? mPlanetHourDayStack : mPlanetHourNightStack).addArrangedSubview(label)
             }
         }
+        mMoonQuarter.whiteBorder = true
+
+        addBorders(to: mSunEclipse)
+        addBorders(to: mMoonEclipseQuarter)
         addBorders(to: mMoonPhase)
         addBorders(to: mSunBlock)
         addBorders(to: mMoonBlock)
@@ -150,7 +160,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //TODO: Selection is lost here!
-        self.updateDisplay()
+        updateDisplay()
         makeSelected(selectedView)
     }
 
@@ -240,6 +250,39 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                 "VC " + e.normalizedRangeString(addSpaces: false)
             }, defaultString: "VC")
 
+            mSunEclipse.text = ""
+            mSunEclipse.gestureRecognizers = []
+            mMoonEclipse.text = ""
+            mMoonEclipseQuarter.gestureRecognizers = []
+            mMoonQuarter.isHidden = true
+            if let eclipse = dp.todayEclipse(date: dp.mStartTime, delta: 3) {
+                if eclipse.mPlanet0 == SE_SUN {
+                    mSunEclipse.text = String(format: "%c", getSymbol(TYPE_ASPECT, 0))
+                    let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: eclipse, eventType: eclipse.mEvtype)
+                    mSunEclipse.addGestureRecognizer(tap)
+                }
+                else {
+                    mMoonEclipse.text = String(format: "%c", getSymbol(TYPE_ASPECT, 180))
+                    let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: eclipse, eventType: eclipse.mEvtype)
+                    mMoonEclipseQuarter.addGestureRecognizer(tap)
+                }
+            }
+            else {
+                mMoonQuarter.phase = -1
+                for ev in dp.mMoonPhases {
+                    if ev.isDate(at: 0, between: dp.mStartTime, and: dp.mEndTime) {
+                        mMoonQuarter.phase = Float(ev.mPlanet1.rawValue) / 4
+                        mMoonQuarter.setNeedsDisplay()
+                        mMoonQuarter.isHidden = false
+                        let copied = AmaxEvent(ev)
+                        copied.setDate(at: 1, value: copied.date(at: 0))
+                        copied.mPlanet1 = AmaxPlanet(rawValue: copied.mPlanet0.rawValue + 4)
+                        let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: copied, eventType: copied.mEvtype)
+                        mMoonEclipseQuarter.addGestureRecognizer(tap)
+                        break
+                    }
+                }
+            }
             showEvent(label: mSunDay, dataProvider: dp, findType: EV_SUN_DAY, interpretationType: EV_SUN_DAY, string: { e in
                 var day = e.getDegree()
                 if day >= 360 {
