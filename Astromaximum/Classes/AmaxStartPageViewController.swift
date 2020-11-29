@@ -236,6 +236,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     // MARK: - Update display
     override func updateDisplay() {
         if let dp = mDataProvider {
+            makeSelected(nil)
             title = dp.currentDateString()
             dp.prepareCalculation()
             dp.calculateAll(types: START_PAGE_ITEMS)
@@ -364,6 +365,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     
     func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType,  string: (AmaxEvent) -> String, defaultString: String = "") {
         addBorders(to: label)
+        label.gestureRecognizers = []
         if let si = findInCache(dataProvider: dataProvider, findType: findType) {
             var pos = -1
             var activeEvent: AmaxEvent?
@@ -381,7 +383,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             }
         }
         label.text = defaultString
-        label.gestureRecognizers = []
     }
 
     func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String, alignment: NSTextAlignment = .center, xibForLongPress: String = "") -> [AmaxEvent] {
@@ -558,7 +559,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     func makeSelected(_ view: UIView?) {
         if view == nil || view!.window == nil {
             mSelectedViewTime.text = mDataProvider?.locationName()
-            return
         }
         if selectedView != view {
             selectedView?.layer.borderColor = dimmedColor
