@@ -469,6 +469,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             v.configure(event: event, activeEvent: activeEvent, summaryItem: si)
             v.isHidden = false
             addBorders(to: v)
+            v.gestureRecognizers = []
             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
             v.addGestureRecognizer(tap)
 
