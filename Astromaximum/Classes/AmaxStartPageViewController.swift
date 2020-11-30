@@ -281,9 +281,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                         AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false) : ""
                     AmaxTableCell.setColorOf(label: mSunDegreeTime, si: si, activeEvent: e, byEventMode: e)
 
-                    mSunBlock.gestureRecognizers = []
                     let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: EV_DEGREE_PASS)
-                    mSunBlock.addGestureRecognizer(tap)
+                    mSunBlock.gestureRecognizers = [tap]
                 }
             })
 
@@ -295,9 +294,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
                     mMoonSignTime.text = dp.isInCurrentDay(date: e.date(at: 0)) ?
                         AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false) : ""
 
-                    mMoonBlock.gestureRecognizers = []
                     let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: EV_SIGN_ENTER)
-                    mMoonBlock.addGestureRecognizer(tap)
+                    mMoonBlock.gestureRecognizers = [tap]
                 }
             })
 
@@ -435,9 +433,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             let color = isDay ? ColorCompatibility.label : ColorCompatibility.systemIndigo
             AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event, defaultColor: color)
 
-            label.gestureRecognizers = []
             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: EV_PLANET_HOUR)
-            label.addGestureRecognizer(tap)
+            label.gestureRecognizers = [tap]
 
             counter += 1
         }
@@ -469,9 +466,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             v.configure(event: event, activeEvent: activeEvent, summaryItem: si)
             v.isHidden = false
             addBorders(to: v)
-            v.gestureRecognizers = []
             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
-            v.addGestureRecognizer(tap)
+            v.gestureRecognizers = [tap]
 
             v.widthAnchor.constraint(equalTo: v.heightAnchor, multiplier: CGFloat(0.5)).isActive = true
         }
@@ -506,9 +502,8 @@ class AmaxStartPageViewController : AmaxBaseViewController {
             let planet = v.viewWithTag(1) as! UILabel
             planet.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
 
-            v.gestureRecognizers = []
             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
-            v.addGestureRecognizer(tap)
+            v.gestureRecognizers = [tap]
 
             //v.sizeToFit()
         }
@@ -571,8 +566,7 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     }
     
     func addLongPressRecognizer(view: UIView, summaryItem: AmaxSummaryItem, xib: String) {
-        view.gestureRecognizers = []
         let longPress = AmaxLongPressRecognizer(target: self, action: #selector(itemLongPressed), summaryItem: summaryItem, xib: xib)
-        view.addGestureRecognizer(longPress)
+        view.gestureRecognizers = [longPress]
     }
 }
