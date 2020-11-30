@@ -8,29 +8,6 @@
 
 import UIKit
 
-class AmaxTapRecognizer : UITapGestureRecognizer {
-    var mEvent: AmaxEvent!
-    var mEventType: AmaxEventType!
-    
-    init(target: Any?, action: Selector?, event: AmaxEvent, eventType: AmaxEventType) {
-        super.init(target: target, action: action)
-        numberOfTapsRequired = 1
-        mEvent = event
-        mEventType = eventType
-    }
-}
-
-class AmaxLongPressRecognizer : UILongPressGestureRecognizer {
-    var mSummaryItem: AmaxSummaryItem!
-    var mXibName: String!
-    
-    init(target: Any?, action: Selector?, summaryItem: AmaxSummaryItem, xib xibName: String) {
-        super.init(target: target, action: action)
-        mSummaryItem = summaryItem
-        mXibName = xibName
-    }
-}
-
 class AmaxStartPageViewController : AmaxBaseViewController {
 
     let START_PAGE_ITEMS = [
