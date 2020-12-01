@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,31 +21,37 @@
                 <rect key="frame" x="0.0" y="0.0" width="293" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ng-dc-IyI">
+                    <stackView opaque="NO" tag="3" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-7w-kyh">
                         <rect key="frame" x="20" y="0.0" width="48" height="44"/>
                         <subviews>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="RoK-IT-4P8" userLabel="Spacer1">
+                                <rect key="frame" x="0.0" y="0.0" width="8.5" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="P" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="22" height="44"/>
+                                <rect key="frame" x="8.5" y="0.0" width="21.5" height="44"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-Fn-qMn">
-                                <rect key="frame" x="22" y="24" width="10" height="18"/>
+                                <rect key="frame" x="30" y="20" width="10" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="1so-Ll-AYk" userLabel="Spacer2">
+                                <rect key="frame" x="40" y="0.0" width="8" height="44"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Qlw-Fn-qMn" firstAttribute="leading" secondItem="3" secondAttribute="trailing" id="2hi-A2-1oS"/>
-                            <constraint firstItem="3" firstAttribute="leading" secondItem="2Ng-dc-IyI" secondAttribute="leading" id="Wkq-fC-YQp"/>
-                            <constraint firstItem="3" firstAttribute="bottom" secondItem="2Ng-dc-IyI" secondAttribute="bottom" id="WsS-QX-EcA"/>
-                            <constraint firstItem="Qlw-Fn-qMn" firstAttribute="bottom" secondItem="2Ng-dc-IyI" secondAttribute="bottom" constant="-2" id="bf9-IP-hIk"/>
-                            <constraint firstAttribute="width" constant="48" id="cn6-hI-Z5h"/>
-                            <constraint firstItem="3" firstAttribute="top" secondItem="2Ng-dc-IyI" secondAttribute="top" id="vnn-v7-KEL"/>
+                            <constraint firstAttribute="width" constant="48" id="mOp-YL-5NB"/>
+                            <constraint firstItem="3" firstAttribute="centerY" secondItem="KUH-7w-kyh" secondAttribute="centerY" id="q8P-p8-lOQ"/>
+                            <constraint firstItem="1so-Ll-AYk" firstAttribute="width" secondItem="RoK-IT-4P8" secondAttribute="width" id="qXD-Bw-4vg"/>
+                            <constraint firstItem="Qlw-Fn-qMn" firstAttribute="centerY" secondItem="KUH-7w-kyh" secondAttribute="centerY" constant="10" id="wIq-bm-2w1"/>
                         </constraints>
-                    </view>
+                    </stackView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="TimeRange1 TimeRange2" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4">
                         <rect key="frame" x="177" y="0.0" width="96" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -53,15 +60,21 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2Ng-dc-IyI" firstAttribute="leading" secondItem="fBe-Yt-8ZB" secondAttribute="leading" constant="20" id="5lm-t7-zJo"/>
-                    <constraint firstItem="2Ng-dc-IyI" firstAttribute="top" secondItem="4" secondAttribute="top" id="FTy-SL-Ewl"/>
-                    <constraint firstItem="2Ng-dc-IyI" firstAttribute="bottom" secondItem="fBe-Yt-8ZB" secondAttribute="bottom" id="N2H-Ad-TzG"/>
-                    <constraint firstItem="2Ng-dc-IyI" firstAttribute="top" secondItem="fBe-Yt-8ZB" secondAttribute="top" id="l9S-VZ-b3A"/>
+                    <constraint firstItem="KUH-7w-kyh" firstAttribute="top" secondItem="fBe-Yt-8ZB" secondAttribute="top" id="BwC-g4-05E"/>
+                    <constraint firstItem="KUH-7w-kyh" firstAttribute="leading" secondItem="fBe-Yt-8ZB" secondAttribute="leading" constant="20" id="fxE-uT-Whc"/>
+                    <constraint firstItem="4" firstAttribute="top" secondItem="fBe-Yt-8ZB" secondAttribute="top" id="hx6-Dh-fa1"/>
+                    <constraint firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="s4E-ww-73D"/>
+                    <constraint firstItem="4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KUH-7w-kyh" secondAttribute="trailing" constant="8" symbolic="YES" id="vKi-gg-p2T"/>
                     <constraint firstItem="4" firstAttribute="trailing" secondItem="fBe-Yt-8ZB" secondAttribute="trailing" constant="-20" id="w5J-JW-J5e"/>
-                    <constraint firstItem="2Ng-dc-IyI" firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="xQL-Fg-oSn"/>
+                    <constraint firstAttribute="bottom" secondItem="KUH-7w-kyh" secondAttribute="bottom" id="zta-E3-aua"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="31.884057971014496" y="55.580357142857139"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
