@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxSummaryViewController">
+            <connections>
+                <outlet property="tvCell" destination="2" id="5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="HelpTopicCell" id="2" customClass="AmaxTithiCell" customModule="Astromaximum" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2" id="I4C-AL-5B2">
+                <rect key="frame" x="0.0" y="0.0" width="293" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-3i-341">
+                        <rect key="frame" x="0.0" y="0.0" width="293" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmm-Th-ZVf" userLabel="Insignia" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mmm-Th-ZVf" secondAttribute="height" multiplier="1:1" id="uBG-Ci-gAO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Topic" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                                <rect key="frame" x="44" y="0.0" width="249" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bnR-3i-341" firstAttribute="bottom" secondItem="I4C-AL-5B2" secondAttribute="bottom" id="Eco-Hi-dXa"/>
+                    <constraint firstItem="bnR-3i-341" firstAttribute="top" secondItem="I4C-AL-5B2" secondAttribute="top" id="sgx-AU-c4o"/>
+                    <constraint firstItem="bnR-3i-341" firstAttribute="trailing" secondItem="I4C-AL-5B2" secondAttribute="trailing" id="uu1-mG-cpY"/>
+                    <constraint firstItem="bnR-3i-341" firstAttribute="leading" secondItem="I4C-AL-5B2" secondAttribute="leading" id="zSb-Jm-9b1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="34" y="54"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -9,6 +9,8 @@
 import UIKit
 
 class AmaxHelpTopicsController : AmaxBaseViewController {
+    let cellNibName = "HelpTopicCell"
+    @IBOutlet weak var tvCell: UITableViewCell!
 
     let mTopics: [String] = [
         "help_planets",
@@ -93,31 +95,38 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
 
     // Customize the appearance of table view cells.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = ""
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellNibName)
         if cell == nil {
-            cell = UITableViewCell(style: .value1, reuseIdentifier: cellIdentifier)
-            cell?.accessoryType = .disclosureIndicator
+            Bundle.main.loadNibNamed(cellNibName, owner: self, options: nil)
+            cell = tvCell
+            tvCell = nil
         }
         guard let c = cell else {
             return cell!
         }
-        var txt = ""
+        var insignia = ""
+        var topic = ""
         switch indexPath.section {
         case 0:  // "help_planets"
-            txt = NSLocalizedString("\(indexPath.row)", tableName: "Planets", comment: "")
+            insignia = String(format: "%c", getSymbol(TYPE_PLANET, Int32(indexPath.row)))
+            topic = NSLocalizedString("\(indexPath.row)", tableName: "Planets", comment: "")
         case 1:  // "help_zodiac"
-            txt = NSLocalizedString("\(indexPath.row)", tableName: "ConstellNominative", comment: "")
+            insignia = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(indexPath.row)))
+            topic = NSLocalizedString("\(indexPath.row)", tableName: "ConstellNominative", comment: "")
         case 2:  // "help_aspects"
-            txt = NSLocalizedString("\(mAspects[indexPath.row])", tableName: "Aspects", comment: "")
+            insignia = String(format: "%c", getSymbol(TYPE_ASPECT, Int32(mAspects[indexPath.row])))
+            topic = NSLocalizedString("\(mAspects[indexPath.row])", tableName: "Aspects", comment: "")
         case 3:  // "help_moon_events"
-            txt = NSLocalizedString("\(mMoonEvents[indexPath.row])", comment: "")
+            topic = NSLocalizedString("\(mMoonEvents[indexPath.row])", comment: "")
         case 4:  // "help_misc"
-            txt = NSLocalizedString("\(mMisc[indexPath.row])", comment: "")
+            topic = NSLocalizedString("\(mMisc[indexPath.row])", comment: "")
         default:
             break
         }
-        c.textLabel?.text = txt
+        let sign = c.viewWithTag(1) as! UILabel
+        sign.text = insignia
+        //sign.isHidden = insignia.isEmpty
+        (c.viewWithTag(2) as! UILabel).text = topic
         return c
     }
 
