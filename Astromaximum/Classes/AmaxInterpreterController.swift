@@ -75,7 +75,20 @@ class AmaxInterpreterController : UIViewController {
                         planet) 
 
     		case EV_MOON_MOVE:
-                return NSLocalizedString("si_key_moon_move", comment: "")
+                var planet0: String, planet1: String
+                if ev.mPlanet0 == SE_UNDEFINED {
+                    planet0 = NSLocalizedString("\(Int(SE_MOON.rawValue))", tableName: "Planets", comment: "")
+                }
+                else {
+                    planet0 = NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "Planets", comment: "")
+                }
+                if ev.mPlanet1 == SE_UNDEFINED {
+                    planet1 = "VOC"
+                }
+                else {
+                    planet1 = NSLocalizedString("\(Int(ev.mPlanet1.rawValue))", tableName: "Planets", comment: "")
+                }
+                return String(format: "%@ %@ %@", planet0, NSLocalizedString("norm_range_arrow", comment: ""), planet1)
 
     		case EV_ASP_EXACT_MOON,
     		     EV_ASP_EXACT:
