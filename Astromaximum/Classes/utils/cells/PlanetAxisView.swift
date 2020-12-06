@@ -9,6 +9,11 @@ import UIKit
 
 @IBDesignable class PlanetAxisView: UIStackView, NibLoadable {
     
+    @IBOutlet weak var mPlanet: AmaxAstroLabel!
+    @IBOutlet weak var mPasses: UIStackView!
+    @IBOutlet weak var mSign: AmaxAstroLabel!
+
+    var isMoon: Bool!
     var mAxisNames = [UILabel]()
     var mAxisTimes = [UILabel]()
     
@@ -30,11 +35,34 @@ import UIKit
         }
     }
     
-    func setData(events: [AmaxEvent]) {
-        for i in 0 ..< 4 {
-            mAxisNames[i].text = "Asc"
-            mAxisTimes[i].text = "11:23"
+    func setPlanet(_ planet: AmaxPlanet) {
+        isMoon = planet == SE_MOON
+        mPlanet.text = String(format: "%c", getSymbol(TYPE_PLANET, planet.rawValue))
+    }
+    
+    func setData(passes: [AmaxEvent], axis: [AmaxEvent]) {
+        for view in mPasses.subviews {
+            view.removeFromSuperview()
         }
 
+        for e in passes {
+            let pass = UILabel()
+            if isMoon {
+                pass.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
+                pass.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() % 30 + 1)))
+            }
+            else {
+                pass.text = String(format: "%d", e.getDegree() % 30 + 1)
+            }
+            pass.textAlignment = .center
+            mPasses.addArrangedSubview(pass)
+        }
+        if !isMoon {
+            mSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(passes[passes.count - 1].getDegree() / 30)))
+        }
+        for i in 0 ..< 4 {
+            mAxisNames[i].text = ["asc", "mc", "dsc", "ic"][Int(axis[i].mDegree - 1)]
+            mAxisTimes[i].text = AmaxEvent.long2String(axis[i].date(at: 0), format: nil, h24: false)
+        }
     }
 }

@@ -23,7 +23,9 @@ class AmaxPlanetAxisController : AmaxBaseViewController {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
         mDataProvider = AmaxDataProvider.sharedInstance
         for i in 1 ... 9 {
-            mPlanetAxis.append(view.viewWithTag(i + 100) as! PlanetAxisView)
+            let pa = view.viewWithTag(i + 100) as! PlanetAxisView
+            pa.setPlanet(AmaxPlanet(Int32(i - 1)))
+            mPlanetAxis.append(pa)
         }
     }
     
@@ -69,20 +71,23 @@ class AmaxPlanetAxisController : AmaxBaseViewController {
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
             //******* COMMON RISES & SETS
-            let pp0 = 0, pp1 = 0
+            let pp0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -1, isTrailing: false)
+            let pp1 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: 2, isTrailing: true)
             for i in SE_SUN.rawValue ... SE_SATURN.rawValue /* SE_WHITE_MOON */{
-                var tmp2: [AmaxEvent]
+                var passes: [AmaxEvent]
                 if i == SE_MOON.rawValue {
-                    tmp2 = dp.getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: AmaxPlanet(i), special: false, from: dp.mStartTime, to: dp.mEndTime, value: 0)
+                    passes = dp.getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: AmaxPlanet(i), special: false, from: dp.mStartTime, to: dp.mEndTime, value: 0)
                 }
                 else {
-                    tmp2 = dp.getEventsOnPeriodFor(eventType: EV_DEGREE_PASS, planet: AmaxPlanet(i), special: false, from: dp.mStartTime, to: dp.mEndTime, value: 0)
+                    passes = dp.getEventsOnPeriodFor(eventType: EV_DEGREE_PASS, planet: AmaxPlanet(i), special: false, from: dp.mStartTime, to: dp.mEndTime, value: 0)
                 }
-                //getItem(Event.EV_DEG_2ND, i).setEvents(tmp2);
+                /*for ev in passes {
+                    print("DEG_2ND \(i): " + ev.description)
+                }*/
                 if (i > SE_SATURN.rawValue) {
                     continue
                 }
-                tmp2 = []
+                var tmp2 = [AmaxEvent]()
                 var tmp = dp.getEventsOnPeriodFor(eventType: EV_ASTRORISE, planet: AmaxPlanet(i), special: false, from: pp0, to: pp1, value: 0)
                 var j = 0
                 while j < tmp.count {
@@ -97,13 +102,8 @@ class AmaxPlanetAxisController : AmaxBaseViewController {
                         j += 1
                     }
                 }
-    //      System.out.println("Astrorise");
-    //      Astromaximum.evDump(tmp);
-    //      if(pp0>0)
-    //        continue;
-                tmp = dp.getEventsOnPeriodFor(eventType: EV_ASTROSET, planet: AmaxPlanet(i), special: false, from: pp0, to: pp1, value: 3);
-                dp.mergeEvents(dest: &tmp2, add: tmp, isSort: true);
-    //      Astromaximum.evDump(tmp2);
+                tmp.append(contentsOf: dp.getEventsOnPeriodFor(eventType: EV_ASTROSET, planet: AmaxPlanet(i), special: false, from: pp0, to: pp1, value: 3))
+                dp.mergeEvents(dest: &tmp2, add: tmp, isSort: true)
                 tmp = []
                 for j in 0 ..< tmp2.count - 1 {
                     let ev = tmp2[j]
@@ -111,21 +111,14 @@ class AmaxPlanetAxisController : AmaxBaseViewController {
                     enew.mDegree = ev.mDegree == 1 ? 2 : 4
                     tmp2.append(enew);
                 }
-    //      Astromaximum.evDump(tmp2);
-                dp.mergeEvents(dest: &tmp, add: tmp2, isSort: true);
-    //      Astromaximum.evDump(tmp);
-    //      break;
-                tmp = tmp.filter({ ev in return ev.mDegree != 200 })
-                tmp2 = evInCurrentDay(new Vector(), tmp);
-                getItem(Event.EV_RISE, i).setEvents(tmp2);
-    //#if logger
-          Astromaximum.instance.logger(" other risesets");
-    //#endif
-    //      System.out.println("EvDump:");
-    //      Astromaximum.evDump(tmp2);
-            }
-            for i in 0 ..< 9 {
-                mPlanetAxis[i].setData(events: [])
+                dp.mergeEvents(dest: &tmp, add: tmp2, isSort: true)
+                tmp = tmp.filter({ ev in
+                    return ev.mDegree != 200 && dp.isInCurrentDay(date: ev.date(at: 0))
+                })
+                /*for ev in passes {
+                    print("PASS \(i): " + ev.description)
+                }*/
+                mPlanetAxis[Int(i)].setData(passes: passes, axis: tmp)
             }
         }
     }
