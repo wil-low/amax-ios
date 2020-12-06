@@ -67,8 +67,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
     
     var selectedView: UIView?
     
-    let dimmedColor = ColorCompatibility.systemGray2.cgColor
-
     //MARK: Init
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
@@ -202,13 +200,6 @@ class AmaxStartPageViewController : AmaxBaseViewController {
         let date = mDataProvider!.currentDate()
         dateSelectController!.datePicker?.date = date
         navigationController?.pushViewController(dateSelectController!, animated:true)
-    }
-
-    func addBorders(to view: UIView) {
-        //view.layer.cornerRadius = 10
-        //view.layer.masksToBounds = true
-        view.layer.borderWidth = 0.8
-        view.layer.borderColor = dimmedColor
     }
 
     // MARK: - Update display

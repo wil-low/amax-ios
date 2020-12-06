@@ -32,6 +32,8 @@ import UIKit
         for i in 0 ..< 4 {
             mAxisNames.append(viewWithTag(i * 2 + 1) as! UILabel)
             mAxisTimes.append(viewWithTag(i * 2 + 2) as! UILabel)
+            (viewWithTag(i * 2 + 2) as! UILabel).layer.borderWidth = 0.8
+            (viewWithTag(i * 2 + 2) as! UILabel).layer.borderColor = ColorCompatibility.systemIndigo.cgColor
         }
     }
     
@@ -49,7 +51,7 @@ import UIKit
             let pass = UILabel()
             if isMoon {
                 pass.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
-                pass.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() % 30 + 1)))
+                pass.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() % 30)))
             }
             else {
                 pass.text = String(format: "%d", e.getDegree() % 30 + 1)
@@ -61,8 +63,14 @@ import UIKit
             mSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(passes[passes.count - 1].getDegree() / 30)))
         }
         for i in 0 ..< 4 {
-            mAxisNames[i].text = ["asc", "mc", "dsc", "ic"][Int(axis[i].mDegree - 1)]
-            mAxisTimes[i].text = AmaxEvent.long2String(axis[i].date(at: 0), format: nil, h24: false)
+            if i >= axis.count {
+                mAxisNames[i].text = ""
+                mAxisTimes[i].text = ""
+            }
+            else {
+                mAxisNames[i].text = ["asc", "mc", "dsc", "ic"][Int(axis[i].mDegree - 1)]
+                mAxisTimes[i].text = AmaxEvent.long2String(axis[i].date(at: 0), format: nil, h24: false)
+            }
         }
     }
 }

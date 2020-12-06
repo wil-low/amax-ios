@@ -15,6 +15,8 @@ class AmaxBaseViewController : UIViewController, UITableViewDelegate, UITableVie
     var mDataProvider: AmaxDataProvider?
     static var interpreterController: AmaxInterpreterController?
     
+    let dimmedColor = ColorCompatibility.systemGray2.cgColor
+
     @IBOutlet weak var mSubtitle: UILabel!
     
     /*var pageViewController: UIPageViewController!
@@ -81,4 +83,12 @@ class AmaxBaseViewController : UIViewController, UITableViewDelegate, UITableVie
             }
         }
     }
+
+    func addBorders(to view: UIView) {
+        //view.layer.cornerRadius = 10
+        //view.layer.masksToBounds = true
+        view.layer.borderWidth = 0.8
+        view.layer.borderColor = dimmedColor
+    }
+
 }
