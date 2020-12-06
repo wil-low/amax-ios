@@ -33,6 +33,7 @@ func runStartingController(in window: UIWindow) {
 }
 
 func createStartingController(useSummaryView: Bool) -> AmaxBaseViewController {
+    return AmaxPlanetAxisController(nibName: "AmaxPlanetAxisController", bundle: nil)
     if useSummaryView {
         return AmaxSummaryViewController(nibName: "AmaxSummaryViewController", bundle: nil)
     }
