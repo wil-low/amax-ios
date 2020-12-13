@@ -43,7 +43,7 @@ func addBorders(to view: UIView) {
 
 func createStartingController(useSummaryView: Bool) -> AmaxBaseViewController {
     //return AmaxBaseViewController(nibName: "XibTestController", bundle: nil)
-    return AmaxPlanetAxisController(nibName: "AmaxPlanetAxisController", bundle: nil)
+    //return AmaxPlanetAxisController(nibName: "AmaxPlanetAxisController", bundle: nil)
     if useSummaryView {
         return AmaxSummaryViewController(nibName: "AmaxSummaryViewController", bundle: nil)
     }

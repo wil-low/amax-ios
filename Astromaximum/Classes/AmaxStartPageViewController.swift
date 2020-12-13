@@ -57,15 +57,9 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     @IBOutlet weak var mPlanetHourDayStack: UIStackView!
     @IBOutlet weak var mPlanetHourNightStack: UIStackView!
 
-    @IBOutlet weak var mSelectedViewTime: UILabel!
-    @IBOutlet weak var mCornerTime: UILabel!
     @IBOutlet weak var tvCell: UITableViewCell!
 
     var eventListViewController: AmaxEventListViewController?
-    var settingsController: AmaxSettingsController?
-    var dateSelectController: AmaxDateSelectController?
-    
-    var selectedView: UIView?
     
     //MARK: Init
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
@@ -161,45 +155,6 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         if flash && newContentOffsetX > 0 {
             mMoonMoveScroll.flashScrollIndicators()
         }
-    }
-
-    func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
-        if si.mEvents.count == 0 {
-            return
-        }
-        
-        if (eventListViewController == nil) {
-            eventListViewController = AmaxEventListViewController(nibName: "AmaxEventListViewController", bundle: Bundle.main)
-        }
-        
-        if let el = eventListViewController {
-            el.detailItem = si
-            el.cellNibName = xibName
-            el.extRangeMode = false
-            el.extRangeItem = nil
-            navigationController?.pushViewController(el, animated: true)
-        }
-    }
-
-    @IBAction func showSettings(_ sender: AnyObject!) {
-        if (settingsController == nil) {
-            settingsController = AmaxSettingsController(nibName:"AmaxSettingsController", bundle:nil)
-        }
-        self.navigationController?.pushViewController(self.settingsController!, animated:true)
-    }
-
-    @IBAction func goToToday(_ sender: AnyObject!) {
-        mDataProvider?.setTodayDate()
-        updateDisplay()
-    }
-
-    @IBAction func selectDate(_ sender: AnyObject!) {
-        if (dateSelectController == nil) {
-            dateSelectController = AmaxDateSelectController(nibName:"AmaxDateSelectController", bundle: Bundle.main)
-        }
-        let date = mDataProvider!.currentDate()
-        dateSelectController!.datePicker?.date = date
-        navigationController?.pushViewController(dateSelectController!, animated:true)
     }
 
     // MARK: - Update display
@@ -507,58 +462,4 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         addLongPressRecognizer(view: stack, summaryItem: si, xib: "RetrogradeCell")
     }
 
-    @objc func itemTapped(sender: UITapGestureRecognizer) {
-        if let tap = sender as? AmaxTapRecognizer {
-            //print("itemTapped: \(tap.mEvent.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType.rawValue)])")
-            if let newView = tap.view {
-                if newView == selectedView {
-                    showInterpreterFor(event: tap.mEvent, type: tap.mEventType)
-                }
-                else {
-                    makeSelected(newView)
-                }
-            }
-        }
-    }
-
-    func makeSelected(_ view: UIView?) {
-        if view == nil || view!.window == nil {
-            mSelectedViewTime.text = mDataProvider?.locationName()
-        }
-        if selectedView != view {
-            selectedView?.layer.borderColor = dimmedColor
-            selectedView = view
-            selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
-        }
-        if let grArray = selectedView?.gestureRecognizers {
-            for gr in grArray {
-                if let tap = gr as? AmaxTapRecognizer {
-                    mSelectedViewTime.text = makeSelectedDateString(tap.mEvent)
-                    break
-                }
-            }
-        }
-    }
-
-    func makeSelectedDateString(_ e: AmaxEvent) -> String {
-        if e.date(at: 0) == e.date(at: 1) {
-            return AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
-        }
-        return String(format:"%@ - %@",
-                AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false),
-                AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: true))
-    }
-
-    @objc func itemLongPressed(sender: UILongPressGestureRecognizer) {
-        if let longPress = sender as? AmaxLongPressRecognizer {
-            if longPress.state == .began {
-                showEventListFor(si: longPress.mSummaryItem, xib: longPress.mXibName)
-            }
-        }
-    }
-    
-    func addLongPressRecognizer(view: UIView, summaryItem: AmaxSummaryItem, xib: String) {
-        let longPress = AmaxLongPressRecognizer(target: self, action: #selector(itemLongPressed), summaryItem: summaryItem, xib: xib)
-        view.gestureRecognizers = [longPress]
-    }
 }

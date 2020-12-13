@@ -13,8 +13,12 @@ class AmaxBaseViewController : UIViewController {
     var mCustomTime: Int = 0
     var mCurrentTime: Int = 0
     var mDataProvider: AmaxDataProvider?
+    static var eventListViewController: AmaxEventListViewController?
     static var interpreterController: AmaxInterpreterController?
-    
+
+    static var settingsController: AmaxSettingsController?
+    static var dateSelectController: AmaxDateSelectController?
+
     @IBOutlet weak var mSubtitle: UILabel!
     
     /*var pageViewController: UIPageViewController!
@@ -49,6 +53,11 @@ class AmaxBaseViewController : UIViewController {
     func updateDisplay() {
     }
 
+    @IBAction func goToToday(_ sender: AnyObject!) {
+        mDataProvider?.setTodayDate()
+        updateDisplay()
+    }
+
     @IBAction func goToPreviousDate(_ sender: AnyObject!) {
         if mDataProvider!.changeDate(deltaDays: -1) {
             updateDisplay()
@@ -58,6 +67,40 @@ class AmaxBaseViewController : UIViewController {
     @IBAction func goToNextDate(_ sender: AnyObject!) {
         if mDataProvider!.changeDate(deltaDays: 1) {
             updateDisplay()
+        }
+    }
+
+    @IBAction func selectDate(_ sender: AnyObject!) {
+        if (AmaxBaseViewController.dateSelectController == nil) {
+            AmaxBaseViewController.dateSelectController = AmaxDateSelectController(nibName: "AmaxDateSelectController", bundle: Bundle.main)
+        }
+        let date = mDataProvider!.currentDate()
+        AmaxBaseViewController.dateSelectController!.datePicker?.date = date
+        navigationController?.pushViewController(AmaxBaseViewController.dateSelectController!, animated: true)
+    }
+
+    @IBAction func showSettings(_ sender: AnyObject!) {
+        if (AmaxBaseViewController.settingsController == nil) {
+            AmaxBaseViewController.settingsController = AmaxSettingsController(nibName: "AmaxSettingsController", bundle: nil)
+        }
+        self.navigationController?.pushViewController(AmaxBaseViewController.settingsController!, animated: true)
+    }
+
+    func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
+        if si.mEvents.count == 0 {
+            return
+        }
+        
+        if (AmaxBaseViewController.eventListViewController == nil) {
+            AmaxBaseViewController.eventListViewController = AmaxEventListViewController(nibName: "AmaxEventListViewController", bundle: Bundle.main)
+        }
+        
+        if let el = AmaxBaseViewController.eventListViewController {
+            el.detailItem = si
+            el.cellNibName = xibName
+            el.extRangeMode = false
+            el.extRangeItem = nil
+            navigationController?.pushViewController(el, animated: true)
         }
     }
 

@@ -244,6 +244,15 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		7214B0D72585FC42004558DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				72142FEE2553CCB800452F4E /* MoonPhaseView.swift */,
+				BFB64886257BC5C500175B49 /* PlanetAxisView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8483FDDA166594AD000C9143 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +405,7 @@
 		84E98B4F168E6331006AAA55 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7214B0D72585FC42004558DE /* Views */,
 				726BC98124E5BFF100690CE2 /* AmaxAspectCell.swift */,
 				726BC98324E5BFF100690CE2 /* AmaxAspectSetCell.swift */,
 				726BC98424E5BFF100690CE2 /* AmaxMoonMoveCell.swift */,
@@ -409,8 +419,6 @@
 				726BC98624E5BFF200690CE2 /* AmaxTithiCell.swift */,
 				726BC98024E5BFF000690CE2 /* AmaxViaCombustaCell.swift */,
 				726BC98224E5BFF100690CE2 /* AmaxVocCell.swift */,
-				72142FEE2553CCB800452F4E /* MoonPhaseView.swift */,
-				BFB64886257BC5C500175B49 /* PlanetAxisView.swift */,
 			);
 			name = Cells;
 			path = utils/cells;

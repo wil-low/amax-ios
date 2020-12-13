@@ -25,6 +25,7 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
         for i in 1 ... 9 {
             let pa = view.viewWithTag(i + 200) as! PlanetAxisView
             pa.setPlanet(AmaxPlanet(Int32(i - 1)))
+            addBorders(to: pa.mPasses)
             mPlanetAxis.append(pa)
         }
     }
@@ -121,26 +122,5 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                 mPlanetAxis[Int(i)].setData(passes: passes, axis: tmp)
             }
         }
-    }
-
-    @IBAction func showSettings(_ sender: AnyObject!) {
-        if (settingsController == nil) {
-            settingsController = AmaxSettingsController(nibName:"AmaxSettingsController", bundle:nil)
-        }
-        self.navigationController?.pushViewController(self.settingsController!, animated:true)
-    }
-
-    @IBAction func goToToday(_ sender: AnyObject!) {
-        mDataProvider?.setTodayDate()
-        updateDisplay()
-    }
-
-    @IBAction func selectDate(_ sender: AnyObject!) {
-        if (dateSelectController == nil) {
-            dateSelectController = AmaxDateSelectController(nibName:"AmaxDateSelectController", bundle: Bundle.main)
-        }
-        let date = mDataProvider!.currentDate()
-        dateSelectController!.datePicker?.date = date
-        navigationController?.pushViewController(dateSelectController!, animated:true)
     }
 }

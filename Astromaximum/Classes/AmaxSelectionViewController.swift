@@ -10,4 +10,64 @@ import UIKit
 
 class AmaxSelectionViewController : AmaxBaseViewController {
 
+    var selectedView: UIView?
+    
+    @IBOutlet weak var mCornerTime: UILabel!
+    @IBOutlet weak var mSelectedViewTime: UILabel!
+
+    @objc func itemTapped(sender: UITapGestureRecognizer) {
+        if let tap = sender as? AmaxTapRecognizer {
+            //print("itemTapped: \(tap.mEvent.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType.rawValue)])")
+            if let newView = tap.view {
+                if newView == selectedView {
+                    showInterpreterFor(event: tap.mEvent, type: tap.mEventType)
+                }
+                else {
+                    makeSelected(newView)
+                }
+            }
+        }
+    }
+
+    func makeSelected(_ view: UIView?) {
+        if view == nil || view!.window == nil {
+            mSelectedViewTime.text = mDataProvider?.locationName()
+        }
+        if selectedView != view {
+            selectedView?.layer.borderColor = dimmedColor
+            selectedView = view
+            selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
+        }
+        if let grArray = selectedView?.gestureRecognizers {
+            for gr in grArray {
+                if let tap = gr as? AmaxTapRecognizer {
+                    mSelectedViewTime.text = makeSelectedDateString(tap.mEvent)
+                    break
+                }
+            }
+        }
+    }
+
+    func makeSelectedDateString(_ e: AmaxEvent) -> String {
+        if e.date(at: 0) == e.date(at: 1) {
+            return AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
+        }
+        return String(format:"%@ - %@",
+                AmaxEvent.long2String(e.date(at: 0), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: false),
+                AmaxEvent.long2String(e.date(at: 1), format: AmaxEvent.monthAbbrDayDateFormatter(), h24: true))
+    }
+
+    @objc func itemLongPressed(sender: UILongPressGestureRecognizer) {
+        if let longPress = sender as? AmaxLongPressRecognizer {
+            if longPress.state == .began {
+                showEventListFor(si: longPress.mSummaryItem, xib: longPress.mXibName)
+            }
+        }
+    }
+    
+    func addLongPressRecognizer(view: UIView, summaryItem: AmaxSummaryItem, xib: String) {
+        let longPress = AmaxLongPressRecognizer(target: self, action: #selector(itemLongPressed), summaryItem: summaryItem, xib: xib)
+        view.gestureRecognizers = [longPress]
+    }
+
 }

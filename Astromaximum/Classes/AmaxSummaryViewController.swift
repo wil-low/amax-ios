@@ -41,7 +41,6 @@ class AmaxSummaryViewController : AmaxTableViewController {
     @IBOutlet weak  var mToolbar: UIToolbar!
     @IBOutlet weak  var tvCell: AmaxTableCell!
 
-    var eventListViewController: AmaxEventListViewController?
     var settingsController: AmaxSettingsController?
     var dateSelectController: AmaxDateSelectController?
 
@@ -163,24 +162,6 @@ class AmaxSummaryViewController : AmaxTableViewController {
         }
     }
 
-    func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
-        if si.mEvents.count == 0 {
-            return
-        }
-        
-        if (eventListViewController == nil) {
-            eventListViewController = AmaxEventListViewController(nibName: "AmaxEventListViewController", bundle: Bundle.main)
-        }
-        
-        if let el = eventListViewController {
-            el.detailItem = si
-            el.cellNibName = xibName
-            el.extRangeMode = false
-            el.extRangeItem = nil
-            navigationController?.pushViewController(el, animated: true)
-        }
-    }
-
     override func updateDisplay() {
         if let dp = mDataProvider {
             title = dp.currentDateString()
@@ -193,26 +174,5 @@ class AmaxSummaryViewController : AmaxTableViewController {
                           mDataProvider!.locationName())
             mTableView.reloadData()
         }
-    }
-
-    @IBAction func showSettings(_ sender: AnyObject!) {
-        if (settingsController == nil) {
-            settingsController = AmaxSettingsController(nibName:"AmaxSettingsController", bundle:nil)
-        }
-        self.navigationController?.pushViewController(self.settingsController!, animated:true)
-    }
-
-    @IBAction func goToToday(_ sender: AnyObject!) {
-        mDataProvider?.setTodayDate()
-        updateDisplay()
-    }
-
-    @IBAction func selectDate(_ sender: AnyObject!) {
-        if (dateSelectController == nil) {
-            dateSelectController = AmaxDateSelectController(nibName:"AmaxDateSelectController", bundle: Bundle.main)
-        }
-        let date = mDataProvider!.currentDate()
-        dateSelectController!.datePicker?.date = date
-        navigationController?.pushViewController(dateSelectController!, animated:true)
     }
 }
