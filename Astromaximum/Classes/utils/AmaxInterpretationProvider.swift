@@ -146,8 +146,13 @@ class AmaxInterpretationProvider {
                     }
                     param1 = Int(ev.mPlanet1.rawValue)
     			}
+                break
             case EV_HELP0, EV_HELP1:
                 param0 = ev.getDegree()
+                break
+            case EV_RISE:
+                param0 = Int(ev.mPlanet0.rawValue)
+                param1 = ev.getDegree()
                 break
             default:
                 break

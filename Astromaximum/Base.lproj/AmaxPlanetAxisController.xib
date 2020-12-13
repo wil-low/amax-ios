@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxPlanetAxisController" customModule="Astromaximum" customModuleProvider="target">
             <connections>
+                <outlet property="mCornerTime" destination="eKN-1B-0gT" id="TzF-ow-PW3"/>
+                <outlet property="mSelectedViewTime" destination="9bS-9J-II0" id="GsX-aV-lHf"/>
                 <outlet property="mToolbar" destination="15" id="q1C-XJ-6F8"/>
                 <outlet property="view" destination="13" id="25"/>
             </connections>

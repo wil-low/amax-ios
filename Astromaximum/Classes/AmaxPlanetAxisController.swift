@@ -48,11 +48,6 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
         AmaxBaseViewController.interpreterController!.view.layoutSubviews()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.updateDisplay()
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -71,6 +66,7 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
             dp.prepareCalculation()
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
+            mCornerTime.text = dp.getHighlightTimeString()
             //******* COMMON RISES & SETS
             let pp0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -1, isTrailing: false)
             let pp1 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: 2, isTrailing: true)
@@ -119,8 +115,17 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                 /*for ev in passes {
                     print("PASS \(i): " + ev.description)
                 }*/
-                mPlanetAxis[Int(i)].setData(passes: passes, axis: tmp)
+                mPlanetAxis[Int(i)].setData(passes: passes, axis: tmp, passCallback: {_,_ in }, axisCallback: { view, e in
+                    if e != nil {
+                        let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: EV_RISE)
+                        view.gestureRecognizers = [tap]
+                    }
+                    else {
+                        view.gestureRecognizers = []
+                    }
+                })
             }
+            makeSelected(selectedView)
         }
     }
 }

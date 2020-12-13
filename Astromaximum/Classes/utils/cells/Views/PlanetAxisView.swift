@@ -44,7 +44,7 @@ import UIKit
         mPlanet.text = String(format: "%c", getSymbol(TYPE_PLANET, planet.rawValue))
     }
     
-    func setData(passes: [AmaxEvent], axis: [AmaxEvent]) {
+    func setData(passes: [AmaxEvent], axis: [AmaxEvent], passCallback: (UIView, AmaxEvent?) -> Void, axisCallback: (UIView, AmaxEvent?) -> Void) {
         for view in mPasses.subviews {
             view.removeFromSuperview()
         }
@@ -74,10 +74,12 @@ import UIKit
             if i >= axis.count {
                 mAxisNames[i].text = ""
                 mAxisTimes[i].text = ""
+                mAxisBlocks[i].gestureRecognizers = []
             }
             else {
                 mAxisNames[i].text = ["asc", "mc", "dsc", "ic"][Int(axis[i].mDegree - 1)]
                 mAxisTimes[i].text = AmaxEvent.long2String(axis[i].date(at: 0), format: nil, h24: false)
+                axisCallback(mAxisBlocks[i], axis[i])
             }
         }
     }

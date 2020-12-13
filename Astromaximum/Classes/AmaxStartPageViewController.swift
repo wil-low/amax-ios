@@ -127,13 +127,6 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         AmaxBaseViewController.interpreterController!.view.layoutSubviews()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //TODO: Selection is lost here!
-        updateDisplay()
-        makeSelected(selectedView)
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         centerMoonMoveScroll(flash: false)

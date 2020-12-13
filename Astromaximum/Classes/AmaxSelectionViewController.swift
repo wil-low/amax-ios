@@ -15,6 +15,13 @@ class AmaxSelectionViewController : AmaxBaseViewController {
     @IBOutlet weak var mCornerTime: UILabel!
     @IBOutlet weak var mSelectedViewTime: UILabel!
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //TODO: Selection is lost here!
+        updateDisplay()
+        makeSelected(selectedView)
+    }
+
     @objc func itemTapped(sender: UITapGestureRecognizer) {
         if let tap = sender as? AmaxTapRecognizer {
             //print("itemTapped: \(tap.mEvent.description), type: \(AmaxEvent.EVENT_TYPE_STR[Int(tap.mEventType.rawValue)])")

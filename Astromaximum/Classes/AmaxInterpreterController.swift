@@ -129,6 +129,15 @@ class AmaxInterpreterController : UIViewController {
                 let result = NSLocalizedString(ev.mPlanet0 == SE_SUN ? "help_misc_eclipse_sun" : "help_misc_eclipse_moon", comment: "")
                 return String(format:"%@", result)
 
+            case EV_RISE:
+                let result = String(format: "(-40/+28 %@) %@ %@",
+                                    NSLocalizedString("interp_min", comment: ""),
+                                    NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "Planets", comment: ""),
+                                    NSLocalizedString("axis_\(ev.getDegree())", comment: "")
+                )
+                                    
+                return String(format:"%@", result)
+
             default:
                 return ev.description
        }
