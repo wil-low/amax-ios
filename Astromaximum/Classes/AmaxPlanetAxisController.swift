@@ -25,7 +25,6 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
         for i in 1 ... 9 {
             let pa = view.viewWithTag(i + 200) as! PlanetAxisView
             pa.setPlanet(AmaxPlanet(Int32(i - 1)))
-            addBorders(to: pa.mPasses)
             mPlanetAxis.append(pa)
         }
     }
@@ -115,15 +114,21 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                 /*for ev in passes {
                     print("PASS \(i): " + ev.description)
                 }*/
-                mPlanetAxis[Int(i)].setData(passes: passes, axis: tmp, passCallback: {_,_ in }, axisCallback: { view, e in
-                    if e != nil {
-                        let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: EV_RISE)
+                mPlanetAxis[Int(i)].setData(passes: passes, axis: tmp,
+                    passCallback: {view, e in
+                        let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: e!.mEvtype)
                         view.gestureRecognizers = [tap]
+                    },
+                    axisCallback: { view, e in
+                        if e != nil {
+                            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: EV_RISE)
+                            view.gestureRecognizers = [tap]
+                        }
+                        else {
+                            view.gestureRecognizers = []
+                        }
                     }
-                    else {
-                        view.gestureRecognizers = []
-                    }
-                })
+                )
             }
             makeSelected(selectedView)
         }

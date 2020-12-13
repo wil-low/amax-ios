@@ -56,6 +56,9 @@ import UIKit
                 pass.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() % 30)))
                 //pass.adjustsFontForContentSizeCategory = true
                 pass.textAlignment = .center
+                pass.isUserInteractionEnabled = true
+                passCallback(pass, e)
+                addBorders(to: pass)
                 mPasses.addArrangedSubview(pass)
             }
             else {
@@ -64,6 +67,9 @@ import UIKit
                 pass.font = UIFont.preferredFont(forTextStyle: .body)
                 pass.adjustsFontForContentSizeCategory = true
                 pass.textAlignment = .center
+                pass.isUserInteractionEnabled = true
+                passCallback(pass, e)
+                addBorders(to: pass)
                 mPasses.addArrangedSubview(pass)
             }
         }
