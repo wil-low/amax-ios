@@ -12,7 +12,8 @@ class AmaxAstroLabel : UILabel {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
+        let customFont = UIFont(name: "Astronom", size: UIFont.labelFontSize)
+        font = UIFontMetrics.default.scaledFont(for: customFont!)
         textColor = ColorCompatibility.label
     }
 

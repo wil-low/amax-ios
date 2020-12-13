@@ -48,16 +48,22 @@ import UIKit
         }
 
         for e in passes {
-            let pass = UILabel()
             if isMoon {
-                pass.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE) /*font.pointSize*/)
+                let pass = AmaxAstroLabel()
+                pass.awakeFromNib()
                 pass.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() % 30)))
+                //pass.adjustsFontForContentSizeCategory = true
+                pass.textAlignment = .center
+                mPasses.addArrangedSubview(pass)
             }
             else {
+                let pass = UILabel()
                 pass.text = String(format: "%d", e.getDegree() % 30 + 1)
+                pass.font = UIFont.preferredFont(forTextStyle: .body)
+                pass.adjustsFontForContentSizeCategory = true
+                pass.textAlignment = .center
+                mPasses.addArrangedSubview(pass)
             }
-            pass.textAlignment = .center
-            mPasses.addArrangedSubview(pass)
         }
         if !isMoon {
             mSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(passes[passes.count - 1].getDegree() / 30)))
