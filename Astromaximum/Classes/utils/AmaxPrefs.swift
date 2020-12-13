@@ -32,6 +32,15 @@ func runStartingController(in window: UIWindow) {
     window.rootViewController = UINavigationController(rootViewController: viewController)
 }
 
+let dimmedColor = ColorCompatibility.systemGray2.cgColor
+
+func addBorders(to view: UIView) {
+    //view.layer.cornerRadius = 10
+    //view.layer.masksToBounds = true
+    view.layer.borderWidth = 0.8
+    view.layer.borderColor = dimmedColor
+}
+
 func createStartingController(useSummaryView: Bool) -> AmaxBaseViewController {
     //return AmaxBaseViewController(nibName: "XibTestController", bundle: nil)
     return AmaxPlanetAxisController(nibName: "AmaxPlanetAxisController", bundle: nil)

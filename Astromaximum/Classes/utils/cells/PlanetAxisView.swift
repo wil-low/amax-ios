@@ -14,6 +14,7 @@ import UIKit
     @IBOutlet weak var mSign: AmaxAstroLabel!
 
     var isMoon: Bool!
+    var mAxisBlocks = [UIView]()
     var mAxisNames = [UILabel]()
     var mAxisTimes = [UILabel]()
     
@@ -30,10 +31,11 @@ import UIKit
     func initialize() {
         setupFromNib()
         for i in 0 ..< 4 {
-            mAxisNames.append(viewWithTag(i * 2 + 1) as! UILabel)
-            mAxisTimes.append(viewWithTag(i * 2 + 2) as! UILabel)
-            (viewWithTag(i * 2 + 2) as! UILabel).layer.borderWidth = 0.8
-            (viewWithTag(i * 2 + 2) as! UILabel).layer.borderColor = ColorCompatibility.systemIndigo.cgColor
+            let v = viewWithTag(i * 10 + 100)!
+            addBorders(to: v)
+            mAxisBlocks.append(v)
+            mAxisNames.append(viewWithTag(i * 10 + 101) as! UILabel)
+            mAxisTimes.append(viewWithTag(i * 10 + 102) as! UILabel)
         }
     }
     

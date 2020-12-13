@@ -23,7 +23,7 @@ class AmaxPlanetAxisController : AmaxBaseViewController {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
         mDataProvider = AmaxDataProvider.sharedInstance
         for i in 1 ... 9 {
-            let pa = view.viewWithTag(i + 100) as! PlanetAxisView
+            let pa = view.viewWithTag(i + 200) as! PlanetAxisView
             pa.setPlanet(AmaxPlanet(Int32(i - 1)))
             mPlanetAxis.append(pa)
         }
