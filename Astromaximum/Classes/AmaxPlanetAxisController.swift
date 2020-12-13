@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmaxPlanetAxisController : AmaxBaseViewController {
+class AmaxPlanetAxisController : AmaxSelectionViewController {
 
     private var mTitleDate: String = ""
 

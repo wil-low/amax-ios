@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmaxHelpTopicsController : AmaxBaseViewController {
+class AmaxHelpTopicsController : AmaxBaseViewController, UITableViewDelegate, UITableViewDataSource {
     let cellNibName = "HelpTopicCell"
     @IBOutlet weak var tvCell: UITableViewCell!
 
@@ -71,7 +71,7 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
         return mTopics.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:  // "help_planets"
             return Int(SE_PLUTO.rawValue - SE_SUN.rawValue + 1)
@@ -94,7 +94,7 @@ class AmaxHelpTopicsController : AmaxBaseViewController {
     }
 
     // Customize the appearance of table view cells.
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: cellNibName)
         if cell == nil {
             Bundle.main.loadNibNamed(cellNibName, owner: self, options: nil)

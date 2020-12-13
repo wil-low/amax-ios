@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmaxStartPageViewController : AmaxBaseViewController {
+class AmaxStartPageViewController : AmaxSelectionViewController {
 
     let START_PAGE_ITEMS = [
         EV_VOC,

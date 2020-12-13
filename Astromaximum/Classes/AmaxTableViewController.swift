@@ -8,15 +8,8 @@
 
 import UIKit
 
-class AmaxBaseViewController : UIViewController {
+class AmaxTableViewController : AmaxBaseViewController, UITableViewDelegate, UITableViewDataSource/*, UIPageViewControllerDataSource*/ {
 
-    var mCustomTime: Int = 0
-    var mCurrentTime: Int = 0
-    var mDataProvider: AmaxDataProvider?
-    static var interpreterController: AmaxInterpreterController?
-    
-    @IBOutlet weak var mSubtitle: UILabel!
-    
     /*var pageViewController: UIPageViewController!
 
     override func viewDidLoad() {
@@ -46,22 +39,15 @@ class AmaxBaseViewController : UIViewController {
         return pageViewController
     }*/
     
-    func updateDisplay() {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
 
-    @IBAction func goToPreviousDate(_ sender: AnyObject!) {
-        if mDataProvider!.changeDate(deltaDays: -1) {
-            updateDisplay()
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 
-    @IBAction func goToNextDate(_ sender: AnyObject!) {
-        if mDataProvider!.changeDate(deltaDays: 1) {
-            updateDisplay()
-        }
-    }
-
-    func showInterpreterFor(event: AmaxEvent, type: AmaxEventType, title: String = "") {
+    /*func showInterpreterFor(event: AmaxEvent, type: AmaxEventType, title: String = "") {
         let iProvider = AmaxInterpretationProvider.sharedInstance
         if let text = iProvider.getTextFor(event: event, type: type) {
             if let ic = AmaxBaseViewController.interpreterController {
@@ -72,6 +58,6 @@ class AmaxBaseViewController : UIViewController {
                 navigationController?.pushViewController(ic, animated: true)
             }
         }
-    }
+    }*/
 
 }

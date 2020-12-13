@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		72142FEF2553CCB800452F4E /* MoonPhaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72142FEE2553CCB800452F4E /* MoonPhaseView.swift */; };
 		7214B0D02585F6A4004558DE /* AmaxSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214B0CF2585F6A4004558DE /* AmaxSelectionViewController.swift */; };
+		7214B0D32585F7C0004558DE /* AmaxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214B0D22585F7C0004558DE /* AmaxTableViewController.swift */; };
 		7218830A24ECCD8800163389 /* AmaxRetrogradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7218830924ECCD8800163389 /* AmaxRetrogradeCell.swift */; };
 		7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */; };
 		7229137C24DFAEDE005B0698 /* AmaxTimezoneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */; };
@@ -102,6 +103,7 @@
 /* Begin PBXFileReference section */
 		72142FEE2553CCB800452F4E /* MoonPhaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhaseView.swift; sourceTree = "<group>"; };
 		7214B0CF2585F6A4004558DE /* AmaxSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxSelectionViewController.swift; sourceTree = "<group>"; };
+		7214B0D22585F7C0004558DE /* AmaxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxTableViewController.swift; sourceTree = "<group>"; };
 		7218830924ECCD8800163389 /* AmaxRetrogradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxRetrogradeCell.swift; sourceTree = "<group>"; };
 		7229137924DFA6A0005B0698 /* AmaxLocationBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxLocationBundle.swift; sourceTree = "<group>"; };
 		7229137B24DFAEDE005B0698 /* AmaxTimezoneTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxTimezoneTransition.swift; sourceTree = "<group>"; };
@@ -230,6 +232,16 @@
 				BFB64882257BC20400175B49 /* PlanetAxisView.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		7214B0D52585F7E3004558DE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				72ACB3B024E63716007C2813 /* AmaxBaseViewController.swift */,
+				7214B0CF2585F6A4004558DE /* AmaxSelectionViewController.swift */,
+				7214B0D22585F7C0004558DE /* AmaxTableViewController.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		8483FDDA166594AD000C9143 /* Resources */ = {
@@ -407,9 +419,8 @@
 		84E98B7C168E63B6006AAA55 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7214B0D52585F7E3004558DE /* Base */,
 				BFB64889257BC71A00175B49 /* AmaxPlanetAxisController.swift */,
-				72ACB3B024E63716007C2813 /* AmaxBaseViewController.swift */,
-				7214B0CF2585F6A4004558DE /* AmaxSelectionViewController.swift */,
 				72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */,
 				72ACB3B224E63724007C2813 /* AmaxEventListViewController.swift */,
 				72A3F174255EC38000AD8ABF /* AmaxHelpTopicsController.swift */,
@@ -602,6 +613,7 @@
 				7229138024DFCDDF005B0698 /* AmaxLocationDataFile.swift in Sources */,
 				BFB64887257BC5C600175B49 /* PlanetAxisView.swift in Sources */,
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
+				7214B0D32585F7C0004558DE /* AmaxTableViewController.swift in Sources */,
 				7218830A24ECCD8800163389 /* AmaxRetrogradeCell.swift in Sources */,
 				7229137E24DFAF5C005B0698 /* AmaxEvent.swift in Sources */,
 				726BBAD12574AE3C0071B112 /* AmaxTapRecognizer.swift in Sources */,

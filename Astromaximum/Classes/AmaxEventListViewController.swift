@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmaxEventListViewController : AmaxBaseViewController {
+class AmaxEventListViewController : AmaxTableViewController {
 
     var cellNibName: String = ""
     @IBOutlet weak var mTableView: UITableView!

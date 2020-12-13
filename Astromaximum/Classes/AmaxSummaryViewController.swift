@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmaxSummaryViewController : AmaxBaseViewController {
+class AmaxSummaryViewController : AmaxTableViewController {
 
     // sync with START_PAGE_ITEMS
     let xibNames = [
