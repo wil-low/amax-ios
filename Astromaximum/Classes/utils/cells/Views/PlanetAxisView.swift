@@ -42,6 +42,12 @@ import UIKit
     func setPlanet(_ planet: AmaxPlanet) {
         isMoon = planet == SE_MOON
         mPlanet.text = String(format: "%c", getSymbol(TYPE_PLANET, planet.rawValue))
+        if isMoon {
+            mSign.isHidden = true
+        }
+        else {
+            mSign.widthAnchor.constraint(equalTo: mPlanet.widthAnchor, multiplier: 1).isActive = true
+        }
     }
     
     func setData(passes: [AmaxEvent], axis: [AmaxEvent], passCallback: (UIView, AmaxEvent?) -> Void, axisCallback: (UIView, AmaxEvent?) -> Void) {

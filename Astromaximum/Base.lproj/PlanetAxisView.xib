@@ -43,9 +43,6 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="ZWz-9I-Fgv" firstAttribute="width" secondItem="3jl-22-6Hw" secondAttribute="width" id="pZk-Nc-mRV"/>
-                            </constraints>
                         </stackView>
                         <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asC-3l-XKz" userLabel="Axis1">
                             <rect key="frame" x="0.0" y="40" width="160" height="40"/>
