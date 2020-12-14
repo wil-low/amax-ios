@@ -22,70 +22,70 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-wa-o53" userLabel="SView0">
-                    <rect key="frame" x="16" y="54" width="288" height="352"/>
+                    <rect key="frame" x="5" y="54" width="310" height="352"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="C3P-AS-cdA" userLabel="Stack View1">
-                            <rect key="frame" x="0.0" y="0.0" width="288" height="0.0"/>
+                            <rect key="frame" x="0.0" y="0.0" width="310" height="101.5"/>
                             <subviews>
                                 <view tag="201" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="ZEU-bp-1rB" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <view tag="202" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-Dj-CCo" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="101" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="108.5" y="0.0" width="93" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <view tag="203" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="8lg-pX-dZd" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="202" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="216.5" y="0.0" width="93.5" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-5Q-Byr" userLabel="Stack View2">
-                            <rect key="frame" x="0.0" y="10" width="288" height="0.0"/>
+                            <rect key="frame" x="0.0" y="111.5" width="310" height="101.5"/>
                             <subviews>
                                 <view tag="204" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iI7-yI-DGV" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <view tag="205" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixp-UO-xMj" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="101" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="108.5" y="0.0" width="93" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <view tag="206" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-LY-ofa" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="202" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="216.5" y="0.0" width="93.5" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="b9a-DQ-gt3" userLabel="Stack View3">
-                            <rect key="frame" x="0.0" y="20" width="288" height="0.0"/>
+                            <rect key="frame" x="0.0" y="223" width="310" height="101.5"/>
                             <subviews>
                                 <view tag="207" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RZ-gy-Lmy" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <view tag="208" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCi-PS-M68" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="101" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="108.5" y="0.0" width="93" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <view tag="209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65W-68-0hM" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="202" y="0.0" width="86" height="0.0"/>
+                                    <rect key="frame" x="216.5" y="0.0" width="93.5" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Dey-uS-ic8" userLabel="BottomSView">
-                            <rect key="frame" x="0.0" y="30" width="288" height="322"/>
+                            <rect key="frame" x="0.0" y="334.5" width="310" height="17.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SelectedViewTime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bS-9J-II0" userLabel="SelectedViewTime">
-                                    <rect key="frame" x="0.0" y="0.0" width="230.5" height="322"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="248" height="17.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKN-1B-0gT" userLabel="Time">
-                                    <rect key="frame" x="230.5" y="0.0" width="57.5" height="322"/>
+                                    <rect key="frame" x="248" y="0.0" width="62" height="17.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -144,9 +144,9 @@
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Vwb-wa-o53" firstAttribute="trailing" secondItem="13" secondAttribute="trailingMargin" id="2Pr-Y3-dXl"/>
+                <constraint firstItem="Vwb-wa-o53" firstAttribute="trailing" secondItem="13" secondAttribute="trailing" constant="-5" id="2Pr-Y3-dXl"/>
                 <constraint firstAttribute="bottom" secondItem="15" secondAttribute="bottom" id="2rg-uZ-mEV"/>
-                <constraint firstItem="Vwb-wa-o53" firstAttribute="leading" secondItem="13" secondAttribute="leadingMargin" id="8iL-Qo-2PA"/>
+                <constraint firstItem="Vwb-wa-o53" firstAttribute="leading" secondItem="13" secondAttribute="leading" constant="5" id="8iL-Qo-2PA"/>
                 <constraint firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="cTN-cm-ltW"/>
                 <constraint firstItem="Vwb-wa-o53" firstAttribute="top" secondItem="13" secondAttribute="topMargin" constant="10" id="t8f-iX-Tfg"/>
                 <constraint firstItem="15" firstAttribute="top" secondItem="Vwb-wa-o53" secondAttribute="bottom" constant="10" id="wIM-S0-5df"/>
