@@ -13,6 +13,7 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
     private var mTitleDate: String = ""
 
     var mPlanetAxis = [PlanetAxisView]()
+    var mPlanetPass = [PlanetPassView]()
     @IBOutlet weak  var mToolbar: UIToolbar!
 
     var eventListViewController: AmaxEventListViewController?
@@ -22,10 +23,15 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
         mDataProvider = AmaxDataProvider.sharedInstance
-        for i in 1 ... 9 {
+        for i in 0 ... 6 {
             let pa = view.viewWithTag(i + 200) as! PlanetAxisView
-            pa.setPlanet(AmaxPlanet(Int32(i - 1)))
+            pa.mPlanetPass.setPlanet(AmaxPlanet(Int32(i)))
             mPlanetAxis.append(pa)
+        }
+        for i in 7 ... 12 {
+            let pa = view.viewWithTag(i + 200) as! PlanetPassView
+            pa.setPlanet(AmaxPlanet(Int32(i)))
+            mPlanetPass.append(pa)
         }
     }
     
@@ -69,7 +75,7 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
             //******* COMMON RISES & SETS
             let pp0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -1, isTrailing: false)
             let pp1 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: 2, isTrailing: true)
-            for i in SE_SUN.rawValue ... SE_SATURN.rawValue /* SE_WHITE_MOON */{
+            for i in SE_SUN.rawValue ... SE_WHITE_MOON.rawValue {
                 var passes: [AmaxEvent]
                 if i == SE_MOON.rawValue {
                     passes = dp.getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: AmaxPlanet(i), special: false, from: dp.mStartTime, to: dp.mEndTime, value: 0)
@@ -77,11 +83,21 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                 else {
                     passes = dp.getEventsOnPeriodFor(eventType: EV_DEGREE_PASS, planet: AmaxPlanet(i), special: false, from: dp.mStartTime, to: dp.mEndTime, value: 0)
                 }
-                /*for ev in passes {
-                    print("DEG_2ND \(i): " + ev.description)
-                }*/
                 if (i > SE_SATURN.rawValue) {
+                    mPlanetPass[Int(i - SE_SATURN.rawValue - 1)].setData(passes: passes,
+                        passCallback: {view, e in
+                            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: e!.mEvtype)
+                            view.gestureRecognizers = [tap]
+                    })
                     continue
+                }
+                else {
+                    mPlanetAxis[Int(i)].mPlanetPass.setData(passes: passes,
+                        passCallback: {view, e in
+                            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: e!.mEvtype)
+                            view.gestureRecognizers = [tap]
+                        }
+                    )
                 }
                 var tmp2 = [AmaxEvent]()
                 var tmp = dp.getEventsOnPeriodFor(eventType: EV_ASTRORISE, planet: AmaxPlanet(i), special: false, from: pp0, to: pp1, value: 0)
@@ -111,14 +127,7 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                 tmp = tmp.filter({ ev in
                     return ev.mDegree != 200 && dp.isInCurrentDay(date: ev.date(at: 0))
                 })
-                /*for ev in passes {
-                    print("PASS \(i): " + ev.description)
-                }*/
-                mPlanetAxis[Int(i)].setData(passes: passes, axis: tmp,
-                    passCallback: {view, e in
-                        let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: e!.mEvtype)
-                        view.gestureRecognizers = [tap]
-                    },
+                mPlanetAxis[Int(i)].setData(axis: tmp,
                     axisCallback: { view, e in
                         if e != nil {
                             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: EV_RISE)

@@ -22,70 +22,120 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-wa-o53" userLabel="SView0">
-                    <rect key="frame" x="5" y="54" width="310" height="352"/>
+                    <rect key="frame" x="5" y="54" width="312" height="352"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="C3P-AS-cdA" userLabel="Stack View1">
-                            <rect key="frame" x="0.0" y="0.0" width="310" height="101.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="312" height="101.5"/>
                             <subviews>
-                                <view tag="201" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="ZEU-bp-1rB" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="101.5"/>
+                                <view tag="200" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="ZEU-bp-1rB" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="94" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
-                                <view tag="202" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-Dj-CCo" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="108.5" y="0.0" width="93" height="101.5"/>
+                                <view tag="201" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="1zc-Dj-CCo" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
+                                    <rect key="frame" x="109" y="0.0" width="94" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
-                                <view tag="203" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="8lg-pX-dZd" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="216.5" y="0.0" width="93.5" height="101.5"/>
+                                <view tag="202" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="8lg-pX-dZd" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
+                                    <rect key="frame" x="218" y="0.0" width="94" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-5Q-Byr" userLabel="Stack View2">
-                            <rect key="frame" x="0.0" y="111.5" width="310" height="101.5"/>
+                            <rect key="frame" x="0.0" y="111.5" width="312" height="101.5"/>
                             <subviews>
-                                <view tag="204" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iI7-yI-DGV" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="101.5"/>
+                                <view tag="203" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iI7-yI-DGV" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="94" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
-                                <view tag="205" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixp-UO-xMj" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="108.5" y="0.0" width="93" height="101.5"/>
+                                <view tag="204" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ixp-UO-xMj" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
+                                    <rect key="frame" x="109" y="0.0" width="94" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
-                                <view tag="206" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-LY-ofa" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="216.5" y="0.0" width="93.5" height="101.5"/>
+                                <view tag="205" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-LY-ofa" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
+                                    <rect key="frame" x="218" y="0.0" width="94" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="b9a-DQ-gt3" userLabel="Stack View3">
-                            <rect key="frame" x="0.0" y="223" width="310" height="101.5"/>
+                            <rect key="frame" x="0.0" y="223" width="312" height="101.5"/>
                             <subviews>
-                                <view tag="207" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RZ-gy-Lmy" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="93.5" height="101.5"/>
+                                <view tag="206" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9RZ-gy-Lmy" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="94" height="101.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
-                                <view tag="208" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCi-PS-M68" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="108.5" y="0.0" width="93" height="101.5"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </view>
-                                <view tag="209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65W-68-0hM" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                                    <rect key="frame" x="216.5" y="0.0" width="93.5" height="101.5"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" id="k9Q-QK-7J1">
+                                    <rect key="frame" x="109" y="0.0" width="94" height="101.5"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sdp-kW-op8">
+                                            <rect key="frame" x="0.0" y="0.0" width="94" height="20.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <view tag="207" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RsK-Co-G8i" customClass="PlanetPassView" customModule="Astromaximum" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="20.5" width="94" height="20"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <view tag="208" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EG3-El-Eeq" customClass="PlanetPassView" customModule="Astromaximum" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="40.5" width="94" height="20.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <view tag="209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4X-ed-9oe" customClass="PlanetPassView" customModule="Astromaximum" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="61" width="94" height="20"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pt6-rl-Wvi">
+                                            <rect key="frame" x="0.0" y="81" width="94" height="20.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Pt6-rl-Wvi" firstAttribute="height" secondItem="Sdp-kW-op8" secondAttribute="height" id="uYQ-dF-vsq"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" id="fx9-1J-By7">
+                                    <rect key="frame" x="218" y="0.0" width="94" height="101.5"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOM-tW-coA">
+                                            <rect key="frame" x="0.0" y="0.0" width="94" height="20.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <view tag="210" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afl-4X-vVu" customClass="PlanetPassView" customModule="Astromaximum" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="20.5" width="94" height="20"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <view tag="211" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdO-cj-0SA" customClass="PlanetPassView" customModule="Astromaximum" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="40.5" width="94" height="20.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <view tag="212" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I67-He-n6y" customClass="PlanetPassView" customModule="Astromaximum" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="61" width="94" height="20"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-AB-56F">
+                                            <rect key="frame" x="0.0" y="81" width="94" height="20.5"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Pi1-AB-56F" firstAttribute="height" secondItem="QOM-tW-coA" secondAttribute="height" id="MNh-kY-OBF"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Dey-uS-ic8" userLabel="BottomSView">
-                            <rect key="frame" x="0.0" y="334.5" width="310" height="17.5"/>
+                            <rect key="frame" x="0.0" y="334.5" width="312" height="17.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SelectedViewTime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bS-9J-II0" userLabel="SelectedViewTime">
-                                    <rect key="frame" x="0.0" y="0.0" width="248" height="17.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="249.5" height="17.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKN-1B-0gT" userLabel="Time">
-                                    <rect key="frame" x="248" y="0.0" width="62" height="17.5"/>
+                                    <rect key="frame" x="249.5" y="0.0" width="62.5" height="17.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
