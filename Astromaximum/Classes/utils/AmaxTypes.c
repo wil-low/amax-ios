@@ -18,7 +18,7 @@ char getSymbol(SymbolType type, int id)
 			else if (id == SE_MEAN_APOG)
 				result = 0xed;
 			else if (id == SE_WHITE_MOON)
-				result = 0x84;
+				result = 0x5a;
 			else
 				result = 0x50 + id;
 			break;
