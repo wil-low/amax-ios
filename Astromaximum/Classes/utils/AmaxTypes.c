@@ -13,7 +13,14 @@ char getSymbol(SymbolType type, int id)
     char result = '?';
     switch (type) {
 		case TYPE_PLANET:
-			result = 0x50 + id;
+			if (id == SE_TRUE_NODE)
+				result = 0x5e;
+			else if (id == SE_MEAN_APOG)
+				result = 0xed;
+			else if (id == SE_WHITE_MOON)
+				result = 0x84;
+			else
+				result = 0x50 + id;
 			break;
 		case TYPE_ASPECT:
 			switch (id) {
