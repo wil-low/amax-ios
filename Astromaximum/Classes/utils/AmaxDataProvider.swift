@@ -189,6 +189,8 @@ class AmaxDataProvider {
 
     func unbundleLocationAsset() -> String! {
         var lastLocationId:String! = nil
+        let DEFAULT_CITY = "London"
+        var defaultCityID: String?
         let filePath = Bundle.main.path(forResource: "locations", ofType: "dat")
         let locBundle = AmaxLocationBundle(filePath: filePath)
         var index = 0
@@ -200,6 +202,9 @@ class AmaxDataProvider {
             let datafile = AmaxLocationDataFile(data: data, headerOnly: true)
             lastLocationId = String(format:"%08X", datafile.location.mCityId)
             NSLog("%d: %@ %@", index, lastLocationId, datafile.location.mCity)
+            if datafile.location.mCity == DEFAULT_CITY {
+                defaultCityID = lastLocationId
+            }
             let locFile = locationFileById(locationId: lastLocationId)
             do {
                 try data.write(to: locFile!)
@@ -218,8 +223,8 @@ class AmaxDataProvider {
         NSLog("unbundled")
         for item in locationDictionary {
             NSLog("Location %@ : %@", item.key, item.value.mCity)
-         }
-        return lastLocationId
+        }
+        return defaultCityID == nil ? lastLocationId : defaultCityID!
     }
 
     func restoreSavedState() {
