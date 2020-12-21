@@ -100,6 +100,8 @@
 		BFB6488A257BC71A00175B49 /* AmaxPlanetAxisController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB64889257BC71A00175B49 /* AmaxPlanetAxisController.swift */; };
 		BFB64892257BCA6A00175B49 /* AmaxPlanetAxisController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB64890257BCA6A00175B49 /* AmaxPlanetAxisController.xib */; };
 		BFB64897257BFE7A00175B49 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB64896257BFE7A00175B49 /* NibLoadable.swift */; };
+		BFBE2E77258FDDF000F3009A /* AmaxPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFBE2E75258FDDF000F3009A /* AmaxPageController.xib */; };
+		BFD159C7258D3F010056D76E /* AmaxPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD159C6258D3F010056D76E /* AmaxPageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +215,8 @@
 		BFB64889257BC71A00175B49 /* AmaxPlanetAxisController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxPlanetAxisController.swift; sourceTree = "<group>"; };
 		BFB64891257BCA6A00175B49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxPlanetAxisController.xib; sourceTree = "<group>"; };
 		BFB64896257BFE7A00175B49 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		BFBE2E76258FDDF000F3009A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxPageController.xib; sourceTree = "<group>"; };
+		BFD159C6258D3F010056D76E /* AmaxPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +437,7 @@
 		84E98B7C168E63B6006AAA55 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BFD159C6258D3F010056D76E /* AmaxPageController.swift */,
 				7214B0D52585F7E3004558DE /* Base */,
 				BFB64889257BC71A00175B49 /* AmaxPlanetAxisController.swift */,
 				72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */,
@@ -450,6 +455,7 @@
 		BF2906BE25836A0200E8E3ED /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BFBE2E75258FDDF000F3009A /* AmaxPageController.xib */,
 				BF2906C025836A2500E8E3ED /* XibTestController.xib */,
 				84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */,
 				BFB64890257BCA6A00175B49 /* AmaxPlanetAxisController.xib */,
@@ -534,6 +540,7 @@
 				84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */,
 				84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */,
 				84E39A08168DCF73005DC0C5 /* interpret.dat in Resources */,
+				BFBE2E77258FDDF000F3009A /* AmaxPageController.xib in Resources */,
 				84E98AE7168E0F2A006AAA55 /* Planets.strings in Resources */,
 				BFB64884257BC20400175B49 /* PlanetAxisView.xib in Resources */,
 				BF2906AD258368BD00E8E3ED /* MoonMoveView.xib in Resources */,
@@ -625,6 +632,7 @@
 				7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */,
 				72B35E98254F1AF800161D60 /* ColorCompatibility.swift in Sources */,
 				726BC98F24E5BFF200690CE2 /* AmaxPlanetHourCell.swift in Sources */,
+				BFD159C7258D3F010056D76E /* AmaxPageController.swift in Sources */,
 				7229138024DFCDDF005B0698 /* AmaxLocationDataFile.swift in Sources */,
 				BFB64887257BC5C600175B49 /* PlanetAxisView.swift in Sources */,
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
@@ -972,6 +980,14 @@
 				BFB64891257BCA6A00175B49 /* Base */,
 			);
 			name = AmaxPlanetAxisController.xib;
+			sourceTree = "<group>";
+		};
+		BFBE2E75258FDDF000F3009A /* AmaxPageController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFBE2E76258FDDF000F3009A /* Base */,
+			);
+			name = AmaxPageController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

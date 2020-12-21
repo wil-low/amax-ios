@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxPageController" customModule="Astromaximum" customModuleProvider="target">
+            <connections>
+                <outlet property="mPlaceholder" destination="sou-of-SAm" id="Qh9-EG-L2f"/>
+                <outlet property="mSubtitle" destination="Mxd-L4-fGl" id="zKT-W5-ISo"/>
+                <outlet property="mToolbar" destination="15" id="TYW-35-YXV"/>
+                <outlet property="view" destination="13" id="czQ-l9-GgA"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="13">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxd-L4-fGl" userLabel="Subtitle">
+                    <rect key="frame" x="20" y="44" width="280" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="YWh-sr-NAY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sou-of-SAm" userLabel="Placeholder">
+                    <rect key="frame" x="0.0" y="84" width="320" height="332"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="15">
+                    <rect key="frame" x="0.0" y="416" width="320" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="7Bl-2U-wac"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem systemItem="search" id="32"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Tht-XR-M6m"/>
+                        <barButtonItem image="today" style="plain" id="33">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Mpk-cY-fJM"/>
+                        <barButtonItem image="previous" style="plain" id="16"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="JaD-qi-INZ"/>
+                        <barButtonItem image="next" style="plain" id="28"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="AyX-GU-LCL"/>
+                        <barButtonItem image="calendar" style="plain" id="34"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ivc-QQ-NWw"/>
+                        <barButtonItem image="options" style="plain" id="35"/>
+                    </items>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="15" firstAttribute="bottom" secondItem="13" secondAttribute="bottomMargin" id="00O-Zd-iO2"/>
+                <constraint firstItem="15" firstAttribute="top" secondItem="sou-of-SAm" secondAttribute="bottom" id="6nh-by-OLE"/>
+                <constraint firstItem="Mxd-L4-fGl" firstAttribute="leading" secondItem="15" secondAttribute="leading" constant="20" id="7IB-VI-4kp"/>
+                <constraint firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="8Kp-T0-Var"/>
+                <constraint firstItem="sou-of-SAm" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="Arq-OD-CCa"/>
+                <constraint firstItem="sou-of-SAm" firstAttribute="trailing" secondItem="13" secondAttribute="trailing" id="L7h-gV-gJb"/>
+                <constraint firstItem="Mxd-L4-fGl" firstAttribute="trailing" secondItem="15" secondAttribute="trailing" constant="-20" id="MWy-9b-1BC"/>
+                <constraint firstItem="Mxd-L4-fGl" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="TKH-R2-Bxq"/>
+                <constraint firstItem="sou-of-SAm" firstAttribute="top" secondItem="Mxd-L4-fGl" secondAttribute="bottom" id="lfT-NF-AMy"/>
+                <constraint firstItem="15" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="xPq-9g-4lu"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.333333333333336" y="53.571428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="calendar" width="24" height="24"/>
+        <image name="next" width="25" height="25"/>
+        <image name="options" width="24" height="24"/>
+        <image name="previous" width="25" height="25"/>
+        <image name="today" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

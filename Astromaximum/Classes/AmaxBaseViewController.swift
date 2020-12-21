@@ -8,8 +8,14 @@
 
 import UIKit
 
+let PAGE_SUMMARY = 0
+let PAGE_START = 1
+let PAGE_PLANET_AXIS = 2
+let PAGE_COUNT = 3
+
 class AmaxBaseViewController : UIViewController {
 
+    var pageIndex = -1
     var mCustomTime: Int = 0
     var mCurrentTime: Int = 0
     var mDataProvider: AmaxDataProvider?

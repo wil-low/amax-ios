@@ -27,7 +27,7 @@ func runStartingController(in window: UIWindow) {
 
     let useSummaryView = UserDefaults.standard.bool(forKey: AMAX_PREFS_KEY_START_PAGE_AS_GRID)
 
-    var viewController: AmaxBaseViewController
+    var viewController: UIViewController
     viewController = createStartingController(useSummaryView: useSummaryView)
     window.rootViewController = UINavigationController(rootViewController: viewController)
 }
@@ -41,7 +41,8 @@ func addBorders(to view: UIView) {
     view.layer.borderColor = dimmedColor
 }
 
-func createStartingController(useSummaryView: Bool) -> AmaxBaseViewController {
+func createStartingController(useSummaryView: Bool) -> UIViewController {
+    return AmaxPageController(nibName: "AmaxPageController", bundle: nil)
     //return AmaxBaseViewController(nibName: "XibTestController", bundle: nil)
     //return AmaxPlanetAxisController(nibName: "AmaxPlanetAxisController", bundle: nil)
     if useSummaryView {
