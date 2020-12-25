@@ -12,9 +12,6 @@ class AmaxSelectionViewController : AmaxBaseViewController {
 
     var selectedView: UIView?
     
-    @IBOutlet weak var mCornerTime: UILabel!
-    @IBOutlet weak var mSelectedViewTime: UILabel!
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //TODO: Selection is lost here!
@@ -37,19 +34,21 @@ class AmaxSelectionViewController : AmaxBaseViewController {
     }
 
     func makeSelected(_ view: UIView?) {
-        if view == nil || view!.window == nil {
-            mSelectedViewTime.text = mDataProvider?.locationName()
-        }
-        if selectedView != view {
-            selectedView?.layer.borderColor = dimmedColor
-            selectedView = view
-            selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
-        }
-        if let grArray = selectedView?.gestureRecognizers {
-            for gr in grArray {
-                if let tap = gr as? AmaxTapRecognizer {
-                    mSelectedViewTime.text = makeSelectedDateString(tap.mEvent)
-                    break
+        if let p = mParent {
+            if view == nil || view!.window == nil {
+                p.mSelectedViewTime.text = mDataProvider?.locationName()
+            }
+            if selectedView != view {
+                selectedView?.layer.borderColor = dimmedColor
+                selectedView = view
+                selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
+            }
+            if let grArray = selectedView?.gestureRecognizers {
+                for gr in grArray {
+                    if let tap = gr as? AmaxTapRecognizer {
+                        p.mSelectedViewTime.text = makeSelectedDateString(tap.mEvent)
+                        break
+                    }
                 }
             }
         }

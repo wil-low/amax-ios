@@ -10,8 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxPageController" customModule="Astromaximum" customModuleProvider="target">
             <connections>
+                <outlet property="mCornerTime" destination="MFY-wL-iVg" id="hca-Lc-9lw"/>
                 <outlet property="mPlaceholder" destination="sou-of-SAm" id="Qh9-EG-L2f"/>
-                <outlet property="mSubtitle" destination="Mxd-L4-fGl" id="zKT-W5-ISo"/>
+                <outlet property="mSelectedViewTime" destination="JMB-ud-9Uh" id="Px2-Ph-cb8"/>
                 <outlet property="mToolbar" destination="15" id="TYW-35-YXV"/>
                 <outlet property="view" destination="13" id="czQ-l9-GgA"/>
             </connections>
@@ -21,19 +22,31 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxd-L4-fGl" userLabel="Subtitle">
-                    <rect key="frame" x="20" y="44" width="280" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="YWh-sr-NAY"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sou-of-SAm" userLabel="Placeholder">
-                    <rect key="frame" x="0.0" y="84" width="320" height="332"/>
+                    <rect key="frame" x="0.0" y="44" width="320" height="336"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="sUI-Kq-gTI" userLabel="BottomSView">
+                    <rect key="frame" x="16" y="380" width="288" height="36"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SelectedViewTime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMB-ud-9Uh" userLabel="SelectedViewTime">
+                            <rect key="frame" x="0.0" y="0.0" width="230.5" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFY-wL-iVg" userLabel="CornerTime">
+                            <rect key="frame" x="230.5" y="0.0" width="57.5" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="bNl-6l-y4M"/>
+                        <constraint firstItem="MFY-wL-iVg" firstAttribute="width" secondItem="JMB-ud-9Uh" secondAttribute="width" multiplier="1:4" id="vel-7F-FjO"/>
+                    </constraints>
+                </stackView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="15">
                     <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                     <constraints>
@@ -42,32 +55,51 @@
                     <items>
                         <barButtonItem systemItem="search" id="32"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Tht-XR-M6m"/>
-                        <barButtonItem image="today" style="plain" id="33">
+                        <barButtonItem image="today" style="plain" id="33" userLabel="Today">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-1"/>
+                            <connections>
+                                <action selector="goToToday:" destination="-1" id="OqV-PN-Lwa"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Mpk-cY-fJM"/>
-                        <barButtonItem image="previous" style="plain" id="16"/>
+                        <barButtonItem image="previous" style="plain" id="16" userLabel="Previous">
+                            <connections>
+                                <action selector="goToPreviousDate:" destination="-1" id="W2m-sa-h4F"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JaD-qi-INZ"/>
-                        <barButtonItem image="next" style="plain" id="28"/>
+                        <barButtonItem image="next" style="plain" id="28" userLabel="Next">
+                            <connections>
+                                <action selector="goToNextDate:" destination="-1" id="WKI-XN-tAe"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="AyX-GU-LCL"/>
-                        <barButtonItem image="calendar" style="plain" id="34"/>
+                        <barButtonItem image="calendar" style="plain" id="34" userLabel="SelectDate">
+                            <connections>
+                                <action selector="selectDate:" destination="-1" id="33x-cQ-V3v"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="ivc-QQ-NWw"/>
-                        <barButtonItem image="options" style="plain" id="35"/>
+                        <barButtonItem image="options" style="plain" id="35" userLabel="Settings">
+                            <connections>
+                                <action selector="showSettings:" destination="-1" id="tI7-PL-5CB"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="15" firstAttribute="bottom" secondItem="13" secondAttribute="bottomMargin" id="00O-Zd-iO2"/>
-                <constraint firstItem="15" firstAttribute="top" secondItem="sou-of-SAm" secondAttribute="bottom" id="6nh-by-OLE"/>
-                <constraint firstItem="Mxd-L4-fGl" firstAttribute="leading" secondItem="15" secondAttribute="leading" constant="20" id="7IB-VI-4kp"/>
-                <constraint firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="8Kp-T0-Var"/>
-                <constraint firstItem="sou-of-SAm" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="Arq-OD-CCa"/>
-                <constraint firstItem="sou-of-SAm" firstAttribute="trailing" secondItem="13" secondAttribute="trailing" id="L7h-gV-gJb"/>
-                <constraint firstItem="Mxd-L4-fGl" firstAttribute="trailing" secondItem="15" secondAttribute="trailing" constant="-20" id="MWy-9b-1BC"/>
-                <constraint firstItem="Mxd-L4-fGl" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="TKH-R2-Bxq"/>
-                <constraint firstItem="sou-of-SAm" firstAttribute="top" secondItem="Mxd-L4-fGl" secondAttribute="bottom" id="lfT-NF-AMy"/>
-                <constraint firstItem="15" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="xPq-9g-4lu"/>
+                <constraint firstItem="sou-of-SAm" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="2Gc-0c-9Kc"/>
+                <constraint firstItem="15" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="3Bm-Qu-bmg"/>
+                <constraint firstAttribute="trailingMargin" secondItem="sUI-Kq-gTI" secondAttribute="trailing" id="D4w-hb-xXB"/>
+                <constraint firstItem="sou-of-SAm" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="RGy-6W-QZk"/>
+                <constraint firstAttribute="bottom" secondItem="15" secondAttribute="bottom" id="STJ-SU-7pX"/>
+                <constraint firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="bdV-lt-sra"/>
+                <constraint firstItem="15" firstAttribute="top" secondItem="sUI-Kq-gTI" secondAttribute="bottom" id="i8G-An-kYl"/>
+                <constraint firstItem="sou-of-SAm" firstAttribute="bottom" secondItem="sUI-Kq-gTI" secondAttribute="top" id="jV7-tL-hwZ"/>
+                <constraint firstItem="sUI-Kq-gTI" firstAttribute="leading" secondItem="13" secondAttribute="leadingMargin" id="ngZ-hl-qGo"/>
+                <constraint firstAttribute="trailing" secondItem="sou-of-SAm" secondAttribute="trailing" id="sr2-g1-mNT"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

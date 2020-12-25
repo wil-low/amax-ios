@@ -268,6 +268,8 @@ class AmaxDataProvider {
     func setDate(from date: Date) {
         let unitFlags: Set<Calendar.Component> = [.year, .month, .day, .weekday]
         mCurrentDateComponents = mCalendar.dateComponents(unitFlags, from:date)
+        _mStartTime = Int(date.timeIntervalSince1970)
+        _ = changeDate(deltaDays: 0)
     }
 
     func setTodayDate() {

@@ -19,14 +19,12 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     var helpTopicsController: AmaxHelpTopicsController!
 
     let CELL_LOCATION_NAME = 0
-    let CELL_STARTING_CONTROLLER = 1
-    let CELL_HELP_TOPICS = 2
+    let CELL_HELP_TOPICS = 1
     let CELL_IS_CUSTOM_TIME = 102
     let CELL_HIGHIGHT_TIME = 103
 
     let AmaxSettingsXibNames = [
         "LocationNameCell",
-        "StartingControllerSwitchCell",
         "HelpTopicsCell",
         "CustomTimeSwitchCell"
     ]
@@ -66,7 +64,7 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
-        return 3
+        return 2
     }
 
     // Customize the appearance of table view cells.
@@ -84,13 +82,6 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
             case CELL_LOCATION_NAME:
                 c.textLabel?.text = NSLocalizedString("Current_location", comment: "Current location")
                 c.detailTextLabel?.text = mDataProvider.locationName()
-            case CELL_STARTING_CONTROLLER:
-                c.textLabel?.text = NSLocalizedString("Summary_as_list", comment: "Summary as list")
-                c.detailTextLabel?.text = ""
-                let switchView = UISwitch(frame: CGRect.zero)
-                c.accessoryView = switchView
-                switchView.setOn(UserDefaults.standard.bool(forKey: AMAX_PREFS_KEY_START_PAGE_AS_GRID), animated: false)
-                switchView.addTarget(self, action: #selector(self.startPageSwitchChanged(sender:)), for: .valueChanged)
             case CELL_HELP_TOPICS:
                 c.textLabel?.text = NSLocalizedString("help_title", comment: "Help list")
             case CELL_IS_CUSTOM_TIME:
@@ -119,21 +110,6 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
                 helpTopicsController = AmaxHelpTopicsController(nibName: "AmaxHelpTopicsController", bundle: nil)
             }
             self.navigationController?.pushViewController(helpTopicsController, animated: true)
-        }
-    }
-
-    @IBAction func startPageSwitchChanged(sender: AnyObject!) {
-        if let sw = sender as? UISwitch {
-            UserDefaults.standard.set(sw.isOn, forKey: AMAX_PREFS_KEY_START_PAGE_AS_GRID)
-            if var controllers = navigationController?.viewControllers {
-                for i in 0 ..< controllers.count {
-                    if (sw.isOn && controllers[i] is AmaxStartPageViewController) || (!sw.isOn && controllers[i] is AmaxSummaryViewController) {
-                        controllers[i] = createStartingController(useSummaryView: sw.isOn)
-                        navigationController?.setViewControllers(controllers, animated: false)
-                        break
-                    }
-                }
-            }
         }
     }
 

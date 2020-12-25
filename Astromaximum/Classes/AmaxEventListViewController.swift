@@ -11,6 +11,8 @@ import UIKit
 class AmaxEventListViewController : AmaxTableViewController {
 
     var cellNibName: String = ""
+    
+    @IBOutlet weak var mSubtitle: UILabel!
     @IBOutlet weak var mTableView: UITableView!
     @IBOutlet weak var mSwitchModeButton: UIBarButtonItem!
 

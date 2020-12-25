@@ -90,7 +90,7 @@ class AmaxSummaryViewController : AmaxTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mDataProvider!.mEventCache.count
+        return xibNames.count
     }
 
     // Customize the appearance of table view cells.
@@ -164,14 +164,14 @@ class AmaxSummaryViewController : AmaxTableViewController {
 
     override func updateDisplay() {
         if let dp = mDataProvider {
+            if skipUpdate(dp) {
+                return
+            }
             title = dp.currentDateString()
             dp.prepareCalculation()
             dp.calculateAll(types: START_PAGE_ITEMS)
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
-            mSubtitle.text = String(format: "%@, %@",
-                          mDataProvider!.getHighlightTimeString(),
-                          mDataProvider!.locationName())
             mTableView.reloadData()
         }
     }

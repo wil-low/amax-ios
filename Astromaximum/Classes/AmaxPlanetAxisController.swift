@@ -67,11 +67,14 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
 
     override func updateDisplay() {
         if let dp = mDataProvider {
+            if skipUpdate(dp) {
+                return
+            }
             title = dp.currentDateString()
             dp.prepareCalculation()
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
-            mCornerTime.text = dp.getHighlightTimeString()
+            mParent!.mCornerTime.text = dp.getHighlightTimeString()
             //******* COMMON RISES & SETS
             let pp0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -1, isTrailing: false)
             let pp1 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: 2, isTrailing: true)

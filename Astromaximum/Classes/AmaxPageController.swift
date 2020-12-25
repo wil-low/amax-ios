@@ -9,29 +9,47 @@
 import UIKit
 
 class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
-
+    let startingPage = PAGE_START
     var pageViewController: UIPageViewController!
 
-    @IBOutlet var mSubtitle: UILabel!
-    @IBOutlet var mPlaceholder: UIView!
-    @IBOutlet var mToolbar: UIToolbar!
+    @IBOutlet weak var mPlaceholder: UIView!
+    @IBOutlet weak var mToolbar: UIToolbar!
+    @IBOutlet weak var mCornerTime: UILabel!
+    @IBOutlet weak var mSelectedViewTime: UILabel!
+
+    var mDataProvider: AmaxDataProvider?
+    
+    var controllers = [AmaxBaseViewController?]()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = mDataProvider?.currentDateString()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mDataProvider = AmaxDataProvider.sharedInstance
+        for _ in PAGE_SUMMARY ... PAGE_PLANET_AXIS {
+            controllers.append(nil)
+        }
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageViewController.dataSource = self
-        pageViewController.setViewControllers([viewControllerAt(index: 1)!], direction: .forward, animated: true, completion: nil)
-        pageViewController.view.frame = mPlaceholder.bounds
-        mPlaceholder.removeFromSuperview()
+        pageViewController.setViewControllers([viewControllerAt(index: startingPage)!], direction: .forward, animated: true, completion: nil)
+        mPlaceholder.addSubview(pageViewController.view)
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        let margins = mPlaceholder.layoutMarginsGuide
+        pageViewController.view.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        pageViewController.view.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        pageViewController.view.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        pageViewController.view.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
         addChild(pageViewController)
-        view.addSubview(pageViewController.view)
-        /*pageViewController.view.topAnchor.constraint(equalTo: mSubtitle.bottomAnchor).isActive = true
-        pageViewController.view.bottomAnchor.constraint(equalTo: mToolbar.topAnchor).isActive = true*/
         pageViewController.didMove(toParent: self)
     }
     
     func viewControllerAt(index: Int) -> UIViewController? {
+        if let ctrl = controllers[index] {
+            return ctrl
+        }
         var ctrl: AmaxBaseViewController?
         switch (index) {
         case PAGE_SUMMARY:
@@ -44,6 +62,8 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
             break
         }
         ctrl?.pageIndex = index
+        ctrl?.mParent = self
+        controllers[index] = ctrl
         return ctrl
     }
 
@@ -71,5 +91,48 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
 
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 0
+    }
+    
+    @IBAction func goToToday(_ sender: AnyObject!) {
+        mDataProvider?.setTodayDate()
+        title = mDataProvider?.currentDateString()
+        currentController().updateDisplay()
+        /*mSubtitle.text = String(format: "%@, %@",
+                      mDataProvider!.getHighlightTimeString(),
+                      mDataProvider!.locationName())*/
+    }
+
+    @IBAction func goToPreviousDate(_ sender: AnyObject!) {
+        if mDataProvider!.changeDate(deltaDays: -1) {
+            title = mDataProvider?.currentDateString()
+            currentController().updateDisplay()
+        }
+    }
+
+    @IBAction func goToNextDate(_ sender: AnyObject!) {
+        if mDataProvider!.changeDate(deltaDays: 1) {
+            title = mDataProvider?.currentDateString()
+            currentController().updateDisplay()
+        }
+    }
+
+    @IBAction func selectDate(_ sender: AnyObject!) {
+        if (AmaxBaseViewController.dateSelectController == nil) {
+            AmaxBaseViewController.dateSelectController = AmaxDateSelectController(nibName: "AmaxDateSelectController", bundle: Bundle.main)
+        }
+        let date = mDataProvider!.currentDate()
+        AmaxBaseViewController.dateSelectController!.datePicker?.date = date
+        navigationController?.pushViewController(AmaxBaseViewController.dateSelectController!, animated: true)
+    }
+
+    @IBAction func showSettings(_ sender: AnyObject!) {
+        if (AmaxBaseViewController.settingsController == nil) {
+            AmaxBaseViewController.settingsController = AmaxSettingsController(nibName: "AmaxSettingsController", bundle: nil)
+        }
+        self.navigationController?.pushViewController(AmaxBaseViewController.settingsController!, animated: true)
+    }
+
+    func currentController() -> AmaxBaseViewController {
+        return pageViewController.viewControllers?.first as! AmaxBaseViewController
     }
 }

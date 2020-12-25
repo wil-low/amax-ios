@@ -154,12 +154,15 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     override func updateDisplay() {
         if let dp = mDataProvider {
             makeSelected(nil)
+            if skipUpdate(dp) {
+                return
+            }
             title = dp.currentDateString()
             dp.prepareCalculation()
             dp.calculateAll(types: START_PAGE_ITEMS)
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
-            mCornerTime.text = dp.getHighlightTimeString()
+            mParent!.mCornerTime.text = dp.getHighlightTimeString()
 
             showEvent(label: mVocTime, dataProvider: dp, findType: EV_VOC, interpretationType: EV_VOC, string: { e in
                 "VOC " + e.normalizedRangeString(addSpaces: false)
