@@ -16,7 +16,10 @@ class AmaxDataProvider {
     private var mEvents = [AmaxEvent].init(repeating: AmaxEvent(), count: 1000)
     private var mCalendar = Calendar.current
     private var mCurrentDateComponents = DateComponents()
-    
+    var mCurrentYear: Int {
+        get { return mCurrentDateComponents.year! }
+    }
+
     private var mNavroz = [AmaxEvent].init(repeating: AmaxEvent(), count: 2)
     var mMoonPhases = [AmaxEvent]()
     var mEclipses = [AmaxEvent]()
@@ -869,9 +872,9 @@ class AmaxDataProvider {
     func changeDate(deltaDays: Int) -> Bool {
         let AmaxSECONDS_IN_DAY = 24 * 60 * 60;
         let newStart = alignDate(_mStartTime + AmaxSECONDS_IN_DAY * deltaDays + AmaxSECONDS_IN_DAY / 2)
-        if newStart < mStartJD || newStart >= mFinalJD {
-            return false
-        }
+        //if newStart < mStartJD || newStart >= mFinalJD {
+        //    return false
+        //}
         let newStartAligned = Date(timeIntervalSince1970: TimeInterval(newStart))
         mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newStartAligned)
 
@@ -982,5 +985,13 @@ class AmaxDataProvider {
             }
         }
         return nil
+    }
+    
+    func hasPeriod() -> Bool {
+        return (mStartTime >= mStartJD && mStartTime < mFinalJD);
+    }
+        
+    func hasLocation() -> Bool {
+        return mLocationDataFile != nil;
     }
 }

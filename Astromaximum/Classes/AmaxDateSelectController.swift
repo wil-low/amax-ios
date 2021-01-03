@@ -38,8 +38,6 @@ class AmaxDateSelectController : UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        datePicker?.minimumDate = Date(timeIntervalSince1970: TimeInterval(AmaxDataProvider.sharedInstance.mStartJD))
-        datePicker?.maximumDate = Date(timeIntervalSince1970: TimeInterval(AmaxDataProvider.sharedInstance.mFinalJD))
         let date = AmaxDataProvider.sharedInstance.currentDate()
         //print(date)
         datePicker!.setDate(date, animated: false)

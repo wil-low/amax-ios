@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17701"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxHelpTopicsController" customModule="Astromaximum" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -18,13 +18,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="mdW-4g-1LP" customClass="PlanetAxisView" customModule="Astromaximum" customModuleProvider="target">
-                    <rect key="frame" x="37" y="24" width="59" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdW-4g-1LP" customClass="DataMissingView" customModule="Astromaximum" customModuleProvider="target">
+                    <rect key="frame" x="16" y="44" width="288" height="416"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottomMargin" secondItem="mdW-4g-1LP" secondAttribute="bottom" id="DH9-ey-NhI"/>
+                <constraint firstAttribute="trailingMargin" secondItem="mdW-4g-1LP" secondAttribute="trailing" id="XTQ-02-6uC"/>
+                <constraint firstItem="mdW-4g-1LP" firstAttribute="leading" secondItem="1" secondAttribute="leadingMargin" id="gz6-bp-Hvp"/>
+                <constraint firstItem="mdW-4g-1LP" firstAttribute="top" secondItem="1" secondAttribute="topMargin" id="v8T-5P-1Th"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-36.231884057971016" y="134.59821428571428"/>
         </view>

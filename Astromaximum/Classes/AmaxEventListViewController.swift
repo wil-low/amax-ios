@@ -24,7 +24,7 @@ class AmaxEventListViewController : AmaxTableViewController {
     
     @IBOutlet weak var tvCell: AmaxTableCell?
 
-    override func updateDisplay() {
+    override func updateDisplay() -> Bool {
         if let dp = mDataProvider {
             title = dp.currentDateString()
             //TODO: extra calculation when the controller appears
@@ -34,6 +34,7 @@ class AmaxEventListViewController : AmaxTableViewController {
             updateSubtitle()
             mTableView.reloadData()
        }
+        return true
     }
 
     func updateSubtitle() {
@@ -122,8 +123,9 @@ class AmaxEventListViewController : AmaxTableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateDisplay()
-        mSwitchModeButton.isEnabled = detailItem?.extendedRangeMode() != AmaxSummaryItem.ExtendedRangeMode.none
+        if updateDisplay() {
+            mSwitchModeButton.isEnabled = detailItem?.extendedRangeMode() != AmaxSummaryItem.ExtendedRangeMode.none
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

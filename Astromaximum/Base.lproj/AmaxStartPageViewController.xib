@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxStartPageViewController" customModule="Astromaximum" customModuleProvider="target">
             <connections>
+                <outlet property="mDataAvailableView" destination="1Vy-dJ-U2b" id="RBd-S7-LaC"/>
+                <outlet property="mDataMissingView" destination="oqg-H9-TrT" id="QfS-kg-OWE"/>
                 <outlet property="mMoonBlock" destination="wgL-4s-Md5" id="k3z-Vo-Z1s"/>
                 <outlet property="mMoonDayStack" destination="rCY-7i-X9V" id="GTE-hY-8l7"/>
                 <outlet property="mMoonEclipse" destination="IER-QG-lZk" id="BXk-Sv-t95"/>
@@ -40,290 +42,310 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UNL-ui-bLn" userLabel="SView0">
-                    <rect key="frame" x="16" y="10" width="343" height="657"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqg-H9-TrT" userLabel="DataMissing" customClass="DataMissingView" customModule="Astromaximum" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Vy-dJ-U2b" userLabel="DataAvailable">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="scY-yy-Fxl" userLabel="SView1">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UNL-ui-bLn" userLabel="SView0">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-Sb-Uxn" userLabel="VocTime">
-                                    <rect key="frame" x="0.0" y="0.0" width="166.5" height="44"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMW-ew-u7z" userLabel="VcTime">
-                                    <rect key="frame" x="176.5" y="0.0" width="166.5" height="44"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="tuq-8M-eVi"/>
-                            </constraints>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tzy-W2-rd9" userLabel="SView11">
-                            <rect key="frame" x="0.0" y="99" width="343" height="177.5"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dXL-rZ-qFz" userLabel="SView2">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="177.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="scY-yy-Fxl" userLabel="SView1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WCL-ws-tBz" userLabel="SView2Col1">
-                                            <rect key="frame" x="0.0" y="0.0" width="95" height="177.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gf3-Sb-Uxn" userLabel="VocTime">
+                                            <rect key="frame" x="0.0" y="0.0" width="182.5" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMW-ew-u7z" userLabel="VcTime">
+                                            <rect key="frame" x="192.5" y="0.0" width="182.5" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="tuq-8M-eVi"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tzy-W2-rd9" userLabel="SView11">
+                                    <rect key="frame" x="0.0" y="97" width="375" height="195"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dXL-rZ-qFz" userLabel="SView2">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zh1-eP-nbc" userLabel="SunStack1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="88.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WCL-ws-tBz" userLabel="SView2Col1">
+                                                    <rect key="frame" x="0.0" y="0.0" width="104.5" height="195"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-zK-PfW" userLabel="SunStack11">
-                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="44.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zh1-eP-nbc" userLabel="SunStack1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104.5" height="97.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" text="S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-Ag-Cjg" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="10.5" height="44.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYh-Gd-qIP" userLabel="Spacer">
-                                                                    <rect key="frame" x="10.5" y="0.0" width="40" height="44.5"/>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                </view>
-                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMz-Zb-WTn" userLabel="SunEclipse" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                    <rect key="frame" x="50.5" y="0.0" width="44.5" height="44.5"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="EMz-Zb-WTn" secondAttribute="height" multiplier="1:1" id="hKW-3j-Cec"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMR-Fz-EEh" userLabel="SunDay">
-                                                            <rect key="frame" x="0.0" y="44.5" width="95" height="44"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o6c-cR-Iya" userLabel="MoonStack1">
-                                                    <rect key="frame" x="0.0" y="88.5" width="95" height="89"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCu-HQ-Fh0" userLabel="MoonStack11">
-                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="44.5"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNc-Bx-5ma" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="14.5" height="44.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0we-ey-FjC" userLabel="Spacer">
-                                                                    <rect key="frame" x="14.5" y="0.0" width="36" height="44.5"/>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                </view>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c74-Lb-YmW" userLabel="MoonEclipseQuarter">
-                                                                    <rect key="frame" x="50.5" y="0.0" width="44.5" height="44.5"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-zK-PfW" userLabel="SunStack11">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="104.5" height="49"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IER-QG-lZk" userLabel="MoonEclipse" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="44.5" height="44.5"/>
+                                                                        <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" text="S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-Ag-Cjg" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="10.5" height="49"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFX-a9-OqF" userLabel="MoonQuarter" customClass="MoonPhaseView" customModule="Astromaximum" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="44.5" height="44.5"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYh-Gd-qIP" userLabel="Spacer">
+                                                                            <rect key="frame" x="10.5" y="0.0" width="45" height="49"/>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         </view>
+                                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMz-Zb-WTn" userLabel="SunEclipse" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                            <rect key="frame" x="55.5" y="0.0" width="49" height="49"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="EMz-Zb-WTn" secondAttribute="height" multiplier="1:1" id="hKW-3j-Cec"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="trailing" secondItem="GFX-a9-OqF" secondAttribute="trailing" id="71v-ik-TNb"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="IER-QG-lZk" secondAttribute="bottom" id="OZK-yc-Z5I"/>
-                                                                        <constraint firstItem="IER-QG-lZk" firstAttribute="top" secondItem="c74-Lb-YmW" secondAttribute="top" id="ScH-GB-hPP"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="IER-QG-lZk" secondAttribute="trailing" id="TNz-bb-vUR"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="GFX-a9-OqF" secondAttribute="bottom" id="c0O-Iu-gWX"/>
-                                                                        <constraint firstAttribute="width" secondItem="c74-Lb-YmW" secondAttribute="height" multiplier="1:1" id="eNp-x1-km8"/>
-                                                                        <constraint firstItem="IER-QG-lZk" firstAttribute="leading" secondItem="c74-Lb-YmW" secondAttribute="leading" id="plb-6D-7lx"/>
-                                                                        <constraint firstItem="GFX-a9-OqF" firstAttribute="top" secondItem="c74-Lb-YmW" secondAttribute="top" id="qtX-I9-4aZ"/>
-                                                                        <constraint firstItem="GFX-a9-OqF" firstAttribute="leading" secondItem="c74-Lb-YmW" secondAttribute="leading" id="v5a-KY-HGp"/>
-                                                                    </constraints>
-                                                                </view>
+                                                                </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMR-Fz-EEh" userLabel="SunDay">
+                                                                    <rect key="frame" x="0.0" y="49" width="104.5" height="48.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-7i-X9V" userLabel="MoonDayStack">
-                                                            <rect key="frame" x="0.0" y="44.5" width="95" height="44.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o6c-cR-Iya" userLabel="MoonStack1">
+                                                            <rect key="frame" x="0.0" y="97.5" width="104.5" height="97.5"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCu-HQ-Fh0" userLabel="MoonStack11">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="104.5" height="48.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNc-Bx-5ma" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="14.5" height="48.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0we-ey-FjC" userLabel="Spacer">
+                                                                            <rect key="frame" x="14.5" y="0.0" width="41" height="48.5"/>
+                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                        </view>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c74-Lb-YmW" userLabel="MoonEclipseQuarter">
+                                                                            <rect key="frame" x="55.5" y="0.0" width="49" height="48.5"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IER-QG-lZk" userLabel="MoonEclipse" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="48.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFX-a9-OqF" userLabel="MoonQuarter" customClass="MoonPhaseView" customModule="Astromaximum" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="48.5"/>
+                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                </view>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="trailing" secondItem="GFX-a9-OqF" secondAttribute="trailing" id="71v-ik-TNb"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="IER-QG-lZk" secondAttribute="bottom" id="OZK-yc-Z5I"/>
+                                                                                <constraint firstItem="IER-QG-lZk" firstAttribute="top" secondItem="c74-Lb-YmW" secondAttribute="top" id="ScH-GB-hPP"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="IER-QG-lZk" secondAttribute="trailing" id="TNz-bb-vUR"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="GFX-a9-OqF" secondAttribute="bottom" id="c0O-Iu-gWX"/>
+                                                                                <constraint firstAttribute="width" secondItem="c74-Lb-YmW" secondAttribute="height" multiplier="1:1" id="eNp-x1-km8"/>
+                                                                                <constraint firstItem="IER-QG-lZk" firstAttribute="leading" secondItem="c74-Lb-YmW" secondAttribute="leading" id="plb-6D-7lx"/>
+                                                                                <constraint firstItem="GFX-a9-OqF" firstAttribute="top" secondItem="c74-Lb-YmW" secondAttribute="top" id="qtX-I9-4aZ"/>
+                                                                                <constraint firstItem="GFX-a9-OqF" firstAttribute="leading" secondItem="c74-Lb-YmW" secondAttribute="leading" id="v5a-KY-HGp"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-7i-X9V" userLabel="MoonDayStack">
+                                                                    <rect key="frame" x="0.0" y="48.5" width="104.5" height="49"/>
+                                                                </stackView>
+                                                            </subviews>
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-3D-isH" userLabel="SView2Col2">
-                                            <rect key="frame" x="105" y="0.0" width="95" height="177.5"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-jx-sS7" userLabel="SunBlock">
-                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="88.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-3D-isH" userLabel="SView2Col2">
+                                                    <rect key="frame" x="114.5" y="0.0" width="104.5" height="195"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="olO-2u-Dc7" userLabel="SView221">
-                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="88.5"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-jx-sS7" userLabel="SunBlock">
+                                                            <rect key="frame" x="0.0" y="0.0" width="104.5" height="97.5"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0Q-5j-SjK" userLabel="SView221">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="44.5"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="olO-2u-Dc7" userLabel="SView221">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="104.5" height="97.5"/>
                                                                     <subviews>
-                                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9c-U2-L2K" userLabel="Spacer1">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="34" height="44.5"/>
-                                                                        </view>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="22*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-IP-RZ8" userLabel="SunDegree">
-                                                                            <rect key="frame" x="34" y="0.0" width="27.5" height="44.5"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0Q-5j-SjK" userLabel="SView221">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="104.5" height="49"/>
+                                                                            <subviews>
+                                                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9c-U2-L2K" userLabel="Spacer1">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="38.5" height="49"/>
+                                                                                </view>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="22*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-IP-RZ8" userLabel="SunDegree">
+                                                                                    <rect key="frame" x="38.5" y="0.0" width="27.5" height="49"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KES-vw-PSy" userLabel="SunSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                                    <rect key="frame" x="66" y="0.0" width="0.0" height="49"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-F1-L8l" userLabel="Spacer2">
+                                                                                    <rect key="frame" x="66" y="0.0" width="38.5" height="49"/>
+                                                                                </view>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstItem="0pe-F1-L8l" firstAttribute="width" secondItem="U9c-U2-L2K" secondAttribute="width" id="iSc-kW-xH8"/>
+                                                                            </constraints>
+                                                                        </stackView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRe-b5-2bz" userLabel="SunDegreeTime">
+                                                                            <rect key="frame" x="0.0" y="49" width="104.5" height="48.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KES-vw-PSy" userLabel="SunSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                            <rect key="frame" x="61.5" y="0.0" width="0.0" height="44.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-F1-L8l" userLabel="Spacer2">
-                                                                            <rect key="frame" x="61.5" y="0.0" width="33.5" height="44.5"/>
-                                                                        </view>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="0pe-F1-L8l" firstAttribute="width" secondItem="U9c-U2-L2K" secondAttribute="width" id="iSc-kW-xH8"/>
+                                                                        <constraint firstItem="a0Q-5j-SjK" firstAttribute="centerX" secondItem="olO-2u-Dc7" secondAttribute="centerX" id="Amk-zb-uRb"/>
                                                                     </constraints>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRe-b5-2bz" userLabel="SunDegreeTime">
-                                                                    <rect key="frame" x="0.0" y="44.5" width="95" height="44"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                             </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="a0Q-5j-SjK" firstAttribute="centerX" secondItem="olO-2u-Dc7" secondAttribute="centerX" id="Amk-zb-uRb"/>
+                                                                <constraint firstAttribute="trailing" secondItem="olO-2u-Dc7" secondAttribute="trailing" id="QXg-un-r1y"/>
+                                                                <constraint firstItem="olO-2u-Dc7" firstAttribute="top" secondItem="EiY-jx-sS7" secondAttribute="top" id="gCj-Bd-CvK"/>
+                                                                <constraint firstAttribute="bottom" secondItem="olO-2u-Dc7" secondAttribute="bottom" id="yfc-mM-35z"/>
+                                                                <constraint firstItem="olO-2u-Dc7" firstAttribute="leading" secondItem="EiY-jx-sS7" secondAttribute="leading" id="zOA-g8-HbG"/>
                                                             </constraints>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="olO-2u-Dc7" secondAttribute="trailing" id="QXg-un-r1y"/>
-                                                        <constraint firstItem="olO-2u-Dc7" firstAttribute="top" secondItem="EiY-jx-sS7" secondAttribute="top" id="gCj-Bd-CvK"/>
-                                                        <constraint firstAttribute="bottom" secondItem="olO-2u-Dc7" secondAttribute="bottom" id="yfc-mM-35z"/>
-                                                        <constraint firstItem="olO-2u-Dc7" firstAttribute="leading" secondItem="EiY-jx-sS7" secondAttribute="leading" id="zOA-g8-HbG"/>
-                                                    </constraints>
-                                                </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgL-4s-Md5" userLabel="MoonBlock">
-                                                    <rect key="frame" x="0.0" y="88.5" width="95" height="89"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6RG-xY-gwO" userLabel="SView222">
-                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="89"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgL-4s-Md5" userLabel="MoonBlock">
+                                                            <rect key="frame" x="0.0" y="97.5" width="104.5" height="97.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYM-Nq-bkL" userLabel="MoonSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="95" height="44.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-EF-9Ls" userLabel="MoonSignTime">
-                                                                    <rect key="frame" x="0.0" y="44.5" width="95" height="44.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6RG-xY-gwO" userLabel="SView222">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="104.5" height="97.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYM-Nq-bkL" userLabel="MoonSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="104.5" height="48.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-EF-9Ls" userLabel="MoonSignTime">
+                                                                            <rect key="frame" x="0.0" y="48.5" width="104.5" height="49"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="6RG-xY-gwO" secondAttribute="trailing" id="eNr-1K-WnL"/>
+                                                                <constraint firstItem="6RG-xY-gwO" firstAttribute="top" secondItem="wgL-4s-Md5" secondAttribute="top" id="mOa-Ab-Gd4"/>
+                                                                <constraint firstItem="6RG-xY-gwO" firstAttribute="leading" secondItem="wgL-4s-Md5" secondAttribute="leading" id="pPF-gO-zBF"/>
+                                                                <constraint firstAttribute="bottom" secondItem="6RG-xY-gwO" secondAttribute="bottom" id="uXO-47-POP"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="opo-mX-z5a" userLabel="MoonPhaseStack">
+                                                    <rect key="frame" x="229" y="0.0" width="146" height="195"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR3-7x-pFI" userLabel="MoonPhase" customClass="MoonPhaseView" customModule="Astromaximum" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="146" height="146"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="PR3-7x-pFI" secondAttribute="height" multiplier="1:1" id="6oW-Uu-Aii"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Dj-9iL" userLabel="TithiStack">
+                                                            <rect key="frame" x="0.0" y="146" width="146" height="49"/>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="6RG-xY-gwO" secondAttribute="trailing" id="eNr-1K-WnL"/>
-                                                        <constraint firstItem="6RG-xY-gwO" firstAttribute="top" secondItem="wgL-4s-Md5" secondAttribute="top" id="mOa-Ab-Gd4"/>
-                                                        <constraint firstItem="6RG-xY-gwO" firstAttribute="leading" secondItem="wgL-4s-Md5" secondAttribute="leading" id="pPF-gO-zBF"/>
-                                                        <constraint firstAttribute="bottom" secondItem="6RG-xY-gwO" secondAttribute="bottom" id="uXO-47-POP"/>
+                                                        <constraint firstItem="PR3-7x-pFI" firstAttribute="height" secondItem="dtV-Dj-9iL" secondAttribute="height" multiplier="3:1" id="NsI-fs-Lc6"/>
                                                     </constraints>
-                                                </view>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="opo-mX-z5a" userLabel="MoonPhaseStack">
-                                            <rect key="frame" x="210" y="0.0" width="133" height="177.5"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR3-7x-pFI" userLabel="MoonPhase" customClass="MoonPhaseView" customModule="Astromaximum" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="133"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="PR3-7x-pFI" secondAttribute="height" multiplier="1:1" id="6oW-Uu-Aii"/>
-                                                    </constraints>
-                                                </view>
-                                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Dj-9iL" userLabel="TithiStack">
-                                                    <rect key="frame" x="0.0" y="133" width="133" height="44.5"/>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="PR3-7x-pFI" firstAttribute="height" secondItem="dtV-Dj-9iL" secondAttribute="height" multiplier="3:1" id="NsI-fs-Lc6"/>
+                                                <constraint firstItem="WCL-ws-tBz" firstAttribute="width" secondItem="UQi-3D-isH" secondAttribute="width" multiplier="1:1" id="KrH-oW-M2H"/>
+                                                <constraint firstItem="opo-mX-z5a" firstAttribute="width" secondItem="UQi-3D-isH" secondAttribute="width" multiplier="7:5" id="qVa-xP-6OC"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                </stackView>
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-LI-VFu" userLabel="MoonMoveScroll">
+                                    <rect key="frame" x="0.0" y="345" width="375" height="76"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="0Cv-z3-RlJ"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="WCL-ws-tBz" firstAttribute="width" secondItem="UQi-3D-isH" secondAttribute="width" multiplier="1:1" id="KrH-oW-M2H"/>
-                                        <constraint firstItem="opo-mX-z5a" firstAttribute="width" secondItem="UQi-3D-isH" secondAttribute="width" multiplier="7:5" id="qVa-xP-6OC"/>
+                                        <constraint firstAttribute="height" constant="76" id="Ed8-PY-lUG"/>
+                                        <constraint firstItem="gEx-VW-avL" firstAttribute="leading" secondItem="AKl-LI-VFu" secondAttribute="leading" id="P7g-sr-yT2"/>
+                                        <constraint firstAttribute="trailing" secondItem="gEx-VW-avL" secondAttribute="trailing" id="ac9-2B-6Gd"/>
+                                        <constraint firstItem="gEx-VW-avL" firstAttribute="top" secondItem="pGH-kw-KtC" secondAttribute="top" id="dlc-aX-5kV"/>
+                                        <constraint firstAttribute="bottom" secondItem="gEx-VW-avL" secondAttribute="bottom" id="jYM-nn-gE6"/>
                                     </constraints>
+                                    <viewLayoutGuide key="contentLayoutGuide" id="dEx-NX-rnd"/>
+                                    <viewLayoutGuide key="frameLayoutGuide" id="pGH-kw-KtC"/>
+                                </scrollView>
+                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-by-dVt" userLabel="Retrograde">
+                                    <rect key="frame" x="0.0" y="474" width="375" height="52"/>
+                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 </stackView>
-                            </subviews>
-                        </stackView>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-LI-VFu" userLabel="MoonMoveScroll">
-                            <rect key="frame" x="0.0" y="331" width="343" height="76"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="76" id="0Cv-z3-RlJ"/>
-                                    </constraints>
-                                </stackView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="76" id="Ed8-PY-lUG"/>
-                                <constraint firstItem="gEx-VW-avL" firstAttribute="leading" secondItem="AKl-LI-VFu" secondAttribute="leading" id="P7g-sr-yT2"/>
-                                <constraint firstAttribute="trailing" secondItem="gEx-VW-avL" secondAttribute="trailing" id="ac9-2B-6Gd"/>
-                                <constraint firstItem="gEx-VW-avL" firstAttribute="top" secondItem="pGH-kw-KtC" secondAttribute="top" id="dlc-aX-5kV"/>
-                                <constraint firstAttribute="bottom" secondItem="gEx-VW-avL" secondAttribute="bottom" id="jYM-nn-gE6"/>
-                            </constraints>
-                            <viewLayoutGuide key="contentLayoutGuide" id="dEx-NX-rnd"/>
-                            <viewLayoutGuide key="frameLayoutGuide" id="pGH-kw-KtC"/>
-                        </scrollView>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-by-dVt" userLabel="Retrograde">
-                            <rect key="frame" x="0.0" y="462" width="343" height="52"/>
-                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tIH-j7-Orv" userLabel="PlanetHourStack">
-                            <rect key="frame" x="0.0" y="569" width="343" height="88"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mO8-WC-eJE" userLabel="PlanetHourDay">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="ryD-VJ-LA9"/>
-                                    </constraints>
-                                </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-bb-AOH" userLabel="PlanetHourNight">
-                                    <rect key="frame" x="0.0" y="44" width="343" height="44"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="trD-Mi-Anu"/>
-                                    </constraints>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tIH-j7-Orv" userLabel="PlanetHourStack">
+                                    <rect key="frame" x="0.0" y="579" width="375" height="88"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mO8-WC-eJE" userLabel="PlanetHourDay">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="ryD-VJ-LA9"/>
+                                            </constraints>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xfR-bb-AOH" userLabel="PlanetHourNight">
+                                            <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="trD-Mi-Anu"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
                                 </stackView>
                             </subviews>
                         </stackView>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="UNL-ui-bLn" firstAttribute="top" secondItem="1Vy-dJ-U2b" secondAttribute="top" id="D5e-7u-qj2"/>
+                        <constraint firstAttribute="bottom" secondItem="UNL-ui-bLn" secondAttribute="bottom" id="ceL-wK-Mpn"/>
+                        <constraint firstItem="UNL-ui-bLn" firstAttribute="leading" secondItem="1Vy-dJ-U2b" secondAttribute="leading" id="gby-ZT-WBD"/>
+                        <constraint firstAttribute="trailing" secondItem="UNL-ui-bLn" secondAttribute="trailing" id="slg-XZ-NpX"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="UNL-ui-bLn" firstAttribute="leading" secondItem="13" secondAttribute="leadingMargin" id="8KX-pz-MZC"/>
-                <constraint firstItem="UNL-ui-bLn" firstAttribute="trailing" secondItem="13" secondAttribute="trailingMargin" id="vCo-Sg-gPn"/>
-                <constraint firstAttribute="bottom" secondItem="UNL-ui-bLn" secondAttribute="bottom" id="vl6-VQ-wL4"/>
-                <constraint firstItem="UNL-ui-bLn" firstAttribute="top" secondItem="13" secondAttribute="topMargin" constant="10" id="zD9-Zg-E33"/>
+                <constraint firstAttribute="trailing" secondItem="oqg-H9-TrT" secondAttribute="trailing" id="5LF-Nh-qqP"/>
+                <constraint firstAttribute="bottom" secondItem="1Vy-dJ-U2b" secondAttribute="bottom" id="5xb-9G-k6i"/>
+                <constraint firstAttribute="trailing" secondItem="1Vy-dJ-U2b" secondAttribute="trailing" id="8Hy-bc-ldH"/>
+                <constraint firstItem="1Vy-dJ-U2b" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="Bke-4y-F17"/>
+                <constraint firstItem="oqg-H9-TrT" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="SyY-mO-gvw"/>
+                <constraint firstItem="oqg-H9-TrT" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="fJH-FV-ELr"/>
+                <constraint firstAttribute="bottom" secondItem="oqg-H9-TrT" secondAttribute="bottom" id="l7q-B7-tWB"/>
+                <constraint firstItem="1Vy-dJ-U2b" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="nUA-BP-a9h"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="-391" y="106"/>

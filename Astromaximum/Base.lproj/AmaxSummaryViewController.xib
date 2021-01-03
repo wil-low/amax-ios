@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxSummaryViewController">
             <connections>
+                <outlet property="mDataAvailableView" destination="XMf-kj-3Ho" id="Kf2-tW-yKE"/>
+                <outlet property="mDataMissingView" destination="qKo-iS-d7R" id="Hxm-gm-2aC"/>
                 <outlet property="mTableView" destination="14" id="LZz-7g-1OZ"/>
                 <outlet property="view" destination="13" id="25"/>
             </connections>
@@ -19,21 +21,41 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKo-iS-d7R" userLabel="DataMissing" customClass="DataMissingView" customModule="Astromaximum" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="320" height="416"/>
-                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="26"/>
-                        <outlet property="delegate" destination="-1" id="27"/>
-                    </connections>
-                </tableView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMf-kj-3Ho" userLabel="DataAvailable">
+                    <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                            <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="26"/>
+                                <outlet property="delegate" destination="-1" id="27"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="14" firstAttribute="top" secondItem="XMf-kj-3Ho" secondAttribute="top" id="8AG-Qw-AG7"/>
+                        <constraint firstAttribute="trailing" secondItem="14" secondAttribute="trailing" id="A8b-2s-BhB"/>
+                        <constraint firstAttribute="bottom" secondItem="14" secondAttribute="bottom" id="eug-C8-m4X"/>
+                        <constraint firstItem="14" firstAttribute="leading" secondItem="XMf-kj-3Ho" secondAttribute="leading" id="vcJ-a2-geX"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="14" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="HiB-if-k1n"/>
-                <constraint firstItem="14" firstAttribute="trailing" secondItem="13" secondAttribute="trailing" id="NiV-Lr-JQg"/>
-                <constraint firstAttribute="bottomMargin" secondItem="14" secondAttribute="bottom" id="l0w-mZ-2IW"/>
-                <constraint firstItem="14" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="nx1-yX-pMX"/>
+                <constraint firstItem="qKo-iS-d7R" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="3uf-V1-sSm"/>
+                <constraint firstAttribute="bottom" secondItem="qKo-iS-d7R" secondAttribute="bottom" id="7nO-Xe-JCW"/>
+                <constraint firstItem="qKo-iS-d7R" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="Mmg-iW-z2i"/>
+                <constraint firstItem="XMf-kj-3Ho" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="QMJ-EE-0Rp"/>
+                <constraint firstItem="XMf-kj-3Ho" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="bgw-GW-pq8"/>
+                <constraint firstAttribute="bottom" secondItem="XMf-kj-3Ho" secondAttribute="bottom" id="cIU-YZ-hh7"/>
+                <constraint firstAttribute="trailing" secondItem="qKo-iS-d7R" secondAttribute="trailing" id="n6r-wR-jEU"/>
+                <constraint firstAttribute="trailing" secondItem="XMf-kj-3Ho" secondAttribute="trailing" id="wYx-z2-fdx"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

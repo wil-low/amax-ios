@@ -96,7 +96,7 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
     @IBAction func goToToday(_ sender: AnyObject!) {
         mDataProvider?.setTodayDate()
         title = mDataProvider?.currentDateString()
-        currentController().updateDisplay()
+        _ = currentController().updateDisplay()
         /*mSubtitle.text = String(format: "%@, %@",
                       mDataProvider!.getHighlightTimeString(),
                       mDataProvider!.locationName())*/
@@ -105,14 +105,14 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
     @IBAction func goToPreviousDate(_ sender: AnyObject!) {
         if mDataProvider!.changeDate(deltaDays: -1) {
             title = mDataProvider?.currentDateString()
-            currentController().updateDisplay()
+            _ = currentController().updateDisplay()
         }
     }
 
     @IBAction func goToNextDate(_ sender: AnyObject!) {
         if mDataProvider!.changeDate(deltaDays: 1) {
             title = mDataProvider?.currentDateString()
-            currentController().updateDisplay()
+            _ = currentController().updateDisplay()
         }
     }
 

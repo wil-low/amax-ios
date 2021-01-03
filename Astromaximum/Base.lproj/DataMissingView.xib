@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataMissingView" customModule="Astromaximum" customModuleProvider="target">
+            <connections>
+                <outlet property="mBuyButton" destination="wJl-ev-KiL" id="eBe-fe-Dzd"/>
+                <outlet property="mNoDataLabel" destination="xT7-gO-K2C" id="RWI-Ca-ZWK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="3ey-tz-Dye">
+            <rect key="frame" x="0.0" y="0.0" width="214" height="267"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4lw-kH-hkR" userLabel="StackView">
+                    <rect key="frame" x="0.0" y="0.0" width="214" height="267"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa5-BG-vRC" userLabel="Spacer1">
+                            <rect key="frame" x="0.0" y="0.0" width="214" height="108.5"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xT7-gO-K2C" userLabel="NoData">
+                            <rect key="frame" x="0.0" y="108.5" width="214" height="20.5"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJl-ev-KiL" userLabel="BuyData">
+                            <rect key="frame" x="0.0" y="129" width="214" height="30"/>
+                            <state key="normal" title="Buy Period"/>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpm-oy-Vo9" userLabel="Spacer2">
+                            <rect key="frame" x="0.0" y="159" width="214" height="108"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="hpm-oy-Vo9" firstAttribute="height" secondItem="oa5-BG-vRC" secondAttribute="height" id="Eet-07-R3s"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="4lw-kH-hkR" firstAttribute="leading" secondItem="3ey-tz-Dye" secondAttribute="leading" id="CoM-u3-23C"/>
+                <constraint firstItem="4lw-kH-hkR" firstAttribute="top" secondItem="3ey-tz-Dye" secondAttribute="top" id="OvB-5X-DFJ"/>
+                <constraint firstAttribute="trailing" secondItem="4lw-kH-hkR" secondAttribute="trailing" id="Z77-L2-a1l"/>
+                <constraint firstAttribute="bottom" secondItem="4lw-kH-hkR" secondAttribute="bottom" id="xe1-MF-OuA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-510" y="106"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

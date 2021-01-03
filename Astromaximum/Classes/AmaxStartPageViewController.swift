@@ -151,11 +151,14 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     }
 
     // MARK: - Update display
-    override func updateDisplay() {
+    override func updateDisplay() -> Bool {
+        if !super.updateDisplay() {
+            return false
+        }
         if let dp = mDataProvider {
             makeSelected(nil)
             if skipUpdate(dp) {
-                return
+                return false
             }
             title = dp.currentDateString()
             dp.prepareCalculation()
@@ -262,6 +265,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             
             makeSelected(selectedView)
         }
+        return true
     }
 
     func findInCache(dataProvider: AmaxDataProvider, findType: AmaxEventType) -> AmaxSummaryItem? {

@@ -69,7 +69,7 @@ class AmaxSummaryViewController : AmaxTableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.updateDisplay()
+        _ = self.updateDisplay()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -162,10 +162,13 @@ class AmaxSummaryViewController : AmaxTableViewController {
         }
     }
 
-    override func updateDisplay() {
+    override func updateDisplay() -> Bool {
+        if !super.updateDisplay() {
+            return false
+        }
         if let dp = mDataProvider {
             if skipUpdate(dp) {
-                return
+                return false
             }
             title = dp.currentDateString()
             dp.prepareCalculation()
@@ -174,5 +177,6 @@ class AmaxSummaryViewController : AmaxTableViewController {
             self.mCustomTime = dp.getCustomTime()
             mTableView.reloadData()
         }
+        return true
     }
 }

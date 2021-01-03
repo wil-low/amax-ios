@@ -65,10 +65,13 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
     	super.viewDidDisappear(animated)
     }
 
-    override func updateDisplay() {
+    override func updateDisplay() -> Bool {
+        if !super.updateDisplay() {
+            return false
+        }
         if let dp = mDataProvider {
             if skipUpdate(dp) {
-                return
+                return false
             }
             title = dp.currentDateString()
             dp.prepareCalculation()
@@ -144,5 +147,6 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
             }
             makeSelected(selectedView)
         }
+        return true
     }
 }

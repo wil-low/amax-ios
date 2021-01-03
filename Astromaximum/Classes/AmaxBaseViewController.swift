@@ -22,6 +22,11 @@ class AmaxBaseViewController : UIViewController {
     var mParent: AmaxPageController?
     var cachedStartTime = -1
     var cachedLocationId = ""
+    var cachedHasPeriod: Bool?
+    var cachedYear: Int?
+    
+    @IBOutlet weak var mDataMissingView: DataMissingView!
+    @IBOutlet weak var mDataAvailableView: UIView!
 
     static var eventListViewController: AmaxEventListViewController?
     static var interpreterController: AmaxInterpreterController?
@@ -29,7 +34,25 @@ class AmaxBaseViewController : UIViewController {
     static var settingsController: AmaxSettingsController?
     static var dateSelectController: AmaxDateSelectController?
 
-    func updateDisplay() {
+    func updateDisplay() -> Bool {
+        if let dp = mDataProvider {
+            let hasPeriod = dp.hasPeriod()
+            if (cachedHasPeriod == nil) || (cachedHasPeriod! != hasPeriod) || (cachedYear == nil) || (cachedYear != dp.mCurrentYear) {
+                cachedHasPeriod = hasPeriod
+                cachedYear = dp.mCurrentYear
+                mDataMissingView.isHidden = hasPeriod
+                mDataAvailableView.isHidden = !hasPeriod
+                if let parent = mParent {
+                    if !hasPeriod {
+                        mDataMissingView.setBuyButtonText(year: dp.mCurrentYear)
+                        parent.mCornerTime.text = ""
+                        parent.mSelectedViewTime.text = ""
+                    }
+                }
+            }
+            return hasPeriod
+        }
+        return true;
     }
 
     func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
@@ -70,5 +93,9 @@ class AmaxBaseViewController : UIViewController {
         cachedStartTime = dp.mStartTime
         cachedLocationId = dp.mLocationId
         return false
+    }
+    
+    @IBAction func buyPressed(_ sender: AnyObject?) {
+        print("Buy pressed")
     }
 }

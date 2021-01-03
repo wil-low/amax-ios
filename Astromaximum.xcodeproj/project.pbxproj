@@ -89,12 +89,14 @@
 		84E98AFF168E0FCA006AAA55 /* Aspects.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E98B01168E0FCA006AAA55 /* Aspects.strings */; };
 		84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 84E98B4D168E6331006AAA55 /* AmaxTypes.c */; };
 		84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84EB53F6168CE8010089D6F6 /* Localizable.strings */; };
+		BF263F1325A0A694007DA1D6 /* DataMissingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF7088B1259FB090001FA115 /* DataMissingView.xib */; };
 		BF2906AD258368BD00E8E3ED /* MoonMoveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2906AB258368BC00E8E3ED /* MoonMoveView.xib */; };
 		BF2906B3258368E400E8E3ED /* AmaxStartPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2906B1258368E400E8E3ED /* AmaxStartPageViewController.xib */; };
 		BF2906BC2583691400E8E3ED /* AmaxHelpTopicsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2906BA2583691400E8E3ED /* AmaxHelpTopicsController.xib */; };
 		BF2906C225836A2600E8E3ED /* XibTestController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2906C025836A2500E8E3ED /* XibTestController.xib */; };
 		BF328156258767E200EE7D5A /* PlanetPassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF328154258767E200EE7D5A /* PlanetPassView.xib */; };
 		BF3281592587684600EE7D5A /* PlanetPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3281582587684600EE7D5A /* PlanetPassView.swift */; };
+		BF7088AF259FAF97001FA115 /* DataMissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7088AE259FAF97001FA115 /* DataMissingView.swift */; };
 		BFB64884257BC20400175B49 /* PlanetAxisView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB64882257BC20400175B49 /* PlanetAxisView.xib */; };
 		BFB64887257BC5C600175B49 /* PlanetAxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB64886257BC5C500175B49 /* PlanetAxisView.swift */; };
 		BFB6488A257BC71A00175B49 /* AmaxPlanetAxisController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB64889257BC71A00175B49 /* AmaxPlanetAxisController.swift */; };
@@ -210,6 +212,8 @@
 		BF2906C125836A2500E8E3ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/XibTestController.xib; sourceTree = "<group>"; };
 		BF328155258767E200EE7D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PlanetPassView.xib; sourceTree = "<group>"; };
 		BF3281582587684600EE7D5A /* PlanetPassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetPassView.swift; sourceTree = "<group>"; };
+		BF7088AE259FAF97001FA115 /* DataMissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMissingView.swift; sourceTree = "<group>"; };
+		BF7088B2259FB090001FA115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DataMissingView.xib; sourceTree = "<group>"; };
 		BFB64883257BC20400175B49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PlanetAxisView.xib; sourceTree = "<group>"; };
 		BFB64886257BC5C500175B49 /* PlanetAxisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetAxisView.swift; sourceTree = "<group>"; };
 		BFB64889257BC71A00175B49 /* AmaxPlanetAxisController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxPlanetAxisController.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 		7214B0CD2585F082004558DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF7088B1259FB090001FA115 /* DataMissingView.xib */,
 				BF328154258767E200EE7D5A /* PlanetPassView.xib */,
 				BF2906AB258368BC00E8E3ED /* MoonMoveView.xib */,
 				BFB64882257BC20400175B49 /* PlanetAxisView.xib */,
@@ -256,6 +261,7 @@
 		7214B0D72585FC42004558DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BF7088AE259FAF97001FA115 /* DataMissingView.swift */,
 				BF3281582587684600EE7D5A /* PlanetPassView.swift */,
 				72142FEE2553CCB800452F4E /* MoonPhaseView.swift */,
 				BFB64886257BC5C500175B49 /* PlanetAxisView.swift */,
@@ -377,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				84E98B4F168E6331006AAA55 /* Cells */,
+				7214B0D72585FC42004558DE /* Views */,
 				84E98B7C168E63B6006AAA55 /* Controllers */,
 				84E98B38168E6331006AAA55 /* Utils */,
 				72AA2A6724DBC99600A5E00A /* AppDelegate.swift */,
@@ -415,7 +422,6 @@
 		84E98B4F168E6331006AAA55 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7214B0D72585FC42004558DE /* Views */,
 				726BC98124E5BFF100690CE2 /* AmaxAspectCell.swift */,
 				726BC98324E5BFF100690CE2 /* AmaxAspectSetCell.swift */,
 				726BC98424E5BFF100690CE2 /* AmaxMoonMoveCell.swift */,
@@ -558,6 +564,7 @@
 				BF2906BC2583691400E8E3ED /* AmaxHelpTopicsController.xib in Resources */,
 				72606C9824B82D9C009B0113 /* locations.dat in Resources */,
 				84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */,
+				BF263F1325A0A694007DA1D6 /* DataMissingView.xib in Resources */,
 				84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */,
 				84DFC23716A59E00003D8B01 /* AmaxInterpreterController.xib in Resources */,
 				84DFC23816A59E00003D8B01 /* AmaxLocationListController.xib in Resources */,
@@ -629,6 +636,7 @@
 				BFB64897257BFE7A00175B49 /* NibLoadable.swift in Sources */,
 				72ACB3B324E63724007C2813 /* AmaxEventListViewController.swift in Sources */,
 				72CAA1C924E4336E00A5E948 /* AmaxInterpretationProvider.swift in Sources */,
+				BF7088AF259FAF97001FA115 /* DataMissingView.swift in Sources */,
 				7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */,
 				72B35E98254F1AF800161D60 /* ColorCompatibility.swift in Sources */,
 				726BC98F24E5BFF200690CE2 /* AmaxPlanetHourCell.swift in Sources */,
@@ -964,6 +972,14 @@
 				BF328155258767E200EE7D5A /* Base */,
 			);
 			name = PlanetPassView.xib;
+			sourceTree = "<group>";
+		};
+		BF7088B1259FB090001FA115 /* DataMissingView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF7088B2259FB090001FA115 /* Base */,
+			);
+			name = DataMissingView.xib;
 			sourceTree = "<group>";
 		};
 		BFB64882257BC20400175B49 /* PlanetAxisView.xib */ = {

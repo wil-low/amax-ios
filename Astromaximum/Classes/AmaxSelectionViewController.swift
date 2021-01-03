@@ -15,8 +15,9 @@ class AmaxSelectionViewController : AmaxBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //TODO: Selection is lost here!
-        updateDisplay()
-        makeSelected(selectedView)
+        if updateDisplay() {
+            makeSelected(selectedView)
+        }
     }
 
     @objc func itemTapped(sender: UITapGestureRecognizer) {
