@@ -97,8 +97,6 @@ class AmaxSummaryViewController : AmaxTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = xibNames[indexPath.row]
 
-        let si = mDataProvider!.mEventCache[indexPath.row]
-
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
         if cell == nil {
             Bundle.main.loadNibNamed(cellIdentifier, owner: self, options: nil)
@@ -106,6 +104,11 @@ class AmaxSummaryViewController : AmaxTableViewController {
             tvCell = nil
             (cell as! AmaxTableCell).controller = self
         }
+        
+        if indexPath.row >= mDataProvider!.mEventCache.count {
+            return cell!
+        }
+        let si = mDataProvider!.mEventCache[indexPath.row]
 
         // Configure the cell.
         let c = cell as! AmaxTableCell
