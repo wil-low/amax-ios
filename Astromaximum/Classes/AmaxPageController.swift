@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
+class AmaxPageController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     let startingPage = PAGE_START
     var pageViewController: UIPageViewController!
 
@@ -18,6 +18,7 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
     @IBOutlet weak var mSelectedViewTime: UILabel!
 
     var mDataProvider: AmaxDataProvider?
+    var mFlippingInProgress = false
     
     var controllers = [AmaxBaseViewController?]()
 
@@ -34,6 +35,7 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
         }
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageViewController.dataSource = self
+        pageViewController.delegate = self
         pageViewController.setViewControllers([viewControllerAt(index: startingPage)!], direction: .forward, animated: true, completion: nil)
         mPlaceholder.addSubview(pageViewController.view)
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -94,6 +96,9 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
     }
     
     @IBAction func goToToday(_ sender: AnyObject!) {
+        if mFlippingInProgress {
+            return
+        }
         mDataProvider?.setTodayDate()
         title = mDataProvider?.currentDateString()
         _ = currentController().updateDisplay()
@@ -103,6 +108,9 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
     }
 
     @IBAction func goToPreviousDate(_ sender: AnyObject!) {
+        if mFlippingInProgress {
+            return
+        }
         if mDataProvider!.changeDate(deltaDays: -1) {
             title = mDataProvider?.currentDateString()
             _ = currentController().updateDisplay()
@@ -110,6 +118,9 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
     }
 
     @IBAction func goToNextDate(_ sender: AnyObject!) {
+        if mFlippingInProgress {
+            return
+        }
         if mDataProvider!.changeDate(deltaDays: 1) {
             title = mDataProvider?.currentDateString()
             _ = currentController().updateDisplay()
@@ -117,6 +128,9 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
     }
 
     @IBAction func selectDate(_ sender: AnyObject!) {
+        if mFlippingInProgress {
+            return
+        }
         if (AmaxBaseViewController.dateSelectController == nil) {
             AmaxBaseViewController.dateSelectController = AmaxDateSelectController(nibName: "AmaxDateSelectController", bundle: Bundle.main)
         }
@@ -126,6 +140,9 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
     }
 
     @IBAction func showSettings(_ sender: AnyObject!) {
+        if mFlippingInProgress {
+            return
+        }
         if (AmaxBaseViewController.settingsController == nil) {
             AmaxBaseViewController.settingsController = AmaxSettingsController(nibName: "AmaxSettingsController", bundle: nil)
         }
@@ -134,5 +151,13 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource {
 
     func currentController() -> AmaxBaseViewController {
         return pageViewController.viewControllers?.first as! AmaxBaseViewController
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo: [UIViewController]) {
+        mFlippingInProgress = true
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating: Bool, previousViewControllers: [UIViewController], transitionCompleted: Bool) {
+        mFlippingInProgress = false
     }
 }
