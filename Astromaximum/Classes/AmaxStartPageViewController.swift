@@ -96,15 +96,13 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         // retrograde spacers
         let spacer1 = UIView()
         spacer1.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        //spacerButton1.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        //spacerButton1.layer.borderWidth = 0.8
-        //spacerButton1.layer.borderColor = UIColor.red.cgColor
+        //spacer1.layer.borderWidth = 0.8
+        //spacer1.layer.borderColor = UIColor.red.cgColor
         mRetrogradeStack.addArrangedSubview(spacer1)
         let spacer2 = UIView()
         spacer2.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        //spacerButton2.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        //spacerButton2.layer.borderWidth = 0.8
-        //spacerButton2.layer.borderColor = UIColor.red.cgColor
+        //spacer2.layer.borderWidth = 0.8
+        //spacer2.layer.borderColor = UIColor.red.cgColor
         mRetrogradeStack.addArrangedSubview(spacer2)
         spacer1.widthAnchor.constraint(equalTo: spacer2.widthAnchor).isActive = true
     }
@@ -426,9 +424,6 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     }
 
     func showRetrogradeStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
-        //stack.layer.borderWidth = 0.8
-        //stack.layer.borderColor = UIColor.gray.cgColor
-
         let si = findInCache(dataProvider: dataProvider, findType: EV_RETROGRADE)!
         let viewCount = stack.arrangedSubviews.count - 2
         for i in 0 ..< si.mEvents.count {
@@ -452,11 +447,11 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
             v.gestureRecognizers = [tap]
 
-            //v.sizeToFit()
+            v.isHidden = false
         }
         // hide extra views
-        for i in si.mEvents.count ..< stack.subviews.count - 2 {
-            stack.subviews[i + 1].isHidden = true
+        for i in si.mEvents.count ..< stack.arrangedSubviews.count - 2 {
+            stack.arrangedSubviews[i + 1].isHidden = true
         }
 
         addLongPressRecognizer(view: stack, summaryItem: si, xib: "RetrogradeCell")
