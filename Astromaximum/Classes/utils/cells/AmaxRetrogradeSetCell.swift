@@ -42,15 +42,11 @@ class AmaxRetrogradeSetCell : AmaxTableCell {
             addGestureRecognizer(tap)
 
             for e in si.mEvents {
-                let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
-                if let dummy = cell.viewWithTag(3) {
-                    let planet = dummy.viewWithTag(1) as! UILabel
-                    planet.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
-                    planet.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE))
-                    //dummy.layer.borderWidth = 0.8
-                    //dummy.layer.borderColor = UIColor.gray.cgColor
-                    events.append(dummy)
-                }
+                let cell = RetrogradeView()
+                cell.mPlanet.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
+                //cell.layer.borderWidth = 0.8
+                //cell.layer.borderColor = UIColor.gray.cgColor
+                events.append(cell)
             }
 
             let spacerButton = UIView()

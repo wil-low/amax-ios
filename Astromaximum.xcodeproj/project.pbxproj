@@ -103,6 +103,8 @@
 		BFB64892257BCA6A00175B49 /* AmaxPlanetAxisController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB64890257BCA6A00175B49 /* AmaxPlanetAxisController.xib */; };
 		BFB64897257BFE7A00175B49 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB64896257BFE7A00175B49 /* NibLoadable.swift */; };
 		BFBE2E77258FDDF000F3009A /* AmaxPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFBE2E75258FDDF000F3009A /* AmaxPageController.xib */; };
+		BFC2A35B25A43A4D008D82DD /* RetrogradeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A35925A43A4D008D82DD /* RetrogradeView.xib */; };
+		BFC2A35E25A43A86008D82DD /* RetrogradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A35D25A43A85008D82DD /* RetrogradeView.swift */; };
 		BFD159C7258D3F010056D76E /* AmaxPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD159C6258D3F010056D76E /* AmaxPageController.swift */; };
 /* End PBXBuildFile section */
 
@@ -220,6 +222,8 @@
 		BFB64891257BCA6A00175B49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxPlanetAxisController.xib; sourceTree = "<group>"; };
 		BFB64896257BFE7A00175B49 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		BFBE2E76258FDDF000F3009A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxPageController.xib; sourceTree = "<group>"; };
+		BFC2A35A25A43A4D008D82DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RetrogradeView.xib; sourceTree = "<group>"; };
+		BFC2A35D25A43A85008D82DD /* RetrogradeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrogradeView.swift; sourceTree = "<group>"; };
 		BFD159C6258D3F010056D76E /* AmaxPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxPageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,6 +244,7 @@
 		7214B0CD2585F082004558DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFC2A35925A43A4D008D82DD /* RetrogradeView.xib */,
 				BF7088B1259FB090001FA115 /* DataMissingView.xib */,
 				BF328154258767E200EE7D5A /* PlanetPassView.xib */,
 				BF2906AB258368BC00E8E3ED /* MoonMoveView.xib */,
@@ -261,6 +266,7 @@
 		7214B0D72585FC42004558DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFC2A35D25A43A85008D82DD /* RetrogradeView.swift */,
 				BF7088AE259FAF97001FA115 /* DataMissingView.swift */,
 				BF3281582587684600EE7D5A /* PlanetPassView.swift */,
 				72142FEE2553CCB800452F4E /* MoonPhaseView.swift */,
@@ -546,6 +552,7 @@
 				84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */,
 				84EB53F4168CE8010089D6F6 /* Localizable.strings in Resources */,
 				84E39A08168DCF73005DC0C5 /* interpret.dat in Resources */,
+				BFC2A35B25A43A4D008D82DD /* RetrogradeView.xib in Resources */,
 				BFBE2E77258FDDF000F3009A /* AmaxPageController.xib in Resources */,
 				84E98AE7168E0F2A006AAA55 /* Planets.strings in Resources */,
 				BFB64884257BC20400175B49 /* PlanetAxisView.xib in Resources */,
@@ -637,6 +644,7 @@
 				72ACB3B324E63724007C2813 /* AmaxEventListViewController.swift in Sources */,
 				72CAA1C924E4336E00A5E948 /* AmaxInterpretationProvider.swift in Sources */,
 				BF7088AF259FAF97001FA115 /* DataMissingView.swift in Sources */,
+				BFC2A35E25A43A86008D82DD /* RetrogradeView.swift in Sources */,
 				7229137A24DFA6A0005B0698 /* AmaxLocationBundle.swift in Sources */,
 				72B35E98254F1AF800161D60 /* ColorCompatibility.swift in Sources */,
 				726BC98F24E5BFF200690CE2 /* AmaxPlanetHourCell.swift in Sources */,
@@ -1004,6 +1012,14 @@
 				BFBE2E76258FDDF000F3009A /* Base */,
 			);
 			name = AmaxPageController.xib;
+			sourceTree = "<group>";
+		};
+		BFC2A35925A43A4D008D82DD /* RetrogradeView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFC2A35A25A43A4D008D82DD /* Base */,
+			);
+			name = RetrogradeView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

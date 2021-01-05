@@ -428,21 +428,17 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         let viewCount = stack.arrangedSubviews.count - 2
         for i in 0 ..< si.mEvents.count {
             let event = si.mEvents[i]
-            var v: UIView
+            var v: RetrogradeView
             if viewCount <= i {
                 // create a new view
-                let cell = Bundle.main.loadNibNamed("RetrogradeCell", owner: self, options: nil)![0] as! UIView
-                v = cell.viewWithTag(3)!
-                let planet = v.viewWithTag(1) as! UILabel
-                planet.font = UIFont(name: "Astronom", size: CGFloat(AmaxLABEL_FONT_SIZE))
+                v = RetrogradeView()
                 addBorders(to: v)
                 stack.insertArrangedSubview(v, at: i + 1)
             }
             else {
-                v = stack.arrangedSubviews[i + 1]
+                v = stack.arrangedSubviews[i + 1] as! RetrogradeView
             }
-            let planet = v.viewWithTag(1) as! UILabel
-            planet.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
+            v.mPlanet.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
 
             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
             v.gestureRecognizers = [tap]
