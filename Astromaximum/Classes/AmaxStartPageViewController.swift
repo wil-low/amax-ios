@@ -120,9 +120,6 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let backButton = UIBarButtonItem(title: NSLocalizedString("Summary", comment: "Summary"), style: .plain, target: nil, action: nil)
-        //navigationItem.backBarButtonItem = backButton
-        AmaxBaseViewController.interpreterController!.view.layoutSubviews()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -139,6 +136,8 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     }
 
     func centerMoonMoveScroll(flash: Bool) {
+        //mMoonMoveScroll.layer.borderWidth = 0.8
+        //mMoonMoveScroll.layer.borderColor = UIColor.red.cgColor
         mMoonMoveScroll.setNeedsLayout()
         mMoonMoveScroll.layoutIfNeeded()
         let newContentOffsetX = (mMoonMoveScroll.contentSize.width - mMoonMoveScroll.frame.size.width) / 2;
@@ -387,9 +386,6 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     }
 
     func showMoonMoveStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
-        //stack.layer.borderWidth = 0.8
-        //stack.layer.borderColor = UIColor.gray.cgColor
-
         var activeEvent: AmaxEvent?
         let si = findInCache(dataProvider: dataProvider, findType: EV_MOON_MOVE)!
         var pos = -1
@@ -417,8 +413,8 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             v.widthAnchor.constraint(equalTo: v.heightAnchor, multiplier: CGFloat(0.5)).isActive = true
         }
         // hide extra views
-        for i in si.mEvents.count ..< stack.subviews.count {
-            stack.subviews[i].isHidden = true
+        for i in si.mEvents.count ..< stack.arrangedSubviews.count {
+            stack.arrangedSubviews[i].isHidden = true
         }
         addLongPressRecognizer(view: stack, summaryItem: si, xib: "MoonMoveCell")
     }

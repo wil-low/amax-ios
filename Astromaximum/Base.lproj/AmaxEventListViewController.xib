@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,20 +42,20 @@
                     <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="LyU-aD-Jmd"/>
-                        <barButtonItem image="previous" width="44" style="plain" id="14">
+                        <barButtonItem image="previous" width="44" style="plain" id="14" userLabel="Previous">
                             <inset key="imageInsets" minX="0.0" minY="2" maxX="0.0" maxY="-2"/>
                             <connections>
                                 <action selector="goToPreviousDate:" destination="-1" id="SFf-ee-vtQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="26" style="plain" systemItem="fixedSpace" id="grT-v4-OWi"/>
-                        <barButtonItem image="calendar" catalog="system" id="SpK-AL-Ijb">
+                        <barButtonItem image="calendar" catalog="system" id="SpK-AL-Ijb" userLabel="Mode">
                             <connections>
                                 <action selector="switchMode:" destination="-1" id="AGD-3R-F8l"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem width="26" style="plain" systemItem="fixedSpace" id="muR-HD-fSG"/>
-                        <barButtonItem image="next" width="44" style="plain" id="13">
+                        <barButtonItem image="next" width="44" style="plain" id="13" userLabel="Next">
                             <inset key="imageInsets" minX="0.0" minY="2" maxX="0.0" maxY="-2"/>
                             <connections>
                                 <action selector="goToNextDate:" destination="-1" id="C8k-xF-Wzx"/>

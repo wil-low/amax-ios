@@ -42,3 +42,13 @@ func createStartingController() -> UIViewController {
     return AmaxPageController(nibName: "AmaxPageController", bundle: nil)
     //return AmaxBaseViewController(nibName: "XibTestController", bundle: nil)
 }
+
+extension UIScrollView {
+    func resizeScrollViewContentSize() {
+        var contentRect = CGRect.zero
+        for view in self.subviews {
+            contentRect = contentRect.union(view.frame)
+        }
+        self.contentSize = contentRect.size
+    }
+}

@@ -29,6 +29,7 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource, UIP
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        AmaxBaseViewController.interpreterController!.view.layoutSubviews()
         mDataProvider = AmaxDataProvider.sharedInstance
         for _ in PAGE_SUMMARY ... PAGE_PLANET_AXIS {
             controllers.append(nil)
