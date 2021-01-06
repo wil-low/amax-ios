@@ -158,4 +158,18 @@ class AmaxEventListViewController : AmaxTableViewController {
             }
         }
     }
+    
+    @IBAction func goToPreviousDate(_ sender: AnyObject!) {
+        if mDataProvider!.changeDate(deltaDays: -1) {
+            title = mDataProvider?.currentDateString()
+            _ = updateDisplay()
+        }
+    }
+
+    @IBAction func goToNextDate(_ sender: AnyObject!) {
+        if mDataProvider!.changeDate(deltaDays: 1) {
+            title = mDataProvider?.currentDateString()
+            _ = updateDisplay()
+        }
+    }
 }
