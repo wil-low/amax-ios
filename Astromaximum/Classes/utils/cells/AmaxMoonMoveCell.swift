@@ -51,7 +51,7 @@ class AmaxMoonMoveCell : AmaxTableCell {
                     //setColorByEventMode(mText0, e);
                     break
                 case EV_ASP_EXACT_MOON:
-                    timeLabel?.text = AmaxEvent.long2String(date0, format: (mDataProvider?.isInCurrentDay(date: date0))! ? nil : AmaxEvent.monthAbbrDayDateFormatter(), h24: true)
+                    timeLabel?.text = AmaxEvent.long2String(date0, format: (mDataProvider?.isInCurrentDay(date: date0))! ? nil : AmaxEvent.monthAbbrDayDateFormatter(), h24: false)
                     
                     planetLabel0?.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
                     signLabel?.text = String(format: "%c", getSymbol(TYPE_ASPECT, Int32(e.mDegree)))
