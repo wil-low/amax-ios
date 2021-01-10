@@ -124,7 +124,6 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        centerMoonMoveScroll(flash: false)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -134,6 +133,11 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     override func viewDidDisappear(_ animated: Bool) {
     	super.viewDidDisappear(animated)
     }
+    
+    override func viewDidLayoutSubviews() {
+        //print("viewDidLayoutSubviews")
+        centerMoonMoveScroll(flash: false)
+    }
 
     func centerMoonMoveScroll(flash: Bool) {
         //mMoonMoveScroll.layer.borderWidth = 0.8
@@ -141,6 +145,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         mMoonMoveScroll.setNeedsLayout()
         mMoonMoveScroll.layoutIfNeeded()
         let newContentOffsetX = (mMoonMoveScroll.contentSize.width - mMoonMoveScroll.frame.size.width) / 2;
+        //print("centerMoonMoveScroll \(newContentOffsetX) = (\(mMoonMoveScroll.contentSize.width) - \(mMoonMoveScroll.frame.size.width) / 2; \(view.frame.size.width)")
         mMoonMoveScroll.setContentOffset(CGPoint(x: newContentOffsetX, y: 0), animated: false)
         if flash && newContentOffsetX > 0 {
             mMoonMoveScroll.flashScrollIndicators()
@@ -257,8 +262,6 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             
             showPlanetHourStack(stack: mPlanetHourDayStack, dataProvider: dp, isDay: true)
             showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
-            
-            centerMoonMoveScroll(flash: false)
             
             makeSelected(selectedView)
         }
