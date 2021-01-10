@@ -50,7 +50,6 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="KUH-7w-kyh" firstAttribute="leading" secondItem="MHI-43-yj5" secondAttribute="leading" id="6ro-S4-u0U"/>
                 <constraint firstItem="KUH-7w-kyh" firstAttribute="top" secondItem="MHI-43-yj5" secondAttribute="top" id="Di1-hQ-MD2"/>
