@@ -48,9 +48,9 @@ import UIKit
         for e in passes {
             if isMoon {
                 let pass = AmaxAstroLabel()
+                pass.adjustsFontForContentSizeCategory = true
                 pass.awakeFromNib()
                 pass.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() % 30)))
-                //pass.adjustsFontForContentSizeCategory = true
                 pass.textAlignment = .center
                 pass.isUserInteractionEnabled = true
                 passCallback(pass, e)
