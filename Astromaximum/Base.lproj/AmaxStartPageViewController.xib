@@ -87,16 +87,12 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-zK-PfW" userLabel="SunStack11">
                                                                     <rect key="frame" x="0.0" y="0.0" width="104.5" height="49"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" text="S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-Ag-Cjg" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="10.5" height="49"/>
+                                                                        <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-Ag-Cjg" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="55.5" height="49"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYh-Gd-qIP" userLabel="Spacer">
-                                                                            <rect key="frame" x="10.5" y="0.0" width="45" height="49"/>
-                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        </view>
                                                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMz-Zb-WTn" userLabel="SunEclipse" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
                                                                             <rect key="frame" x="55.5" y="0.0" width="49" height="49"/>
                                                                             <constraints>
@@ -122,16 +118,12 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCu-HQ-Fh0" userLabel="MoonStack11">
                                                                     <rect key="frame" x="0.0" y="0.0" width="104.5" height="48.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNc-Bx-5ma" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="14.5" height="48.5"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LNc-Bx-5ma" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="55.5" height="48.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0we-ey-FjC" userLabel="Spacer">
-                                                                            <rect key="frame" x="14.5" y="0.0" width="41" height="48.5"/>
-                                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                        </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c74-Lb-YmW" userLabel="MoonEclipseQuarter">
                                                                             <rect key="frame" x="55.5" y="0.0" width="49" height="48.5"/>
                                                                             <subviews>
