@@ -223,7 +223,7 @@ open class DatePickerDialog: UIView {
         //Title
         self.titleLabel = UILabel(frame: CGRect(x: 10, y: 10, width: 280, height: 30))
         self.titleLabel.textAlignment = .center
-        self.titleLabel.textColor = self.textColor
+        //self.titleLabel.textColor = self.textColor
         self.titleLabel.font = self.font.withSize(17)
         container.addSubview(self.titleLabel)
 
@@ -238,7 +238,7 @@ open class DatePickerDialog: UIView {
 
     fileprivate func configuredDatePicker() -> UIDatePicker {
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 30, width: 0, height: 0))
-        datePicker.setValue(self.textColor, forKeyPath: "textColor")
+        //datePicker.setValue(self.textColor, forKeyPath: "textColor")
         datePicker.autoresizingMask = .flexibleRightMargin
         datePicker.frame.size.width = 300
         datePicker.frame.size.height = 216
