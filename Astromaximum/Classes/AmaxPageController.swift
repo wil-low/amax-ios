@@ -31,7 +31,7 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource, UIP
         super.viewDidLoad()
         AmaxBaseViewController.interpreterController!.view.layoutSubviews()
         mDataProvider = AmaxDataProvider.sharedInstance
-        for _ in PAGE_SUMMARY ... PAGE_PLANET_AXIS {
+        for _ in PAGE_SUMMARY ... PAGE_DECUMBITURE {
             controllers.append(nil)
         }
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -61,6 +61,8 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource, UIP
             ctrl = AmaxStartPageViewController(nibName: "AmaxStartPageViewController", bundle: nil)
         case PAGE_PLANET_AXIS:
             ctrl = AmaxPlanetAxisController(nibName: "AmaxPlanetAxisController", bundle: nil)
+        case PAGE_DECUMBITURE:
+            ctrl = AmaxDecumbitureController(nibName: "AmaxDecumbitureController", bundle: nil)
         default:
             break
         }
