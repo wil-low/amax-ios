@@ -134,12 +134,18 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource, UIP
         if mFlippingInProgress {
             return
         }
-        if (AmaxBaseViewController.dateSelectController == nil) {
-            AmaxBaseViewController.dateSelectController = AmaxDateSelectController(nibName: "AmaxDateSelectController", bundle: Bundle.main)
+        let dpd = DatePickerDialog()
+        dpd.show(  NSLocalizedString("date_picker_title", comment:"")
+                 , doneButtonTitle: NSLocalizedString("date_picker_done", comment:"")
+                 , cancelButtonTitle: NSLocalizedString("date_picker_cancel", comment:"")
+                 , defaultDate: mDataProvider!.currentDate()
+                 , datePickerMode: .date) { date in
+            if let dt = date {
+                AmaxDataProvider.sharedInstance.setDate(from: dt)
+                self.viewWillAppear(false)
+                _ = self.currentController().updateDisplay()
+            }
         }
-        let date = mDataProvider!.currentDate()
-        AmaxBaseViewController.dateSelectController!.datePicker?.date = date
-        navigationController?.pushViewController(AmaxBaseViewController.dateSelectController!, animated: true)
     }
 
     @IBAction func showSettings(_ sender: AnyObject!) {

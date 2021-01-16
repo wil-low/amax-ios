@@ -18,6 +18,9 @@
 		7229138224DFF422005B0698 /* AmaxDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229138124DFF422005B0698 /* AmaxDataProvider.swift */; };
 		7245FD4D24F373E7000D71E1 /* Months.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7245FD4B24F373E7000D71E1 /* Months.strings */; };
 		7245FD5124F37AC5000D71E1 /* RetrogradeSetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7245FD4F24F37AC4000D71E1 /* RetrogradeSetCell.xib */; };
+		72469C5F25B2A71300AC3EEF /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72469C5A25B2A71300AC3EEF /* UIColor+Ext.swift */; };
+		72469C6025B2A71300AC3EEF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72469C5B25B2A71300AC3EEF /* Colors.swift */; };
+		72469C6125B2A71300AC3EEF /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72469C5C25B2A71300AC3EEF /* DatePickerDialog.swift */; };
 		72606C9424B823FB009B0113 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9324B823FB009B0113 /* Default-568h@2x.png */; };
 		72606C9824B82D9C009B0113 /* locations.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9724B82CBE009B0113 /* locations.dat */; };
 		72606C9924B82DA0009B0113 /* common.dat in Resources */ = {isa = PBXBuildFile; fileRef = 72606C9624B82CB4009B0113 /* common.dat */; };
@@ -55,7 +58,6 @@
 		72B6C66524C8052C00E7BC98 /* EventListTitle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 72B6C66324C8052C00E7BC98 /* EventListTitle.strings */; };
 		72B6E2A62575FB3E00CB9BFF /* HelpTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B6E2A42575FB3D00CB9BFF /* HelpTopicCell.xib */; };
 		72CAA1C924E4336E00A5E948 /* AmaxInterpretationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAA1C824E4336E00A5E948 /* AmaxInterpretationProvider.swift */; };
-		72CAA1CB24E4423C00A5E948 /* AmaxDateSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */; };
 		72CAA1CD24E4496A00A5E948 /* AmaxInterpreterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CAA1CC24E4496A00A5E948 /* AmaxInterpreterController.swift */; };
 		72DB5BA224DC63AC00E20F7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AA2A6724DBC99600A5E00A /* AppDelegate.swift */; };
 		72DB5BA424DC685000E20F7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DB5BA324DC685000E20F7E /* SceneDelegate.swift */; };
@@ -67,7 +69,6 @@
 		84B1AC791647BB3E007188B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84B1AC771647BB3E007188B1 /* InfoPlist.strings */; };
 		84D5B4B7166EA4ED00F30D70 /* Astronom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D5B4B6166EA4ED00F30D70 /* Astronom.ttf */; };
 		84DF76D9175957BD00A3D7A9 /* WeekDays.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84DF76DB175957BD00A3D7A9 /* WeekDays.strings */; };
-		84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */; };
 		84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */; };
 		84DFC23716A59E00003D8B01 /* AmaxInterpreterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22D16A59E00003D8B01 /* AmaxInterpreterController.xib */; };
 		84DFC23816A59E00003D8B01 /* AmaxLocationListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DFC22F16A59E00003D8B01 /* AmaxLocationListController.xib */; };
@@ -123,6 +124,10 @@
 		7245FD4C24F373E7000D71E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Months.strings; sourceTree = "<group>"; };
 		7245FD4E24F37425000D71E1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Months.strings; sourceTree = "<group>"; };
 		7245FD5024F37AC4000D71E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RetrogradeSetCell.xib; sourceTree = "<group>"; };
+		72469C5A25B2A71300AC3EEF /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		72469C5B25B2A71300AC3EEF /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		72469C5C25B2A71300AC3EEF /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
+		72469C6525B2A73500AC3EEF /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
 		72606C9324B823FB009B0113 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		72606C9624B82CB4009B0113 /* common.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = common.dat; sourceTree = "<group>"; };
 		72606C9724B82CBE009B0113 /* locations.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = locations.dat; sourceTree = "<group>"; };
@@ -151,7 +156,6 @@
 		727CAEAA24C1609F0008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TithiCell.xib; sourceTree = "<group>"; };
 		727CAEAB24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ViaCombustaCell.xib; sourceTree = "<group>"; };
 		727CAEAC24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VocCell.xib; sourceTree = "<group>"; };
-		727CAEAD24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxDateSelectController.xib; sourceTree = "<group>"; };
 		727CAEAE24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxEventListViewController.xib; sourceTree = "<group>"; };
 		727CAEAF24C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxInterpreterController.xib; sourceTree = "<group>"; };
 		727CAEB024C160A00008A769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxLocationListController.xib; sourceTree = "<group>"; };
@@ -178,7 +182,6 @@
 		72B6C66624C8053D00E7BC98 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/EventListTitle.strings; sourceTree = "<group>"; };
 		72B6E2A52575FB3E00CB9BFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HelpTopicCell.xib; sourceTree = "<group>"; };
 		72CAA1C824E4336E00A5E948 /* AmaxInterpretationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxInterpretationProvider.swift; sourceTree = "<group>"; };
-		72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxDateSelectController.swift; sourceTree = "<group>"; };
 		72CAA1CC24E4496A00A5E948 /* AmaxInterpreterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxInterpreterController.swift; sourceTree = "<group>"; };
 		72DB5BA324DC685000E20F7E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		72DB5BA824DC702500E20F7E /* AmaxCommonDataFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxCommonDataFile.swift; sourceTree = "<group>"; };
@@ -277,6 +280,17 @@
 				BFB64886257BC5C500175B49 /* PlanetAxisView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		72469C5725B2A71300AC3EEF /* DatePickerDialog */ = {
+			isa = PBXGroup;
+			children = (
+				72469C6525B2A73500AC3EEF /* README.mdown */,
+				72469C5A25B2A71300AC3EEF /* UIColor+Ext.swift */,
+				72469C5B25B2A71300AC3EEF /* Colors.swift */,
+				72469C5C25B2A71300AC3EEF /* DatePickerDialog.swift */,
+			);
+			path = DatePickerDialog;
 			sourceTree = "<group>";
 		};
 		8483FDDA166594AD000C9143 /* Resources */ = {
@@ -408,6 +422,7 @@
 		84E98B38168E6331006AAA55 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				72469C5725B2A71300AC3EEF /* DatePickerDialog */,
 				BFB64896257BFE7A00175B49 /* NibLoadable.swift */,
 				726BBAD32574AEA40071B112 /* AmaxLongPressRecognizer.swift */,
 				726BBAD02574AE3C0071B112 /* AmaxTapRecognizer.swift */,
@@ -457,7 +472,6 @@
 				7214B0D52585F7E3004558DE /* Base */,
 				BFB64889257BC71A00175B49 /* AmaxPlanetAxisController.swift */,
 				BF2EDFD525B23E0E00017520 /* AmaxDecumbitureController.swift */,
-				72CAA1CA24E4423C00A5E948 /* AmaxDateSelectController.swift */,
 				72ACB3B224E63724007C2813 /* AmaxEventListViewController.swift */,
 				72A3F174255EC38000AD8ABF /* AmaxHelpTopicsController.swift */,
 				72CAA1CC24E4496A00A5E948 /* AmaxInterpreterController.swift */,
@@ -475,7 +489,6 @@
 				BF2EDFD125B23DFC00017520 /* AmaxDecumbitureController.xib */,
 				BFBE2E75258FDDF000F3009A /* AmaxPageController.xib */,
 				BF2906C025836A2500E8E3ED /* XibTestController.xib */,
-				84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */,
 				BFB64890257BCA6A00175B49 /* AmaxPlanetAxisController.xib */,
 				84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */,
 				84DFC22D16A59E00003D8B01 /* AmaxInterpreterController.xib */,
@@ -577,7 +590,6 @@
 				72A3F182255F056900AD8ABF /* ConstellNominative.strings in Resources */,
 				BF2906BC2583691400E8E3ED /* AmaxHelpTopicsController.xib in Resources */,
 				72606C9824B82D9C009B0113 /* locations.dat in Resources */,
-				84DFC23516A59E00003D8B01 /* AmaxDateSelectController.xib in Resources */,
 				BF263F1325A0A694007DA1D6 /* DataMissingView.xib in Resources */,
 				84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */,
 				84DFC23716A59E00003D8B01 /* AmaxInterpreterController.xib in Resources */,
@@ -643,7 +655,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				726BC98924E5BFF200690CE2 /* AmaxTableCell.swift in Sources */,
-				72CAA1CB24E4423C00A5E948 /* AmaxDateSelectController.swift in Sources */,
 				72DB5BA424DC685000E20F7E /* SceneDelegate.swift in Sources */,
 				72A9B7B024ECC78600C1A6DD /* AmaxRetrogradeSetCell.swift in Sources */,
 				729C4FDC24DDD23D0058E1EA /* AmaxDataInputStream.swift in Sources */,
@@ -657,6 +668,7 @@
 				726BC98F24E5BFF200690CE2 /* AmaxPlanetHourCell.swift in Sources */,
 				BFD159C7258D3F010056D76E /* AmaxPageController.swift in Sources */,
 				7229138024DFCDDF005B0698 /* AmaxLocationDataFile.swift in Sources */,
+				72469C6025B2A71300AC3EEF /* Colors.swift in Sources */,
 				BFB64887257BC5C600175B49 /* PlanetAxisView.swift in Sources */,
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
 				BF2EDFD625B23E0E00017520 /* AmaxDecumbitureController.swift in Sources */,
@@ -687,6 +699,8 @@
 				72142FEF2553CCB800452F4E /* MoonPhaseView.swift in Sources */,
 				726BC98B24E5BFF200690CE2 /* AmaxAspectCell.swift in Sources */,
 				729C4FDD24DDD38C0058E1EA /* AmaxCommonDataFile.swift in Sources */,
+				72469C5F25B2A71300AC3EEF /* UIColor+Ext.swift in Sources */,
+				72469C6125B2A71300AC3EEF /* DatePickerDialog.swift in Sources */,
 				726BC98824E5BFF200690CE2 /* AmaxSunDegreeCell.swift in Sources */,
 				7229138224DFF422005B0698 /* AmaxDataProvider.swift in Sources */,
 				72A3F175255EC38000AD8ABF /* AmaxHelpTopicsController.swift in Sources */,
@@ -773,14 +787,6 @@
 				84DF76DC175957C500A3D7A9 /* ru */,
 			);
 			name = WeekDays.strings;
-			sourceTree = "<group>";
-		};
-		84DFC22916A59E00003D8B01 /* AmaxDateSelectController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				727CAEAD24C160A00008A769 /* Base */,
-			);
-			name = AmaxDateSelectController.xib;
 			sourceTree = "<group>";
 		};
 		84DFC22B16A59E00003D8B01 /* AmaxEventListViewController.xib */ = {

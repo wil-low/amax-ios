@@ -42,7 +42,6 @@ class AmaxSummaryViewController : AmaxTableViewController {
     @IBOutlet weak  var tvCell: AmaxTableCell!
 
     var settingsController: AmaxSettingsController?
-    var dateSelectController: AmaxDateSelectController?
 
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)

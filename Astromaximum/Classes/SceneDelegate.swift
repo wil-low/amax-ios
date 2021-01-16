@@ -22,6 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
         self.window = window
+        let appDel = (UIApplication.shared.delegate as! AppDelegate)
+        appDel.window = window
         runStartingController(in: window)
         window.makeKeyAndVisible()
     }

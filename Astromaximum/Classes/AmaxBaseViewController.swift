@@ -33,7 +33,6 @@ class AmaxBaseViewController : UIViewController {
     static var interpreterController: AmaxInterpreterController?
 
     static var settingsController: AmaxSettingsController?
-    static var dateSelectController: AmaxDateSelectController?
 
     func updateDisplay() -> Bool {
         if let dp = mDataProvider {
