@@ -8,30 +8,24 @@
 
 import UIKit
 
-class AmaxDecumbitureController : AmaxSelectionViewController {
+class AmaxDecumbitureController : AmaxTableViewController {
+
+    let decumbAspects = [45, 15, 30, 30, 15, 45, 45, 15, 30, 30, 15, 45]
+    let decumbKeys = [0, 1, 2, 3, 2, 1, 3, 1, 2, 3, 2, 1, 4]
 
     private var mTitleDate: String = ""
 
-    var mPlanetAxis = [PlanetAxisView]()
-    var mPlanetPass = [PlanetPassView]()
-    @IBOutlet weak  var mToolbar: UIToolbar!
-
     var eventListViewController: AmaxEventListViewController?
     var settingsController: AmaxSettingsController?
+    @IBOutlet weak var mSelectDateButton: UIButton!
+
+    @IBOutlet weak  var tvCell: AmaxTableCell!
 
     override init(nibName:String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
         mDataProvider = AmaxDataProvider.sharedInstance
-        for i in 0 ... 6 {
-            let pa = view.viewWithTag(i + 200) as! PlanetAxisView
-            pa.mPlanetPass.setPlanet(AmaxPlanet(Int32(i)))
-            mPlanetAxis.append(pa)
-        }
-        for i in 7 ... 12 {
-            let pa = view.viewWithTag(i + 200) as! PlanetPassView
-            pa.setPlanet(AmaxPlanet(Int32(i)))
-            mPlanetPass.append(pa)
-        }
+        let hourLabel = (self.view.viewWithTag(3) as! UILabel)
+        hourLabel.text = NSLocalizedString("hour_of", comment: "Planet hour event caption")
     }
     
     required init?(coder: NSCoder) {
@@ -47,11 +41,14 @@ class AmaxDecumbitureController : AmaxSelectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let backButton = UIBarButtonItem(title: NSLocalizedString("Summary", comment: "Summary"), style: .plain, target: nil, action: nil)
-        //navigationItem.backBarButtonItem = backButton
-        AmaxBaseViewController.interpreterController!.view.layoutSubviews()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if updateDisplay() {
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -63,6 +60,88 @@ class AmaxDecumbitureController : AmaxSelectionViewController {
     override func viewDidDisappear(_ animated: Bool) {
     	super.viewDidDisappear(animated)
     }
+
+    func numberOfSections(in: UITableView!) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+    // Customize the appearance of table view cells.
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "DecumbitureCell"
+
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        if cell == nil {
+            Bundle.main.loadNibNamed(cellIdentifier, owner: self, options: nil)
+            cell = tvCell
+            tvCell = nil
+            (cell as! AmaxTableCell).controller = self
+        }
+        
+        if indexPath.row >= mDataProvider!.mEventCache.count {
+            return cell!
+        }
+        let si = mDataProvider!.mEventCache[indexPath.row]
+
+        // Configure the cell.
+        let c = cell as! AmaxTableCell
+        c.summaryItem = si
+        let pos = c.calculateActiveEvent(customTime: mCustomTime, currentTime: mCurrentTime)
+        c.activeEventPosition = pos
+        c.configure(false, true)
+
+        if si.mEvents.count > 0 {
+            switch si.mKey {
+            case EV_ASP_EXACT,
+                 EV_RETROGRADE,
+                 EV_MOON_MOVE:
+                cell?.accessoryType = .disclosureIndicator
+            default:
+                cell?.accessoryType = .detailDisclosureButton
+            }
+        }
+        else {
+            cell?.accessoryType = .none
+        }
+
+        return cell!
+    }
+
+    /*
+    // Override to support rearranging the table view.
+    - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+    {
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+    {
+        // Return NO if you do not want the item to be re-orderable.
+        return YES;
+    }
+    */
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let si = mDataProvider?.mEventCache[indexPath.row] {
+            //showEventListFor(si: si, xib: xibNames[indexPath.row])
+        }
+    }
+
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let c = tableView.cellForRow(at: indexPath) as! AmaxTableCell
+        if let e = c.getActiveEvent() {
+            showInterpreterFor(event: e, type: e.mEvtype)
+        }
+    }
+
+
 /*
      void calcDecumbiture() {
          Interpreter.topic = Interpreter.T_DECUMB;
@@ -197,9 +276,122 @@ class AmaxDecumbitureController : AmaxSelectionViewController {
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
             mParent!.mCornerTime.text = dp.getHighlightTimeString()
-            //******* COMMON RISES & SETS
-            let pp0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -1, isTrailing: false)
-            let pp1 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: 2, isTrailing: true)
+            let SECINDAY = 3600 * 24
+            let p0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -2, isTrailing: false) - SECINDAY / 2
+            let p1 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: 16, isTrailing: true)
+            
+            var moonSign = dp.getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: false, from: p0, to: p1, value: 0)
+            var e0: AmaxEvent!, e1: AmaxEvent!
+            print("moonSign=\(moonSign.count)")
+            var index = 0
+            while index < moonSign.count {
+                e0 = moonSign[index]
+                if dp.mStartTime >= e0.date(at: 0) && dp.mStartTime <= e0.date(at: 1) {
+                    e1 = moonSign[index + 1]
+                    break
+                }
+                index += 1
+            }
+            let itemPhase = AmaxSummaryItem(key: EV_MOON_PHASE, events: [AmaxEvent]())
+            var i = dp.mMoonPhases.count - 1
+            while i >= 0 {
+                let ph = dp.mMoonPhases[i]
+                if ph.date(at: 0) <= dp.mStartTime {
+                    itemPhase.mEvents = [ph]
+                    break
+                }
+                i -= 1
+            }
+            var ddegree = e1.mDegree - e0.mDegree
+            if ddegree < 0 {
+                ddegree += 12
+            }
+            ddegree *= 30
+            var dgr = (dp.mStartTime - e0.date(at: 0)) * Int(ddegree) / (e1.date(at: 0) - e0.date(at: 0))
+            dgr += Int(e0.mDegree) * 30
+            print("dgr = \(dgr)")
+            var decumb = Array<Int>(repeating: 0, count: 13)
+            decumb[0] = dp.mStartTime
+            for asp in decumbAspects {
+                dgr += asp
+            }
+            while index < moonSign.count {
+                e0 = moonSign[index - 1]
+                e1 = moonSign[index]
+                if e0.mDegree == (dgr % 360 / 30) {
+                    ddegree = e1.mDegree - e0.mDegree
+                    if ddegree < 0 {
+                        ddegree += 12
+                    }
+                    ddegree *= 30
+                    var d = (dgr % 360) - Int(e0.mDegree) * 30
+                    d *= (e1.date(at: 0) - e0.date(at: 0))
+                    decumb[i + 1] = d / Int(ddegree) + e0.date(at: 0)
+                }
+                index += 1
+            }
+            let itemEvents = Array<AmaxSummaryItem>(repeating: AmaxSummaryItem(key: EV_LAST, events: [AmaxEvent]()), count: decumbAspects.count)
+            let itemAspects = [AmaxSummaryItem]()
+            for i in 0 ..< decumbAspects.count {
+                itemEvents[i].mEvents = [AmaxEvent(date: decumb[i], planet: AmaxPlanet(Int32(i)))]
+                let delta = SECINDAY / ((i == 0 || i == decumbAspects.count) ? 1 : 2)
+                moonSign = dp.getAspectsOnPeriodFor(planet: SE_MOON, from: decumb[i] - delta, to: decumb[i] + delta)
+                var j = 0
+                while j < moonSign.count { // do not optimize
+                    e0 = moonSign[j]
+                    dgr = Int(e0.mPlanet1.rawValue)
+                    if dgr > SE_SATURN.rawValue || dgr == SE_MERCURY.rawValue {
+                        moonSign.remove(at: j)
+                        j -= 1
+                    }
+                }
+                itemAspects[i].mEvents = moonSign
+            }
+            var asi = [AmaxEvent]()
+            var si: AmaxSummaryItem  //getItem(Event.EV_MOON_DAY);
+            si.recalcSelection(time: dp.mStartTime, isCustom: true);
+            asi.append(si.getCusSelEvent()!)
+            //si = getItem(EV_DAY_HOURS)
+            si.recalcSelection(time: dp.mStartTime, isCustom: true)
+            var ev = si.getCusSelEvent()
+            if (ev == nil) {
+                //si = getItem(Event.EV_NIGHT_HOURS)
+                si.recalcSelection(time: dp.mStartTime, isCustom: true)
+                ev = si.getCusSelEvent()
+                if (ev == nil) {
+                    let pp0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -1, isTrailing: false)
+                    let pp1 = dp.shiftDate(alignedDate: dp.mEndTime, byAdding: .day, value: -1, isTrailing: true)
+                    ev = dp.getEventOnPeriod(eventType: EV_RISE, planet: SE_SUN, special: true, from: pp0, to: pp1)
+                    ev?.setDate(at: 1, value: dp.getEventOnPeriod(eventType: EV_SET, planet: SE_SUN, special: false, from: pp0, to: pp1)!.date(at: 0))
+    //        ev.dump();
+                    let weekDay = 5 //getItem(Event.EV_TOP_DAY).events[1].planet0 + 5;
+                    let aev = [AmaxEvent]()
+                    dp.getPlanetaryHours(into: &aev, currentSunRise: <#T##AmaxEvent#>, nextSunRise: <#T##AmaxEvent!#>, dayOfWeek: <#T##Int#>, withTomorrow: <#T##Bool#>) (ev, getItem(Event.EV_SUN_RISE).events[0], weekStartHour[weekDay % 7]);
+                    si = new SummItem(Event.EV_LAST);
+                    si.setEvents(aev);
+                    si.recalcSelection(startDate, true);
+    //        si.dump();
+                    ev = si.getCusSelEvent();
+                }
+            }
+            asi.addElement(ev);
+    //    setCurPage(PAGE_SUMMARY+1);
+            for (int plt = Event.SE_VENUS; plt <= Event.SE_SATURN; plt++) {
+                si = getItem(Event.EV_RISE, plt);
+                si.recalcSelection(startDate, true);
+    //      si.dump();
+                ev = si.getCusSelEvent();
+                if (ev != null /*&& ev.getDegree()%2==0*/) {
+                    asi.addElement(ev);
+                }
+            }
+    //    Astromaximum.evDump(asi);
+
+            getItem(Event.EV_DECUMB_BEGIN).setEvents(asi);
+
+            //si.recalcSelection()
+            
+/*
             for i in SE_SUN.rawValue ... SE_WHITE_MOON.rawValue {
                 var passes: [AmaxEvent]
                 if i == SE_MOON.rawValue {
@@ -264,8 +456,20 @@ class AmaxDecumbitureController : AmaxSelectionViewController {
                     }
                 )
             }
-            makeSelected(selectedView)
+            makeSelected(selectedView)*/
         }
         return true
+    }
+    
+    @IBAction func selectDatePressed(_ sender: AnyObject?) {
+        let dpd = DatePickerDialog()
+        dpd.show(  NSLocalizedString("date_picker_title", comment:"")
+                 , doneButtonTitle: NSLocalizedString("date_picker_done", comment:"")
+                 , cancelButtonTitle: NSLocalizedString("date_picker_cancel", comment:"")
+                 , defaultDate: mDataProvider!.currentDate()
+                 , datePickerMode: .dateAndTime) { date in
+            if let dt = date {
+            }
+        }
     }
 }

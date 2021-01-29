@@ -17,18 +17,4 @@ class AmaxTableViewController : AmaxBaseViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-
-    /*func showInterpreterFor(event: AmaxEvent, type: AmaxEventType, title: String = "") {
-        let iProvider = AmaxInterpretationProvider.sharedInstance
-        if let text = iProvider.getTextFor(event: event, type: type) {
-            if let ic = AmaxBaseViewController.interpreterController {
-                ic.interpreterText = text
-                ic.interpreterEvent = event
-                ic.eventType = type
-                ic.title = title
-                navigationController?.pushViewController(ic, animated: true)
-            }
-        }
-    }*/
-
 }

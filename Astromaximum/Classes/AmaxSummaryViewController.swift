@@ -38,7 +38,6 @@ class AmaxSummaryViewController : AmaxTableViewController {
     private var mTitleDate: String = ""
 
     @IBOutlet weak var mTableView: UITableView!
-    @IBOutlet weak  var mToolbar: UIToolbar!
     @IBOutlet weak  var tvCell: AmaxTableCell!
 
     var settingsController: AmaxSettingsController?

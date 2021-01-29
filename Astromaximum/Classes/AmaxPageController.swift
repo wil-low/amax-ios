@@ -9,7 +9,7 @@
 import UIKit
 
 class AmaxPageController : UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
-    let startingPage = PAGE_START
+    let startingPage = PAGE_DECUMBITURE
     var pageViewController: UIPageViewController!
 
     @IBOutlet weak var mPlaceholder: UIView!

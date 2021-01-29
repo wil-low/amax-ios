@@ -97,6 +97,8 @@
 		BF2906C225836A2600E8E3ED /* XibTestController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2906C025836A2500E8E3ED /* XibTestController.xib */; };
 		BF2EDFD325B23DFD00017520 /* AmaxDecumbitureController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2EDFD125B23DFC00017520 /* AmaxDecumbitureController.xib */; };
 		BF2EDFD625B23E0E00017520 /* AmaxDecumbitureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EDFD525B23E0E00017520 /* AmaxDecumbitureController.swift */; };
+		BF2EDFDD25B4C9F700017520 /* DecumbitureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2EDFDB25B4C9F700017520 /* DecumbitureCell.xib */; };
+		BF2EDFE025B4CA8700017520 /* AmaxDecumbitureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2EDFDF25B4CA8700017520 /* AmaxDecumbitureCell.swift */; };
 		BF328156258767E200EE7D5A /* PlanetPassView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF328154258767E200EE7D5A /* PlanetPassView.xib */; };
 		BF3281592587684600EE7D5A /* PlanetPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3281582587684600EE7D5A /* PlanetPassView.swift */; };
 		BF7088AF259FAF97001FA115 /* DataMissingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7088AE259FAF97001FA115 /* DataMissingView.swift */; };
@@ -219,6 +221,8 @@
 		BF2906C125836A2500E8E3ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/XibTestController.xib; sourceTree = "<group>"; };
 		BF2EDFD225B23DFC00017520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AmaxDecumbitureController.xib; sourceTree = "<group>"; };
 		BF2EDFD525B23E0E00017520 /* AmaxDecumbitureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxDecumbitureController.swift; sourceTree = "<group>"; };
+		BF2EDFDC25B4C9F700017520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DecumbitureCell.xib; sourceTree = "<group>"; };
+		BF2EDFDF25B4CA8700017520 /* AmaxDecumbitureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxDecumbitureCell.swift; sourceTree = "<group>"; };
 		BF328155258767E200EE7D5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PlanetPassView.xib; sourceTree = "<group>"; };
 		BF3281582587684600EE7D5A /* PlanetPassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetPassView.swift; sourceTree = "<group>"; };
 		BF7088AE259FAF97001FA115 /* DataMissingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMissingView.swift; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 		84DFC23B16A5A362003D8B01 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BF2EDFDB25B4C9F700017520 /* DecumbitureCell.xib */,
 				729AFB2124D0C0C500EF0894 /* AspectCell.xib */,
 				84DFC23C16A5A380003D8B01 /* AspectSetCell.xib */,
 				72B6E2A42575FB3D00CB9BFF /* HelpTopicCell.xib */,
@@ -447,6 +452,7 @@
 		84E98B4F168E6331006AAA55 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BF2EDFDF25B4CA8700017520 /* AmaxDecumbitureCell.swift */,
 				726BC98124E5BFF100690CE2 /* AmaxAspectCell.swift */,
 				726BC98324E5BFF100690CE2 /* AmaxAspectSetCell.swift */,
 				726BC98424E5BFF100690CE2 /* AmaxMoonMoveCell.swift */,
@@ -592,6 +598,7 @@
 				72606C9824B82D9C009B0113 /* locations.dat in Resources */,
 				BF263F1325A0A694007DA1D6 /* DataMissingView.xib in Resources */,
 				84DFC23616A59E00003D8B01 /* AmaxEventListViewController.xib in Resources */,
+				BF2EDFDD25B4C9F700017520 /* DecumbitureCell.xib in Resources */,
 				84DFC23716A59E00003D8B01 /* AmaxInterpreterController.xib in Resources */,
 				84DFC23816A59E00003D8B01 /* AmaxLocationListController.xib in Resources */,
 				84DFC23916A59E00003D8B01 /* AmaxSettingsController.xib in Resources */,
@@ -668,6 +675,7 @@
 				726BC98F24E5BFF200690CE2 /* AmaxPlanetHourCell.swift in Sources */,
 				BFD159C7258D3F010056D76E /* AmaxPageController.swift in Sources */,
 				7229138024DFCDDF005B0698 /* AmaxLocationDataFile.swift in Sources */,
+				BF2EDFE025B4CA8700017520 /* AmaxDecumbitureCell.swift in Sources */,
 				72469C6025B2A71300AC3EEF /* Colors.swift in Sources */,
 				BFB64887257BC5C600175B49 /* PlanetAxisView.swift in Sources */,
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
@@ -994,6 +1002,14 @@
 				BF2EDFD225B23DFC00017520 /* Base */,
 			);
 			name = AmaxDecumbitureController.xib;
+			sourceTree = "<group>";
+		};
+		BF2EDFDB25B4C9F700017520 /* DecumbitureCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF2EDFDC25B4C9F700017520 /* Base */,
+			);
+			name = DecumbitureCell.xib;
 			sourceTree = "<group>";
 		};
 		BF328154258767E200EE7D5A /* PlanetPassView.xib */ = {

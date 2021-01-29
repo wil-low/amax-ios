@@ -8,17 +8,9 @@
 
 class AmaxSummaryItem {
 
-    private var _mEvents = [AmaxEvent]()
-    var mEvents: [AmaxEvent] {
-        get { return _mEvents }
-        set { _mEvents = newValue }
-    }
-
-    private var _mKey: AmaxEventType
-    var mKey: AmaxEventType {
-        get { return _mKey }
-        set { _mKey = newValue }
-    }
+    var mEvents = [AmaxEvent]()
+    var mKey: AmaxEventType
+    var mCusSelection = 0
 
     enum EventMode: Int {
         case none = 0
@@ -26,16 +18,12 @@ class AmaxSummaryItem {
         case customTime = 2
     }
 
-    private var _mEventMode: EventMode
-    var mEventMode: EventMode {
-        get { return _mEventMode }
-        set { _mEventMode = newValue }
-    }
+    var mEventMode: EventMode
 
     init(key: AmaxEventType, events: [AmaxEvent]) {
-        _mKey = key
-        _mEvents = events
-        _mEventMode = .none
+        mKey = key
+        mEvents = events
+        mEventMode = .none
     }
 
     func activeEventPosition(customTime: Int, currentTime: Int) -> Int {
@@ -43,32 +31,32 @@ class AmaxSummaryItem {
         var prev = -1
         switch _mKey {
     		case EV_MOON_MOVE:
-    			for e in _mEvents {
+    			for e in mEvents {
     				if e.mEvtype == EV_MOON_MOVE {
                         if dateBetween(currentTime, e.date(at: 0), e.date(at: 1)) == 0 {
-                            _mEventMode = .currentTime
+                            mEventMode = .currentTime
     						return index
     					}
                         else if dateBetween(customTime, e.date(at: 0), e.date(at: 1)) == 0 {
-                            _mEventMode = currentTime == 0 ? .customTime : .none
+                            mEventMode = currentTime == 0 ? .customTime : .none
     						return index
     					}
     				}
     				index += 1
     			 }
     		case EV_VOC, EV_VIA_COMBUSTA:
-    			for e in _mEvents {
+    			for e in mEvents {
                     let between = dateBetween(currentTime, e.date(at: 0), e.date(at: 1))
     				if between == 0 {
-                        _mEventMode = .currentTime
+                        mEventMode = .currentTime
     					return index
     				}
                     else if dateBetween(customTime, e.date(at: 0), e.date(at: 1)) == 0 {
-    					_mEventMode = currentTime == 0 ? .customTime : .none
+    					mEventMode = currentTime == 0 ? .customTime : .none
     					return index
     				}
                     else if between == 1 {
-                        _mEventMode = .none
+                        mEventMode = .none
     					return index
     				}
     				prev = index
@@ -76,7 +64,7 @@ class AmaxSummaryItem {
     			 }
     			return prev
             case EV_ASP_EXACT:
-                for e in _mEvents {
+                for e in mEvents {
                     if currentTime < e.date(at: 0) {
                         return index - 1
                     }
@@ -87,13 +75,13 @@ class AmaxSummaryItem {
             case EV_SUN_DAY:
                 return index
     		default:
-    			for e in _mEvents {
+    			for e in mEvents {
     				if dateBetween(currentTime, e.date(at: 0), e.date(at: 1)) == 0 {
-                        _mEventMode = .currentTime
+                        mEventMode = .currentTime
     					return index
     				}
                     else if dateBetween(customTime, e.date(at: 0), e.date(at: 1)) == 0 {
-    					_mEventMode = currentTime == 0 ? .customTime : .none
+    					mEventMode = currentTime == 0 ? .customTime : .none
     					return index
     				}
     				index += 1
@@ -111,7 +99,7 @@ class AmaxSummaryItem {
     }
     
     func extendedRangeMode() -> ExtendedRangeMode {
-        switch _mKey {
+        switch mKey {
         case EV_MOON_MOVE:
             return .twoDays
         case EV_PLANET_HOUR, EV_PLANET_HOUR_EXT:
@@ -124,5 +112,63 @@ class AmaxSummaryItem {
             return .none
         }
     }
+    
+    func getCusSelEvent() -> AmaxEvent? {
+        return mEvents[mCusSelection]
+    }
 
+    func recalcSelection(time: Int, isCustom: Bool) {
+        return
+        /*if (events == null) {
+            return;
+        }
+        if (isCustom) {
+            cusSelection = -1;
+        } else {
+            nowSelection = -1;
+        }
+//    if(!isCustom /*&& !Summary.isCurrentDay*/) {
+//      return;
+//    }
+        if (type == Event.EV_TATTVAS) {
+            long date = events[0].getDate0();
+            for (int i = 0; i < Astromaximum.TATTVAS_IN_DAY; ++i) {
+                if ((time >= date) && (time < date + Astromaximum.MSECINTATTVA)) {
+                    if (isCustom) {
+                        cusSelection = i;
+                    } else {
+                        nowSelection = i;
+                    }
+                    break;
+                }
+                date += Astromaximum.MSECINTATTVA;
+            }
+            return;
+        }
+
+        for (int i = 0; i < events.length; i++) {
+            boolean flg = false;
+            Event ev = events[i];
+            if (ev != null) {
+                if (type == Event.EV_RISE) {
+                    long delta = time - ev.getDate0();
+                    flg = (delta > DEGREE_DELTA_MSEC1) && (delta < DEGREE_DELTA_MSEC2);
+                }
+                else {
+                    if (!(type == Event.EV_MOON_MOVE && ev.degree != 200)) {
+                        flg = contains(events[i], time);
+                    }
+                }
+                if (!flg) {
+                    continue;
+                }
+                if (isCustom) {
+                    cusSelection = i;
+                } else {
+                    nowSelection = i;
+                }
+                break;
+            }
+        }*/
+    }
 }
