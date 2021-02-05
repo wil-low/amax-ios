@@ -348,7 +348,7 @@ class AmaxDecumbitureController : AmaxTableViewController {
                 itemAspects[i].mEvents = moonSign
             }
             var asi = [AmaxEvent]()
-            var si: AmaxSummaryItem  //getItem(Event.EV_MOON_DAY);
+            var si = AmaxSummaryItem(key: EV_LAST, events: [])  //getItem(Event.EV_MOON_DAY);
             si.recalcSelection(time: dp.mStartTime, isCustom: true);
             asi.append(si.getCusSelEvent()!)
             //si = getItem(EV_DAY_HOURS)
@@ -366,15 +366,15 @@ class AmaxDecumbitureController : AmaxTableViewController {
     //        ev.dump();
                     let weekDay = 5 //getItem(Event.EV_TOP_DAY).events[1].planet0 + 5;
                     let aev = [AmaxEvent]()
-                    dp.getPlanetaryHours(into: &aev, currentSunRise: <#T##AmaxEvent#>, nextSunRise: <#T##AmaxEvent!#>, dayOfWeek: <#T##Int#>, withTomorrow: <#T##Bool#>) (ev, getItem(Event.EV_SUN_RISE).events[0], weekStartHour[weekDay % 7]);
-                    si = new SummItem(Event.EV_LAST);
-                    si.setEvents(aev);
-                    si.recalcSelection(startDate, true);
+                    //dp.getPlanetaryHours(into: &aev, currentSunRise: <#T##AmaxEvent#>, nextSunRise: <#T##AmaxEvent!#>, dayOfWeek: <#T##Int#>, withTomorrow: <#T##Bool#>) (ev, getItem(Event.EV_SUN_RISE).events[0], weekStartHour[weekDay % 7]);
+                    //si = new SummItem(Event.EV_LAST);
+                    //si.setEvents(aev);
+                    //si.recalcSelection(startDate, true);
     //        si.dump();
-                    ev = si.getCusSelEvent();
+                    //ev = si.getCusSelEvent();
                 }
             }
-            asi.addElement(ev);
+            /*asi.addElement(ev);
     //    setCurPage(PAGE_SUMMARY+1);
             for (int plt = Event.SE_VENUS; plt <= Event.SE_SATURN; plt++) {
                 si = getItem(Event.EV_RISE, plt);
@@ -388,7 +388,7 @@ class AmaxDecumbitureController : AmaxTableViewController {
     //    Astromaximum.evDump(asi);
 
             getItem(Event.EV_DECUMB_BEGIN).setEvents(asi);
-
+*/
             //si.recalcSelection()
             
 /*

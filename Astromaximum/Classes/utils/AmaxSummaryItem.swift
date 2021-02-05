@@ -29,7 +29,7 @@ class AmaxSummaryItem {
     func activeEventPosition(customTime: Int, currentTime: Int) -> Int {
         var index = 0
         var prev = -1
-        switch _mKey {
+        switch mKey {
     		case EV_MOON_MOVE:
     			for e in mEvents {
     				if e.mEvtype == EV_MOON_MOVE {
