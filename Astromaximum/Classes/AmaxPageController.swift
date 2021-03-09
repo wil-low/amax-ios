@@ -31,7 +31,7 @@ class AmaxPageController : UIViewController, UIPageViewControllerDataSource, UIP
         super.viewDidLoad()
         AmaxBaseViewController.interpreterController!.view.layoutSubviews()
         mDataProvider = AmaxDataProvider.sharedInstance
-        for _ in PAGE_SUMMARY ... PAGE_DECUMBITURE {
+        for _ in PAGE_SUMMARY ... PAGE_PLANET_AXIS {
             controllers.append(nil)
         }
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
