@@ -273,30 +273,39 @@ class AmaxDecumbitureController : AmaxTableViewController {
             }
             title = dp.currentDateString()
             dp.prepareCalculation()
+            
+            let startDate = 1612174210
+            let decumbDate = Date(timeIntervalSince1970: TimeInterval(startDate))
+            dp.setDate(from: decumbDate)
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
             mParent!.mCornerTime.text = dp.getHighlightTimeString()
             let SECINDAY = 3600 * 24
-            let p0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -2, isTrailing: false) - SECINDAY / 2
-            let p1 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: 16, isTrailing: true)
+            let p0 = startDate - 5 * SECINDAY / 2
+            let p1 = startDate + 32 * SECINDAY
             
             var moonSign = dp.getEventsOnPeriodFor(eventType: EV_SIGN_ENTER, planet: SE_MOON, special: false, from: p0, to: p1, value: 0)
             var e0: AmaxEvent!, e1: AmaxEvent!
             print("moonSign=\(moonSign.count)")
+            print("mStartTime=\(dp.mStartTime) vs decumbDate \(decumbDate.timeIntervalSince1970)")
             var index = 0
             while index < moonSign.count {
                 e0 = moonSign[index]
-                if dp.mStartTime >= e0.date(at: 0) && dp.mStartTime <= e0.date(at: 1) {
+                if startDate >= e0.date(at: 0) && startDate <= e0.date(at: 1) {
                     e1 = moonSign[index + 1]
                     break
                 }
                 index += 1
             }
+            print("DECUMB1")
+            print("\(e0.description)")
+            print("\(e1.description)")
+
             let itemPhase = AmaxSummaryItem(key: EV_MOON_PHASE, events: [AmaxEvent]())
             var i = dp.mMoonPhases.count - 1
             while i >= 0 {
                 let ph = dp.mMoonPhases[i]
-                if ph.date(at: 0) <= dp.mStartTime {
+                if ph.date(at: 0) <= startDate {
                     itemPhase.mEvents = [ph]
                     break
                 }
@@ -307,35 +316,44 @@ class AmaxDecumbitureController : AmaxTableViewController {
                 ddegree += 12
             }
             ddegree *= 30
-            var dgr = (dp.mStartTime - e0.date(at: 0)) * Int(ddegree) / (e1.date(at: 0) - e0.date(at: 0))
+            var dgr = Int(startDate - e0.date(at: 0)) * Int(ddegree) / (e1.date(at: 0) - e0.date(at: 0))
             dgr += Int(e0.mDegree) * 30
             print("dgr = \(dgr)")
             var decumb = Array<Int>(repeating: 0, count: 13)
             decumb[0] = dp.mStartTime
+            i = 0
             for asp in decumbAspects {
                 dgr += asp
-            }
-            while index < moonSign.count {
-                e0 = moonSign[index - 1]
-                e1 = moonSign[index]
-                if e0.mDegree == (dgr % 360 / 30) {
-                    ddegree = e1.mDegree - e0.mDegree
-                    if ddegree < 0 {
-                        ddegree += 12
+                while index < moonSign.count {
+                    e0 = moonSign[index - 1]
+                    e1 = moonSign[index]
+                    if e0.mDegree == (dgr % 360 / 30) {
+                        ddegree = e1.mDegree - e0.mDegree
+                        if ddegree < 0 {
+                            ddegree += 12
+                        }
+                        ddegree *= 30
+                        var d = (dgr % 360) - Int(e0.mDegree) * 30
+                        d *= (e1.date(at: 0) - e0.date(at: 0))
+                        decumb[i + 1] = d / Int(ddegree) + e0.date(at: 0)
+                        let dd = Date(timeIntervalSince1970: TimeInterval(decumb[i + 1]))
+                        print("decumbEvent \(i + 1) = \(dd.description)")
+                        break
                     }
-                    ddegree *= 30
-                    var d = (dgr % 360) - Int(e0.mDegree) * 30
-                    d *= (e1.date(at: 0) - e0.date(at: 0))
-                    decumb[i + 1] = d / Int(ddegree) + e0.date(at: 0)
+                    index += 1
                 }
-                index += 1
+                i += 1
             }
-            let itemEvents = Array<AmaxSummaryItem>(repeating: AmaxSummaryItem(key: EV_LAST, events: [AmaxEvent]()), count: decumbAspects.count)
-            let itemAspects = [AmaxSummaryItem]()
-            for i in 0 ..< decumbAspects.count {
+            let itemEvents = Array<AmaxSummaryItem>(repeating: AmaxSummaryItem(key: EV_LAST, events: [AmaxEvent]()), count: decumbAspects.count + 1)
+            let itemAspects = Array<AmaxSummaryItem>(repeating: AmaxSummaryItem(key: EV_LAST, events: [AmaxEvent]()), count: decumbAspects.count + 1)
+            for i in 0 ... decumbAspects.count {
                 itemEvents[i].mEvents = [AmaxEvent(date: decumb[i], planet: AmaxPlanet(Int32(i)))]
                 let delta = SECINDAY / ((i == 0 || i == decumbAspects.count) ? 1 : 2)
                 moonSign = dp.getAspectsOnPeriodFor(planet: SE_MOON, from: decumb[i] - delta, to: decumb[i] + delta)
+                print("DecumbAspect \(i)")
+                for asp in moonSign {
+                    print("\(asp.description)")
+                }
                 var j = 0
                 while j < moonSign.count { // do not optimize
                     e0 = moonSign[j]
@@ -344,24 +362,25 @@ class AmaxDecumbitureController : AmaxTableViewController {
                         moonSign.remove(at: j)
                         j -= 1
                     }
+                    j += 1
                 }
                 itemAspects[i].mEvents = moonSign
             }
             var asi = [AmaxEvent]()
             var si = AmaxSummaryItem(key: EV_LAST, events: [])  //getItem(Event.EV_MOON_DAY);
             si.recalcSelection(time: dp.mStartTime, isCustom: true);
-            asi.append(si.getCusSelEvent()!)
+            //asi.append(si.getCusSelEvent()!)
             //si = getItem(EV_DAY_HOURS)
             si.recalcSelection(time: dp.mStartTime, isCustom: true)
-            var ev = si.getCusSelEvent()
+            var ev: AmaxEvent? //si.getCusSelEvent()
             if (ev == nil) {
                 //si = getItem(Event.EV_NIGHT_HOURS)
                 si.recalcSelection(time: dp.mStartTime, isCustom: true)
-                ev = si.getCusSelEvent()
+                //ev = si.getCusSelEvent()
                 if (ev == nil) {
                     let pp0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -1, isTrailing: false)
                     let pp1 = dp.shiftDate(alignedDate: dp.mEndTime, byAdding: .day, value: -1, isTrailing: true)
-                    ev = dp.getEventOnPeriod(eventType: EV_RISE, planet: SE_SUN, special: true, from: pp0, to: pp1)
+                    ev = dp.getEventOnPeriod(eventType: EV_RISE, planet: SE_SUN, special: true, from: pp0, to: pp1)!
                     ev?.setDate(at: 1, value: dp.getEventOnPeriod(eventType: EV_SET, planet: SE_SUN, special: false, from: pp0, to: pp1)!.date(at: 0))
     //        ev.dump();
                     let weekDay = 5 //getItem(Event.EV_TOP_DAY).events[1].planet0 + 5;

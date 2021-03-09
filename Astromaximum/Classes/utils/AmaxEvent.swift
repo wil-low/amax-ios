@@ -179,14 +179,15 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
     }
     
     override var description : String {
-        let result = String(format: "%@ %@ - %@ p %d/%d dgr %d; per0 %@, per1 %@ (%d/%d)",
+        let result = String(format: "%@ %@ - %@ p %d/%d dgr %d; per0 %@, per1 %@ (%d/%d) long (%d/%d)",
             AmaxEvent.EVENT_TYPE_STR[Int(mEvtype.rawValue)],
             AmaxEvent.long2String(mDate[0], format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true),
             AmaxEvent.long2String(mDate[1], format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true),
             mPlanet0.rawValue, mPlanet1.rawValue, mDegree,
             AmaxEvent.long2String(mPeriod0, format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true),
             AmaxEvent.long2String(mPeriod1, format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true),
-            mPeriod0, mPeriod1
+            mPeriod0, mPeriod1,
+            mDate[0], mDate[1]
         )
         return result
     }
