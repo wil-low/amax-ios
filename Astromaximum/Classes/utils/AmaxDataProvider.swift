@@ -871,7 +871,7 @@ class AmaxDataProvider {
 
     func changeDate(deltaDays: Int) -> Bool {
         let AmaxSECONDS_IN_DAY = 24 * 60 * 60;
-        let newStart = alignDate(_mStartTime + AmaxSECONDS_IN_DAY * deltaDays + AmaxSECONDS_IN_DAY / 2)
+        let newStart = alignDate(_mStartTime + AmaxSECONDS_IN_DAY * deltaDays)
         //if newStart < mStartJD || newStart >= mFinalJD {
         //    return false
         //}
