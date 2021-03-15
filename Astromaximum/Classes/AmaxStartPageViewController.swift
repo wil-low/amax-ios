@@ -41,6 +41,14 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
 
     @IBOutlet weak var mMoonDayStack: UIStackView!
     
+    @IBOutlet weak var mSunRiseTime: UILabel!
+    @IBOutlet weak var mSunSetTime: UILabel!
+    @IBOutlet weak var mMoonRiseTime: UILabel!
+    @IBOutlet weak var mMoonSetTime: UILabel!
+
+    @IBOutlet weak var mSunRiseSetBlock: UIView!
+    @IBOutlet weak var mMoonRiseSetBlock: UIView!
+
     @IBOutlet weak var mMoonEclipseQuarter: UIView!
     @IBOutlet weak var mMoonEclipse: UILabel!
     @IBOutlet weak var mMoonQuarter: MoonPhaseView!
@@ -92,6 +100,8 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         addBorders(to: mMoonPhase)
         addBorders(to: mSunBlock)
         addBorders(to: mMoonBlock)
+        addBorders(to: mSunRiseSetBlock)
+        addBorders(to: mMoonRiseSetBlock)
 
         // retrograde spacers
         let spacer1 = UIView()
@@ -251,6 +261,9 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
                 return String(format: "%d", e.getDegree())
             })
 
+            showRiseSet(label: [mSunRiseTime, mSunSetTime], dataProvider: dp, planet: SE_SUN)
+            showRiseSet(label: [mMoonRiseTime, mMoonSetTime], dataProvider: dp, planet: SE_MOON)
+
             let tithis = showEventStack(stack: mTithiStack, dataProvider: dp, findType: EV_TITHI, interpretationType: EV_TITHI, string: { e in
                 return String(format: "%d", e.getDegree())
             }, alignment: .center, xibForLongPress: "TithiCell")
@@ -305,6 +318,53 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             }
         }
         label.text = defaultString
+    }
+
+    func showRiseSet(label: UILabel, dataProvider: AmaxDataProvider, si: AmaxSummaryItem) {
+        var pos = -1
+        var activeEvent: AmaxEvent?
+        pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
+        activeEvent = (pos == -1) ? nil : si.mEvents[pos]
+
+        let eventStr = NSLocalizedString(si.mKey == EV_RISE ? "abbr_rise" : "abbr_set", comment: "") + " "
+        if let e = activeEvent {
+            label.text = eventStr + AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
+            //AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
+        }
+        else {
+            if si.mEvents.count > 0 {
+                label.text = eventStr + AmaxEvent.long2String(si.mEvents[0].date(at: 0), format: nil, h24: false)
+            }
+            else {
+                label.text = ""
+            }
+        }
+    }
+
+    func showRiseSet(label: [UILabel], dataProvider: AmaxDataProvider, planet: AmaxPlanet) {
+        var events = dataProvider.getEventsOnPeriodFor(eventType: EV_RISE, planet: planet, special: true, from: dataProvider.mStartTime, to: dataProvider.mEndTime, value: 0)
+        events.append(contentsOf: dataProvider.getEventsOnPeriodFor(eventType: EV_SET, planet: planet, special: true, from: dataProvider.mStartTime, to: dataProvider.mEndTime, value: 0))
+        events.sort(by: <)
+        
+        label[0].text = ""
+        label[1].text = ""
+        
+        var riseFound = false
+        var setFound = false
+        
+        var i = 0
+        for e in events {
+            if !riseFound && e.mEvtype == EV_RISE {
+                showRiseSet(label: label[i], dataProvider: dataProvider, si: AmaxSummaryItem(key: e.mEvtype, events: [e]))
+                riseFound = true
+                i += 1
+            }
+            else if !setFound && e.mEvtype == EV_SET {
+                showRiseSet(label: label[i], dataProvider: dataProvider, si: AmaxSummaryItem(key: e.mEvtype, events: [e]))
+                setFound = true
+                i += 1
+            }
+        }
     }
 
     func showEventStack(stack: UIStackView, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType, string: (AmaxEvent) -> String, alignment: NSTextAlignment = .center, xibForLongPress: String = "") -> [AmaxEvent] {
