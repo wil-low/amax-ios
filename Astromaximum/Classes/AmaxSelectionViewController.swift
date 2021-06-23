@@ -41,8 +41,10 @@ class AmaxSelectionViewController : AmaxBaseViewController {
             }
             if selectedView != view {
                 selectedView?.layer.borderColor = dimmedColor
+                selectedView?.layer.borderWidth = 1
                 selectedView = view
                 selectedView?.layer.borderColor = ColorCompatibility.label.cgColor
+                selectedView?.layer.borderWidth = 3
             }
             if let grArray = selectedView?.gestureRecognizers {
                 for gr in grArray {
