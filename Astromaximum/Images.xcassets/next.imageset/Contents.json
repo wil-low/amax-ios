@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "next.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "next@2x.png",
+      "filename" : "icons8-chevron_right.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

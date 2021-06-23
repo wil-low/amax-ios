@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "calendar.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "calendar@2x.png",
+      "filename" : "icons8-calendar.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

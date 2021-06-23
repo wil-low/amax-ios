@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "options.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "options@2x.png",
+      "filename" : "icons8-settings.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "today.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "today@2x.png",
+      "filename" : "icons8-today.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
