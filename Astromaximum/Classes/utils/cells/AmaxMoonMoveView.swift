@@ -46,7 +46,7 @@ class AmaxMoonMoveView : UIView {
                 planetLabel?.text = String(format: "%c", getSymbol(TYPE_PLANET, e.mPlanet1.rawValue))
                 aspectLabel?.text = String(format: "%c", getSymbol(TYPE_ASPECT, Int32(e.mDegree)))
                 let inCurrentDay = e.isDate(at: 0, between: e.mPeriod0, and: e.mPeriod1)
-                backgroundColor = inCurrentDay ? ColorCompatibility.systemBackground : ColorCompatibility.systemGray6
+                backgroundColor = inCurrentDay ? ColorCompatibility.systemBackground : ColorCompatibility.systemGray4
                 break
             case EV_SIGN_ENTER:
                 arrowLabel?.isHidden = true
@@ -54,7 +54,7 @@ class AmaxMoonMoveView : UIView {
                 signLabel?.isHidden = false
                 signLabel?.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.mDegree)))
                 let inCurrentDay = e.isDate(at: 0, between: e.mPeriod0, and: e.mPeriod1)
-                backgroundColor = inCurrentDay ? ColorCompatibility.systemBackground : ColorCompatibility.systemGray6
+                backgroundColor = inCurrentDay ? ColorCompatibility.systemBackground : ColorCompatibility.systemGray4
                 break
             default:
                 break

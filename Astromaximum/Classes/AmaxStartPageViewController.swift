@@ -436,7 +436,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             let label = mHourLabels[(isDay ? 0 : 12) + counter]
             label.text = String(format: "%c", getSymbol(TYPE_PLANET, event.mPlanet0.rawValue))
             
-            label.backgroundColor = (event.date(at: 1) > dataProvider.mEndTime) ? ColorCompatibility.systemGray6 : ColorCompatibility.systemBackground
+            label.backgroundColor = (event.date(at: 1) > dataProvider.mEndTime) ? ColorCompatibility.systemGray4 : ColorCompatibility.systemBackground
             let color = isDay ? ColorCompatibility.label : ColorCompatibility.systemIndigo
             AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: event, defaultColor: color)
 
