@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmaxStartPageViewController" customModule="Astromaximum" customModuleProvider="target">
             <connections>
+                <outlet property="mAspectStack" destination="Kga-ZB-gUd" id="jCF-Np-OOw"/>
                 <outlet property="mDataAvailableView" destination="1Vy-dJ-U2b" id="RBd-S7-LaC"/>
                 <outlet property="mDataMissingView" destination="oqg-H9-TrT" id="QfS-kg-OWE"/>
                 <outlet property="mMoonBlock" destination="wgL-4s-Md5" id="k3z-Vo-Z1s"/>
@@ -28,6 +29,7 @@
                 <outlet property="mPlanetHourDayStack" destination="mO8-WC-eJE" id="OfR-n3-1Pp"/>
                 <outlet property="mPlanetHourNightStack" destination="xfR-bb-AOH" id="Qxh-hA-ruG"/>
                 <outlet property="mRetrogradeStack" destination="Plr-by-dVt" id="ZrM-s9-9oA"/>
+                <outlet property="mSelDegreeStack" destination="HRC-Xr-nxB" id="IAJ-z2-H4h"/>
                 <outlet property="mSunBlock" destination="EiY-jx-sS7" id="Xl7-TK-CyX"/>
                 <outlet property="mSunDay" destination="JMR-Fz-EEh" id="SyK-ma-wDb"/>
                 <outlet property="mSunDegree" destination="Z4g-IP-RZ8" id="fxn-Sj-uar"/>
@@ -79,28 +81,28 @@
                                     </constraints>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tzy-W2-rd9" userLabel="SView11">
-                                    <rect key="frame" x="0.0" y="107.5" width="375" height="153"/>
+                                    <rect key="frame" x="0.0" y="66" width="375" height="152.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dXL-rZ-qFz" userLabel="SView2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="153"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="WCL-ws-tBz" userLabel="SView2Col1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="153"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="152.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zh1-eP-nbc" userLabel="SunStack1">
                                                             <rect key="frame" x="0.0" y="0.0" width="82" height="76.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-zK-PfW" userLabel="SunStack11">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="38.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="38"/>
                                                                     <subviews>
                                                                         <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaL-Ag-Cjg" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="43.5" height="38.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="43.5" height="38"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMz-Zb-WTn" userLabel="SunEclipse" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                            <rect key="frame" x="43.5" y="0.0" width="38.5" height="38.5"/>
+                                                                            <rect key="frame" x="43.5" y="0.0" width="38.5" height="38"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="EMz-Zb-WTn" secondAttribute="height" multiplier="1:1" id="hKW-3j-Cec"/>
                                                                             </constraints>
@@ -111,7 +113,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMR-Fz-EEh" userLabel="SunDay">
-                                                                    <rect key="frame" x="0.0" y="38.5" width="82" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="38" width="82" height="38.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -119,7 +121,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o6c-cR-Iya" userLabel="MoonStack1">
-                                                            <rect key="frame" x="0.0" y="76.5" width="82" height="76.5"/>
+                                                            <rect key="frame" x="0.0" y="76.5" width="82" height="76"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCu-HQ-Fh0" userLabel="MoonStack11">
                                                                     <rect key="frame" x="0.0" y="0.0" width="82" height="38"/>
@@ -160,14 +162,14 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-7i-X9V" userLabel="MoonDayStack">
-                                                                    <rect key="frame" x="0.0" y="38" width="82" height="38.5"/>
+                                                                    <rect key="frame" x="0.0" y="38" width="82" height="38"/>
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UQi-3D-isH" userLabel="SView2Col2">
-                                                    <rect key="frame" x="87" y="0.0" width="81.5" height="153"/>
+                                                    <rect key="frame" x="87" y="0.0" width="81.5" height="152.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-jx-sS7" userLabel="SunBlock">
                                                             <rect key="frame" x="0.0" y="0.0" width="81.5" height="76.5"/>
@@ -176,25 +178,25 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="81.5" height="76.5"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0Q-5j-SjK" userLabel="SView221">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="81.5" height="38.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="81.5" height="38"/>
                                                                             <subviews>
                                                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9c-U2-L2K" userLabel="Spacer1">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="27" height="38.5"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="27" height="38"/>
                                                                                 </view>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="22*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-IP-RZ8" userLabel="SunDegree">
-                                                                                    <rect key="frame" x="27" y="0.0" width="27.5" height="38.5"/>
+                                                                                    <rect key="frame" x="27" y="0.0" width="27.5" height="38"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KES-vw-PSy" userLabel="SunSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                                                                                    <rect key="frame" x="54.5" y="0.0" width="0.0" height="38.5"/>
+                                                                                    <rect key="frame" x="54.5" y="0.0" width="0.0" height="38"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pe-F1-L8l" userLabel="Spacer2">
-                                                                                    <rect key="frame" x="54.5" y="0.0" width="27" height="38.5"/>
+                                                                                    <rect key="frame" x="54.5" y="0.0" width="27" height="38"/>
                                                                                 </view>
                                                                             </subviews>
                                                                             <constraints>
@@ -202,7 +204,7 @@
                                                                             </constraints>
                                                                         </stackView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRe-b5-2bz" userLabel="SunDegreeTime">
-                                                                            <rect key="frame" x="0.0" y="38.5" width="81.5" height="38"/>
+                                                                            <rect key="frame" x="0.0" y="38" width="81.5" height="38.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -222,10 +224,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgL-4s-Md5" userLabel="MoonBlock">
-                                                            <rect key="frame" x="0.0" y="76.5" width="81.5" height="76.5"/>
+                                                            <rect key="frame" x="0.0" y="76.5" width="81.5" height="76"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6RG-xY-gwO" userLabel="SView222">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="81.5" height="76.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="81.5" height="76"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" text="L" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYM-Nq-bkL" userLabel="MoonSign" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="81.5" height="38"/>
@@ -234,7 +236,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlE-EF-9Ls" userLabel="MoonSignTime">
-                                                                            <rect key="frame" x="0.0" y="38" width="81.5" height="38.5"/>
+                                                                            <rect key="frame" x="0.0" y="38" width="81.5" height="38"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -253,7 +255,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="90B-qc-6kx" userLabel="SView2Col3">
-                                                    <rect key="frame" x="173.5" y="0.0" width="82" height="153"/>
+                                                    <rect key="frame" x="173.5" y="0.0" width="82" height="152.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKx-sI-thu" userLabel="SunRiseSet">
                                                             <rect key="frame" x="0.0" y="0.0" width="82" height="76.5"/>
@@ -262,13 +264,13 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="82" height="76.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="mEn-X7-PKp" userLabel="SunRiseTime">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="82" height="38.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="82" height="38"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yim-ih-gYR" userLabel="SunSetTime">
-                                                                            <rect key="frame" x="0.0" y="38.5" width="82" height="38"/>
+                                                                            <rect key="frame" x="0.0" y="38" width="82" height="38.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -285,10 +287,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5A-3p-e7W" userLabel="MoonRiseSet">
-                                                            <rect key="frame" x="0.0" y="76.5" width="82" height="76.5"/>
+                                                            <rect key="frame" x="0.0" y="76.5" width="82" height="76"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="38s-Hv-kwD" userLabel="SView222">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="76.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="76"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ihs-Go-JbG" userLabel="MoonRiseTime">
                                                                             <rect key="frame" x="0.0" y="0.0" width="82" height="38"/>
@@ -297,7 +299,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18:33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3cM-7i-hNt" userLabel="MoonSetTime">
-                                                                            <rect key="frame" x="0.0" y="38" width="82" height="38.5"/>
+                                                                            <rect key="frame" x="0.0" y="38" width="82" height="38"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -316,7 +318,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="opo-mX-z5a" userLabel="MoonPhaseStack">
-                                                    <rect key="frame" x="260.5" y="0.0" width="114.5" height="153"/>
+                                                    <rect key="frame" x="260.5" y="0.0" width="114.5" height="152.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PR3-7x-pFI" userLabel="MoonPhase" customClass="MoonPhaseView" customModule="Astromaximum" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="114.5" height="114.5"/>
@@ -326,7 +328,7 @@
                                                             </constraints>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dtV-Dj-9iL" userLabel="TithiStack">
-                                                            <rect key="frame" x="0.0" y="114.5" width="114.5" height="38.5"/>
+                                                            <rect key="frame" x="0.0" y="114.5" width="114.5" height="38"/>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -343,7 +345,7 @@
                                     </subviews>
                                 </stackView>
                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-LI-VFu" userLabel="MoonMoveScroll">
-                                    <rect key="frame" x="0.0" y="324" width="375" height="76"/>
+                                    <rect key="frame" x="0.0" y="240.5" width="375" height="76"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
@@ -363,9 +365,24 @@
                                     <viewLayoutGuide key="contentLayoutGuide" id="dEx-NX-rnd"/>
                                     <viewLayoutGuide key="frameLayoutGuide" id="pGH-kw-KtC"/>
                                 </scrollView>
-                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-by-dVt" userLabel="Retrograde">
-                                    <rect key="frame" x="0.0" y="463.5" width="375" height="52"/>
-                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="a2X-PL-CLb" userLabel="SView4">
+                                    <rect key="frame" x="0.0" y="338.5" width="375" height="110"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HRC-Xr-nxB" userLabel="SelDegrees">
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="110"/>
+                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-by-dVt" userLabel="Retrograde">
+                                            <rect key="frame" x="117" y="0.0" width="258" height="110"/>
+                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Plr-by-dVt" firstAttribute="width" secondItem="HRC-Xr-nxB" secondAttribute="width" multiplier="2.2" id="zvQ-bT-OrR"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kga-ZB-gUd" userLabel="Aspects">
+                                    <rect key="frame" x="0.0" y="470.5" width="375" height="86.5"/>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tIH-j7-Orv" userLabel="PlanetHourStack">
                                     <rect key="frame" x="0.0" y="579" width="375" height="88"/>

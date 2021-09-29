@@ -19,7 +19,8 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     var helpTopicsController: AmaxHelpTopicsController!
 
     let CELL_LOCATION_NAME = 0
-    let CELL_HELP_TOPICS = 1
+    let CELL_SHOW_CRITICAL_DEGREEES = 1
+    let CELL_HELP_TOPICS = 2
     let CELL_IS_CUSTOM_TIME = 102
     let CELL_HIGHIGHT_TIME = 103
 
@@ -64,7 +65,7 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
-        return 2
+        return 3
     }
 
     // Customize the appearance of table view cells.
@@ -82,6 +83,12 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
             case CELL_LOCATION_NAME:
                 c.textLabel?.text = NSLocalizedString("Current_location", comment: "Current location")
                 c.detailTextLabel?.text = mDataProvider.locationName()
+            case CELL_SHOW_CRITICAL_DEGREEES:
+                c.textLabel?.text = NSLocalizedString("pref_critical_degrees", comment: "")
+                let switchView = UISwitch(frame: CGRect.zero)
+                c.accessoryView = switchView
+                switchView.setOn(mDataProvider.mShowCriticalDegrees, animated: false)
+                switchView.addTarget(self, action: #selector(self.criticalDegreesSwitchChanged(sender:)), for: .valueChanged)
             case CELL_HELP_TOPICS:
                 c.textLabel?.text = NSLocalizedString("help_title", comment: "Help list")
             case CELL_IS_CUSTOM_TIME:
@@ -111,6 +118,11 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
             }
             self.navigationController?.pushViewController(helpTopicsController, animated: true)
         }
+    }
+
+    @IBAction func criticalDegreesSwitchChanged(sender: AnyObject!) {
+        mDataProvider.mShowCriticalDegrees = sender.isOn
+        mDataProvider.saveCurrentState()
     }
 
     @IBAction func customTimeSwitchChanged(sender: AnyObject!) {

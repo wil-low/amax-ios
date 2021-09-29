@@ -12,6 +12,7 @@ import UIKit
 let AMAX_PREFS_KEY_LOCATION_ID = "location_id"
 let AMAX_PREFS_KEY_LOCATION_LIST = "location_list"
 let AMAX_PREFS_KEY_CURRENT_DATE = "current_date"
+let AMAX_PREFS_KEY_CRITICAL_DEGREES = "critical_degrees"
 
 func getLocations() -> [String: Any]?
 {

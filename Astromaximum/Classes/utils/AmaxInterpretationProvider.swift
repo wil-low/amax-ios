@@ -115,7 +115,7 @@ class AmaxInterpretationProvider {
     			param2 = ASPECT_GOODNESS[ev.getDegree()]!
     			break
     		case EV_DEGREE_PASS:
-    			param0 = ev.getDegree()
+                param0 = ev.getDegType() == 0 ? 360 : ev.getDegree()
     			break
     		case EV_TITHI,
     		     EV_SIGN_ENTER:

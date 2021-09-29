@@ -109,6 +109,10 @@
 		BFC2A35B25A43A4D008D82DD /* RetrogradeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFC2A35925A43A4D008D82DD /* RetrogradeView.xib */; };
 		BFC2A35E25A43A86008D82DD /* RetrogradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC2A35D25A43A85008D82DD /* RetrogradeView.swift */; };
 		BFD159C7258D3F010056D76E /* AmaxPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD159C6258D3F010056D76E /* AmaxPageController.swift */; };
+		BFFF50B02685A00100D12084 /* AspectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFF50AE2685A00100D12084 /* AspectView.xib */; };
+		BFFF50B32685A0ED00D12084 /* AspectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF50B22685A0ED00D12084 /* AspectView.swift */; };
+		BFFF50B72685B1BF00D12084 /* SelDegreeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFFF50B52685B1BF00D12084 /* SelDegreeView.xib */; };
+		BFFF50BA2685B1D300D12084 /* SelDegreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFF50B92685B1D300D12084 /* SelDegreeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -232,6 +236,10 @@
 		BFC2A35A25A43A4D008D82DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RetrogradeView.xib; sourceTree = "<group>"; };
 		BFC2A35D25A43A85008D82DD /* RetrogradeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetrogradeView.swift; sourceTree = "<group>"; };
 		BFD159C6258D3F010056D76E /* AmaxPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmaxPageController.swift; sourceTree = "<group>"; };
+		BFFF50AF2685A00100D12084 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AspectView.xib; sourceTree = "<group>"; };
+		BFFF50B22685A0ED00D12084 /* AspectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectView.swift; sourceTree = "<group>"; };
+		BFFF50B62685B1BF00D12084 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SelDegreeView.xib; sourceTree = "<group>"; };
+		BFFF50B92685B1D300D12084 /* SelDegreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelDegreeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +259,8 @@
 		7214B0CD2585F082004558DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFFF50B52685B1BF00D12084 /* SelDegreeView.xib */,
+				BFFF50AE2685A00100D12084 /* AspectView.xib */,
 				BFC2A35925A43A4D008D82DD /* RetrogradeView.xib */,
 				BF7088B1259FB090001FA115 /* DataMissingView.xib */,
 				BF328154258767E200EE7D5A /* PlanetPassView.xib */,
@@ -273,6 +283,8 @@
 		7214B0D72585FC42004558DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFFF50B92685B1D300D12084 /* SelDegreeView.swift */,
+				BFFF50B22685A0ED00D12084 /* AspectView.swift */,
 				BFC2A35D25A43A85008D82DD /* RetrogradeView.swift */,
 				BF7088AE259FAF97001FA115 /* DataMissingView.swift */,
 				BF3281582587684600EE7D5A /* PlanetPassView.swift */,
@@ -596,6 +608,7 @@
 				84DFC23816A59E00003D8B01 /* AmaxLocationListController.xib in Resources */,
 				84DFC23916A59E00003D8B01 /* AmaxSettingsController.xib in Resources */,
 				BF2906B3258368E400E8E3ED /* AmaxStartPageViewController.xib in Resources */,
+				BFFF50B02685A00100D12084 /* AspectView.xib in Resources */,
 				84DFC23A16A59E00003D8B01 /* AmaxSummaryViewController.xib in Resources */,
 				84DFC24E16A5A380003D8B01 /* AspectSetCell.xib in Resources */,
 				84DFC24F16A5A380003D8B01 /* MoonMoveCell.xib in Resources */,
@@ -608,6 +621,7 @@
 				84DFC25316A5A380003D8B01 /* SunDegreeCell.xib in Resources */,
 				84DFC25416A5A380003D8B01 /* TithiCell.xib in Resources */,
 				84DFC25516A5A380003D8B01 /* ViaCombustaCell.xib in Resources */,
+				BFFF50B72685B1BF00D12084 /* SelDegreeView.xib in Resources */,
 				84DF76D9175957BD00A3D7A9 /* WeekDays.strings in Resources */,
 				729AFB2324D0C0C500EF0894 /* AspectCell.xib in Resources */,
 			);
@@ -672,6 +686,7 @@
 				BFB64887257BC5C600175B49 /* PlanetAxisView.swift in Sources */,
 				84E98B73168E6331006AAA55 /* AmaxTypes.c in Sources */,
 				BF2EDFD625B23E0E00017520 /* AmaxDecumbitureController.swift in Sources */,
+				BFFF50B32685A0ED00D12084 /* AspectView.swift in Sources */,
 				7214B0D32585F7C0004558DE /* AmaxTableViewController.swift in Sources */,
 				7218830A24ECCD8800163389 /* AmaxRetrogradeCell.swift in Sources */,
 				7229137E24DFAF5C005B0698 /* AmaxEvent.swift in Sources */,
@@ -706,6 +721,7 @@
 				72A3F175255EC38000AD8ABF /* AmaxHelpTopicsController.swift in Sources */,
 				72ACB3B524E63730007C2813 /* AmaxSummaryViewController.swift in Sources */,
 				BF3281592587684600EE7D5A /* PlanetPassView.swift in Sources */,
+				BFFF50BA2685B1D300D12084 /* SelDegreeView.swift in Sources */,
 				726BC97A24E5B88700690CE2 /* AmaxAstroLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1042,6 +1058,22 @@
 				BFC2A35A25A43A4D008D82DD /* Base */,
 			);
 			name = RetrogradeView.xib;
+			sourceTree = "<group>";
+		};
+		BFFF50AE2685A00100D12084 /* AspectView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFFF50AF2685A00100D12084 /* Base */,
+			);
+			name = AspectView.xib;
+			sourceTree = "<group>";
+		};
+		BFFF50B52685B1BF00D12084 /* SelDegreeView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFFF50B62685B1BF00D12084 /* Base */,
+			);
+			name = SelDegreeView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

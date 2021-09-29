@@ -387,3 +387,5 @@
 28 %357% Gifted nature, success, influence, diplomacy, cunning in everything. 
 29 %358% Accident on water, weak nature, sad ending. 
 30 %359% Tests. Vanity, egoism, sensitivity. 
+
+%360% Vivid life full of impressions.

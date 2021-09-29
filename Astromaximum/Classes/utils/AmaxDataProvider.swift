@@ -79,6 +79,11 @@ class AmaxDataProvider {
         get { return _mUseCustomTime }
         set { _mUseCustomTime = newValue }
     }
+    private var _mShowCriticalDegrees = false
+    var mShowCriticalDegrees: Bool {
+        get { return _mShowCriticalDegrees }
+        set { _mShowCriticalDegrees = newValue }
+    }
     private var _mLocations = [String: AmaxLocation]()
     var mLocations: [String: AmaxLocation] {
         get { return _mLocations }
@@ -93,6 +98,12 @@ class AmaxDataProvider {
     let WEEK_START_HOUR = [ 0, 3, 6, 2, 5, 1, 4 ]
     let PLANET_HOUR_SEQUENCE = [
         SE_SUN, SE_VENUS, SE_MERCURY, SE_MOON, SE_SATURN, SE_JUPITER, SE_MARS
+    ]
+    
+    let CRITICAL_DEGREES = [
+        0 + 1, 0 + 13, 0 + 26,
+        30 + 9, 30 + 22,
+        60 + 5, 60 + 18
     ]
 
     class func getDocumentsDirectory() -> URL? {
@@ -116,6 +127,7 @@ class AmaxDataProvider {
         mCommonDataFile = AmaxCommonDataFile(filePath:filePath!)
         documentsDirectory = AmaxDataProvider.getDocumentsDirectory()!
         _mUseCustomTime = false
+        _mShowCriticalDegrees = false
     }
 
     func locationFileById(locationId: String) -> URL? {
@@ -186,8 +198,9 @@ class AmaxDataProvider {
 
     func saveCurrentState() {
         let userDefaults = UserDefaults.standard
-        let date = mCalendar.date(from: mCurrentDateComponents)
-        userDefaults.set(date, forKey: AMAX_PREFS_KEY_CURRENT_DATE)
+        //let date = mCalendar.date(from: mCurrentDateComponents)
+        //userDefaults.set(date, forKey: AMAX_PREFS_KEY_CURRENT_DATE)
+        userDefaults.set(mShowCriticalDegrees, forKey: AMAX_PREFS_KEY_CRITICAL_DEGREES)
     }
 
     func unbundleLocationAsset() -> String! {
@@ -232,6 +245,8 @@ class AmaxDataProvider {
 
     func restoreSavedState() {
         let userDefaults = UserDefaults.standard
+        mShowCriticalDegrees = userDefaults.bool(forKey: AMAX_PREFS_KEY_CRITICAL_DEGREES)
+
         _mLocations.removeAll()
         var locations = getLocations()
         if locations != nil {
@@ -671,6 +686,40 @@ class AmaxDataProvider {
         return moonMoveVec
     }
 
+    func hasDegreeType(_ ev: AmaxEvent) -> Bool {
+        if mShowCriticalDegrees {
+            let evDegree = ev.getDegree()
+            for i in 0...3 {
+                for j in CRITICAL_DEGREES {
+                    let dgr = 120 * i + j
+                    if abs(evDegree - dgr) <= 1 {
+                        ev.mDegree = Int16(evDegree)
+                        return true
+                    }
+                }
+            }
+        }
+        else if ev.getDegType() != 0 {
+            return true
+        }
+        return false
+    }
+
+    func calculateSelDegrees() -> [AmaxEvent] {
+        var result = [AmaxEvent]()
+        for planet in SE_SUN.rawValue ... SE_PLUTO.rawValue {
+            let v = getEventsOnPeriodFor(eventType: EV_DEGREE_PASS, planet: AmaxPlanet(rawValue: planet), special: false, from: _mStartTime, to: _mEndTime, value: 0)
+            for ev in v {
+                if hasDegreeType(ev) {
+                    ev.mEvtype = EV_SEL_DEGREES
+                    result.append(ev)
+                }
+            }
+        }
+        result.sort(by: <)
+        return result
+    }
+
     func calculateRetrogrades() -> [AmaxEvent] {
         var result = [AmaxEvent]()
         for planet in SE_MERCURY.rawValue ... SE_PLUTO.rawValue {
@@ -811,6 +860,9 @@ class AmaxDataProvider {
     		case EV_TITHI:
     			events = calculateTithis()
     			break
+            case EV_SEL_DEGREES:
+                events = calculateSelDegrees()
+                break
     		case EV_RETROGRADE:
     			events = calculateRetrogrades()
     			break

@@ -23,6 +23,8 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         EV_MOON_SIGN_LARGE,
         EV_SUN_DEGREE_LARGE,
         EV_TITHI,
+        EV_ASP_EXACT,
+        EV_SEL_DEGREES,
     ]
 
     private var mTitleDate: String = ""
@@ -61,7 +63,9 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     @IBOutlet weak var mTithiStack: UIStackView!
     @IBOutlet weak var mMoonMoveScroll: UIScrollView!
     @IBOutlet weak var mMoonMoveStack: UIStackView!
+    @IBOutlet weak var mSelDegreeStack: UIStackView!
     @IBOutlet weak var mRetrogradeStack: UIStackView!
+    @IBOutlet weak var mAspectStack: UIStackView!
     @IBOutlet weak var mPlanetHourDayStack: UIStackView!
     @IBOutlet weak var mPlanetHourNightStack: UIStackView!
 
@@ -103,18 +107,9 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         addBorders(to: mSunRiseSetBlock)
         addBorders(to: mMoonRiseSetBlock)
 
-        // retrograde spacers
-        let spacer1 = UIView()
-        spacer1.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        //spacer1.layer.borderWidth = 0.8
-        //spacer1.layer.borderColor = UIColor.red.cgColor
-        mRetrogradeStack.addArrangedSubview(spacer1)
-        let spacer2 = UIView()
-        spacer2.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        //spacer2.layer.borderWidth = 0.8
-        //spacer2.layer.borderColor = UIColor.red.cgColor
-        mRetrogradeStack.addArrangedSubview(spacer2)
-        spacer1.widthAnchor.constraint(equalTo: spacer2.widthAnchor).isActive = true
+        addSpacers(to: mSelDegreeStack, bordered: false)
+        addSpacers(to: mRetrogradeStack, bordered: false)
+        addSpacers(to: mAspectStack, bordered: false)
     }
     
     required init?(coder: NSCoder) {
@@ -147,6 +142,24 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     override func viewDidLayoutSubviews() {
         //print("viewDidLayoutSubviews")
         centerMoonMoveScroll(flash: false)
+    }
+
+    func addSpacers(to view: UIStackView, bordered: Bool) {
+        let spacer1 = UIView()
+        spacer1.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        if bordered {
+            spacer1.layer.borderWidth = 0.8
+            spacer1.layer.borderColor = UIColor.red.cgColor
+        }
+        view.addArrangedSubview(spacer1)
+        let spacer2 = UIView()
+        spacer2.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        if bordered {
+            spacer2.layer.borderWidth = 0.8
+            spacer2.layer.borderColor = UIColor.red.cgColor
+        }
+        view.addArrangedSubview(spacer2)
+        spacer1.widthAnchor.constraint(equalTo: spacer2.widthAnchor).isActive = true
     }
 
     func centerMoonMoveScroll(flash: Bool) {
@@ -271,8 +284,12 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             showMoonPhase(dataProvider: dp, events: tithis)
 
             showMoonMoveStack(stack: mMoonMoveStack, dataProvider: dp)
+
+            showSelDegreeStack(stack: mSelDegreeStack, dataProvider: dp)
             showRetrogradeStack(stack: mRetrogradeStack, dataProvider: dp)
-            
+
+            showAspectStack(stack: mAspectStack, dataProvider: dp)
+
             showPlanetHourStack(stack: mPlanetHourDayStack, dataProvider: dp, isDay: true)
             showPlanetHourStack(stack: mPlanetHourNightStack, dataProvider: dp, isDay: false)
             
@@ -482,6 +499,36 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         addLongPressRecognizer(view: stack, summaryItem: si, xib: "MoonMoveCell")
     }
 
+    func showSelDegreeStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
+        let si = findInCache(dataProvider: dataProvider, findType: EV_SEL_DEGREES)!
+        let viewCount = stack.arrangedSubviews.count - 2
+        for i in 0 ..< si.mEvents.count {
+            let event = si.mEvents[i]
+            var v: SelDegreeView
+            if viewCount <= i {
+                // create a new view
+                v = SelDegreeView()
+                addBorders(to: v)
+                stack.insertArrangedSubview(v, at: i + 1)
+            }
+            else {
+                v = stack.arrangedSubviews[i + 1] as! SelDegreeView
+            }
+            v.setData(ev: event)
+
+            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: EV_DEGREE_PASS)
+            v.gestureRecognizers = [tap]
+
+            v.isHidden = false
+        }
+        // hide extra views
+        for i in si.mEvents.count ..< stack.arrangedSubviews.count - 2 {
+            stack.arrangedSubviews[i + 1].isHidden = true
+        }
+
+        addLongPressRecognizer(view: stack, summaryItem: si, xib: "SelDegreeCell")
+    }
+
     func showRetrogradeStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
         let si = findInCache(dataProvider: dataProvider, findType: EV_RETROGRADE)!
         let viewCount = stack.arrangedSubviews.count - 2
@@ -510,6 +557,36 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         }
 
         addLongPressRecognizer(view: stack, summaryItem: si, xib: "RetrogradeCell")
+    }
+
+    func showAspectStack(stack: UIStackView, dataProvider: AmaxDataProvider) {
+        let si = findInCache(dataProvider: dataProvider, findType: EV_ASP_EXACT)!
+        let viewCount = stack.arrangedSubviews.count - 2
+        for i in 0 ..< si.mEvents.count {
+            let event = si.mEvents[i]
+            var v: AspectView
+            if viewCount <= i {
+                // create a new view
+                v = AspectView()
+                addBorders(to: v)
+                stack.insertArrangedSubview(v, at: i + 1)
+            }
+            else {
+                v = stack.arrangedSubviews[i + 1] as! AspectView
+            }
+            v.setData(ev: event)
+
+            let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: event, eventType: event.mEvtype)
+            v.gestureRecognizers = [tap]
+
+            v.isHidden = false
+        }
+        // hide extra views
+        for i in si.mEvents.count ..< stack.arrangedSubviews.count - 2 {
+            stack.arrangedSubviews[i + 1].isHidden = true
+        }
+
+        addLongPressRecognizer(view: stack, summaryItem: si, xib: "AspectCell")
     }
 
 }

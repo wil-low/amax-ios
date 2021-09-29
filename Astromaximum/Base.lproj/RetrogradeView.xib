@@ -19,31 +19,31 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-7w-kyh">
-                    <rect key="frame" x="0.0" y="0.0" width="48" height="76"/>
+                    <rect key="frame" x="0.0" y="0.0" width="42" height="76"/>
                     <subviews>
                         <view contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="RoK-IT-4P8" userLabel="Spacer1">
                             <rect key="frame" x="0.0" y="26" width="8.5" height="50"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="P" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3" customClass="AmaxAstroLabel" customModule="Astromaximum" customModuleProvider="target">
-                            <rect key="frame" x="8.5" y="0.0" width="21.5" height="76"/>
-                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="32"/>
+                            <rect key="frame" x="8.5" y="0.0" width="16.5" height="76"/>
+                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-Fn-qMn">
-                            <rect key="frame" x="30" y="20" width="10" height="56"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <rect key="frame" x="25" y="20" width="8.5" height="56"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" horizontalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="1so-Ll-AYk" userLabel="Spacer2">
-                            <rect key="frame" x="40" y="26" width="8" height="50"/>
+                            <rect key="frame" x="33.5" y="26" width="8.5" height="50"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="width" constant="48" id="mOp-YL-5NB"/>
+                        <constraint firstAttribute="width" constant="42" id="mOp-YL-5NB"/>
                         <constraint firstItem="3" firstAttribute="centerY" secondItem="KUH-7w-kyh" secondAttribute="centerY" id="q8P-p8-lOQ"/>
                         <constraint firstItem="1so-Ll-AYk" firstAttribute="width" secondItem="RoK-IT-4P8" secondAttribute="width" id="qXD-Bw-4vg"/>
                         <constraint firstItem="Qlw-Fn-qMn" firstAttribute="centerY" secondItem="KUH-7w-kyh" secondAttribute="centerY" constant="10" id="wIq-bm-2w1"/>

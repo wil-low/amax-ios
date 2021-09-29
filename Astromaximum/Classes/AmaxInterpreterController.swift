@@ -57,10 +57,23 @@ class AmaxInterpreterController : UIViewController {
             case EV_DEGREE_PASS:
                 let planet = NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "Planets", comment: "")
                 let constell = NSLocalizedString("\(ev.getDegree() / 30)", tableName: "ConstellGenitive", comment: "")
-                return String(format:NSLocalizedString("fmt_planet_in_degree", comment: ""),
+                var title = String(format:NSLocalizedString("fmt_planet_in_degree", comment: ""),
                         planet,
                         ev.getDegree() % 30 + 1,
-                        constell) 
+                        constell)
+                if ev.mEvtype == EV_SEL_DEGREES {
+                    switch (ev.getDegType()) {
+                    case 0:
+                        title += " (" + NSLocalizedString("sel_dgr_crit", comment: "") + ")"
+                    case 1:
+                        title += " (" + NSLocalizedString("sel_dgr_bad", comment: "") + ")"
+                    case 2:
+                        title += " (" + NSLocalizedString("sel_dgr_good", comment: "") + ")"
+                    default:
+                        break
+                    }
+                }
+                return title
     		
             case EV_SIGN_ENTER:
                 let planet = NSLocalizedString("\(Int(ev.mPlanet0.rawValue))", tableName: "Planets", comment: "")
