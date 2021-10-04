@@ -923,10 +923,13 @@ class AmaxDataProvider {
 
     func changeDate(deltaDays: Int) -> Bool {
         let AmaxSECONDS_IN_DAY = 24 * 60 * 60;
-        let newStart = alignDate(_mStartTime + AmaxSECONDS_IN_DAY * deltaDays)
-        //if newStart < mStartJD || newStart >= mFinalJD {
-        //    return false
-        //}
+        var newStart = _mStartTime + AmaxSECONDS_IN_DAY * deltaDays
+        if deltaDays != 0 {
+            // plus 12 hrs to compensate DST transitions
+            newStart += 12 * 60 * 60
+        }
+        newStart = alignDate(newStart)
+
         let newStartAligned = Date(timeIntervalSince1970: TimeInterval(newStart))
         mCurrentDateComponents = mCalendar.dateComponents([.year, .month, .day, .weekday], from: newStartAligned)
 
