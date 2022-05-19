@@ -13,6 +13,9 @@ let AMAX_PREFS_KEY_LOCATION_ID = "location_id"
 let AMAX_PREFS_KEY_LOCATION_LIST = "location_list"
 let AMAX_PREFS_KEY_CURRENT_DATE = "current_date"
 let AMAX_PREFS_KEY_CRITICAL_DEGREES = "critical_degrees"
+let AMAX_PREFS_KEY_USE_CUSTOM_TIME = "use_custom_time"
+let AMAX_PREFS_KEY_CUSTOM_HOUR = "custom_hour"
+let AMAX_PREFS_KEY_CUSTOM_MINUTE = "custom_minute"
 
 func getLocations() -> [String: Any]?
 {
@@ -51,5 +54,30 @@ extension UIScrollView {
             contentRect = contentRect.union(view.frame)
         }
         self.contentSize = contentRect.size
+    }
+}
+
+extension UIViewController {
+    func topMostViewController() -> UIViewController {
+
+        if let presented = self.presentedViewController {
+            return presented.topMostViewController()
+        }
+
+        if let navigation = self as? UINavigationController {
+            return navigation.visibleViewController?.topMostViewController() ?? navigation
+        }
+
+        if let tab = self as? UITabBarController {
+            return tab.selectedViewController?.topMostViewController() ?? tab
+    }
+
+        return self
+    }
+}
+
+extension UIApplication {
+    func topMostViewController() -> UIViewController? {
+        return self.keyWindow?.rootViewController?.topMostViewController()
     }
 }

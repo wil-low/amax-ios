@@ -11,6 +11,7 @@ import UIKit
 class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var mDataProvider:AmaxDataProvider!
+    private var mCustomTimeChanged = false
     @IBOutlet weak var _mTableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
@@ -20,14 +21,14 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
 
     let CELL_LOCATION_NAME = 0
     let CELL_SHOW_CRITICAL_DEGREEES = 1
-    let CELL_HELP_TOPICS = 2
-    let CELL_IS_CUSTOM_TIME = 102
-    let CELL_HIGHIGHT_TIME = 103
+    let CELL_IS_CUSTOM_TIME = 2
+    let CELL_HELP_TOPICS = 3
 
     let AmaxSettingsXibNames = [
         "LocationNameCell",
+        "CriticalDegreesCell",
+        "CustomTimeSwitchCell",
         "HelpTopicsCell",
-        "CustomTimeSwitchCell"
     ]
 
     override init(nibName: String?, bundle nibBundleOrNil: Bundle?) {
@@ -56,7 +57,17 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        mCustomTimeChanged = false
         _mTableView.reloadData()
+    }
+
+    override func viewDidDisappear(_ animated:Bool) {
+        if mCustomTimeChanged {
+            if let topVC = UIApplication.shared.topMostViewController() as? AmaxPageController {
+                topVC.currentController().cachedStartTime = -1  // to force update
+                _ = topVC.currentController().updateDisplay()
+            }
+        }
     }
 
     // Customize the number of sections in the table view.
@@ -65,7 +76,7 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int {
-        return 3
+        return 4
     }
 
     // Customize the appearance of table view cells.
@@ -93,10 +104,13 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
                 c.textLabel?.text = NSLocalizedString("help_title", comment: "Help list")
             case CELL_IS_CUSTOM_TIME:
                 c.textLabel?.text = NSLocalizedString("Highlight_time", comment: "Highlight time")
-                c.detailTextLabel?.text = "88:88"
+                c.detailTextLabel?.text = String(format: "%02d:%02d",
+                                                 AmaxDataProvider.sharedInstance.mCustomHour,
+                                                 AmaxDataProvider.sharedInstance.mCustomMinute)
+
                 let switchView = UISwitch(frame: CGRect.zero)
                 c.accessoryView = switchView
-                switchView.setOn(false, animated: false)
+                switchView.setOn(mDataProvider.mUseCustomTime, animated: false)
                 switchView.addTarget(self, action: #selector(self.customTimeSwitchChanged(sender:)), for: .valueChanged)
             default:
                 break
@@ -106,17 +120,25 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == CELL_LOCATION_NAME {
+        switch(indexPath.row) {
+        case CELL_LOCATION_NAME:
             if locationListController == nil {
                 locationListController = AmaxLocationListController(nibName: "AmaxLocationListController", bundle: nil)
             }
             self.navigationController?.pushViewController(locationListController, animated: true)
-        }
-        else if indexPath.row == CELL_HELP_TOPICS {
+        case CELL_HELP_TOPICS:
             if helpTopicsController == nil {
                 helpTopicsController = AmaxHelpTopicsController(nibName: "AmaxHelpTopicsController", bundle: nil)
             }
             self.navigationController?.pushViewController(helpTopicsController, animated: true)
+        case CELL_IS_CUSTOM_TIME:
+            let targetCell = self.tableView(_mTableView, cellForRowAt: IndexPath(row: indexPath.row, section: 0))
+            let sw = targetCell.accessoryView as! UISwitch
+            if sw.isOn {
+                showCustomTimeDialog(cell: targetCell, keepOn: true)
+            }
+        default:
+            break
         }
     }
 
@@ -126,44 +148,36 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
     }
 
     @IBAction func customTimeSwitchChanged(sender: AnyObject!) {
-        /*let targetCell = tableView(_mTableView, cellForRowAt: IndexPath(row: CELL_HIGHIGHT_TIME, section: 0))
-        NSLog("Switch changed to %@\n", sender.isOn ? "YES" : "NO")
-    //	self.pickerView.date = [self.dateFormatter dateFromString:targetCell.detailTextLabel.text];
-
-    	// check if our date picker is already on screen
-    	if pickerView.superview == nil
-    	{
-            view.window?.addSubview(pickerView)
-
-    		// size up the picker view to our screen and compute the start/end frame origin for our slide up animation
-    		//
-    		// compute the start frame
-            let screenRect = UIScreen.main.bounds
-            let pickerSize = pickerView.sizeThatFits(CGSize.zero)
-            let startRect = CGRect(x: 0, y: screenRect.origin.y + screenRect.size.height, width: pickerSize.width, height: pickerSize.height)
-    		pickerView.frame = startRect
-
-    		// compute the end frame
-            //let pickerRect = CGRect(x: 0, y: screenRect.origin.y + screenRect.size.height - pickerSize.height, width: pickerSize.width, height: pickerSize.height)
-    		
-            // start the slide up animation
-            
-    		UIView.beginAnimations(nil, context: nil)
-            UIView.animationDuration = 0.3
-
-            // we need to perform some post operations after the animation is complete
-            UIView.animationDelegate = self
-
-            self->pickerView.frame = pickerRect
-
-            // shrink the table vertical size to make room for the date picker
-            var newFrame:CGRect = _mTableView.frame
-            newFrame.size.height -= self->pickerView.frame.size.height
-            _mTableView.frame = newFrame
-    		UIView.commitAnimations()
-
-    		// add the "Done" button to the nav bar
-    		self.navigationItem.rightBarButtonItem = doneButton
-    	}*/
+        let targetCell = tableView(_mTableView, cellForRowAt: IndexPath(row: CELL_IS_CUSTOM_TIME, section: 0))
+        if sender.isOn {
+            showCustomTimeDialog(cell: targetCell, keepOn: false)
+        }
+        else {
+            mDataProvider.mUseCustomTime = false
+            mCustomTimeChanged = true
+            mDataProvider.saveCurrentState()
+        }
+    }
+    
+    func showCustomTimeDialog(cell: UITableViewCell, keepOn: Bool) {
+        let dpd = DatePickerDialog()
+        dpd.show(  NSLocalizedString("time_picker_title", comment:"")
+                 , doneButtonTitle: NSLocalizedString("date_picker_done", comment:"")
+                 , cancelButtonTitle: NSLocalizedString("date_picker_cancel", comment:"")
+                 , defaultDate: mDataProvider.getCustomTimeForPicker()
+                 , datePickerMode: .time) { time in
+            if let tm = time {
+                self.mDataProvider.setCustomTime(from: tm)
+                self.mDataProvider.mUseCustomTime = true
+            }
+            else {
+                if !keepOn {
+                    self.mDataProvider.mUseCustomTime = false
+                }
+            }
+            self._mTableView.reloadData()
+            self.mCustomTimeChanged = true
+            self.mDataProvider.saveCurrentState()
+        }
     }
 }

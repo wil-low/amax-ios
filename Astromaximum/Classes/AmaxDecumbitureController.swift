@@ -197,6 +197,7 @@ class AmaxDecumbitureController : AmaxSelectionViewController {
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
             mParent!.mCornerTime.text = dp.getHighlightTimeString()
+            mParent!.mCornerTime.textColor = dp.mUseCustomTime ? UIColor.systemBlue : ColorCompatibility.label
             //******* COMMON RISES & SETS
             let pp0 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: -1, isTrailing: false)
             let pp1 = dp.shiftDate(alignedDate: dp.mStartTime, byAdding: .day, value: 2, isTrailing: true)

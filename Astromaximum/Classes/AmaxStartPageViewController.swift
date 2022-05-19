@@ -191,6 +191,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
             mParent!.mCornerTime.text = dp.getHighlightTimeString()
+            mParent!.mCornerTime.textColor = dp.mUseCustomTime ? UIColor.systemBlue : ColorCompatibility.label
 
             showEvent(label: mVocTime, dataProvider: dp, findType: EV_VOC, interpretationType: EV_VOC, string: { e in
                 "VOC " + e.normalizedRangeString(addSpaces: false)
@@ -243,10 +244,8 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             showEventBlock(dataProvider: dp, findType: EV_SUN_DEGREE_LARGE, configure: { event, si in
                 if let e = event {
                     mSunDegree.text = String(format: "%d\u{00b0} ", e.getDegree() % 30 + 1)
-                    AmaxTableCell.setColorOf(label: mSunDegree, si: si, activeEvent: e, byEventMode: e)
 
                     mSunSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() / 30)))
-                    AmaxTableCell.setColorOf(label: mSunSign, si: si, activeEvent: e, byEventMode: e)
 
                     mSunDegreeTime.text = dp.isInCurrentDay(date: e.date(at: 0)) ?
                         AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false) : ""
@@ -260,10 +259,10 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             showEventBlock(dataProvider: dp, findType: EV_MOON_SIGN_LARGE, configure: { event, si in
                 if let e = event {
                     mMoonSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree())))
-                    AmaxTableCell.setColorOf(label: mMoonSign, si: si, activeEvent: e, byEventMode: e)
 
                     mMoonSignTime.text = dp.isInCurrentDay(date: e.date(at: 0)) ?
                         AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false) : ""
+                    AmaxTableCell.setColorOf(label: mMoonSignTime, si: si, activeEvent: e, byEventMode: e)
 
                     let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e, eventType: EV_SIGN_ENTER)
                     mMoonBlock.gestureRecognizers = [tap]
@@ -311,6 +310,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     
     func showEventBlock(dataProvider: AmaxDataProvider, findType: AmaxEventType, configure: (AmaxEvent?, AmaxSummaryItem) -> Void ) {
         if let si = findInCache(dataProvider: dataProvider, findType: findType) {
+            _ = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
             configure(si.mEvents[0], si)
         }
     }
@@ -318,6 +318,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     func showEvent(label: UILabel, dataProvider: AmaxDataProvider, findType: AmaxEventType, interpretationType: AmaxEventType,  string: (AmaxEvent) -> String, defaultString: String = "") {
         addBorders(to: label)
         label.gestureRecognizers = []
+        label.isUserInteractionEnabled = false
         if let si = findInCache(dataProvider: dataProvider, findType: findType) {
             var pos = -1
             var activeEvent: AmaxEvent?
@@ -335,6 +336,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             }
         }
         label.text = defaultString
+        label.textColor = ColorCompatibility.label
     }
 
     func showRiseSet(label: UILabel, dataProvider: AmaxDataProvider, si: AmaxSummaryItem) {

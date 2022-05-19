@@ -85,8 +85,15 @@ class AmaxSummaryItem {
                     }
                 }
             case EV_SUN_DAY:
+                let e = mEvents[index]
+                if dateBetween(currentTime, e.date(at: 0), e.date(at: 1)) == 0 {
+                    _mEventMode = .currentTime
+                }
+                else if dateBetween(customTime, e.date(at: 0), e.date(at: 1)) == 0 {
+                    _mEventMode = currentTime == 0 ? .customTime : .none
+                }
                 return index
-    		default:
+            default:
     			for e in _mEvents {
     				if dateBetween(currentTime, e.date(at: 0), e.date(at: 1)) == 0 {
                         _mEventMode = .currentTime

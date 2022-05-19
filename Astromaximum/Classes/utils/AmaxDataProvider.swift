@@ -201,6 +201,9 @@ class AmaxDataProvider {
         //let date = mCalendar.date(from: mCurrentDateComponents)
         //userDefaults.set(date, forKey: AMAX_PREFS_KEY_CURRENT_DATE)
         userDefaults.set(mShowCriticalDegrees, forKey: AMAX_PREFS_KEY_CRITICAL_DEGREES)
+        userDefaults.set(mUseCustomTime, forKey: AMAX_PREFS_KEY_USE_CUSTOM_TIME)
+        userDefaults.set(mCustomHour, forKey: AMAX_PREFS_KEY_CUSTOM_HOUR)
+        userDefaults.set(mCustomMinute, forKey: AMAX_PREFS_KEY_CUSTOM_MINUTE)
     }
 
     func unbundleLocationAsset() -> String! {
@@ -246,6 +249,9 @@ class AmaxDataProvider {
     func restoreSavedState() {
         let userDefaults = UserDefaults.standard
         mShowCriticalDegrees = userDefaults.bool(forKey: AMAX_PREFS_KEY_CRITICAL_DEGREES)
+        mUseCustomTime = userDefaults.bool(forKey: AMAX_PREFS_KEY_USE_CUSTOM_TIME)
+        mCustomHour = userDefaults.integer(forKey: AMAX_PREFS_KEY_CUSTOM_HOUR)
+        mCustomMinute = userDefaults.integer(forKey: AMAX_PREFS_KEY_CUSTOM_MINUTE)
 
         _mLocations.removeAll()
         var locations = getLocations()
@@ -281,6 +287,13 @@ class AmaxDataProvider {
         else {
             setTodayDate()
         }
+    }
+
+    func setCustomTime(from time: Date) {
+        let unitFlags: Set<Calendar.Component> = [.hour, .minute]
+        let dc = mCalendar.dateComponents(unitFlags, from: time)
+        mCustomHour = dc.hour!
+        mCustomMinute = dc.minute!
     }
 
     func setDate(from date: Date) {
@@ -949,6 +962,21 @@ class AmaxDataProvider {
         return mCalendar.date(from: mCurrentDateComponents)!
     }
 
+    func getCustomTimeForPicker() -> Date {
+        let comp = mCurrentDateComponents
+        let date = Date()
+        var comp2 = mCalendar.dateComponents([.year, .month, .hour, .minute], from: date)
+
+        comp2.year = comp.year
+        comp2.month = comp.month
+        comp2.day = comp.day
+        comp2.hour = mCustomHour
+        comp2.minute = mCustomMinute
+        comp2.second = 0
+
+        return mCalendar.date(from: comp2)!
+    }
+    
     func getCustomTime() -> Int {
         let comp = mCurrentDateComponents
         let date = Date()
