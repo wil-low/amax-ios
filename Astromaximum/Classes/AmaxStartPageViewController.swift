@@ -191,7 +191,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
             mParent!.mCornerTime.text = dp.getHighlightTimeString()
-            mParent!.mCornerTime.textColor = dp.mUseCustomTime ? UIColor.systemBlue : ColorCompatibility.label
+            mParent!.mCornerTime.textColor = dp.mUseCustomTime ? UIColor.systemBlue : UIColor.systemRed
 
             showEvent(label: mVocTime, dataProvider: dp, findType: EV_VOC, interpretationType: EV_VOC, string: { e in
                 "VOC " + e.normalizedRangeString(addSpaces: false)
