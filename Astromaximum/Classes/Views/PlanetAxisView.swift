@@ -37,7 +37,7 @@ import UIKit
         }
     }
     
-    func setData(axis: [AmaxEvent], axisCallback: (UIView, AmaxEvent?) -> Void) {
+    func setData(axis: [AmaxEvent], currentTime: Int, customTime: Int, useCustomTime: Bool, axisCallback: (UIView, AmaxEvent?) -> Void) {
         for i in 0 ..< 4 {
             if i >= axis.count {
                 mAxisNames[i].text = ""
@@ -45,8 +45,22 @@ import UIKit
                 mAxisBlocks[i].gestureRecognizers = []
             }
             else {
+                let DEGREE_DELTA_SEC1 = 40 * 60
+                let DEGREE_DELTA_SEC2 = 28 * 60
                 mAxisNames[i].text = ["asc", "mc", "dsc", "ic"][Int(axis[i].mDegree - 1)]
-                mAxisTimes[i].text = AmaxEvent.long2String(axis[i].date(at: 0), format: nil, h24: false)
+                let n = mAxisNames[i]
+                let t = mAxisTimes[i]
+                t.text = AmaxEvent.long2String(axis[i].date(at: 0), format: nil, h24: false)
+                
+                t.textColor = ColorCompatibility.label
+                if dateBetween(axis[i].mDate[0], currentTime - DEGREE_DELTA_SEC1, currentTime + DEGREE_DELTA_SEC2) == 0 {
+                    t.textColor = UIColor.systemRed
+                }
+                else if useCustomTime && dateBetween(axis[i].mDate[0], customTime - DEGREE_DELTA_SEC1, customTime + DEGREE_DELTA_SEC2) == 0 {
+                    t.textColor = UIColor.systemBlue
+                }
+                n.textColor = t.textColor
+
                 axisCallback(mAxisBlocks[i], axis[i])
             }
         }

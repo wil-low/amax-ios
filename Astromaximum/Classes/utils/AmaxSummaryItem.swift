@@ -93,6 +93,9 @@ class AmaxSummaryItem {
                     _mEventMode = currentTime == 0 ? .customTime : .none
                 }
                 return index
+            case EV_RISE:
+                _mEventMode = .currentTime
+                return index
             default:
     			for e in _mEvents {
     				if dateBetween(currentTime, e.date(at: 0), e.date(at: 1)) == 0 {

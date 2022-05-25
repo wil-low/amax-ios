@@ -40,14 +40,15 @@ import UIKit
         }
     }
     
-    func setData(passes: [AmaxEvent], passCallback: (UIView, AmaxEvent?) -> Void) {
+    func setData(passes: [AmaxEvent], currentTime: Int, customTime: Int, useCustomTime: Bool, passCallback: (UIView, AmaxEvent?) -> Void) {
         for view in mPasses.subviews {
             view.removeFromSuperview()
         }
 
         for e in passes {
+            var pass: UILabel
             if isMoon {
-                let pass = AmaxAstroLabel()
+                pass = AmaxAstroLabel()
                 pass.adjustsFontForContentSizeCategory = true
                 pass.awakeFromNib()
                 pass.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(e.getDegree() % 30)))
@@ -58,7 +59,7 @@ import UIKit
                 mPasses.addArrangedSubview(pass)
             }
             else {
-                let pass = UILabel()
+                pass = UILabel()
                 pass.text = String(format: "%d", e.getDegree() % 30 + 1)
                 pass.font = UIFont.preferredFont(forTextStyle: .body)
                 pass.adjustsFontForContentSizeCategory = true
@@ -67,6 +68,13 @@ import UIKit
                 passCallback(pass, e)
                 addBorders(to: pass)
                 mPasses.addArrangedSubview(pass)
+            }
+            pass.textColor = ColorCompatibility.label
+            if dateBetween(currentTime, e.mDate[0], e.mDate[1]) == 0 {
+                pass.textColor = UIColor.systemRed
+            }
+            else if useCustomTime && dateBetween(customTime, e.mDate[0], e.mDate[1]) == 0 {
+                pass.textColor = UIColor.systemBlue
             }
         }
         if !isMoon {

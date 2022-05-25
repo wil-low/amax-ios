@@ -344,11 +344,11 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         var activeEvent: AmaxEvent?
         pos = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
         activeEvent = (pos == -1) ? nil : si.mEvents[pos]
-
         let eventStr = NSLocalizedString(si.mKey == EV_RISE ? "abbr_rise" : "abbr_set", comment: "") + " "
+        label.textColor = ColorCompatibility.label
         if let e = activeEvent {
             label.text = eventStr + AmaxEvent.long2String(e.date(at: 0), format: nil, h24: false)
-            //AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
+            AmaxTableCell.setColorOf(label: label, si: si, activeEvent: activeEvent, byEventMode: e)
         }
         else {
             if si.mEvents.count > 0 {
@@ -364,6 +364,15 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         var events = dataProvider.getEventsOnPeriodFor(eventType: EV_RISE, planet: planet, special: true, from: dataProvider.mStartTime, to: dataProvider.mEndTime, value: 0)
         events.append(contentsOf: dataProvider.getEventsOnPeriodFor(eventType: EV_SET, planet: planet, special: true, from: dataProvider.mStartTime, to: dataProvider.mEndTime, value: 0))
         events.sort(by: <)
+        
+        for i in 0...events.count - 1 {
+            if i < events.count - 1 {
+                events[i].mDate[1] = events[i + 1].mDate[0] - AmaxDataProvider.AmaxROUNDING_SEC
+            }
+            else {
+                events[i].mDate[1] = dataProvider.mEndTime  // last event
+            }
+        }
         
         label[0].text = ""
         label[1].text = ""

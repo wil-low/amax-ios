@@ -90,7 +90,11 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                     passes = dp.getEventsOnPeriodFor(eventType: EV_DEGREE_PASS, planet: AmaxPlanet(i), special: false, from: dp.mStartTime, to: dp.mEndTime, value: 0)
                 }
                 if (i > SE_SATURN.rawValue) {
-                    mPlanetPass[Int(i - SE_SATURN.rawValue - 1)].setData(passes: passes,
+                    mPlanetPass[Int(i - SE_SATURN.rawValue - 1)].setData(
+                        passes: passes,
+                        currentTime: mCurrentTime,
+                        customTime: mCustomTime,
+                        useCustomTime: dp.mUseCustomTime,
                         passCallback: {view, e in
                             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: e!.mEvtype)
                             view.gestureRecognizers = [tap]
@@ -98,7 +102,11 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                     continue
                 }
                 else {
-                    mPlanetAxis[Int(i)].mPlanetPass.setData(passes: passes,
+                    mPlanetAxis[Int(i)].mPlanetPass.setData(
+                        passes: passes,
+                        currentTime: mCurrentTime,
+                        customTime: mCustomTime,
+                        useCustomTime: dp.mUseCustomTime,
                         passCallback: {view, e in
                             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: e!.mEvtype)
                             view.gestureRecognizers = [tap]
@@ -126,6 +134,7 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                 for j in 0 ..< tmp2.count - 1 {
                     let ev = tmp2[j]
                     let enew = AmaxEvent(date: (tmp2[j + 1].date(at: 0) + ev.date(at: 0)) / 2, planet: AmaxPlanet(rawValue: i))
+                    enew.mEvtype = EV_RISE
                     enew.mDegree = ev.mDegree == 1 ? 2 : 4
                     tmp2.append(enew);
                 }
@@ -134,6 +143,9 @@ class AmaxPlanetAxisController : AmaxSelectionViewController {
                     return ev.mDegree != 200 && dp.isInCurrentDay(date: ev.date(at: 0))
                 })
                 mPlanetAxis[Int(i)].setData(axis: tmp,
+                    currentTime: mCurrentTime,
+                    customTime: mCustomTime,
+                    useCustomTime: dp.mUseCustomTime,
                     axisCallback: { view, e in
                         if e != nil {
                             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: EV_RISE)

@@ -210,7 +210,11 @@ class AmaxDecumbitureController : AmaxSelectionViewController {
                     passes = dp.getEventsOnPeriodFor(eventType: EV_DEGREE_PASS, planet: AmaxPlanet(i), special: false, from: dp.mStartTime, to: dp.mEndTime, value: 0)
                 }
                 if (i > SE_SATURN.rawValue) {
-                    mPlanetPass[Int(i - SE_SATURN.rawValue - 1)].setData(passes: passes,
+                    mPlanetPass[Int(i - SE_SATURN.rawValue - 1)].setData(
+                        passes: passes,
+                        currentTime: mCurrentTime,
+                        customTime: mCustomTime,
+                        useCustomTime: dp.mUseCustomTime,
                         passCallback: {view, e in
                             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: e!.mEvtype)
                             view.gestureRecognizers = [tap]
@@ -218,7 +222,11 @@ class AmaxDecumbitureController : AmaxSelectionViewController {
                     continue
                 }
                 else {
-                    mPlanetAxis[Int(i)].mPlanetPass.setData(passes: passes,
+                    mPlanetAxis[Int(i)].mPlanetPass.setData(
+                        passes: passes,
+                        currentTime: mCurrentTime,
+                        customTime: mCustomTime,
+                        useCustomTime: dp.mUseCustomTime,
                         passCallback: {view, e in
                             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: e!.mEvtype)
                             view.gestureRecognizers = [tap]
@@ -254,6 +262,9 @@ class AmaxDecumbitureController : AmaxSelectionViewController {
                     return ev.mDegree != 200 && dp.isInCurrentDay(date: ev.date(at: 0))
                 })
                 mPlanetAxis[Int(i)].setData(axis: tmp,
+                    currentTime: mCurrentTime,
+                    customTime: mCustomTime,
+                    useCustomTime: dp.mUseCustomTime,
                     axisCallback: { view, e in
                         if e != nil {
                             let tap = AmaxTapRecognizer(target: self, action: #selector(itemTapped), event: e!, eventType: EV_RISE)

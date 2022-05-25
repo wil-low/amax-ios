@@ -24,7 +24,7 @@ class AmaxDataProvider {
     var mMoonPhases = [AmaxEvent]()
     var mEclipses = [AmaxEvent]()
 
-    private let AmaxROUNDING_SEC = 60
+    static let AmaxROUNDING_SEC = 60
 
     private var _mStartTime = 0
     var mStartTime: Int {
@@ -158,7 +158,7 @@ class AmaxDataProvider {
             mStartJD = Int(date1!.timeIntervalSince1970)
             comp.month! += mLocationDataFile!.mMonthCount
             let date2 = mCalendar.date(from: comp)
-            mFinalJD = Int(date2!.timeIntervalSince1970) - AmaxROUNDING_SEC
+            mFinalJD = Int(date2!.timeIntervalSince1970) - AmaxDataProvider.AmaxROUNDING_SEC
             AmaxEvent.setTimeZone(mLocationDataFile!.location.mTimezone)
 
             var count = getEventsFor(eventType: EV_NAVROZ, planet: SE_SUN, from: 0, to: mFinalJD)
@@ -412,7 +412,7 @@ class AmaxDataProvider {
                 }
             }
             if fnext_date2 != 0 {
-                last.setDate(at: 1, value: (mydate0 - AmaxROUNDING_SEC))
+                last.setDate(at: 1, value: (mydate0 - AmaxDataProvider.AmaxROUNDING_SEC))
                 mydate1 = _mFinalJD
             }
             if last.isInPeriod(from: dayStart, to: dayEnd, special: false) {
@@ -523,11 +523,11 @@ class AmaxDataProvider {
         let endTime = withTomorrow ? _mEndTime + 60 * 60 * 12 : _mEndTime
         var st = currentSunRise.date(at: 0)
         for i in 0 ..< 24 {
-            let ev:AmaxEvent! = AmaxEvent(date: (st - (st % AmaxROUNDING_SEC)), planet: PLANET_HOUR_SEQUENCE[startHour % 7])
+            let ev:AmaxEvent! = AmaxEvent(date: (st - (st % AmaxDataProvider.AmaxROUNDING_SEC)), planet: PLANET_HOUR_SEQUENCE[startHour % 7])
             ev.mEvtype = EV_PLANET_HOUR
             st += i < 12 ? dayHour : nightHour
-            var date1 = st - AmaxROUNDING_SEC // exclude last minute
-            date1 -= (date1 % AmaxROUNDING_SEC)
+            var date1 = st - AmaxDataProvider.AmaxROUNDING_SEC // exclude last minute
+            date1 -= (date1 % AmaxDataProvider.AmaxROUNDING_SEC)
             ev.setDate(at: 1, value: date1)
             ev.mDegree = Int16(i)
             if ev.isInPeriod(from: _mStartTime, to: endTime, special: false) {
@@ -638,7 +638,7 @@ class AmaxDataProvider {
             let dd = evprev.date(at: (evprev.mEvtype == EV_SIGN_ENTER ? 0 : 1))
             let ev = AmaxEvent(date: dd, planet: SE_UNDEFINED)
             ev.mEvtype = EV_MOON_MOVE
-            ev.setDate(at: 1, value: (moonMoveVec[idx].date(at: 0) - AmaxROUNDING_SEC))
+            ev.setDate(at: 1, value: (moonMoveVec[idx].date(at: 0) - AmaxDataProvider.AmaxROUNDING_SEC))
             ev.mPlanet0 = evprev.mPlanet1
             ev.mPlanet1 = moonMoveVec[idx].mPlanet1
             moonMoveVec.insert(ev, at: idx)
@@ -1024,7 +1024,7 @@ class AmaxDataProvider {
         let newAligned = mCalendar.date(byAdding: component, value: val, to: Date(timeIntervalSince1970: TimeInterval(date)), wrappingComponents: false)
         var result = Int(newAligned!.timeIntervalSince1970)
         if isTrailing {
-            result -= AmaxROUNDING_SEC
+            result -= AmaxDataProvider.AmaxROUNDING_SEC
         }
         return result
     }
