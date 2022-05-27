@@ -978,6 +978,9 @@ class AmaxDataProvider {
     }
     
     func getCustomTime() -> Int {
+        if !_mUseCustomTime {
+            return 0
+        }
         let comp = mCurrentDateComponents
         let date = Date()
         var comp2 = mCalendar.dateComponents([.year, .month, .hour, .minute], from: date)
