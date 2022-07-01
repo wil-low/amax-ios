@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,7 +57,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Vy-dJ-U2b" userLabel="DataAvailable">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="UNL-ui-bLn" userLabel="SView0">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UNL-ui-bLn" userLabel="SView0">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="scY-yy-Fxl" userLabel="SView1">
@@ -80,8 +80,8 @@
                                         <constraint firstAttribute="height" constant="44" id="tuq-8M-eVi"/>
                                     </constraints>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tzy-W2-rd9" userLabel="SView11">
-                                    <rect key="frame" x="0.0" y="66" width="375" height="152.5"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Tzy-W2-rd9" userLabel="SView11">
+                                    <rect key="frame" x="0.0" y="47" width="375" height="152.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dXL-rZ-qFz" userLabel="SView2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="152.5"/>
@@ -344,45 +344,60 @@
                                         </stackView>
                                     </subviews>
                                 </stackView>
-                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-LI-VFu" userLabel="MoonMoveScroll">
-                                    <rect key="frame" x="0.0" y="240.5" width="375" height="76"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Dwd-Ns-4Uo" userLabel="SView12">
+                                    <rect key="frame" x="0.0" y="202.5" width="375" height="373.5"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="76"/>
+                                        <view contentMode="scaleToFill" verticalHuggingPriority="1" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBo-Pr-Q8Y" userLabel="Spacer1">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKl-LI-VFu" userLabel="MoonMoveScroll">
+                                            <rect key="frame" x="0.0" y="62" width="375" height="149.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gEx-VW-avL" userLabel="MoonMove">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="149.5"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </stackView>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="76" id="0Cv-z3-RlJ"/>
+                                                <constraint firstItem="gEx-VW-avL" firstAttribute="leading" secondItem="AKl-LI-VFu" secondAttribute="leading" id="P7g-sr-yT2"/>
+                                                <constraint firstAttribute="trailing" secondItem="gEx-VW-avL" secondAttribute="trailing" id="ac9-2B-6Gd"/>
+                                                <constraint firstItem="gEx-VW-avL" firstAttribute="top" secondItem="pGH-kw-KtC" secondAttribute="top" id="dlc-aX-5kV"/>
+                                                <constraint firstAttribute="bottom" secondItem="gEx-VW-avL" secondAttribute="bottom" id="jYM-nn-gE6"/>
+                                                <constraint firstItem="gEx-VW-avL" firstAttribute="height" secondItem="AKl-LI-VFu" secondAttribute="height" id="mA5-4w-duc"/>
+                                            </constraints>
+                                            <viewLayoutGuide key="contentLayoutGuide" id="dEx-NX-rnd"/>
+                                            <viewLayoutGuide key="frameLayoutGuide" id="pGH-kw-KtC"/>
+                                        </scrollView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="a2X-PL-CLb" userLabel="SView4">
+                                            <rect key="frame" x="0.0" y="211.5" width="375" height="50"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HRC-Xr-nxB" userLabel="SelDegrees">
+                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-by-dVt" userLabel="Retrograde">
+                                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Plr-by-dVt" firstAttribute="width" secondItem="HRC-Xr-nxB" secondAttribute="width" id="zvQ-bT-OrR"/>
                                             </constraints>
                                         </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kga-ZB-gUd" userLabel="Aspects">
+                                            <rect key="frame" x="0.0" y="261.5" width="375" height="50"/>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" verticalHuggingPriority="1" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3MU-bc-Qa3" userLabel="Spacer2">
+                                            <rect key="frame" x="0.0" y="311.5" width="375" height="62"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="76" id="Ed8-PY-lUG"/>
-                                        <constraint firstItem="gEx-VW-avL" firstAttribute="leading" secondItem="AKl-LI-VFu" secondAttribute="leading" id="P7g-sr-yT2"/>
-                                        <constraint firstAttribute="trailing" secondItem="gEx-VW-avL" secondAttribute="trailing" id="ac9-2B-6Gd"/>
-                                        <constraint firstItem="gEx-VW-avL" firstAttribute="top" secondItem="pGH-kw-KtC" secondAttribute="top" id="dlc-aX-5kV"/>
-                                        <constraint firstAttribute="bottom" secondItem="gEx-VW-avL" secondAttribute="bottom" id="jYM-nn-gE6"/>
+                                        <constraint firstItem="AKl-LI-VFu" firstAttribute="height" relation="lessThanOrEqual" secondItem="Dwd-Ns-4Uo" secondAttribute="height" multiplier="0.5" id="3N6-jP-juX"/>
+                                        <constraint firstItem="3MU-bc-Qa3" firstAttribute="height" secondItem="DBo-Pr-Q8Y" secondAttribute="height" id="AEx-0T-c4M"/>
+                                        <constraint firstItem="AKl-LI-VFu" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Dwd-Ns-4Uo" secondAttribute="height" multiplier="0.4" id="Bvy-Tp-DyL"/>
                                     </constraints>
-                                    <viewLayoutGuide key="contentLayoutGuide" id="dEx-NX-rnd"/>
-                                    <viewLayoutGuide key="frameLayoutGuide" id="pGH-kw-KtC"/>
-                                </scrollView>
-                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="a2X-PL-CLb" userLabel="SView4">
-                                    <rect key="frame" x="0.0" y="338.5" width="375" height="110"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HRC-Xr-nxB" userLabel="SelDegrees">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="110"/>
-                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-by-dVt" userLabel="Retrograde">
-                                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="110"/>
-                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Plr-by-dVt" firstAttribute="width" secondItem="HRC-Xr-nxB" secondAttribute="width" id="zvQ-bT-OrR"/>
-                                    </constraints>
-                                </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kga-ZB-gUd" userLabel="Aspects">
-                                    <rect key="frame" x="0.0" y="470.5" width="375" height="86.5"/>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tIH-j7-Orv" userLabel="PlanetHourStack">
                                     <rect key="frame" x="0.0" y="579" width="375" height="88"/>

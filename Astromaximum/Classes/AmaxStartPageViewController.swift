@@ -596,7 +596,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
         for i in si.mEvents.count ..< stack.arrangedSubviews.count - 2 {
             stack.arrangedSubviews[i + 1].isHidden = true
         }
-
+        stack.isHidden = si.mEvents.count == 0
         addLongPressRecognizer(view: stack, summaryItem: si, xib: "AspectCell")
     }
 
