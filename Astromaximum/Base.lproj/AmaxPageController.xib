@@ -23,27 +23,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sou-of-SAm" userLabel="Placeholder">
-                    <rect key="frame" x="0.0" y="44" width="320" height="328"/>
+                    <rect key="frame" x="0.0" y="44" width="320" height="333"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="sUI-Kq-gTI" userLabel="BottomSView">
-                    <rect key="frame" x="16" y="372" width="288" height="28"/>
+                    <rect key="frame" x="16" y="377" width="288" height="23"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SelectedViewTime/Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="JMB-ud-9Uh" userLabel="SelectedViewTime">
-                            <rect key="frame" x="0.0" y="0.0" width="230.5" height="28"/>
+                            <rect key="frame" x="0.0" y="0.0" width="230.5" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFY-wL-iVg" userLabel="CornerTime">
-                            <rect key="frame" x="230.5" y="0.0" width="57.5" height="28"/>
+                            <rect key="frame" x="230.5" y="0.0" width="57.5" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="bNl-6l-y4M"/>
                         <constraint firstItem="MFY-wL-iVg" firstAttribute="width" secondItem="JMB-ud-9Uh" secondAttribute="width" multiplier="1:4" id="vel-7F-FjO"/>
                     </constraints>
                 </stackView>
@@ -95,6 +94,7 @@
                 <constraint firstAttribute="trailingMargin" secondItem="sUI-Kq-gTI" secondAttribute="trailing" id="D4w-hb-xXB"/>
                 <constraint firstItem="sou-of-SAm" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="RGy-6W-QZk"/>
                 <constraint firstAttribute="bottom" secondItem="15" secondAttribute="bottom" id="STJ-SU-7pX"/>
+                <constraint firstItem="sUI-Kq-gTI" firstAttribute="height" secondItem="13" secondAttribute="height" multiplier="0.05" id="UzF-HP-ijy"/>
                 <constraint firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="bdV-lt-sra"/>
                 <constraint firstItem="15" firstAttribute="top" secondItem="sUI-Kq-gTI" secondAttribute="bottom" id="i8G-An-kYl"/>
                 <constraint firstItem="sou-of-SAm" firstAttribute="bottom" secondItem="sUI-Kq-gTI" secondAttribute="top" id="jV7-tL-hwZ"/>
