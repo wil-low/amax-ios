@@ -32,6 +32,11 @@ class AmaxSummaryItem {
         set { _mEventMode = newValue }
     }
 
+    init() {
+        _mKey = EV_LAST
+        _mEventMode = .none
+    }
+
     init(key: AmaxEventType, events: [AmaxEvent]) {
         _mKey = key
         _mEvents = events

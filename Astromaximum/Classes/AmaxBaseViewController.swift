@@ -55,6 +55,18 @@ class AmaxBaseViewController : UIViewController {
         return true;
     }
 
+    func updateCornerTime() {
+        if let dp = mDataProvider {
+            mParent!.mCornerTime.text = dp.getHighlightTimeString()
+            if dp.mUseCustomTime {
+                mParent!.mCornerTime.textColor = UIColor.systemBlue
+            }
+            else {
+                mParent!.mCornerTime.textColor = dateBetween(mCurrentTime, dp.mStartTime, dp.mEndTime) == 0 ? UIColor.systemRed : ColorCompatibility.label
+            }
+        }
+    }
+
     func showEventListFor(si: AmaxSummaryItem, xib xibName: String!) {
         if si.mEvents.count == 0 {
             return

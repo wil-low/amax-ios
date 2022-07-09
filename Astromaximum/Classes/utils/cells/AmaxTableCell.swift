@@ -95,7 +95,15 @@ class AmaxTableCell : UITableViewCell {
     }
     
     func getActiveEvent() -> AmaxEvent? {
-        return isSummaryMode ? mActiveEvent : summaryItem!.mEvents[0];
+        if isSummaryMode {
+            if mActiveEvent != nil {
+                return mActiveEvent
+            }
+            else {
+                return summaryItem!.mEvents.isEmpty ? nil : summaryItem!.mEvents[0]
+            }
+        }
+        return summaryItem!.mEvents[0]
     }
     
     func setColorOf(label: UILabel?, byEventMode e: AmaxEvent) {

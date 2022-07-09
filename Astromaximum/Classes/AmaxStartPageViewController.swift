@@ -190,8 +190,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
             dp.calculateAll(types: START_PAGE_ITEMS)
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
-            mParent!.mCornerTime.text = dp.getHighlightTimeString()
-            mParent!.mCornerTime.textColor = dp.mUseCustomTime ? UIColor.systemBlue : UIColor.systemRed
+            updateCornerTime()
 
             showEvent(label: mVocTime, dataProvider: dp, findType: EV_VOC, interpretationType: EV_VOC, string: { e in
                 "VOC " + e.normalizedRangeString(addSpaces: false)
@@ -298,14 +297,7 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     }
 
     func findInCache(dataProvider: AmaxDataProvider, findType: AmaxEventType) -> AmaxSummaryItem? {
-        var itemFound: AmaxSummaryItem?
-        for item in dataProvider.mEventCache {
-            if item.mKey == findType {
-                itemFound = item
-                break
-            }
-        }
-        return itemFound
+        return dataProvider.mEventCache[Int(findType.rawValue)]
     }
     
     func showEventBlock(dataProvider: AmaxDataProvider, findType: AmaxEventType, configure: (AmaxEvent?, AmaxSummaryItem) -> Void ) {

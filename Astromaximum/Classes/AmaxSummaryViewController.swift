@@ -104,10 +104,10 @@ class AmaxSummaryViewController : AmaxTableViewController {
             (cell as! AmaxTableCell).controller = self
         }
         
-        if indexPath.row >= mDataProvider!.mEventCache.count {
+        if indexPath.row >= START_PAGE_ITEMS.count {
             return cell!
         }
-        let si = mDataProvider!.mEventCache[indexPath.row]
+        let si = mDataProvider!.mEventCache[Int(START_PAGE_ITEMS[indexPath.row].rawValue)]
 
         // Configure the cell.
         let c = cell as! AmaxTableCell
@@ -151,7 +151,7 @@ class AmaxSummaryViewController : AmaxTableViewController {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let si = mDataProvider?.mEventCache[indexPath.row] {
+        if let si = mDataProvider?.mEventCache[Int(START_PAGE_ITEMS[indexPath.row].rawValue)] {
             showEventListFor(si: si, xib: xibNames[indexPath.row])
         }
     }
@@ -177,6 +177,7 @@ class AmaxSummaryViewController : AmaxTableViewController {
             dp.calculateAll(types: START_PAGE_ITEMS)
             self.mCurrentTime = dp.getCurrentTime()
             self.mCustomTime = dp.getCustomTime()
+            updateCornerTime()
             mTableView.reloadData()
         }
         return true

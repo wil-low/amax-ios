@@ -36,5 +36,8 @@ class AmaxPlanetHourCell : AmaxTableCell {
                                       getSymbol(TYPE_PLANET, e.mPlanet0.rawValue))
             setColorOf(label: timeLabel, byEventMode: e)
         }
+        else {
+            eventLabel?.text = "333"
+        }
     }
 }

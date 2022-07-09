@@ -29,5 +29,8 @@ class AmaxTithiCell : AmaxTableCell {
                                  e.getDegree())
             setColorOf(label: timeLabel, byEventMode: e)
         }
+        else {
+            eventLabel?.text = "222"
+        }
     }
 }

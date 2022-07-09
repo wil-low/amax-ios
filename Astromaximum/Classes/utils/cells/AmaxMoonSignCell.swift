@@ -30,5 +30,8 @@ class AmaxMoonSignCell : AmaxTableCell {
                                       getSymbol(TYPE_ZODIAC, Int32(e.getDegree())))
             setColorOf(label: timeLabel, byEventMode: e)
         }
+        else {
+            eventLabel?.text = "111"
+        }
     }
 }

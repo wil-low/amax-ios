@@ -35,7 +35,7 @@ class AmaxDataProvider {
         get { return _mEndTime }
     }
 
-    private var _mEventCache = [AmaxSummaryItem]()
+    private var _mEventCache = [AmaxSummaryItem].init(repeating: AmaxSummaryItem(), count: Int(EV_LAST.rawValue))
     var mEventCache: [AmaxSummaryItem] {
         get { return _mEventCache }
     }
@@ -898,12 +898,18 @@ class AmaxDataProvider {
             e.setTimeRange(from: _mStartTime, to: _mEndTime)
         }
         let si = AmaxSummaryItem(key: eventType, events: events)
-        _mEventCache.append(si)
+        _mEventCache[Int(eventType.rawValue)] = si
         return si
+    }
+    
+    func clearCache() {
+        for i in 0 ..< _mEventCache.count {
+            _mEventCache[i] = AmaxSummaryItem()
+        }
     }
 
     func prepareCalculation() {
-        _mEventCache.removeAll()
+        clearCache()
         _mStartTime = Int(currentDate().timeIntervalSince1970)
         _ = changeDate(deltaDays: 0)
     }
@@ -1020,7 +1026,7 @@ class AmaxDataProvider {
     func setRange(from: Int, to: Int) {
         _mStartTime = from
         _mEndTime = to
-        _mEventCache.removeAll()
+        clearCache()
     }
 
     func shiftDate(alignedDate date: Int, byAdding component: Calendar.Component, value val: Int, isTrailing: Bool) -> Int {
@@ -1056,9 +1062,7 @@ class AmaxDataProvider {
         if to > provider.mFinalJD {
             to = provider.mFinalJD
         }
-        _mStartTime = from
-        _mEndTime = to
-        _mEventCache.removeAll()
+        setRange(from: from, to: to)
     }
     
     func todayEclipse(date: Int, delta: Int) -> AmaxEvent? {
