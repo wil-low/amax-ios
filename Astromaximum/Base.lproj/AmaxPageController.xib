@@ -91,15 +91,15 @@
             <constraints>
                 <constraint firstItem="sou-of-SAm" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="2Gc-0c-9Kc"/>
                 <constraint firstItem="15" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="3Bm-Qu-bmg"/>
-                <constraint firstAttribute="trailingMargin" secondItem="sUI-Kq-gTI" secondAttribute="trailing" id="D4w-hb-xXB"/>
+                <constraint firstItem="sUI-Kq-gTI" firstAttribute="trailing" secondItem="13" secondAttribute="trailingMargin" id="D4w-hb-xXB"/>
                 <constraint firstItem="sou-of-SAm" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="RGy-6W-QZk"/>
-                <constraint firstAttribute="bottomMargin" secondItem="15" secondAttribute="bottom" id="STJ-SU-7pX"/>
+                <constraint firstItem="15" firstAttribute="bottom" secondItem="13" secondAttribute="bottomMargin" id="STJ-SU-7pX"/>
                 <constraint firstItem="sUI-Kq-gTI" firstAttribute="height" secondItem="13" secondAttribute="height" multiplier="0.05" id="UzF-HP-ijy"/>
-                <constraint firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="bdV-lt-sra"/>
+                <constraint firstItem="15" firstAttribute="trailing" secondItem="13" secondAttribute="trailing" id="bdV-lt-sra"/>
                 <constraint firstItem="15" firstAttribute="top" secondItem="sUI-Kq-gTI" secondAttribute="bottom" id="i8G-An-kYl"/>
                 <constraint firstItem="sou-of-SAm" firstAttribute="bottom" secondItem="sUI-Kq-gTI" secondAttribute="top" id="jV7-tL-hwZ"/>
                 <constraint firstItem="sUI-Kq-gTI" firstAttribute="leading" secondItem="13" secondAttribute="leadingMargin" id="ngZ-hl-qGo"/>
-                <constraint firstAttribute="trailing" secondItem="sou-of-SAm" secondAttribute="trailing" id="sr2-g1-mNT"/>
+                <constraint firstItem="sou-of-SAm" firstAttribute="trailing" secondItem="13" secondAttribute="trailing" id="sr2-g1-mNT"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
