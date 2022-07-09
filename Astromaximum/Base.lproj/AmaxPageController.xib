@@ -93,7 +93,7 @@
                 <constraint firstItem="15" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="3Bm-Qu-bmg"/>
                 <constraint firstAttribute="trailingMargin" secondItem="sUI-Kq-gTI" secondAttribute="trailing" id="D4w-hb-xXB"/>
                 <constraint firstItem="sou-of-SAm" firstAttribute="top" secondItem="13" secondAttribute="topMargin" id="RGy-6W-QZk"/>
-                <constraint firstAttribute="bottom" secondItem="15" secondAttribute="bottom" id="STJ-SU-7pX"/>
+                <constraint firstAttribute="bottomMargin" secondItem="15" secondAttribute="bottom" id="STJ-SU-7pX"/>
                 <constraint firstItem="sUI-Kq-gTI" firstAttribute="height" secondItem="13" secondAttribute="height" multiplier="0.05" id="UzF-HP-ijy"/>
                 <constraint firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="bdV-lt-sra"/>
                 <constraint firstItem="15" firstAttribute="top" secondItem="sUI-Kq-gTI" secondAttribute="bottom" id="i8G-An-kYl"/>
