@@ -18,7 +18,7 @@ class AmaxLocationListController : UIViewController, UITableViewDataSource, UITa
     override init(nibName: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName:nibName, bundle:nibBundleOrNil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.didSelectLocation(sender:)))
-        title = NSLocalizedString("Current_location", comment: "Current location")
+        title = NSLocalizedString("pref_current_location", comment: "Current location")
         mDataProvider = AmaxDataProvider.sharedInstance
     }
     

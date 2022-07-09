@@ -92,7 +92,7 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
         }
         switch (indexPath.row) {
             case CELL_LOCATION_NAME:
-                c.textLabel?.text = NSLocalizedString("Current_location", comment: "Current location")
+                c.textLabel?.text = NSLocalizedString("pref_current_location", comment: "Current location")
                 c.detailTextLabel?.text = mDataProvider.locationName()
             case CELL_SHOW_CRITICAL_DEGREEES:
                 c.textLabel?.text = NSLocalizedString("pref_critical_degrees", comment: "")
@@ -103,7 +103,7 @@ class AmaxSettingsController : UIViewController, UITableViewDelegate, UITableVie
             case CELL_HELP_TOPICS:
                 c.textLabel?.text = NSLocalizedString("help_title", comment: "Help list")
             case CELL_IS_CUSTOM_TIME:
-                c.textLabel?.text = NSLocalizedString("Highlight_time", comment: "Highlight time")
+                c.textLabel?.text = NSLocalizedString("pref_custom_time", comment: "Custom Time")
                 c.detailTextLabel?.text = String(format: "%02d:%02d",
                                                  AmaxDataProvider.sharedInstance.mCustomHour,
                                                  AmaxDataProvider.sharedInstance.mCustomMinute)
