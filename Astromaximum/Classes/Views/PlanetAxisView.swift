@@ -53,10 +53,10 @@ import UIKit
                 t.text = AmaxEvent.long2String(axis[i].date(at: 0), format: nil, h24: false)
                 
                 t.textColor = ColorCompatibility.label
-                if dateBetween(axis[i].mDate[0], currentTime - DEGREE_DELTA_SEC1, currentTime + DEGREE_DELTA_SEC2) == 0 {
+                if dateBetween(currentTime, axis[i].mDate[0] - DEGREE_DELTA_SEC1, axis[i].mDate[0] + DEGREE_DELTA_SEC2) == 0 {
                     t.textColor = UIColor.systemRed
                 }
-                else if useCustomTime && dateBetween(axis[i].mDate[0], customTime - DEGREE_DELTA_SEC1, customTime + DEGREE_DELTA_SEC2) == 0 {
+                else if useCustomTime && dateBetween(customTime, axis[i].mDate[0] - DEGREE_DELTA_SEC1, axis[i].mDate[0] + DEGREE_DELTA_SEC2) == 0 {
                     t.textColor = UIColor.systemBlue
                 }
                 n.textColor = t.textColor
