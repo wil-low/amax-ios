@@ -21,7 +21,11 @@ class AmaxSunDegreeCell : AmaxTableCell {
 
     override func configure(_ extRangeMode: Bool, _ summaryMode: Bool) {
         super.configure(extRangeMode, summaryMode)
-        if let e = summaryItem?.mEvents[0] {
+        if let events = summaryItem?.mEvents {
+            if events.isEmpty {
+                return
+            }
+            let e = events[0]
             if extRangeMode {
                 timeLabel?.numberOfLines = 2
                 timeLabel?.text =

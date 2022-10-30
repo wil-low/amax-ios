@@ -78,7 +78,9 @@ import UIKit
             }
         }
         if !isMoon {
-            mSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(passes[passes.count - 1].getDegree() / 30)))
+            if !passes.isEmpty {
+                mSign.text = String(format: "%c", getSymbol(TYPE_ZODIAC, Int32(passes[passes.count - 1].getDegree() / 30)))
+            }
         }
     }
 }

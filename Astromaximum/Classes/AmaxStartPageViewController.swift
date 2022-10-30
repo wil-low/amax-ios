@@ -303,7 +303,9 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     func showEventBlock(dataProvider: AmaxDataProvider, findType: AmaxEventType, configure: (AmaxEvent?, AmaxSummaryItem) -> Void ) {
         if let si = findInCache(dataProvider: dataProvider, findType: findType) {
             _ = si.activeEventPosition(customTime: mCustomTime, currentTime: mCurrentTime)
-            configure(si.mEvents[0], si)
+            if !si.mEvents.isEmpty {
+                configure(si.mEvents[0], si)
+            }
         }
     }
     
@@ -425,6 +427,9 @@ class AmaxStartPageViewController : AmaxSelectionViewController {
     }
     
     func showMoonPhase(dataProvider: AmaxDataProvider, events: [AmaxEvent]) {
+        if events.isEmpty {
+            return
+        }
         mMoonPhase.phase = Float(events[events.count == 3 ? 1 : 0].getDegree() - 1) / 29
         mMoonPhase.setNeedsDisplay()
         mMoonPhase.gestureRecognizers = []

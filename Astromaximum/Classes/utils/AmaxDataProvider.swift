@@ -146,6 +146,13 @@ class AmaxDataProvider {
 
             mLocationDataFile = AmaxLocationDataFile(data: fullData, headerOnly:false)
             let userDefaults = UserDefaults.standard
+            if mLocationDataFile?.mStartYear != mCommonDataFile.startYear {
+                // location cache mismatch, reset
+                userDefaults.set(nil, forKey:AMAX_PREFS_KEY_LOCATION_ID)
+                restoreSavedState()
+                loadLocationById(locationId: locationId)
+                return
+            }
             userDefaults.set(locationId, forKey:AMAX_PREFS_KEY_LOCATION_ID)
             _mLocationId = locationId
             mCalendar = Calendar.current
@@ -631,6 +638,10 @@ class AmaxDataProvider {
             }
         }
 
+        if moonMoveVec.isEmpty {
+            return moonMoveVec
+        }
+        
         var sz = moonMoveVec.count - 1
         var idx = 1
         for _ in 0 ..< sz {
