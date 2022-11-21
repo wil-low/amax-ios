@@ -143,6 +143,7 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
         
         if let formatter = dateFormatter {
             formatter.calendar = mCalendar
+            formatter.timeZone = mCalendar!.timeZone
             result += formatter.string(from: date)
             if addTime {
                 result += " "
@@ -179,7 +180,7 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
     }
     
     override var description : String {
-        let result = String(format: "%@ %@ - %@ p %d/%d dgr %d/%d (%d); per0 %@, per1 %@ (%d/%d)",
+        let result = String(format: "%@ %@ - %@ p %d/%d dgr %d/%d (%d); per0 %@, per1 %@ (%d/%d), (%d/%d)",
             AmaxEvent.EVENT_TYPE_STR[Int(mEvtype.rawValue)],
             AmaxEvent.long2String(mDate[0], format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true),
             AmaxEvent.long2String(mDate[1], format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true),
@@ -187,7 +188,8 @@ class AmaxEvent : NSObject, NSCopying, Comparable {
             getDegree(), getDegType(), mDegree,
             AmaxEvent.long2String(mPeriod0, format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true),
             AmaxEvent.long2String(mPeriod1, format: AmaxEvent.mMonthAbbrDayDateFormatter, h24: true),
-            mPeriod0, mPeriod1
+            mPeriod0, mPeriod1,
+            mDate[0], mDate[1]
         )
         return result
     }
